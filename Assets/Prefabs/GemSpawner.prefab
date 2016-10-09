@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &165042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 467646}
+  - 114: {fileID: 11411948}
+  - 114: {fileID: 11467488}
+  m_Layer: 0
+  m_Name: GemSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &467646
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165042}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11411948
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67731f7e4ffd0c74ba7c210b2d54a608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11467488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 546f2fd2d54780b449c5b3c6c3a87146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LinkObject: {fileID: 0}
+  m_LinkColours:
+  - {r: 1, g: 0.2647059, b: 0.2647059, a: 1}
+  - {r: 0.41911763, g: 0.6875254, b: 1, a: 1}
+  - {r: 0.3565924, g: 1, b: 0.2352941, a: 1}
+  - {r: 0.94482756, g: 1, b: 0, a: 1}
+  m_NeutralColor: {r: 1, g: 1, b: 1, a: 1}
+  m_aGemList:
+  - {fileID: 105344, guid: d18303455424b8c4ab7178c0bb13f39d, type: 2}
+  - {fileID: 189226, guid: ec14daa2660c27344ba2bede75fc4ada, type: 2}
+  - {fileID: 178098, guid: 0f6f4354c5146564f8d5c0fe407d1e19, type: 2}
+  - {fileID: 172792, guid: 4556b7380d68d2449a7a2f5aacf38ffa, type: 2}
+  m_aRepels:
+  - {fileID: 190012, guid: 85e3ec8bbe820934ca8835e93b9602bc, type: 2}
+  - {fileID: 171214, guid: ec100b021c0fa6f4f8bcc93abb6390cc, type: 2}
+  - {fileID: 155920, guid: facd8452dfcaa7c4a815bb99e27b1405, type: 2}
+  - {fileID: 118428, guid: d88d24f851ecfe8429c5705dd562a899, type: 2}
+  m_StoneSprites:
+  - {fileID: 21300000, guid: f5eb4a3774574b74fa018e9b005c64e0, type: 3}
+  - {fileID: 21300000, guid: 3b7c608e69da801448faf765fde82a73, type: 3}
+  - {fileID: 21300000, guid: 3e4006b7c797df045a032247df66c21d, type: 3}
+  - {fileID: 21300000, guid: 69a28c1e75811f046935154736c76d34, type: 3}
+  m_LineLineColors:
+  - {r: 1, g: 0.26666668, b: 0.26666668, a: 1}
+  - {r: 1, g: 0.43448275, b: 0, a: 1}
+  - {r: 0.9450981, g: 1, b: 0, a: 1}
+  - {r: 0.35686275, g: 1, b: 0.23529413, a: 1}
+  m_LineLine: {fileID: 0}
+  m_GemExplosionPrefab: {fileID: 194224, guid: 75bd6bc8c365fc049b5c339375208996, type: 2}
+  m_LevelUpOverlayPrefab: {fileID: 111248, guid: 76a7a2b4a66ade745bc19d027f90199b,
+    type: 2}
+  m_GameCanvas: {fileID: 0}
+  m_ScoreText: {fileID: 0}
+  m_LevelText: {fileID: 0}
+  m_HealthText: {fileID: 0}
+  m_PointsGain: {fileID: 128640, guid: faf7eddd0b5fba4419c6d517005cc3f0, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 165042}
+  m_IsPrefabParent: 1
