@@ -40,6 +40,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Logo: {fileID: 0}
+  m_Screens:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -189,6 +189,8 @@ public class SpawnPattern : MonoBehaviour
 		// DifficultyLevel.Godly
 		m_lDifficultyMarker.Add( m_lSpawnSequenceList.Count );
 		m_lTotalWeight.Add( totalWeight );
+
+		GetComponent<GemSpawner>().PrepareFailList();
 	}
 
 	public List<int> GetSequence ( int nLevel, ref int index )

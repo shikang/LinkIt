@@ -4,7 +4,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+	public enum eScreen
+	{
+		MAIN_MENU,
+		CO_OP,
+	}
+
 	public GameObject m_Logo;
+	public GameObject[] m_Screens;
 
 	// Animation variables
 	private int m_nFrameNum;
@@ -22,6 +29,8 @@ public class MainMenuManager : MonoBehaviour
 		m_fAnimationTimer = 0.0f;
 		m_bAnimating = false;
 		m_nAnimatingFrame = -1;
+
+		GoToScreen( (int)eScreen.MAIN_MENU );
 	}
 	
 	// Update is called once per frame
@@ -79,5 +88,15 @@ public class MainMenuManager : MonoBehaviour
 	static void GoToGame()
 	{
 		SceneManager.LoadScene("Game");
+	}
+
+	public void GoToScreen( int screen )
+	{
+		foreach ( GameObject s in m_Screens )
+		{
+			s.SetActive( false );
+		}
+
+		m_Screens[screen].SetActive( true );
 	}
 }

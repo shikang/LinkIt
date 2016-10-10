@@ -143,11 +143,6 @@ public class GemSpawner : MonoBehaviour
 		m_mSequenceGemTypeMap = new List<int>();
 		m_nSequenceIndex = 0;
 		m_nSequenceIndexFromList = -1;
-		m_lFailedSequenceCount = new List<int>();
-		for ( int i = 0; i < m_SpawnPattern.GetSpawnSeqencesNum(); ++i )
-		{
-			m_lFailedSequenceCount.Add( 0 );
-		}
 
 		m_nLastInsertedLaneIndex = -1;
 
@@ -213,6 +208,15 @@ public class GemSpawner : MonoBehaviour
 		// Transition Overlay
 		GameObject transition = GameObject.FindGameObjectWithTag( "Transition" );
 		transition.transform.position += 5.0f * FRONT_OFFSET;
+	}
+
+	public void PrepareFailList()
+	{
+		m_lFailedSequenceCount = new List<int>();
+		for ( int i = 0; i < m_SpawnPattern.GetSpawnSeqencesNum(); ++i )
+		{
+			m_lFailedSequenceCount.Add( 0 );
+		}
 	}
 
 	void OnApplicationQuit()
