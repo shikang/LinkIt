@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -98,5 +99,14 @@ public class MainMenuManager : MonoBehaviour
 		}
 
 		m_Screens[screen].SetActive( true );
+	}
+
+	public void ChangeOnlineButtonText( string password )
+	{
+		Text t = m_Screens[(int)eScreen.CO_OP].transform.FindChild("Online Button").GetComponentInChildren<Text>();
+		if ( password == "" )
+			t.text = "Play with stranger";
+		else
+			t.text = "Play with friend";
 	}
 }

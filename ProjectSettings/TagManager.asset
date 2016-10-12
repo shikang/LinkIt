@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Player Statistics
   - Transition
+  - Match Password
   layers:
   - Default
   - TransparentFX
