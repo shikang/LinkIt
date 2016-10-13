@@ -103,7 +103,7 @@ GameObject:
   - 114: {fileID: 11474520}
   m_Layer: 5
   m_Name: Online Button
-  m_TagString: Untagged
+  m_TagString: Online Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +123,7 @@ GameObject:
   - 61: {fileID: 6152500}
   m_Layer: 5
   m_Name: Room Input
-  m_TagString: Untagged
+  m_TagString: Match Password
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -339,6 +339,23 @@ GameObject:
   - 114: {fileID: 11426946}
   m_Layer: 5
   m_Name: Title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &187966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22430908}
+  - 222: {fileID: 22215248}
+  - 114: {fileID: 11475132}
+  m_Layer: 5
+  m_Name: Debug Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -568,6 +585,7 @@ MonoBehaviour:
   m_TextHighlightColor: {r: 1, g: 0.89019614, b: 0, a: 1}
   m_TextPressColor: {r: 0.49264705, g: 0.49264705, b: 0.49264705, a: 1}
   m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+  m_DisableColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11411842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -582,6 +600,7 @@ MonoBehaviour:
   m_TextHighlightColor: {r: 1, g: 0.89019614, b: 0, a: 1}
   m_TextPressColor: {r: 0.49264705, g: 0.49264705, b: 0.49264705, a: 1}
   m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+  m_DisableColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11417066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -635,7 +654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -862,6 +881,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: LeaveRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: StartDisconnecting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11428628
@@ -998,6 +1039,7 @@ MonoBehaviour:
   m_TextHighlightColor: {r: 1, g: 0.89019614, b: 0, a: 1}
   m_TextPressColor: {r: 0.49264705, g: 0.49264705, b: 0.49264705, a: 1}
   m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+  m_DisableColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11450678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1069,7 +1111,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11428628}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: StartConnecting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: JoiningRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11458418
@@ -1282,6 +1346,40 @@ MonoBehaviour:
   m_TextHighlightColor: {r: 1, g: 0.89019614, b: 0, a: 1}
   m_TextPressColor: {r: 0.49264705, g: 0.49264705, b: 0.49264705, a: 1}
   m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+  m_DisableColor: {r: 0.49411768, g: 0.49411768, b: 0.49411768, a: 0.5019608}
+--- !u!114 &11475132
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 7ddc280770b9a0e42a95e145b3475767, type: 3}
+    m_FontSize: 40
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 60
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
 --- !u!114 &11476490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1356,6 +1454,7 @@ MonoBehaviour:
   m_TextHighlightColor: {r: 1, g: 0.89019614, b: 0, a: 1}
   m_TextPressColor: {r: 0.49264705, g: 0.49264705, b: 0.49264705, a: 1}
   m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+  m_DisableColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11481230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1430,7 +1529,18 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: ChangeOnlineButtonText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
@@ -1475,6 +1585,7 @@ MonoBehaviour:
   m_TextHighlightColor: {r: 1, g: 0.89019614, b: 0, a: 1}
   m_TextPressColor: {r: 0.49264705, g: 0.49264705, b: 0.49264705, a: 1}
   m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+  m_DisableColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &11497808
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1487,7 +1598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1501,7 +1612,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 6
     m_MaxSize: 60
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 0
@@ -1522,6 +1633,7 @@ MonoBehaviour:
   m_TextHighlightColor: {r: 1, g: 0.89019614, b: 0, a: 1}
   m_TextPressColor: {r: 0.49264705, g: 0.49264705, b: 0.49264705, a: 1}
   m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+  m_DisableColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!212 &21208824
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1582,6 +1694,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170876}
+--- !u!222 &22215248
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187966}
 --- !u!222 &22221240
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -1792,6 +1910,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0.0000038146486, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22430908
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187966}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22440322}
+  m_RootOrder: 4
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.00000333786, y: 285}
+  m_SizeDelta: {x: 460, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22431986
 RectTransform:
   m_ObjectHideFlags: 1
@@ -1840,6 +1975,7 @@ RectTransform:
   - {fileID: 22401116}
   - {fileID: 22402796}
   - {fileID: 22477962}
+  - {fileID: 22430908}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}

@@ -9,13 +9,16 @@ public class ButtonScript : MonoBehaviour
 	public Color m_TextHighlightColor;
 	public Color m_TextPressColor;
 	public Color m_TextColor;
+	public Color m_DisableColor;
 
+	private bool m_bDisable = false;
 	private bool m_bClickInside;
 
 	// Use this for initialization
 	void Start ()
 	{
 		m_Text = GetComponentsInChildren<Text>();
+		m_bDisable = false;
 	}
 
 	// Update is called once per frame
@@ -29,6 +32,9 @@ public class ButtonScript : MonoBehaviour
 
 	void OnMouseDown()
 	{
+		if ( m_bDisable )
+			return;
+
 		foreach ( Text t in m_Text )
 		{
 			t.color = m_TextPressColor;
@@ -38,6 +44,9 @@ public class ButtonScript : MonoBehaviour
 
 	void OnMouseEnter()
 	{
+		if ( m_bDisable )
+			return;
+
 		if ( m_bClickInside )
 		{
 			foreach ( Text t in m_Text )
@@ -56,6 +65,9 @@ public class ButtonScript : MonoBehaviour
 
 	void OnMouseExit()
 	{
+		if ( m_bDisable )
+			return;
+
 		foreach ( Text t in m_Text )
 		{
 			t.color = m_TextColor;
@@ -64,6 +76,27 @@ public class ButtonScript : MonoBehaviour
 
 	void OnMouseUp()
 	{
+		if ( m_bDisable )
+			return;
+
+		foreach ( Text t in m_Text )
+		{
+			t.color = m_TextColor;
+		}
+	}
+
+	public void SetDisable()
+	{
+		m_bDisable = true;
+		foreach ( Text t in m_Text )
+		{
+			t.color = m_DisableColor;
+		}
+	}
+
+	public void SetEnable()
+	{
+		m_bDisable = false;
 		foreach ( Text t in m_Text )
 		{
 			t.color = m_TextColor;

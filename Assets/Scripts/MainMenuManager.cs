@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
+	public const string PLAY_WITH_STRANGER_TEXT = "Play with stranger";
+	public const string PLAY_WITH_FRIEND_TEXT = "Play with friend";
+
 	public enum eScreen
 	{
 		MAIN_MENU,
@@ -105,8 +108,8 @@ public class MainMenuManager : MonoBehaviour
 	{
 		Text t = m_Screens[(int)eScreen.CO_OP].transform.FindChild("Online Button").GetComponentInChildren<Text>();
 		if ( password == "" )
-			t.text = "Play with stranger";
+			t.text = PLAY_WITH_STRANGER_TEXT;
 		else
-			t.text = "Play with friend";
+			t.text = PLAY_WITH_FRIEND_TEXT;
 	}
 }
