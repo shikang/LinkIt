@@ -10,6 +10,9 @@ GameObject:
   - 4: {fileID: 494444}
   - 212: {fileID: 21200546}
   - 114: {fileID: 11458002}
+  - 114: {fileID: 11429882}
+  - 114: {fileID: 11459690}
+  - 114: {fileID: 11408324}
   m_Layer: 0
   m_Name: Yellow Gem
   m_TagString: Untagged
@@ -25,7 +28,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 486220}
-  - 114: {fileID: 11475846}
   - 58: {fileID: 5891026}
   - 61: {fileID: 6165480}
   m_Layer: 0
@@ -88,6 +90,47 @@ BoxCollider2D:
   m_Offset: {x: -0.00025224686, y: -0.0012612939}
   serializedVersion: 2
   m_Size: {x: 0.70634663, y: 0.7062944}
+--- !u!114 &11408324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  prefixBackup: -1
+  observed: {fileID: 0}
+  synchronization: 1
+  onSerializeTransformOption: 0
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 11459690}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 0
+  instantiationId: -1
+  isRuntimeInstantiated: 0
+--- !u!114 &11429882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63566e1dde514eb41ade5b560d658e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_nGemType: -1
+  m_nLane: -1
+  m_bLinked: 0
+  m_nSequenceIndex: -1
+  m_nPetrified: 0
 --- !u!114 &11458002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -109,15 +152,15 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ead472716cf55fb4ba96ce65b29a1dce, type: 3}
   - {fileID: 21300000, guid: 68d3da7b7918a37449515eb66a9a412f, type: 3}
   - {fileID: 21300000, guid: 811558d6fa9b6354d8a361a6cec1a40a, type: 3}
---- !u!114 &11475846
+--- !u!114 &11459690
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 195678}
+  m_GameObject: {fileID: 172792}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63566e1dde514eb41ade5b560d658e29, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e5d3855ca8908c4c8d9d40c44d1cffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &21200546

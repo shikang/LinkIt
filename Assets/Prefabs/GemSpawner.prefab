@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 546f2fd2d54780b449c5b3c6c3a87146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_LinkPrefab: {fileID: 172590, guid: e99517f9ed51b464084ea23e9ac04699, type: 2}
   m_LinkObject: {fileID: 0}
   m_LinkColours:
   - {r: 1, g: 0.2647059, b: 0.2647059, a: 1}
@@ -78,6 +79,7 @@ MonoBehaviour:
   - {r: 1, g: 0.43448275, b: 0, a: 1}
   - {r: 0.9450981, g: 1, b: 0, a: 1}
   - {r: 0.35686275, g: 1, b: 0.23529413, a: 1}
+  - {r: 0.41960788, g: 0.6862745, b: 1, a: 1}
   m_LineLine: {fileID: 0}
   m_GemExplosionPrefab: {fileID: 194224, guid: 75bd6bc8c365fc049b5c339375208996, type: 2}
   m_LevelUpOverlayPrefab: {fileID: 111248, guid: 76a7a2b4a66ade745bc19d027f90199b,

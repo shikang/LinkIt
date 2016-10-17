@@ -30,7 +30,7 @@ public class MatchMaker : Photon.PunBehaviour
 		m_bJoinedRoom = false;
 
 		//PhotonNetwork.ConnectUsingSettings( "0.1" );
-		//PhotonNetwork.logLevel = PhotonLogLevel.Full;
+		PhotonNetwork.logLevel = PhotonLogLevel.Full;
 
 		PhotonNetwork.player.name = "Player2";
 	}
@@ -38,7 +38,7 @@ public class MatchMaker : Photon.PunBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if ( m_bJoinedLobby && m_bJoiningRoom && !m_bRequestRoom && !m_bJoinedRoom )
+		if ( m_bConnecting && m_bJoinedLobby && m_bJoiningRoom && !m_bRequestRoom && !m_bJoinedRoom )
 		{
 			if ( m_sPassword == "" )
 			{
@@ -169,6 +169,8 @@ public class MatchMaker : Photon.PunBehaviour
 		}
 
 		m_bJoiningRoom = true;
+		m_PasswordInputField.GetComponent<InputField>().interactable = false;
+		m_PasswordInputField.GetComponent<ButtonScript>().SetDisable();
 		m_OnlineButton.GetComponent<Button>().interactable = false;
 		m_OnlineButton.GetComponent<ButtonScript>().SetDisable();
 		m_OnlineButton.GetComponentInChildren<Text>().text = "Joining...";
@@ -183,6 +185,9 @@ public class MatchMaker : Photon.PunBehaviour
 		m_bRequestRoom = false;
 		m_bJoinedRoom = false;
 
+		m_PasswordInputField.GetComponent<InputField>().interactable = true;
+		m_PasswordInputField.GetComponent<ButtonScript>().SetEnable();
+		m_PasswordInputField.GetComponent<InputField>().text = "";
 		m_OnlineButton.GetComponent<Button>().interactable = true;
 		m_OnlineButton.GetComponent<ButtonScript>().SetEnable();
 		m_OnlineButton.GetComponentInChildren<Text>().text = MainMenuManager.PLAY_WITH_STRANGER_TEXT;
@@ -198,6 +203,7 @@ public class MatchMaker : Photon.PunBehaviour
 	{
 		PhotonNetwork.Disconnect();
 		m_bConnecting = false;
+		m_bJoinedLobby = false;
 	}
 
 	static public bool IsPlayerOne()

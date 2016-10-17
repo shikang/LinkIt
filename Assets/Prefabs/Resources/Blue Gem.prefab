@@ -8,7 +8,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 468818}
-  - 114: {fileID: 11483468}
   - 58: {fileID: 5800146}
   - 61: {fileID: 6126480}
   m_Layer: 0
@@ -28,6 +27,9 @@ GameObject:
   - 4: {fileID: 478488}
   - 212: {fileID: 21222516}
   - 114: {fileID: 11483206}
+  - 114: {fileID: 11413102}
+  - 114: {fileID: 11425258}
+  - 114: {fileID: 11437534}
   m_Layer: 0
   m_Name: Blue Gem
   m_TagString: Untagged
@@ -88,6 +90,58 @@ BoxCollider2D:
   m_Offset: {x: -0.00025224686, y: -0.0012612939}
   serializedVersion: 2
   m_Size: {x: 0.70634663, y: 0.7062944}
+--- !u!114 &11413102
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63566e1dde514eb41ade5b560d658e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_nGemType: -1
+  m_nLane: -1
+  m_bLinked: 0
+  m_nSequenceIndex: -1
+  m_nPetrified: 0
+--- !u!114 &11425258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5d3855ca8908c4c8d9d40c44d1cffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11437534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  prefixBackup: -1
+  observed: {fileID: 0}
+  synchronization: 3
+  onSerializeTransformOption: 0
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 11425258}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 0
+  instantiationId: -1
+  isRuntimeInstantiated: 0
 --- !u!114 &11483206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -109,17 +163,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 013e0d53f9bccb64cb656f0c66b98612, type: 3}
   - {fileID: 21300000, guid: 7cd308308f4afc14c80379519825a505, type: 3}
   - {fileID: 21300000, guid: 1de49fe57c3c5e04e924796b8f447303, type: 3}
---- !u!114 &11483468
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63566e1dde514eb41ade5b560d658e29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &21222516
 SpriteRenderer:
   m_ObjectHideFlags: 1

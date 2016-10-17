@@ -46,7 +46,8 @@ public class GemSpawner : MonoBehaviour
 	bool m_bGameStart = false;
 
 	// Link
-	public GameObject m_LinkObject;
+	public GameObject m_LinkPrefab;
+	private GameObject m_LinkObject;
 	public Color[] m_LinkColours;
 	public Color m_NeutralColor;
 	private Link m_Link;
@@ -125,6 +126,7 @@ public class GemSpawner : MonoBehaviour
 		m_bGameStart = false;
 
 		// Initialise link
+		CreateLink();
 		m_Link = m_LinkObject.GetComponent<Link>();
 		m_LinkedGem = new List<Gem>();
 
@@ -213,6 +215,7 @@ public class GemSpawner : MonoBehaviour
 	public void PrepareFailList()
 	{
 		m_lFailedSequenceCount = new List<int>();
+		m_SpawnPattern = GetComponent<SpawnPattern>();
 		for ( int i = 0; i < m_SpawnPattern.GetSpawnSeqencesNum(); ++i )
 		{
 			m_lFailedSequenceCount.Add( 0 );
@@ -252,6 +255,9 @@ public class GemSpawner : MonoBehaviour
 	// -------------------------------- Updating functions --------------------------------------------
 	void Spawn()
 	{
+		if ( NetworkManager.IsConnected() && !NetworkManager.IsPlayerOne() )
+			return;
+
 		m_fSpawnTimer += Time.deltaTime;
 
 		if ( !m_bGameStart )
@@ -275,6 +281,8 @@ public class GemSpawner : MonoBehaviour
 
 	void UpdateGems()
 	{
+		bool connected = NetworkManager.IsConnected();
+
 		List< List< Gem > > linkedGemList = new List< List< Gem > >();
 		List< List< Gem > > unLinkedGemList = new List< List< Gem > >();
 		for ( int i = 0; i < LANE_NUM; ++i )
@@ -287,12 +295,18 @@ public class GemSpawner : MonoBehaviour
 		{
 			for ( int j = 0; j < m_Gems[i].Count; ++j )
 			{
-				Gem g = m_Gems[i][j].GetComponentInChildren<Gem>();
+				Gem g = m_Gems[i][j].GetComponent<Gem>();
 
 				// Linked gems don't move
 				if ( g.Linked )
 				{
 					linkedGemList[i].Add( g );
+					continue;
+				}
+
+				// Other player's linked gem
+				if ( connected && g.GetComponent<NetworkGem>().OtherLinked )
+				{
 					continue;
 				}
 
@@ -361,7 +375,7 @@ public class GemSpawner : MonoBehaviour
 		// Cleanup
 		for ( int k = 0; k < m_GemsToBeRemoved.Count; ++k )
 		{
-			PetrifyGem( m_GemsToBeRemoved[k].GetComponentInChildren<Gem>() );
+			PetrifyGem( m_GemsToBeRemoved[k].GetComponent<Gem>() );
 		}
 		m_PlayerStats.m_nLeakCount += !m_bGameover ? m_GemsToBeRemoved.Count : 0;
 		m_GemsToBeRemoved.Clear();
@@ -371,7 +385,7 @@ public class GemSpawner : MonoBehaviour
 		m_LineLine.GetComponent<SpriteRenderer>().color = GetLifeLineColour();
 		for ( int k = 0; k < m_GemsToBeDestroyed.Count; ++k )
 		{
-			DestroyGem( m_GemsToBeDestroyed[k].GetComponentInChildren<Gem>() );
+			DestroyGem( m_GemsToBeDestroyed[k].GetComponent<Gem>() );
 		}
 		m_GemsToBeDestroyed.Clear();
 	}
@@ -408,11 +422,11 @@ public class GemSpawner : MonoBehaviour
 					{
 						GameObject gem = m_Gems[i][j];
 
-						if ( gem.GetComponentInChildren<Gem>().Linked )
+						if ( gem.GetComponent<Gem>().Linked )
 						{
 							gem.GetComponent<SpriteRenderer>().sprite = gem.GetComponent<GemSpriteContainer>().m_GlowSprites[frame];
 						}
-						else if( gem.GetComponentInChildren<Gem>().Petrified )
+						else if( gem.GetComponent<Gem>().Petrified )
 						{
 							gem.GetComponent<SpriteRenderer>().sprite = m_StoneSprites[frame];
 						}
@@ -437,7 +451,7 @@ public class GemSpawner : MonoBehaviour
 	// -------------------------------- Helper functions --------------------------------------------
 	bool LinkGem ( GameObject gem )
 	{
-		Gem g = gem.GetComponentInChildren<Gem>();
+		Gem g = gem.GetComponent<Gem>();
 		Collider2D linkCollider = null;
 
 		bool want = m_Link.LinkType == INVALID_GEM || ( m_Link.LinkType == g.GemType && !g.Petrified );
@@ -473,7 +487,7 @@ public class GemSpawner : MonoBehaviour
 			{
 				g.Linked = true;
 				gem.GetComponent<SpriteRenderer>().sprite = gem.GetComponent<GemSpriteContainer>().m_GlowSprites[0];
-				g.transform.parent.transform.localScale = new Vector3 ( LINKED_SCALE_FACTOR, LINKED_SCALE_FACTOR, 1.0f );
+				g.transform.localScale = new Vector3 ( LINKED_SCALE_FACTOR, LINKED_SCALE_FACTOR, 1.0f );
 				m_LinkedGem.Add( g );
 
 				m_Link.ChangeLinkColor( g.GemType );
@@ -538,7 +552,7 @@ public class GemSpawner : MonoBehaviour
 				m_PlayerStats.m_aDestroyCount[g.GemType]++;
 
 				// Particles
-				GameObject explosion = ( GameObject )Instantiate( m_GemExplosionPrefab, g.transform.parent.transform.position, Quaternion.identity );
+				GameObject explosion = ( GameObject )Instantiate( m_GemExplosionPrefab, g.transform.position, Quaternion.identity );
 				ParticleSystem ps = explosion.GetComponent<ParticleSystem>();
 				ps.startColor = m_LinkColours[g.GemType];
 				Destroy( explosion, ps.duration + ps.startLifetime + Time.deltaTime );
@@ -562,7 +576,7 @@ public class GemSpawner : MonoBehaviour
 				pgtext.color = m_LinkColours[g.GemType];
 
 				pg.AddComponent<PointsGain>();
-				pg.transform.position = g.transform.parent.transform.position + 0.2f * Vector3.up;
+				pg.transform.position = g.transform.position + 0.2f * Vector3.up;
 
 				Destroy( pg, ps.duration + PointsGain.LIFETIME );
 			}
@@ -671,17 +685,31 @@ public class GemSpawner : MonoBehaviour
 		*/
 	}
 
-	float GetGemX( int lane )
+	public float GetGemX( int lane )
 	{
 		return ( lane + 0.5f ) * m_fLaneWidth + -m_HalfDimension.x;
 	}
 
 	void CreateGem( int lane, int gemType )
 	{
-		GameObject gem = ( GameObject )Instantiate( m_aGemList[gemType], new Vector3( GetGemX( lane ), m_HalfDimension.y ), Quaternion.identity );
-		gem.GetComponentInChildren<Gem>().Lane = lane;
-		gem.GetComponentInChildren<Gem>().GemType = gemType;
-		gem.GetComponentInChildren<Gem>().SequenceIndex = m_nSequenceIndexFromList;
+		GameObject gem = null;
+		if ( NetworkManager.IsConnected() )
+		{
+			object [] data = new object[3];
+			data[0] = lane;
+			data[1] = gemType;
+			data[2] = m_nSequenceIndexFromList;
+			gem = PhotonNetwork.Instantiate( m_aGemList[gemType].gameObject.name, new Vector3( GetGemX( lane ), m_HalfDimension.y ), Quaternion.identity, 0, data );
+		}
+		else
+		{
+			gem = ( GameObject )Instantiate( m_aGemList[gemType], new Vector3( GetGemX( lane ), m_HalfDimension.y ), Quaternion.identity );
+			Destroy ( gem.GetComponent<PhotonView>() );
+			Destroy ( gem.GetComponent<NetworkGem>() );
+		}
+		gem.GetComponent<Gem>().Lane = lane;
+		gem.GetComponent<Gem>().GemType = gemType;
+		gem.GetComponent<Gem>().SequenceIndex = m_nSequenceIndexFromList;
 
 		// Updating live info
 		m_aGemCount[gemType]++;
@@ -689,45 +717,69 @@ public class GemSpawner : MonoBehaviour
 		m_Gems[lane].Add( gem );
 	}
 
+	public void AddNetworkGem( NetworkGem ng )
+	{
+		Gem gem = ng.GetComponent<Gem>();
+		int lane = gem.Lane;
+		//int gemType = gem.GemType;
+
+		// Updating live info
+		//m_aGemCount[gemType]++;
+		//m_nTotalGemCount++;
+		m_Gems[lane].Add( gem.gameObject );
+	}
+
+	public void RemoveNetworkGem( Gem gem )
+	{
+		if ( gem.Petrified )
+		{
+			m_StonedGems.Remove( gem.gameObject );
+		}
+		else
+		{
+			m_Gems[gem.Lane].Remove( gem.gameObject );
+		}
+	}
+
 	public void PetrifyGem( Gem gem )
 	{
 		m_aGemCount[gem.GemType]--;
 		m_nTotalGemCount--;
-		m_Gems[gem.Lane].Remove( gem.gameObject.transform.parent.gameObject );
-		m_StonedGems.Add( gem.gameObject.transform.parent.gameObject );
-		gem.transform.parent.gameObject.GetComponent<SpriteRenderer>().sprite = m_StoneSprites[0];
+		m_Gems[gem.Lane].Remove( gem.gameObject );
+		m_StonedGems.Add( gem.gameObject );
+		gem.GetComponent<SpriteRenderer>().sprite = m_StoneSprites[0];
 		gem.Petrified = true;
 
-		m_lFailedSequenceCount[gem.GetComponentInChildren<Gem>().SequenceIndex]++;
+		m_lFailedSequenceCount[gem.GetComponent<Gem>().SequenceIndex]++;
 	}
 
 	public void DestroyGem( Gem gem )
 	{
-		m_StonedGems.Remove( gem.gameObject.transform.parent.gameObject );
+		m_StonedGems.Remove( gem.gameObject );
 
-		Destroy( gem.gameObject.transform.parent.gameObject );
+		DestroyGemImpl( gem );
 	}
 
 	public void UnlinkGem( Gem gem, bool destroy )
 	{
 		if ( destroy )
 		{ 
-			m_Gems[gem.Lane].Remove( gem.gameObject.transform.parent.gameObject );
+			m_Gems[gem.Lane].Remove( gem.gameObject );
 
-			Destroy( gem.gameObject.transform.parent.gameObject );
+			DestroyGemImpl( gem );
 		}
 		else
 		{
 			gem.Linked = false;
-			gem.gameObject.transform.parent.gameObject.GetComponent<SpriteRenderer>().sprite = gem.gameObject.transform.parent.gameObject.GetComponent<GemSpriteContainer>().m_Sprites[0];
-			gem.transform.parent.transform.localScale = Vector3.one;
+			gem.GetComponent<SpriteRenderer>().sprite = gem.GetComponent<GemSpriteContainer>().m_Sprites[0];
+			gem.transform.localScale = Vector3.one;
 		}
 	}
 
 	public bool IsGemStoned( Gem gem )
 	{
-		Transform t = gem.transform.parent;
-		Renderer r = gem.transform.parent.gameObject.GetComponent<SpriteRenderer>();
+		Transform t = gem.transform;
+		Renderer r = gem.GetComponent<SpriteRenderer>();
 		return ( t.position.y + r.bounds.size.y <= m_LineLine.transform.position.y ) ||
 			   ( t.position.y <= ( ( m_fGameoverTimer / GAMEOVER_ANIMATION ) * m_HalfDimension.y * 2.0f ) + -m_HalfDimension.y );
 	}
@@ -755,7 +807,7 @@ public class GemSpawner : MonoBehaviour
 	void CreateRepel( Gem g )
 	{
 		// Repel effect
-		GameObject repel = ( GameObject )Instantiate( m_aRepels[g.GemType], g.transform.parent.transform.position + FRONT_OFFSET, Quaternion.identity );
+		GameObject repel = ( GameObject )Instantiate( m_aRepels[g.GemType], g.transform.position + FRONT_OFFSET, Quaternion.identity );
 		repel.transform.SetParent( g.transform );
 		Destroy( repel, RepelAnimator.LIFETIME );
 	}
@@ -802,6 +854,43 @@ public class GemSpawner : MonoBehaviour
 		if ( m_fGameoverTimer >= GAMEOVER_ANIMATION + Time.deltaTime )
 		{
 			GameObject.FindGameObjectWithTag( "Transition" ).GetComponent<Transition>().StartFadeOut( GoToScore );
+		}
+	}
+
+	void CreateLink()
+	{
+		if ( NetworkManager.IsConnected() )
+		{
+			m_LinkObject = PhotonNetwork.Instantiate( "Link", Vector3.zero, Quaternion.identity, 0 );
+		}
+		else
+		{
+			m_LinkObject = ( GameObject )Instantiate( m_LinkPrefab, Vector3.zero, Quaternion.identity );
+			Destroy( m_LinkObject.GetComponent<PhotonView>() );
+			Destroy( m_LinkObject.GetComponent<NetworkLink>() );
+		}
+	}
+
+	void DestroyGemImpl( Gem gem )
+	{
+		if ( NetworkManager.IsConnected() )
+		{
+			// Check for player 1
+			if ( NetworkManager.IsPlayerOne() )
+			{
+				// @todo RPC for remove gem, don't destroy until the other side has removed the gem
+				// store is in networkdestroy list
+				PhotonNetwork.Destroy( gem.gameObject );
+			}
+			else
+			{
+				RemoveNetworkGem( gem );
+				// @todo RPC for destroying gem
+			}
+		}
+		else
+		{
+			Destroy( gem.gameObject );
 		}
 	}
 

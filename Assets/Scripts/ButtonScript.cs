@@ -19,6 +19,10 @@ public class ButtonScript : MonoBehaviour
 	{
 		m_Text = GetComponentsInChildren<Text>();
 		m_bDisable = false;
+
+		Button b = GetComponent<Button>();
+		if ( b != null )
+			b.onClick.AddListener( delegate { OnClick(); } );
 	}
 
 	// Update is called once per frame
@@ -101,5 +105,10 @@ public class ButtonScript : MonoBehaviour
 		{
 			t.color = m_TextColor;
 		}
+	}
+
+	public void OnClick()
+	{
+		m_bClickInside = false;
 	}
 }

@@ -204,6 +204,22 @@ Prefab:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1717894127}
+    - target: {fileID: 11499482, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+      propertyPath: m_DisableColor.r
+      value: 0.49411768
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499482, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+      propertyPath: m_DisableColor.g
+      value: 0.49411768
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499482, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+      propertyPath: m_DisableColor.b
+      value: 0.49411768
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499482, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+      propertyPath: m_DisableColor.a
+      value: 0.5019608
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
   m_IsPrefabParent: 0
@@ -527,6 +543,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11474020, guid: 92d0e4ebc82986f43920b2fcd5390a64, type: 2}
+      propertyPath: m_ContinueWithGame.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 473752, guid: 92d0e4ebc82986f43920b2fcd5390a64, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -574,6 +594,26 @@ Prefab:
     - target: {fileID: 11483168, guid: 92d0e4ebc82986f43920b2fcd5390a64, type: 2}
       propertyPath: instantiationId
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11474020, guid: 92d0e4ebc82986f43920b2fcd5390a64, type: 2}
+      propertyPath: m_ContinueWithGame.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11474020, guid: 92d0e4ebc82986f43920b2fcd5390a64, type: 2}
+      propertyPath: m_ContinueWithGame.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11474020, guid: 92d0e4ebc82986f43920b2fcd5390a64, type: 2}
+      propertyPath: m_ContinueWithGame.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1717894127}
+    - target: {fileID: 11474020, guid: 92d0e4ebc82986f43920b2fcd5390a64, type: 2}
+      propertyPath: m_ContinueWithGame.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoPlayAlone
+      objectReference: {fileID: 0}
+    - target: {fileID: 11474020, guid: 92d0e4ebc82986f43920b2fcd5390a64, type: 2}
+      propertyPath: m_ContinueWithGame.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 92d0e4ebc82986f43920b2fcd5390a64, type: 2}

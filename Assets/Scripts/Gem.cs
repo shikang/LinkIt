@@ -3,11 +3,11 @@ using System.Collections;
 
 public class Gem : MonoBehaviour
 {
-	private int m_nGemType = GemSpawner.INVALID_GEM;
-	private int m_nLane = GemSpawner.INVALID_LANE;
-	private bool m_bLinked = false;
-	private int m_nSequenceIndex = -1;
-	private bool m_nPetrified = false;
+	public int m_nGemType = GemSpawner.INVALID_GEM;
+	public int m_nLane = GemSpawner.INVALID_LANE;
+	public bool m_bLinked = false;
+	public int m_nSequenceIndex = -1;
+	public bool m_nPetrified = false;
 
 	public int GemType
 	{
@@ -84,5 +84,17 @@ public class Gem : MonoBehaviour
 	void Update ()
 	{
 	
+	}
+
+	void OnDestroy()
+	{
+		if ( NetworkManager.IsConnected() && !NetworkManager.IsPlayerOne() )
+		{
+			GameObject spawner = GameObject.Find( "GemSpawner" );
+			if ( spawner )
+			{
+				spawner.GetComponent<GemSpawner>().RemoveNetworkGem( this );
+			}
+		}
 	}
 }
