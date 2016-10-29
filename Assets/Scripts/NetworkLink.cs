@@ -3,6 +3,8 @@ using System.Collections;
 
 public class NetworkLink : Photon.MonoBehaviour
 {
+	private const float LINK_ALPHA = 0.25f;
+
 	private Vector3 m_HalfDimension;
 	private Link m_Link;
 
@@ -47,6 +49,7 @@ public class NetworkLink : Photon.MonoBehaviour
 				else
 				{
 					m_Link.ChangeLinkColor( linkType );
+					m_Link.SetLinkOpacity( LINK_ALPHA );
 				}
 			}
 
@@ -55,6 +58,7 @@ public class NetworkLink : Photon.MonoBehaviour
 				if ( !linking )
 				{
 					m_Link.BreakLink();
+					m_Link.SetLinkOpacity( LINK_ALPHA );
 				}
 				else
 				{
@@ -71,8 +75,12 @@ public class NetworkLink : Photon.MonoBehaviour
 
 	void OnPhotonInstantiate( PhotonMessageInfo info )
 	{
-		m_HalfDimension = Camera.main.ScreenToWorldPoint( new Vector3( ( Screen.width ), ( Screen.height ) ) );
-		m_Link = GetComponent<Link>();
+		if( !photonView.isMine )
+		{
+			m_HalfDimension = Camera.main.ScreenToWorldPoint( new Vector3( ( Screen.width ), ( Screen.height ) ) );
+			m_Link = GetComponent<Link>();
+			m_Link.SetLinkOpacity( LINK_ALPHA );
+		}
 	}
 
 }

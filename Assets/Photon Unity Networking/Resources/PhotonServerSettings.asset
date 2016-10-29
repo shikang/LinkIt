@@ -32,4 +32,10 @@ MonoBehaviour:
   - PunRespawn
   - RequestForPickupItems
   - RequestForPickupTimes
+  - LinkNetworkGem_RPC
+  - UnlinkNetworkGems_RPC
+  - DestroyNetworkGems_RPC
+  - InformGemsLinked_RPC
+  - InformGemsDestroyed_RPC
+  - CreateRepel_RPC
   DisableAutoOpenWizard: 1

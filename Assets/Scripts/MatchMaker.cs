@@ -30,7 +30,7 @@ public class MatchMaker : Photon.PunBehaviour
 		m_bJoinedRoom = false;
 
 		//PhotonNetwork.ConnectUsingSettings( "0.1" );
-		PhotonNetwork.logLevel = PhotonLogLevel.Full;
+		//PhotonNetwork.logLevel = PhotonLogLevel.Full;
 
 		PhotonNetwork.player.name = "Player2";
 	}

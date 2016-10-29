@@ -93,7 +93,7 @@ public class Gem : MonoBehaviour
 			GameObject spawner = GameObject.Find( "GemSpawner" );
 			if ( spawner )
 			{
-				spawner.GetComponent<GemSpawner>().RemoveNetworkGem( this );
+				spawner.GetComponent<GemSpawner>().RemoveNetworkGem( this, false );
 			}
 		}
 	}

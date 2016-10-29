@@ -168,4 +168,19 @@ public class Link : MonoBehaviour
 
 		m_DustEmitter.startColor = m_GemSpawner.m_LinkColours[linkType];
 	}
+
+	public void SetLinkOpacity( float alpha )
+	{
+		if ( m_TrailRenderer == null )
+			m_TrailRenderer = GetComponent<TrailRenderer>();
+
+		// Get the material list of the trail as per the scripting API.
+		Material trail = m_TrailRenderer.material;
+
+		Color c = trail.GetColor( "_Color" );
+		c.a = alpha;
+
+		// Set the color of the material to tint the trail.
+		trail.SetColor( "_Color", c );
+	}
 }

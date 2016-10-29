@@ -9,6 +9,7 @@ TagManager:
   - Match Password
   - Online Button
   - Gem Spawner
+  - Network Manager
   layers:
   - Default
   - TransparentFX

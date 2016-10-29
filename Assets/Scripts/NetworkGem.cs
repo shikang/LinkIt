@@ -32,6 +32,26 @@ public class NetworkGem : Photon.MonoBehaviour
 	
 	}
 
+	public void LinkNetworkGem( bool linked )
+	{
+		if ( m_bOtherLinked != linked )
+		{
+			GemSpawner spawner = GameObject.Find( "GemSpawner" ).GetComponent<GemSpawner>();
+
+			// If link, scale up change sprite
+			if ( linked )
+			{
+				spawner.SetLinkGemEffect( m_Gem );
+			}
+			// If not linked, scale back change sprite
+			else
+			{
+				spawner.UnsetLinkGemEffect( m_Gem );
+			}
+		}
+		m_bOtherLinked = linked;
+	}
+
 	void OnPhotonSerializeView( PhotonStream stream, PhotonMessageInfo info )
 	{
 		if ( stream.isWriting )
@@ -47,7 +67,7 @@ public class NetworkGem : Photon.MonoBehaviour
 			float factorD = ( transform.position.y - -m_HalfDimension.y ) / ( m_HalfDimension.y * 2.0f );
 
 			// Distance too huge (teleport)
-			if ( Mathf.Abs( factorO - factorD ) > DISTANCE_THRESHOLD )
+			if ( !m_Gem.Linked && Mathf.Abs( factorO - factorD ) > DISTANCE_THRESHOLD )
 			{
 				Vector3 pos = transform.position;
 				pos.y = ( factorO * m_HalfDimension.y * 2.0f ) + -m_HalfDimension.y;
@@ -55,9 +75,7 @@ public class NetworkGem : Photon.MonoBehaviour
 			}
 
 			bool linked = ( bool )stream.ReceiveNext();
-			m_bOtherLinked = linked;
-			// @todo if link, scale up change sprite
-			// @todo if not linked, scale back change sprite
+			LinkNetworkGem( linked );
 		}
 	}
 

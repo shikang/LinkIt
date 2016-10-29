@@ -77,12 +77,22 @@ public class GemSpawner : MonoBehaviour
 	private float m_fSpawnTimer = 0.0f;
 
 	// Spawning live information (updating...)
-	private int[] m_aGemCount;                          //!< Keep track of gem count sorted by color
+	private int[] m_aGemCount;											//!< Keep track of gem count sorted by color
 	private int m_nTotalGemCount = 0;
-	private List< List<GameObject> > m_Gems;            //!< Gems in game
-	private List<GameObject> m_StonedGems;              //!< Unlinkable gems
-	private List<GameObject> m_GemsToBeRemoved;       //!< Gems to be removed after a loop
-	private List<GameObject> m_GemsToBeDestroyed;       //!< Gems to be destroyed after a loop
+	private List< List<GameObject> > m_Gems;							//!< Gems in game
+	private List<GameObject> m_StonedGems;								//!< Unlinkable gems
+	private List<GameObject> m_GemsToBeRemoved;							//!< Gems to be removed after a loop
+	private List<GameObject> m_GemsToBeDestroyed;						//!< Gems to be destroyed after a loop
+	private List<GameObject> m_NetworkGemsToBeDestroyed;				//!< Delayed destroy because the other player could be linking it
+
+	struct DestroyedNetworkInfo
+	{
+		public Vector2 m_Pos;
+		public int m_GemType;
+
+		public DestroyedNetworkInfo( Vector2 pos, int gemType ) { m_Pos = pos; m_GemType = gemType; }
+	}
+	private Dictionary<int, DestroyedNetworkInfo> m_DestroyedNetworkInfo;//!< Network gem destroyed pos
 
 	// Life line variables
 	public Sprite[] m_StoneSprites;
@@ -119,6 +129,8 @@ public class GemSpawner : MonoBehaviour
 	public GameObject m_LevelText;		//!< Debug
 	public GameObject m_HealthText;		//!< Debug
 	public GameObject m_PointsGain;
+
+	NetworkGameLogic m_Network = null;
 
 	// Use this for initialization
 	void Start ()
@@ -163,6 +175,10 @@ public class GemSpawner : MonoBehaviour
 		m_StonedGems = new List<GameObject>();
 		m_GemsToBeRemoved = new List<GameObject>();
 		m_GemsToBeDestroyed = new List<GameObject>();
+		if ( NetworkManager.IsConnected() && NetworkManager.IsPlayerOne() )
+			m_NetworkGemsToBeDestroyed = new List<GameObject>();
+		if ( NetworkManager.IsConnected() && !NetworkManager.IsPlayerOne() )
+			m_DestroyedNetworkInfo = new Dictionary<int, DestroyedNetworkInfo>();
 
 		// Initialise life line
 		if ( m_LineLine != null )
@@ -210,6 +226,11 @@ public class GemSpawner : MonoBehaviour
 		// Transition Overlay
 		GameObject transition = GameObject.FindGameObjectWithTag( "Transition" );
 		transition.transform.position += 5.0f * FRONT_OFFSET;
+
+		if ( NetworkManager.IsConnected() )
+		{
+			m_Network = GameObject.Find( "Network Manager" ).GetComponent<NetworkGameLogic>();
+		}
 	}
 
 	public void PrepareFailList()
@@ -380,14 +401,20 @@ public class GemSpawner : MonoBehaviour
 		m_PlayerStats.m_nLeakCount += !m_bGameover ? m_GemsToBeRemoved.Count : 0;
 		m_GemsToBeRemoved.Clear();
 
-		m_nHealth -= m_GemsToBeDestroyed.Count * HEALTH_LOST_PER_GEM;
-		m_HealthText.GetComponent<Text>().text = m_nHealth.ToString();
-		m_LineLine.GetComponent<SpriteRenderer>().color = GetLifeLineColour();
-		for ( int k = 0; k < m_GemsToBeDestroyed.Count; ++k )
+		// Let player destroy it and minus health
+		if ( !NetworkManager.IsConnected() || NetworkManager.IsPlayerOne() )
 		{
-			DestroyGem( m_GemsToBeDestroyed[k].GetComponent<Gem>() );
+			m_nHealth -= m_GemsToBeDestroyed.Count * HEALTH_LOST_PER_GEM;
+			m_HealthText.GetComponent<Text>().text = m_nHealth.ToString();
+			m_LineLine.GetComponent<SpriteRenderer>().color = GetLifeLineColour();
+			for ( int k = 0; k < m_GemsToBeDestroyed.Count; ++k )
+			{
+				DestroyGem( m_GemsToBeDestroyed[k].GetComponent<Gem>() );
+			}
+			m_GemsToBeDestroyed.Clear();
+
+			// @todo RPC health
 		}
-		m_GemsToBeDestroyed.Clear();
 	}
 
 	void AnimateGems()
@@ -485,12 +512,14 @@ public class GemSpawner : MonoBehaviour
 			// Linkable
 			if ( want )
 			{
-				g.Linked = true;
-				gem.GetComponent<SpriteRenderer>().sprite = gem.GetComponent<GemSpriteContainer>().m_GlowSprites[0];
-				g.transform.localScale = new Vector3 ( LINKED_SCALE_FACTOR, LINKED_SCALE_FACTOR, 1.0f );
+				SetLinkGemEffect( g );
+
 				m_LinkedGem.Add( g );
 
 				m_Link.ChangeLinkColor( g.GemType );
+
+				if ( NetworkManager.IsConnected() && !NetworkManager.IsPlayerOne() )
+					m_Network.LinkNetworkGem( g, true ); //, ( g.transform.position.y - -m_HalfDimension.y ) / ( m_HalfDimension.y * 2.0f ) );
 			}
 			// Not linkable
 			else
@@ -499,10 +528,71 @@ public class GemSpawner : MonoBehaviour
 
 				// Repel effect
 				CreateRepel( g );
+
+				// RPC create repel
+				if ( NetworkManager.IsConnected() )
+				{
+					m_Network.CreateRepel( g );
+				}
 			}
 		}
 
 		return linked;
+	}
+
+	public void SetLinkGemEffect( Gem gem )
+	{
+		gem.Linked = true;
+		gem.GetComponent<SpriteRenderer>().sprite = gem.GetComponent<GemSpriteContainer>().m_GlowSprites[0];
+		gem.transform.localScale = new Vector3( LINKED_SCALE_FACTOR, LINKED_SCALE_FACTOR, 1.0f );
+	}
+
+	public void UnsetLinkGemEffect( Gem gem )
+	{
+		gem.Linked = false;
+		gem.GetComponent<SpriteRenderer>().sprite = gem.GetComponent<GemSpriteContainer>().m_Sprites[0];
+		gem.transform.localScale = Vector3.one;
+	}
+
+	void AddGainPointsEffect( Vector3 position, int gemType, int eachGain )
+	{
+		// Particles
+		GameObject explosion = ( GameObject )Instantiate( m_GemExplosionPrefab, position, Quaternion.identity );
+		ParticleSystem ps = explosion.GetComponent<ParticleSystem>();
+		ps.startColor = m_LinkColours[gemType];
+		Destroy( explosion, ps.duration + ps.startLifetime + Time.deltaTime );
+
+		if ( eachGain > 0 )
+		{
+			// Points animation
+			GameObject pg = new GameObject( "Points Gain Text" );
+			pg.transform.SetParent( m_GameCanvas.transform );
+
+			RectTransform pgtrans = pg.AddComponent<RectTransform>();
+			pgtrans.anchoredPosition = m_PointsGain.GetComponent<RectTransform>().anchoredPosition;
+			pgtrans.localPosition = Vector3.zero;
+			pgtrans.localScale = m_PointsGain.GetComponent<RectTransform>().localScale;
+			pgtrans.localRotation = m_PointsGain.GetComponent<RectTransform>().localRotation;
+			pgtrans.sizeDelta = m_PointsGain.GetComponent<RectTransform>().sizeDelta;
+
+			Text pgtext = pg.AddComponent<Text>();
+			pgtext.text = eachGain.ToString();
+			pgtext.fontSize = m_PointsGain.GetComponent<Text>().fontSize;
+			pgtext.font = m_PointsGain.GetComponent<Text>().font;
+			pgtext.alignment = TextAnchor.MiddleCenter;
+			pgtext.color = m_LinkColours[gemType];
+
+			pg.AddComponent<PointsGain>();
+			pg.transform.position = position + 0.2f * Vector3.up;
+
+			Destroy( pg, ps.duration + PointsGain.LIFETIME );
+		}
+	}
+
+	int GetPointsGain( int num )
+	{
+		int pointsGain = num * PER_GEM_POINTS + num * ( ( num - 3 ) * ( PER_GEM_POINTS / 10 ) );
+		return pointsGain;
 	}
 
 	bool UnlinkGems()
@@ -514,7 +604,7 @@ public class GemSpawner : MonoBehaviour
 		if ( destroy )
 		{
 			// Points
-			int pointsGain = m_LinkedGem.Count * PER_GEM_POINTS + m_LinkedGem.Count * ( ( m_LinkedGem.Count - 3 ) * ( PER_GEM_POINTS / 10 ) );
+			int pointsGain = GetPointsGain( m_LinkedGem.Count );
 			int eachGain = pointsGain / m_LinkedGem.Count;
 			m_nPointTimer = 0.0f;
 			m_nPrevPoints = m_nPoints;
@@ -551,34 +641,33 @@ public class GemSpawner : MonoBehaviour
 			{
 				m_PlayerStats.m_aDestroyCount[g.GemType]++;
 
-				// Particles
-				GameObject explosion = ( GameObject )Instantiate( m_GemExplosionPrefab, g.transform.position, Quaternion.identity );
-				ParticleSystem ps = explosion.GetComponent<ParticleSystem>();
-				ps.startColor = m_LinkColours[g.GemType];
-				Destroy( explosion, ps.duration + ps.startLifetime + Time.deltaTime );
+				AddGainPointsEffect( g.transform.position, g.GemType, eachGain );
+			}
+		}
 
-				// Points animation
-				GameObject pg = new GameObject("Points Gain Text");
-				pg.transform.SetParent( m_GameCanvas.transform );
-
-				RectTransform pgtrans = pg.AddComponent<RectTransform>();
-				pgtrans.anchoredPosition = m_PointsGain.GetComponent<RectTransform>().anchoredPosition;
-				pgtrans.localPosition = Vector3.zero;
-				pgtrans.localScale = m_PointsGain.GetComponent<RectTransform>().localScale;
-				pgtrans.localRotation = m_PointsGain.GetComponent<RectTransform>().localRotation;
-				pgtrans.sizeDelta = m_PointsGain.GetComponent<RectTransform>().sizeDelta;
-
-				Text pgtext = pg.AddComponent<Text>();
-				pgtext.text = eachGain.ToString();
-				pgtext.fontSize = m_PointsGain.GetComponent<Text>().fontSize;
-				pgtext.font = m_PointsGain.GetComponent<Text>().font;
-				pgtext.alignment = TextAnchor.MiddleCenter;
-				pgtext.color = m_LinkColours[g.GemType];
-
-				pg.AddComponent<PointsGain>();
-				pg.transform.position = g.transform.position + 0.2f * Vector3.up;
-
-				Destroy( pg, ps.duration + PointsGain.LIFETIME );
+		// Multiplayer logic
+		if ( NetworkManager.IsConnected() )
+		{
+			if ( destroy )
+			{
+				if ( NetworkManager.IsPlayerOne() )
+				{
+					// RPC particle effect
+					m_Network.InformGemsDestroyed( m_LinkedGem );
+				}
+				else
+				{
+					// RPC destroy gem
+					m_Network.DestroyNetworkGems( m_LinkedGem );
+				}
+			}
+			else
+			{
+				if ( !NetworkManager.IsPlayerOne() && m_LinkedGem.Count > 0 )
+				{
+					// RPC unlink gem
+					m_Network.UnlinkNetworkGems( m_LinkedGem );
+				}
 			}
 		}
 
@@ -586,7 +675,6 @@ public class GemSpawner : MonoBehaviour
 		{
 			UnlinkGem( g, destroy );
 		}
-
 
 		m_LinkedGem.Clear();
 		m_Link.CheckForDestroy = false;
@@ -729,7 +817,7 @@ public class GemSpawner : MonoBehaviour
 		m_Gems[lane].Add( gem.gameObject );
 	}
 
-	public void RemoveNetworkGem( Gem gem )
+	public void RemoveNetworkGem( Gem gem, bool byMyself )
 	{
 		if ( gem.Petrified )
 		{
@@ -737,7 +825,225 @@ public class GemSpawner : MonoBehaviour
 		}
 		else
 		{
-			m_Gems[gem.Lane].Remove( gem.gameObject );
+			bool contains = m_Gems[gem.Lane].Contains( gem.gameObject );
+
+			if( contains )
+			{
+				m_Gems[gem.Lane].Remove( gem.gameObject );
+
+				// For lookup
+				if ( !byMyself )
+				{
+					int id = gem.GetComponent<PhotonView>().instantiationId;
+					if ( m_DestroyedNetworkInfo.ContainsKey( id ) )
+					{
+						m_DestroyedNetworkInfo.Remove( id );
+					}
+
+					Vector2 pos = new Vector2( gem.transform.position.x, gem.transform.position.y );
+					m_DestroyedNetworkInfo.Add( id, new DestroyedNetworkInfo( pos, gem.GetComponent<Gem>().GemType ) );
+				}
+			}
+		}
+	}
+
+	public void LinkNetworkGem( int id, bool link )
+	{
+		for ( int i = 0; i < LANE_NUM; ++i )
+		{
+			for ( int j = 0; j < m_Gems[i].Count; ++j )
+			{
+				PhotonView p = m_Gems[i][j].GetComponent<PhotonView>();
+				if ( p && p.instantiationId == id )
+				{
+					m_Gems[i][j].GetComponent<NetworkGem>().LinkNetworkGem( link );
+					return;
+				}
+			}
+		}
+
+		for ( int j = 0; j < m_StonedGems.Count; ++j )
+		{
+			PhotonView p = m_StonedGems[j].GetComponent<PhotonView>();
+			if ( p && p.instantiationId == id )
+			{
+				m_StonedGems[j].GetComponent<NetworkGem>().LinkNetworkGem( link );
+				return;
+			}
+		}
+
+		if ( !link )
+		{
+			GameObject dead = null;
+			for ( int j = 0; j < m_NetworkGemsToBeDestroyed.Count; ++j )
+			{
+				PhotonView p = m_NetworkGemsToBeDestroyed[j].GetComponent<PhotonView>();
+				if ( p && p.instantiationId == id )
+				{
+					dead = m_NetworkGemsToBeDestroyed[j];
+					break;
+				}
+			}
+
+			if ( dead )
+			{
+				m_NetworkGemsToBeDestroyed.Remove( dead );
+				m_StonedGems.Add( dead );
+			}
+		}
+	}
+
+	public void DestroyNetworkGem( int id, int numDestroy )
+	{
+		Gem g = null;
+		for ( int i = 0; i < LANE_NUM; ++i )
+		{
+			for ( int j = 0; j < m_Gems[i].Count; ++j )
+			{
+				PhotonView p = m_Gems[i][j].GetComponent<PhotonView>();
+				if ( p && p.instantiationId == id )
+				{
+					g = m_Gems[i][j].GetComponent<Gem>();
+					break;
+				}
+			}
+		}
+
+		if ( g == null )
+		{
+			for ( int j = 0; j < m_StonedGems.Count; ++j )
+			{
+				PhotonView p = m_StonedGems[j].GetComponent<PhotonView>();
+				if ( p && p.instantiationId == id )
+				{
+					g = m_StonedGems[j].GetComponent<Gem>();
+					break;
+				}
+			}
+
+			if ( g != null )
+			{
+				m_StonedGems.Remove( g.gameObject );
+				m_Gems[g.Lane].Add( g.gameObject );
+			}
+		}
+
+		if ( g == null )
+		{
+			for ( int j = 0; j < m_NetworkGemsToBeDestroyed.Count; ++j )
+			{
+				PhotonView p = m_NetworkGemsToBeDestroyed[j].GetComponent<PhotonView>();
+				if ( p && p.instantiationId == id )
+				{
+					g = m_NetworkGemsToBeDestroyed[j].GetComponent<Gem>();
+					break;
+				}
+			}
+
+			if ( g != null )
+			{
+				m_NetworkGemsToBeDestroyed.Remove( g.gameObject );
+				m_Gems[g.Lane].Add( g.gameObject );
+			}
+		}
+
+		if ( g != null )
+		{
+			UnlinkGem( g, true );
+
+			// @todo Sychron point
+			int pointsGain = GetPointsGain( numDestroy );
+
+			// Particle effect
+			AddGainPointsEffect( g.transform.position, g.GemType, pointsGain / numDestroy );
+		}
+	}
+
+	public void NetworkAddGainPointsEffect( int id, int numDestroy )
+	{
+		if ( m_DestroyedNetworkInfo.ContainsKey( id ) )
+		{
+			DestroyedNetworkInfo info = m_DestroyedNetworkInfo[id];
+
+			// @todo Sychron point
+			int pointsGain = GetPointsGain( numDestroy );
+
+			// Particle effect
+			AddGainPointsEffect( info.m_Pos, info.m_GemType, pointsGain / numDestroy );
+
+			m_DestroyedNetworkInfo.Remove( id );
+		}
+		else
+		{
+			Gem g = null;
+			for ( int i = 0; i < LANE_NUM; ++i )
+			{
+				for ( int j = 0; j < m_Gems[i].Count; ++j )
+				{
+					PhotonView p = m_Gems[i][j].GetComponent<PhotonView>();
+					if ( p && p.instantiationId == id )
+					{
+						g = m_Gems[i][j].GetComponent<Gem>();
+						break;
+					}
+				}
+			}
+
+			if ( g == null )
+			{
+				for ( int j = 0; j < m_StonedGems.Count; ++j )
+				{
+					PhotonView p = m_StonedGems[j].GetComponent<PhotonView>();
+					if ( p && p.instantiationId == id )
+					{
+						g = m_StonedGems[j].GetComponent<Gem>();
+						break;
+					}
+				}
+
+				if ( g != null )
+				{
+					m_StonedGems.Remove( g.gameObject );
+					m_Gems[g.Lane].Add( g.gameObject );
+				}
+			}
+
+			if ( g != null )
+			{
+				UnlinkGem( g, true );
+
+				// @todo Sychron point
+				int pointsGain = GetPointsGain( numDestroy );
+
+				// Particle effect
+				AddGainPointsEffect( g.transform.position, g.GemType, pointsGain / numDestroy );
+			}
+		}
+	}
+
+	public void CreateNetworkRepel( int id )
+	{
+		for ( int i = 0; i < LANE_NUM; ++i )
+		{
+			for ( int j = 0; j < m_Gems[i].Count; ++j )
+			{
+				PhotonView p = m_Gems[i][j].GetComponent<PhotonView>();
+				if ( p && p.instantiationId == id )
+				{
+					CreateRepel( m_Gems[i][j].GetComponent<Gem>() );
+					return;
+				}
+			}
+		}
+
+		for ( int j = 0; j < m_StonedGems.Count; ++j )
+		{
+			PhotonView p = m_StonedGems[j].GetComponent<PhotonView>();
+			if ( p && p.instantiationId == id )
+			{
+				CreateRepel( m_StonedGems[j].GetComponent<Gem>() );
+				return;
+			}
 		}
 	}
 
@@ -757,6 +1063,16 @@ public class GemSpawner : MonoBehaviour
 	{
 		m_StonedGems.Remove( gem.gameObject );
 
+		if ( NetworkManager.IsConnected() && NetworkManager.IsPlayerOne() )
+		{
+			NetworkGem ng = gem.GetComponent<NetworkGem>();
+			if ( ng != null && ng.OtherLinked )
+			{
+				m_NetworkGemsToBeDestroyed.Add( gem.gameObject );
+				return;
+			}
+		}
+
 		DestroyGemImpl( gem );
 	}
 
@@ -770,9 +1086,7 @@ public class GemSpawner : MonoBehaviour
 		}
 		else
 		{
-			gem.Linked = false;
-			gem.GetComponent<SpriteRenderer>().sprite = gem.GetComponent<GemSpriteContainer>().m_Sprites[0];
-			gem.transform.localScale = Vector3.one;
+			UnsetLinkGemEffect( gem );
 		}
 	}
 
@@ -878,14 +1192,11 @@ public class GemSpawner : MonoBehaviour
 			// Check for player 1
 			if ( NetworkManager.IsPlayerOne() )
 			{
-				// @todo RPC for remove gem, don't destroy until the other side has removed the gem
-				// store is in networkdestroy list
 				PhotonNetwork.Destroy( gem.gameObject );
 			}
 			else
 			{
-				RemoveNetworkGem( gem );
-				// @todo RPC for destroying gem
+				RemoveNetworkGem( gem, true );
 			}
 		}
 		else
