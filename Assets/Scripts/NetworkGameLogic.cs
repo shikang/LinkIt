@@ -64,10 +64,7 @@ public class NetworkGameLogic : Photon.PunBehaviour
 		string[] ids = GetGemsId( idsCSV );
 		GemSpawner spawner = GameObject.Find( "GemSpawner" ).GetComponent<GemSpawner>();
 
-		foreach ( string id in ids )
-		{
-			spawner.LinkNetworkGem( Convert.ToInt32( id ), false );
-		}
+		spawner.UnlinkNetworkGems( ids );
 	}
 
 	// Player 2 to Player 1
@@ -84,10 +81,7 @@ public class NetworkGameLogic : Photon.PunBehaviour
 		string[] ids = GetGemsId( idsCSV );
 		GemSpawner spawner = GameObject.Find( "GemSpawner" ).GetComponent<GemSpawner>();
 
-		foreach ( string id in ids )
-		{
-			spawner.DestroyNetworkGem( Convert.ToInt32( id ), ids.Length );
-		}
+		spawner.DestroyNetworkGems( ids );
 	}
 
 	// Player 1 to Player 2
@@ -104,10 +98,7 @@ public class NetworkGameLogic : Photon.PunBehaviour
 		string[] ids = GetGemsId( idsCSV );
 		GemSpawner spawner = GameObject.Find( "GemSpawner" ).GetComponent<GemSpawner>();
 
-		foreach ( string id in ids )
-		{
-			spawner.NetworkAddGainPointsEffect( Convert.ToInt32( id ), ids.Length );
-		}
+		spawner.NetworkAddGainPointsEffects( ids );
 	}
 
 	// Both ways
@@ -121,5 +112,19 @@ public class NetworkGameLogic : Photon.PunBehaviour
 	public void CreateRepel_RPC( int id )
 	{
 		GameObject.Find("GemSpawner").GetComponent<GemSpawner>().CreateNetworkRepel( id );
+	}
+
+	// Both ways
+	public void UpdateHealth( int healthGain )
+	{
+		photonView.RPC( "UpdateHealth_RPC", PhotonTargets.Others, healthGain);
+	}
+
+	[PunRPC]
+	public void UpdateHealth_RPC( int healthGain )
+	{
+		GemSpawner spawner = GameObject.Find("GemSpawner").GetComponent<GemSpawner>();
+
+		spawner.UpdateNetworkHealth( healthGain );
 	}
 }

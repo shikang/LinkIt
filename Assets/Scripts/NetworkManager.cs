@@ -28,6 +28,11 @@ public class NetworkManager : MonoBehaviour
 		return PhotonNetwork.isMasterClient;
 	}
 
+	static public void Disconnect()
+	{
+		PhotonNetwork.Disconnect();
+	}
+
 	static public string GetPlayersInfoPrefix()
 	{
 		if ( IsConnected() )

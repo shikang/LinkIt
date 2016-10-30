@@ -46,6 +46,11 @@ public class ScoreManager : MonoBehaviour
 		m_fAnimationTimer = 0.0f;
 		m_bAnimating = false;
 		m_nAnimatingFrame = -1;
+
+		if( NetworkManager.IsConnected() )
+		{
+			NetworkManager.Disconnect();
+		}
 	}
 	
 	// Update is called once per frame

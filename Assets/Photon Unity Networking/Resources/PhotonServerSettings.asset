@@ -38,4 +38,5 @@ MonoBehaviour:
   - InformGemsLinked_RPC
   - InformGemsDestroyed_RPC
   - CreateRepel_RPC
+  - UpdateHealth_RPC
   DisableAutoOpenWizard: 1

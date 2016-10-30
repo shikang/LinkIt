@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GemSpawner : MonoBehaviour
 {
@@ -401,9 +402,13 @@ public class GemSpawner : MonoBehaviour
 		m_PlayerStats.m_nLeakCount += !m_bGameover ? m_GemsToBeRemoved.Count : 0;
 		m_GemsToBeRemoved.Clear();
 
-		// Let player destroy it and minus health
+		// Let player 1 destroy it and minus health
 		if ( !NetworkManager.IsConnected() || NetworkManager.IsPlayerOne() )
 		{
+			// RPC health
+			if ( m_GemsToBeDestroyed.Count > 0 )
+				m_Network.UpdateHealth( -m_GemsToBeDestroyed.Count * HEALTH_LOST_PER_GEM );
+
 			m_nHealth -= m_GemsToBeDestroyed.Count * HEALTH_LOST_PER_GEM;
 			m_HealthText.GetComponent<Text>().text = m_nHealth.ToString();
 			m_LineLine.GetComponent<SpriteRenderer>().color = GetLifeLineColour();
@@ -412,8 +417,6 @@ public class GemSpawner : MonoBehaviour
 				DestroyGem( m_GemsToBeDestroyed[k].GetComponent<Gem>() );
 			}
 			m_GemsToBeDestroyed.Clear();
-
-			// @todo RPC health
 		}
 	}
 
@@ -595,6 +598,13 @@ public class GemSpawner : MonoBehaviour
 		return pointsGain;
 	}
 
+	void StartRollingPoints( int pointsGain )
+	{
+		m_nPointTimer = 0.0f;
+		m_nPrevPoints = m_nPoints;
+		m_nPoints += pointsGain;
+	}
+
 	bool UnlinkGems()
 	{
 		if ( !m_Link.CheckForDestroy )
@@ -606,9 +616,7 @@ public class GemSpawner : MonoBehaviour
 			// Points
 			int pointsGain = GetPointsGain( m_LinkedGem.Count );
 			int eachGain = pointsGain / m_LinkedGem.Count;
-			m_nPointTimer = 0.0f;
-			m_nPrevPoints = m_nPoints;
-			m_nPoints += pointsGain;
+			StartRollingPoints( pointsGain );
 			m_PlayerStats.m_nScore = m_nPoints;
 
 			m_nHealth += HEALTH_GAIN_PER_LINK + ( m_LinkedGem.Count - 3 ) * HEALTH_GAIN_PER_LINK;
@@ -847,6 +855,14 @@ public class GemSpawner : MonoBehaviour
 		}
 	}
 
+	public void UnlinkNetworkGems( string[] ids )
+	{
+		foreach ( string id in ids )
+		{
+			LinkNetworkGem( Convert.ToInt32( id ), false );
+		}
+	}
+
 	public void LinkNetworkGem( int id, bool link )
 	{
 		for ( int i = 0; i < LANE_NUM; ++i )
@@ -893,7 +909,26 @@ public class GemSpawner : MonoBehaviour
 		}
 	}
 
-	public void DestroyNetworkGem( int id, int numDestroy )
+	public void DestroyNetworkGems( string[] ids )
+	{
+		// Sychron point
+		int pointsGain = GetPointsGain( ids.Length );
+		int eachGain = pointsGain / ids.Length;
+		StartRollingPoints( pointsGain );
+		m_PlayerStats.m_nScore = m_nPoints;
+
+		// Sychron health
+		m_nHealth += HEALTH_GAIN_PER_LINK + ( ids.Length - 3 ) * HEALTH_GAIN_PER_LINK;
+		m_HealthText.GetComponent<Text>().text = m_nHealth.ToString();
+		m_LineLine.GetComponent<SpriteRenderer>().color = GetLifeLineColour();
+
+		foreach ( string id in ids )
+		{
+			DestroyNetworkGem( Convert.ToInt32( id ), eachGain );
+		}
+	}
+
+	public void DestroyNetworkGem( int id, int eachGain )
 	{
 		Gem g = null;
 		for ( int i = 0; i < LANE_NUM; ++i )
@@ -951,25 +986,38 @@ public class GemSpawner : MonoBehaviour
 		{
 			UnlinkGem( g, true );
 
-			// @todo Sychron point
-			int pointsGain = GetPointsGain( numDestroy );
-
 			// Particle effect
-			AddGainPointsEffect( g.transform.position, g.GemType, pointsGain / numDestroy );
+			AddGainPointsEffect( g.transform.position, g.GemType, eachGain );
 		}
 	}
 
-	public void NetworkAddGainPointsEffect( int id, int numDestroy )
+	public void NetworkAddGainPointsEffects( string[] ids )
+	{
+		// Sychron point
+		int pointsGain = GetPointsGain( ids.Length );
+		int eachGain = pointsGain / ids.Length;
+		StartRollingPoints( pointsGain );
+		m_PlayerStats.m_nScore = m_nPoints;
+
+		// Sychron health
+		m_nHealth += HEALTH_GAIN_PER_LINK + ( ids.Length - 3 ) * HEALTH_GAIN_PER_LINK;
+		m_HealthText.GetComponent<Text>().text = m_nHealth.ToString();
+		m_LineLine.GetComponent<SpriteRenderer>().color = GetLifeLineColour();
+
+		foreach ( string id in ids )
+		{
+			NetworkAddGainPointsEffect( Convert.ToInt32( id ), eachGain );
+		}
+	}
+
+	public void NetworkAddGainPointsEffect( int id, int eachGain )
 	{
 		if ( m_DestroyedNetworkInfo.ContainsKey( id ) )
 		{
 			DestroyedNetworkInfo info = m_DestroyedNetworkInfo[id];
 
-			// @todo Sychron point
-			int pointsGain = GetPointsGain( numDestroy );
-
 			// Particle effect
-			AddGainPointsEffect( info.m_Pos, info.m_GemType, pointsGain / numDestroy );
+			AddGainPointsEffect( info.m_Pos, info.m_GemType, eachGain );
 
 			m_DestroyedNetworkInfo.Remove( id );
 		}
@@ -1012,11 +1060,8 @@ public class GemSpawner : MonoBehaviour
 			{
 				UnlinkGem( g, true );
 
-				// @todo Sychron point
-				int pointsGain = GetPointsGain( numDestroy );
-
 				// Particle effect
-				AddGainPointsEffect( g.transform.position, g.GemType, pointsGain / numDestroy );
+				AddGainPointsEffect( g.transform.position, g.GemType, eachGain );
 			}
 		}
 	}
@@ -1045,6 +1090,14 @@ public class GemSpawner : MonoBehaviour
 				return;
 			}
 		}
+	}
+
+	public void UpdateNetworkHealth( int healthGain )
+	{
+		m_nHealth += healthGain;
+		m_HealthText.GetComponent<Text>().text = m_nHealth.ToString();
+		m_LineLine.GetComponent<SpriteRenderer>().color = GetLifeLineColour();
+		m_GemsToBeDestroyed.Clear();
 	}
 
 	public void PetrifyGem( Gem gem )
