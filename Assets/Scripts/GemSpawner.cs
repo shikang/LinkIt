@@ -405,11 +405,16 @@ public class GemSpawner : MonoBehaviour
 		// Let player 1 destroy it and minus health
 		if ( !NetworkManager.IsConnected() || NetworkManager.IsPlayerOne() )
 		{
+			int healthReduce = m_GemsToBeDestroyed.Count * HEALTH_LOST_PER_GEM;
 			// RPC health
 			if ( m_GemsToBeDestroyed.Count > 0 )
-				m_Network.UpdateHealth( -m_GemsToBeDestroyed.Count * HEALTH_LOST_PER_GEM );
+			{
+				// Ensure both side die together
+				m_Network.UpdateHealth( m_nHealth <= healthReduce ? -MAX_HEALTH : -healthReduce );
+			}
+				
 
-			m_nHealth -= m_GemsToBeDestroyed.Count * HEALTH_LOST_PER_GEM;
+			m_nHealth -= healthReduce;
 			m_HealthText.GetComponent<Text>().text = m_nHealth.ToString();
 			m_LineLine.GetComponent<SpriteRenderer>().color = GetLifeLineColour();
 			for ( int k = 0; k < m_GemsToBeDestroyed.Count; ++k )

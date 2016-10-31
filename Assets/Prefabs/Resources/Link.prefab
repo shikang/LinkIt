@@ -114,6 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e6835bea405ed4b8a289431585c4e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_OtherPlayerDustPrefab: {fileID: 124006, guid: a010be90f6b343740a15ae016f9addb0,
+    type: 2}
 --- !u!114 &11467068
 MonoBehaviour:
   m_ObjectHideFlags: 1

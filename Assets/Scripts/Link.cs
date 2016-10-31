@@ -169,6 +169,11 @@ public class Link : MonoBehaviour
 		m_DustEmitter.startColor = m_GemSpawner.m_LinkColours[linkType];
 	}
 
+	public Color GetLinkColor( int linkType )
+	{
+		return linkType != GemSpawner.INVALID_GEM ? m_GemSpawner.m_LinkColours[linkType] : m_GemSpawner.m_NeutralColor;
+	}
+
 	public void SetLinkOpacity( float alpha )
 	{
 		if ( m_TrailRenderer == null )
