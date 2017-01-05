@@ -127,4 +127,6 @@ public class NetworkGameLogic : Photon.PunBehaviour
 
 		spawner.UpdateNetworkHealth( healthGain );
 	}
+
+	// @todo OnPhotonDisconnect (Go to score)
 }

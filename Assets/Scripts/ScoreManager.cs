@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
 	PlayerStatistics m_PlayerStats;
+	GemDetails m_GemDetails;
 
 	public GameObject m_Score;
 	public GameObject[] m_Counters;
 	public GameObject m_LeakedCounter;
+	public GameObject m_ComboCounter;
 
 	public GameObject[] m_DummyGems;
 	public GameObject m_DummyLeaked;
@@ -25,7 +27,7 @@ public class ScoreManager : MonoBehaviour
 	void Start ()
 	{
 		// Getting stats
-		m_PlayerStats = GameObject.FindGameObjectWithTag("Player Statistics").GetComponent<PlayerStatistics>();
+		m_PlayerStats = GameObject.FindGameObjectWithTag( "Player Statistics" ).GetComponent<PlayerStatistics>();
 		m_Score.GetComponent<Text>().text = m_PlayerStats.m_nScore.ToString();
 
 		for ( int i = 0; i < m_PlayerStats.m_aDestroyCount.Length; ++i )
@@ -34,10 +36,11 @@ public class ScoreManager : MonoBehaviour
 		}
 
 		m_LeakedCounter.GetComponent<Text>().text = m_PlayerStats.m_nLeakCount.ToString();
+		m_ComboCounter.GetComponent<Text>().text = m_PlayerStats.m_nMaxCombo.ToString();
 
 		// Initialising animation timer
-		m_nFrameNum = m_PlayerStats.m_StoneSprites.Length;
-		for (int i = 0; i < m_PlayerStats.m_aGems.Length; ++i)
+		m_nFrameNum = m_PlayerStats.m_aGems[0].GetComponent<GemSpriteContainer>().m_Sprites.Length;
+		for (int i = 1; i < m_PlayerStats.m_aGems.Length; ++i)
 		{
 			int num = m_PlayerStats.m_aGems[i].GetComponent<GemSpriteContainer>().m_Sprites.Length;
 			m_nFrameNum = m_nFrameNum > num ? num : m_nFrameNum;
@@ -51,6 +54,10 @@ public class ScoreManager : MonoBehaviour
 		{
 			NetworkManager.Disconnect();
 		}
+
+		m_GemDetails = GameObject.FindGameObjectWithTag( "Gem Details" ).GetComponent<GemDetails>();
+
+		// @todo Save
 	}
 	
 	// Update is called once per frame
@@ -64,6 +71,11 @@ public class ScoreManager : MonoBehaviour
 		if ( m_PlayerStats != null )
 		{
 			Destroy( m_PlayerStats.gameObject );
+		}
+
+		if ( m_GemDetails != null )
+		{
+			Destroy( m_GemDetails.gameObject );
 		}
 	}
 
@@ -108,7 +120,7 @@ public class ScoreManager : MonoBehaviour
 					m_DummyGems[i].GetComponent<SpriteRenderer>().sprite = m_DummyGems[i].GetComponent<GemSpriteContainer>().m_GlowSprites[frame];
 				}
 
-				m_DummyLeaked.GetComponent<SpriteRenderer>().sprite = m_PlayerStats.m_StoneSprites[frame];
+				m_DummyLeaked.GetComponent<SpriteRenderer>().sprite = m_DummyGems[0].GetComponent<GemSpriteContainer>().m_StoneSprites[frame];
 
 				if ( m_nAnimatingFrame == m_nFrameNum )
 				{

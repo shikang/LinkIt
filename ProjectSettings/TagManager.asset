@@ -10,6 +10,7 @@ TagManager:
   - Online Button
   - Gem Spawner
   - Network Manager
+  - Gem Details
   layers:
   - Default
   - TransparentFX

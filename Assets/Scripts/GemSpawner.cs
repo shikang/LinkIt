@@ -28,6 +28,10 @@ public class GemSpawner : MonoBehaviour
 	public const float ANIMATION_RATE = 0.125f;         //!< In seconds
 
 	public const float TIME_TO_ACTUAL_POINTS = 0.5f;    //!< In seconds
+	public const float TIME_TO_ACTUAL_COMBO = 0.25f;    //!< In seconds
+	public const float TIME_TO_COMBO_FADE = 2.0f;       //!< In seconds
+
+	public const float COMBO_FADE_TIME_RECIPROCAL = 1.0f / TIME_TO_COMBO_FADE;
 
 	public const float GAMEOVER_ANIMATION = 2.0f;		//!< In seconds
 
@@ -84,7 +88,10 @@ public class GemSpawner : MonoBehaviour
 	private List<GameObject> m_StonedGems;								//!< Unlinkable gems
 	private List<GameObject> m_GemsToBeRemoved;							//!< Gems to be removed after a loop
 	private List<GameObject> m_GemsToBeDestroyed;						//!< Gems to be destroyed after a loop
-	private List<GameObject> m_NetworkGemsToBeDestroyed;				//!< Delayed destroy because the other player could be linking it
+	private List<GameObject> m_NetworkGemsToBeDestroyed;                //!< Delayed destroy because the other player could be linking it
+
+	// Gem sprites
+	private GemDetails m_GemDetails;
 
 	struct DestroyedNetworkInfo
 	{
@@ -96,7 +103,6 @@ public class GemSpawner : MonoBehaviour
 	private Dictionary<int, DestroyedNetworkInfo> m_DestroyedNetworkInfo;//!< Network gem destroyed pos
 
 	// Life line variables
-	public Sprite[] m_StoneSprites;
 	public Color[] m_LineLineColors;
 	public GameObject m_LineLine;
 
@@ -120,6 +126,12 @@ public class GemSpawner : MonoBehaviour
 	private int m_nHealth = MAX_HEALTH;
 	private PlayerStatistics m_PlayerStats;
 	private bool m_bGameover = false;
+	private int m_nCurrentCombo = 0;
+	private int m_nMaxCombo = 0;
+	private int m_nShowingCombo = 0;
+	private int m_nPrevCombo = 0;
+	private float m_nComboTimer = 0.0f;
+	//private float m_nComboOpacity = 0.0f;
 
 	// Gameover
 	private float m_fGameoverTimer = 0.0f;
@@ -128,7 +140,8 @@ public class GemSpawner : MonoBehaviour
 	public GameObject m_GameCanvas;
 	public GameObject m_ScoreText;
 	public GameObject m_LevelText;		//!< Debug
-	public GameObject m_HealthText;		//!< Debug
+	public GameObject m_HealthText;     //!< Debug
+	public GameObject m_ComboText;		//!< Debug
 	public GameObject m_PointsGain;
 
 	NetworkGameLogic m_Network = null;
@@ -188,8 +201,8 @@ public class GemSpawner : MonoBehaviour
 		}
 
 		// Initialising animation timer
-		m_nFrameNum = m_StoneSprites.Length;
-		for ( int i = 0; i < m_aGemList.Length; ++i )
+		m_nFrameNum = m_aGemList[0].GetComponent<GemSpriteContainer>().m_Sprites.Length;
+		for ( int i = 1; i < m_aGemList.Length; ++i )
 		{
 			int num = m_aGemList[i].GetComponent<GemSpriteContainer>().m_Sprites.Length;
 			m_nFrameNum = m_nFrameNum > num ? num : m_nFrameNum;
@@ -206,14 +219,24 @@ public class GemSpawner : MonoBehaviour
 		m_nPrevPoints = 0;
 		m_nPointTimer = 0.0f;
 		m_nHealth = MAX_HEALTH;
+		m_nCurrentCombo = 0;
+		m_nMaxCombo = 0;
+		m_nShowingCombo = 0;
+		m_nPrevCombo = 0;
+		m_nComboTimer = 0.0f;
 		m_HealthText.GetComponent<Text>().text = m_nHealth.ToString();
+		m_ComboText.GetComponent<Text>().text = "Combo\n" + m_nCurrentCombo.ToString();
+		{
+			Color c = m_ComboText.GetComponent<Text>().color;
+			c.a = 0.0f;
+			m_ComboText.GetComponent<Text>().color = c;
+		}
 		m_LineLine.GetComponent<SpriteRenderer>().color = GetLifeLineColour();
 		m_fSpawnRate = BASE_SPAWN_RATE - m_nLevel * SPAWN_RATE_GROWTH;
 		m_fBaseGemDropSpeed = m_HalfDimension.y * 2.0f / (BASE_GEM_DROP_TIME - (m_nLevel / 2) * GEM_DROP_TIME_GROWTH);
 
 		m_PlayerStats = GameObject.FindGameObjectWithTag( "Player Statistics" ).GetComponent<PlayerStatistics>();
 		m_PlayerStats.m_aGems = m_aGemList;
-		m_PlayerStats.m_StoneSprites = m_StoneSprites;
 		m_PlayerStats.m_aDestroyCount = new int [m_aGemList.Length];
 		for (int i = 0; i < m_aGemList.Length; ++i)
 		{
@@ -231,6 +254,14 @@ public class GemSpawner : MonoBehaviour
 		if ( NetworkManager.IsConnected() )
 		{
 			m_Network = GameObject.Find( "Network Manager" ).GetComponent<NetworkGameLogic>();
+		}
+
+		// Gem details
+		m_GemDetails = GameObject.FindGameObjectWithTag( "Gem Details" ).GetComponent<GemDetails>();
+		if ( m_GemDetails != null )
+		{
+			Debug.Log( "Reset explosion!" );
+			m_GemExplosionPrefab = m_GemDetails.m_GemSet.m_Explosion;
 		}
 	}
 
@@ -269,6 +300,7 @@ public class GemSpawner : MonoBehaviour
 		UpdateGems();
 		AnimateGems();
 		AnimatePoints();
+		AnimateCombo();
 
 		CheckGameOver();
 		UpdateGameover();
@@ -407,12 +439,14 @@ public class GemSpawner : MonoBehaviour
 		{
 			int healthReduce = m_GemsToBeDestroyed.Count * HEALTH_LOST_PER_GEM;
 			// RPC health
-			if ( m_GemsToBeDestroyed.Count > 0 )
+			if ( NetworkManager.IsConnected() && m_GemsToBeDestroyed.Count > 0 )
 			{
 				// Ensure both side die together
 				m_Network.UpdateHealth( m_nHealth <= healthReduce ? -MAX_HEALTH : -healthReduce );
 			}
-				
+
+			if ( m_GemsToBeDestroyed.Count > 0 )
+				BreakCombo();
 
 			m_nHealth -= healthReduce;
 			m_HealthText.GetComponent<Text>().text = m_nHealth.ToString();
@@ -463,7 +497,7 @@ public class GemSpawner : MonoBehaviour
 						}
 						else if( gem.GetComponent<Gem>().Petrified )
 						{
-							gem.GetComponent<SpriteRenderer>().sprite = m_StoneSprites[frame];
+							gem.GetComponent<SpriteRenderer>().sprite = gem.GetComponent<GemSpriteContainer>().m_StoneSprites[frame];
 						}
 						else
 						{
@@ -533,6 +567,9 @@ public class GemSpawner : MonoBehaviour
 			else
 			{
 				m_Link.BreakLink();
+
+				// Reset combo count
+				BreakCombo();
 
 				// Repel effect
 				CreateRepel( g );
@@ -610,6 +647,18 @@ public class GemSpawner : MonoBehaviour
 		m_nPoints += pointsGain;
 	}
 
+	void StartRollingCombo(int comboGain)
+	{
+		m_nComboTimer = 0.0f;
+		m_nPrevCombo = m_nCurrentCombo;
+		m_nCurrentCombo += comboGain;
+
+		Color c = m_ComboText.GetComponent<Text>().color;
+		c.a = 1.0f;
+		m_ComboText.GetComponent<Text>().color = c;
+		//m_nComboOpacity = 1.0f;
+	}
+
 	bool UnlinkGems()
 	{
 		if ( !m_Link.CheckForDestroy )
@@ -624,6 +673,12 @@ public class GemSpawner : MonoBehaviour
 			StartRollingPoints( pointsGain );
 			m_PlayerStats.m_nScore = m_nPoints;
 
+			// Combo
+			//m_nCurrentCombo += m_LinkedGem.Count;
+			m_PlayerStats.m_nMaxCombo = m_nMaxCombo = Math.Max( m_nMaxCombo, m_nCurrentCombo );
+			StartRollingCombo( m_LinkedGem.Count );
+
+			// Health
 			m_nHealth += HEALTH_GAIN_PER_LINK + ( m_LinkedGem.Count - 3 ) * HEALTH_GAIN_PER_LINK;
 			m_HealthText.GetComponent<Text>().text = m_nHealth.ToString();
 			m_LineLine.GetComponent<SpriteRenderer>().color = GetLifeLineColour();
@@ -812,6 +867,11 @@ public class GemSpawner : MonoBehaviour
 		gem.GetComponent<Gem>().GemType = gemType;
 		gem.GetComponent<Gem>().SequenceIndex = m_nSequenceIndexFromList;
 
+		if ( m_GemDetails != null )
+		{
+			SetGemSpriteContainer( gem.GetComponent<GemSpriteContainer>(), gemType );
+		}
+
 		// Updating live info
 		m_aGemCount[gemType]++;
 		m_nTotalGemCount++;
@@ -922,6 +982,11 @@ public class GemSpawner : MonoBehaviour
 		StartRollingPoints( pointsGain );
 		m_PlayerStats.m_nScore = m_nPoints;
 
+		// Sychron Combo
+		//m_nCurrentCombo += ids.Length;
+		m_PlayerStats.m_nMaxCombo = m_nMaxCombo = Math.Max( m_nMaxCombo, m_nCurrentCombo );
+		StartRollingCombo( ids.Length );
+
 		// Sychron health
 		m_nHealth += HEALTH_GAIN_PER_LINK + ( ids.Length - 3 ) * HEALTH_GAIN_PER_LINK;
 		m_HealthText.GetComponent<Text>().text = m_nHealth.ToString();
@@ -1004,6 +1069,11 @@ public class GemSpawner : MonoBehaviour
 		StartRollingPoints( pointsGain );
 		m_PlayerStats.m_nScore = m_nPoints;
 
+		// Sychron Combo
+		//m_nCurrentCombo += ids.Length;
+		m_PlayerStats.m_nMaxCombo = m_nMaxCombo = Math.Max( m_nMaxCombo, m_nCurrentCombo );
+		StartRollingCombo( ids.Length );
+
 		// Sychron health
 		m_nHealth += HEALTH_GAIN_PER_LINK + ( ids.Length - 3 ) * HEALTH_GAIN_PER_LINK;
 		m_HealthText.GetComponent<Text>().text = m_nHealth.ToString();
@@ -1081,6 +1151,7 @@ public class GemSpawner : MonoBehaviour
 				if ( p && p.instantiationId == id )
 				{
 					CreateRepel( m_Gems[i][j].GetComponent<Gem>() );
+					BreakCombo();
 					return;
 				}
 			}
@@ -1092,6 +1163,7 @@ public class GemSpawner : MonoBehaviour
 			if ( p && p.instantiationId == id )
 			{
 				CreateRepel( m_StonedGems[j].GetComponent<Gem>() );
+				BreakCombo();
 				return;
 			}
 		}
@@ -1103,6 +1175,11 @@ public class GemSpawner : MonoBehaviour
 		m_HealthText.GetComponent<Text>().text = m_nHealth.ToString();
 		m_LineLine.GetComponent<SpriteRenderer>().color = GetLifeLineColour();
 		m_GemsToBeDestroyed.Clear();
+
+		if( healthGain < 0 )
+		{
+			BreakCombo();
+		}
 	}
 
 	public void PetrifyGem( Gem gem )
@@ -1111,7 +1188,7 @@ public class GemSpawner : MonoBehaviour
 		m_nTotalGemCount--;
 		m_Gems[gem.Lane].Remove( gem.gameObject );
 		m_StonedGems.Add( gem.gameObject );
-		gem.GetComponent<SpriteRenderer>().sprite = m_StoneSprites[0];
+		gem.GetComponent<SpriteRenderer>().sprite = gem.GetComponent<GemSpriteContainer>().m_StoneSprites[0];
 		gem.Petrified = true;
 
 		m_lFailedSequenceCount[gem.GetComponent<Gem>().SequenceIndex]++;
@@ -1168,6 +1245,20 @@ public class GemSpawner : MonoBehaviour
 		}
 	}
 
+	void AnimateCombo()
+	{
+		m_nComboTimer += Time.deltaTime;
+
+		if ( m_nComboTimer < TIME_TO_ACTUAL_COMBO + Time.deltaTime )
+		{
+			m_nComboTimer = m_nComboTimer > TIME_TO_ACTUAL_COMBO ? TIME_TO_ACTUAL_COMBO : m_nComboTimer;
+			m_nShowingCombo = ( int )( ( m_nComboTimer / TIME_TO_ACTUAL_COMBO ) * ( m_nCurrentCombo - m_nPrevCombo ) ) + m_nPrevCombo;
+			m_ComboText.GetComponent<Text>().text = "Combo\n" + m_nShowingCombo.ToString();
+		}
+
+		//m_nComboOpacity -= COMBO_FADE_TIME_RECIPROCAL * Time.deltaTime;
+	}
+
 	bool DidGemCollide( Gem lhs, Gem rhs )
 	{
 		Collider2D lc = lhs.GetComponentInChildren<CircleCollider2D>();
@@ -1200,6 +1291,14 @@ public class GemSpawner : MonoBehaviour
 		Color c = c1 + interpolate * ( c2 - c1 );
 
 		return c;
+	}
+
+	public void SetGemSpriteContainer( GemSpriteContainer gemSpriteContainer, int gemType )
+	{
+		if( m_GemDetails != null )
+		{
+			m_GemDetails.SetGemSpriteContainer( gemSpriteContainer, gemType );
+		}
 	}
 
 	void CheckGameOver()
@@ -1261,6 +1360,19 @@ public class GemSpawner : MonoBehaviour
 		{
 			Destroy( gem.gameObject );
 		}
+	}
+
+	void BreakCombo()
+	{
+		// @todo check if current combo more than 1, shake screen?
+
+		m_nCurrentCombo = 0;
+		m_ComboText.GetComponent<Text>().text = "Combo\n" + m_nCurrentCombo.ToString();
+
+		Color c = m_ComboText.GetComponent<Text>().color;
+		c.a = 0.0f;
+		m_ComboText.GetComponent<Text>().color = c;
+		//m_nComboOpacity = 0.0f;
 	}
 
 	static void GoToScore()

@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11467488}
   m_Layer: 0
   m_Name: GemSpawner
-  m_TagString: Untagged
+  m_TagString: Gem Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,7 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LinkPrefab: {fileID: 172590, guid: e99517f9ed51b464084ea23e9ac04699, type: 2}
-  m_LinkObject: {fileID: 0}
   m_LinkColours:
   - {r: 1, g: 0.2647059, b: 0.2647059, a: 1}
   - {r: 0.41911763, g: 0.6875254, b: 1, a: 1}
@@ -69,11 +68,6 @@ MonoBehaviour:
   - {fileID: 171214, guid: ec100b021c0fa6f4f8bcc93abb6390cc, type: 2}
   - {fileID: 155920, guid: facd8452dfcaa7c4a815bb99e27b1405, type: 2}
   - {fileID: 118428, guid: d88d24f851ecfe8429c5705dd562a899, type: 2}
-  m_StoneSprites:
-  - {fileID: 21300000, guid: f5eb4a3774574b74fa018e9b005c64e0, type: 3}
-  - {fileID: 21300000, guid: 3b7c608e69da801448faf765fde82a73, type: 3}
-  - {fileID: 21300000, guid: 3e4006b7c797df045a032247df66c21d, type: 3}
-  - {fileID: 21300000, guid: 69a28c1e75811f046935154736c76d34, type: 3}
   m_LineLineColors:
   - {r: 1, g: 0.26666668, b: 0.26666668, a: 1}
   - {r: 1, g: 0.43448275, b: 0, a: 1}
@@ -88,6 +82,7 @@ MonoBehaviour:
   m_ScoreText: {fileID: 0}
   m_LevelText: {fileID: 0}
   m_HealthText: {fileID: 0}
+  m_ComboText: {fileID: 0}
   m_PointsGain: {fileID: 128640, guid: faf7eddd0b5fba4419c6d517005cc3f0, type: 2}
 --- !u!1001 &100100000
 Prefab:

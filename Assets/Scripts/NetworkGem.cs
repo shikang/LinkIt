@@ -103,6 +103,7 @@ public class NetworkGem : Photon.MonoBehaviour
 		if ( !NetworkManager.IsPlayerOne() )
 		{
 			spawner.AddNetworkGem( this );
+			spawner.SetGemSpriteContainer( GetComponent<GemSpriteContainer>(), gemType );
 		}
 	}
 }

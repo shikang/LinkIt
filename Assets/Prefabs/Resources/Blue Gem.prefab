@@ -163,6 +163,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 013e0d53f9bccb64cb656f0c66b98612, type: 3}
   - {fileID: 21300000, guid: 7cd308308f4afc14c80379519825a505, type: 3}
   - {fileID: 21300000, guid: 1de49fe57c3c5e04e924796b8f447303, type: 3}
+  m_StoneSprites:
+  - {fileID: 21300000, guid: f5eb4a3774574b74fa018e9b005c64e0, type: 3}
+  - {fileID: 21300000, guid: 3b7c608e69da801448faf765fde82a73, type: 3}
+  - {fileID: 21300000, guid: 3e4006b7c797df045a032247df66c21d, type: 3}
+  - {fileID: 21300000, guid: 69a28c1e75811f046935154736c76d34, type: 3}
 --- !u!212 &21222516
 SpriteRenderer:
   m_ObjectHideFlags: 1
