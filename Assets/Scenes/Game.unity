@@ -759,43 +759,9 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 467552710}
-    - target: {fileID: 117392, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22451490, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -82
-      objectReference: {fileID: 0}
-    - target: {fileID: 11429442, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_Text
-      value: 'Combo
-
-        100'
-      objectReference: {fileID: 0}
-    - target: {fileID: 11429442, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_FontData.m_Alignment
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 22486908, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 207.67
-      objectReference: {fileID: 0}
     - target: {fileID: 22486908, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -138
-      objectReference: {fileID: 0}
-    - target: {fileID: 11429442, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_FontData.m_FontSize
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 22486908, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 356
-      objectReference: {fileID: 0}
-    - target: {fileID: 22486908, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 118
+      value: -218
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
@@ -803,6 +769,10 @@ Prefab:
 --- !u!1 &1354954216 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 107848, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
+  m_PrefabInternal: {fileID: 1247211743}
+--- !u!1 &1385603239 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 120262, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
   m_PrefabInternal: {fileID: 1247211743}
 --- !u!1001 &1432215904
 Prefab:
@@ -986,7 +956,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!1 &1720704548 stripped
 GameObject:
-  m_PrefabParentObject: {fileID: 120262, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
+  m_PrefabParentObject: {fileID: 110844, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
   m_PrefabInternal: {fileID: 1247211743}
 --- !u!1001 &1742768402
 Prefab:
@@ -1097,6 +1067,10 @@ Prefab:
       propertyPath: m_ComboText
       value: 
       objectReference: {fileID: 1720704548}
+    - target: {fileID: 11467488, guid: 13445aaefa94b584cba5e58d98946d2e, type: 2}
+      propertyPath: m_PraiseText
+      value: 
+      objectReference: {fileID: 1385603239}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 13445aaefa94b584cba5e58d98946d2e, type: 2}
   m_IsPrefabParent: 0

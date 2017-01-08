@@ -83,6 +83,7 @@ MonoBehaviour:
   m_LevelText: {fileID: 0}
   m_HealthText: {fileID: 0}
   m_ComboText: {fileID: 0}
+  m_PraiseText: {fileID: 0}
   m_PointsGain: {fileID: 128640, guid: faf7eddd0b5fba4419c6d517005cc3f0, type: 2}
 --- !u!1001 &100100000
 Prefab:

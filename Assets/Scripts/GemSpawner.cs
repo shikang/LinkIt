@@ -30,6 +30,10 @@ public class GemSpawner : MonoBehaviour
 	public const float TIME_TO_ACTUAL_POINTS = 0.5f;    //!< In seconds
 	public const float TIME_TO_ACTUAL_COMBO = 0.25f;    //!< In seconds
 	public const float TIME_TO_COMBO_FADE = 2.0f;       //!< In seconds
+	public const float TIME_TO_PRAISE_FADE = 2.0f;      //!< In seconds
+
+	public const float PRAISE_START_Y = 218.0f;
+	public const float PRAISE_MOVE_DISTANCE = 0.4f;
 
 	public const float COMBO_FADE_TIME_RECIPROCAL = 1.0f / TIME_TO_COMBO_FADE;
 
@@ -47,6 +51,8 @@ public class GemSpawner : MonoBehaviour
 	public const int HEALTH_LOST_PER_GEM = 10;
 	public const int HEALTH_GAIN_PER_LINK = 1;
 	public const int MAX_HEALTH = 100;
+
+	public readonly string[] PRAISE_ARRAY = { "", "", "", "Good", "Great", "Incredible!", "Awesome!" };
 
 	bool m_bGameStart = false;
 
@@ -122,7 +128,7 @@ public class GemSpawner : MonoBehaviour
 	private int m_nPoints = 0;
 	private int m_nShowingPoints = 0;
 	private int m_nPrevPoints = 0;
-	private float m_nPointTimer = 0.0f;
+	private float m_fPointTimer = 0.0f;
 	private int m_nHealth = MAX_HEALTH;
 	private PlayerStatistics m_PlayerStats;
 	private bool m_bGameover = false;
@@ -130,8 +136,10 @@ public class GemSpawner : MonoBehaviour
 	private int m_nMaxCombo = 0;
 	private int m_nShowingCombo = 0;
 	private int m_nPrevCombo = 0;
-	private float m_nComboTimer = 0.0f;
+	private float m_fComboTimer = 0.0f;
 	//private float m_nComboOpacity = 0.0f;
+	private float m_fPraiseTimer = 0.0f;
+	private Vector3 m_PraisePos;
 
 	// Gameover
 	private float m_fGameoverTimer = 0.0f;
@@ -141,7 +149,8 @@ public class GemSpawner : MonoBehaviour
 	public GameObject m_ScoreText;
 	public GameObject m_LevelText;		//!< Debug
 	public GameObject m_HealthText;     //!< Debug
-	public GameObject m_ComboText;		//!< Debug
+	public GameObject m_ComboText;
+	public GameObject m_PraiseText;
 	public GameObject m_PointsGain;
 
 	NetworkGameLogic m_Network = null;
@@ -217,23 +226,17 @@ public class GemSpawner : MonoBehaviour
 		m_nPoints = 0;
 		m_nShowingPoints = 0;
 		m_nPrevPoints = 0;
-		m_nPointTimer = 0.0f;
+		m_fPointTimer = 0.0f;
 		m_nHealth = MAX_HEALTH;
 		m_nCurrentCombo = 0;
 		m_nMaxCombo = 0;
 		m_nShowingCombo = 0;
 		m_nPrevCombo = 0;
-		m_nComboTimer = 0.0f;
-		m_HealthText.GetComponent<Text>().text = m_nHealth.ToString();
-		m_ComboText.GetComponent<Text>().text = "Combo\n" + m_nCurrentCombo.ToString();
-		{
-			Color c = m_ComboText.GetComponent<Text>().color;
-			c.a = 0.0f;
-			m_ComboText.GetComponent<Text>().color = c;
-		}
-		m_LineLine.GetComponent<SpriteRenderer>().color = GetLifeLineColour();
+		m_fComboTimer = 0.0f;
+		m_fPraiseTimer = 0.0f;
+		m_PraisePos = m_PraiseText.transform.position;
 		m_fSpawnRate = BASE_SPAWN_RATE - m_nLevel * SPAWN_RATE_GROWTH;
-		m_fBaseGemDropSpeed = m_HalfDimension.y * 2.0f / (BASE_GEM_DROP_TIME - (m_nLevel / 2) * GEM_DROP_TIME_GROWTH);
+		m_fBaseGemDropSpeed = m_HalfDimension.y * 2.0f / ( BASE_GEM_DROP_TIME - ( m_nLevel / 2 ) * GEM_DROP_TIME_GROWTH );
 
 		m_PlayerStats = GameObject.FindGameObjectWithTag( "Player Statistics" ).GetComponent<PlayerStatistics>();
 		m_PlayerStats.m_aGems = m_aGemList;
@@ -242,6 +245,23 @@ public class GemSpawner : MonoBehaviour
 		{
 			m_PlayerStats.m_aDestroyCount[i] = 0;
 		}
+
+		// Texts and display
+		m_HealthText.GetComponent<Text>().text = m_nHealth.ToString();
+		m_ComboText.GetComponent<Text>().text = "Combo\n" + m_nCurrentCombo.ToString();
+		{
+			Color c = m_ComboText.GetComponent<Text>().color;
+			c.a = 0.0f;
+			m_ComboText.GetComponent<Text>().color = c;
+		}
+		{
+			m_PraiseText.GetComponent<Text>().text = "";
+
+			Color c = m_PraiseText.GetComponent<Text>().color;
+			c.a = 0.0f;
+			m_PraiseText.GetComponent<Text>().color = c;
+		}
+		m_LineLine.GetComponent<SpriteRenderer>().color = GetLifeLineColour();
 
 		// Gameover
 		m_bGameover = false;
@@ -301,6 +321,7 @@ public class GemSpawner : MonoBehaviour
 		AnimateGems();
 		AnimatePoints();
 		AnimateCombo();
+		AnimatePraise();
 
 		CheckGameOver();
 		UpdateGameover();
@@ -642,14 +663,14 @@ public class GemSpawner : MonoBehaviour
 
 	void StartRollingPoints( int pointsGain )
 	{
-		m_nPointTimer = 0.0f;
+		m_fPointTimer = 0.0f;
 		m_nPrevPoints = m_nPoints;
 		m_nPoints += pointsGain;
 	}
 
 	void StartRollingCombo(int comboGain)
 	{
-		m_nComboTimer = 0.0f;
+		m_fComboTimer = 0.0f;
 		m_nPrevCombo = m_nCurrentCombo;
 		m_nCurrentCombo += comboGain;
 
@@ -657,6 +678,20 @@ public class GemSpawner : MonoBehaviour
 		c.a = 1.0f;
 		m_ComboText.GetComponent<Text>().color = c;
 		//m_nComboOpacity = 1.0f;
+	}
+
+	void StartPraising( int gemLinked )
+	{
+		m_fPraiseTimer = 0.0f;
+
+		Color c = m_PraiseText.GetComponent<Text>().color;
+		c.a = 1.0f;
+		m_PraiseText.GetComponent<Text>().color = c;
+
+		int index = Math.Min( Math.Max( gemLinked - 1, 0 ), PRAISE_ARRAY.Length - 1 );
+		m_PraiseText.GetComponent<Text>().text = PRAISE_ARRAY[index];
+
+		m_PraiseText.transform.position = m_PraisePos;
 	}
 
 	bool UnlinkGems()
@@ -677,6 +712,9 @@ public class GemSpawner : MonoBehaviour
 			//m_nCurrentCombo += m_LinkedGem.Count;
 			m_PlayerStats.m_nMaxCombo = m_nMaxCombo = Math.Max( m_nMaxCombo, m_nCurrentCombo );
 			StartRollingCombo( m_LinkedGem.Count );
+
+			// Praise
+			StartPraising( m_LinkedGem.Count );
 
 			// Health
 			m_nHealth += HEALTH_GAIN_PER_LINK + ( m_LinkedGem.Count - 3 ) * HEALTH_GAIN_PER_LINK;
@@ -1235,28 +1273,43 @@ public class GemSpawner : MonoBehaviour
 
 	void AnimatePoints()
 	{
-		m_nPointTimer += Time.deltaTime;
+		m_fPointTimer += Time.deltaTime;
 
-		if ( m_nPointTimer < TIME_TO_ACTUAL_POINTS + Time.deltaTime )
+		if ( m_fPointTimer < TIME_TO_ACTUAL_POINTS + Time.deltaTime )
 		{
-			m_nPointTimer = m_nPointTimer > TIME_TO_ACTUAL_POINTS ? TIME_TO_ACTUAL_POINTS : m_nPointTimer;
-			m_nShowingPoints = ( int )( ( m_nPointTimer / TIME_TO_ACTUAL_POINTS ) * ( m_nPoints - m_nPrevPoints ) ) + m_nPrevPoints;
+			m_fPointTimer = m_fPointTimer > TIME_TO_ACTUAL_POINTS ? TIME_TO_ACTUAL_POINTS : m_fPointTimer;
+			m_nShowingPoints = ( int )( ( m_fPointTimer / TIME_TO_ACTUAL_POINTS ) * ( m_nPoints - m_nPrevPoints ) ) + m_nPrevPoints;
 			m_ScoreText.GetComponent<Text>().text = m_nShowingPoints.ToString();
 		}
 	}
 
 	void AnimateCombo()
 	{
-		m_nComboTimer += Time.deltaTime;
+		m_fComboTimer += Time.deltaTime;
 
-		if ( m_nComboTimer < TIME_TO_ACTUAL_COMBO + Time.deltaTime )
+		if ( m_fComboTimer < TIME_TO_ACTUAL_COMBO + Time.deltaTime )
 		{
-			m_nComboTimer = m_nComboTimer > TIME_TO_ACTUAL_COMBO ? TIME_TO_ACTUAL_COMBO : m_nComboTimer;
-			m_nShowingCombo = ( int )( ( m_nComboTimer / TIME_TO_ACTUAL_COMBO ) * ( m_nCurrentCombo - m_nPrevCombo ) ) + m_nPrevCombo;
+			m_fComboTimer = m_fComboTimer > TIME_TO_ACTUAL_COMBO ? TIME_TO_ACTUAL_COMBO : m_fComboTimer;
+			m_nShowingCombo = ( int )( ( m_fComboTimer / TIME_TO_ACTUAL_COMBO ) * ( m_nCurrentCombo - m_nPrevCombo ) ) + m_nPrevCombo;
 			m_ComboText.GetComponent<Text>().text = "Combo\n" + m_nShowingCombo.ToString();
 		}
 
 		//m_nComboOpacity -= COMBO_FADE_TIME_RECIPROCAL * Time.deltaTime;
+	}
+
+	void AnimatePraise()
+	{
+		m_fPraiseTimer += Time.deltaTime;
+		m_fPraiseTimer = Math.Min(TIME_TO_PRAISE_FADE, m_fPraiseTimer);
+
+		float factor = m_fPraiseTimer / TIME_TO_PRAISE_FADE;
+		Color c = m_PraiseText.GetComponent<Text>().color;
+		c.a = 1.0f - ( float )Math.Pow( factor, 2.0 );
+		m_PraiseText.GetComponent<Text>().color = c;
+
+		Vector3 pos = m_PraiseText.transform.position;
+		pos.y = m_PraisePos.y + factor * PRAISE_MOVE_DISTANCE;
+		m_PraiseText.transform.position = pos;
 	}
 
 	bool DidGemCollide( Gem lhs, Gem rhs )
