@@ -39,6 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81cbe1e3717d97f4487c6828c501ca61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_sGemContainerSetName: Gem Set
   m_RedGemSpritesSet:
   - {fileID: 21300000, guid: dc2c855f10d13a54892b363c372ae9dd, type: 3}
   - {fileID: 21300000, guid: 2dbc4b8430187034482fbe93dee9ab7c, type: 3}

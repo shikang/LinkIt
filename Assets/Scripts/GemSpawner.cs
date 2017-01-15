@@ -170,7 +170,16 @@ public class GemSpawner : MonoBehaviour
 		m_fLaneWidth = m_HalfDimension.x * 2.0f / LANE_NUM;
 		//m_fBaseGemDropSpeed = m_HalfDimension.y * 2.0f / BASE_GEM_DROP_TIME;
 
-		m_nGemTypeNum = m_aGemList.Length;
+		// Gem details
+		m_GemDetails = GameObject.FindGameObjectWithTag("Gem Details").GetComponent<GemDetails>();
+		if (m_GemDetails != null)
+		{
+			Debug.Log("Reset explosion!");
+			m_GemExplosionPrefab = m_GemDetails.m_GemSet.m_Explosion;
+		}
+
+		//m_nGemTypeNum = m_aGemList.Length;
+		m_nGemTypeNum = GemContainerSet.GEM_SET_NUM;
 
 		// Initialise spawning history variables
 		m_PreviousLanes = Enumerable.Repeat( INVALID_LANE, LOOKBACK_NUM ).ToList();
@@ -210,12 +219,21 @@ public class GemSpawner : MonoBehaviour
 		}
 
 		// Initialising animation timer
+		/*
 		m_nFrameNum = m_aGemList[0].GetComponent<GemSpriteContainer>().m_Sprites.Length;
 		for ( int i = 1; i < m_aGemList.Length; ++i )
 		{
 			int num = m_aGemList[i].GetComponent<GemSpriteContainer>().m_Sprites.Length;
 			m_nFrameNum = m_nFrameNum > num ? num : m_nFrameNum;
 		}
+		*/
+		m_nFrameNum = m_GemDetails.GetComponent< GemDetails >().m_GemSet.GetGemContainer( 0 ).Length;
+		for (int i = 1; i < GemContainerSet.GEM_SET_NUM; ++i)
+		{
+			int num = m_GemDetails.GetComponent< GemDetails >().m_GemSet.GetGemContainer( i ).Length;
+			m_nFrameNum = m_nFrameNum > num ? num : m_nFrameNum;
+		}
+
 		m_fAnimationIntervalTimer = 0.0f;
 		m_fAnimationTimer = 0.0f;
 		m_bAnimating = false;
@@ -239,6 +257,7 @@ public class GemSpawner : MonoBehaviour
 		m_fBaseGemDropSpeed = m_HalfDimension.y * 2.0f / ( BASE_GEM_DROP_TIME - ( m_nLevel / 2 ) * GEM_DROP_TIME_GROWTH );
 
 		m_PlayerStats = GameObject.FindGameObjectWithTag( "Player Statistics" ).GetComponent<PlayerStatistics>();
+
 		m_PlayerStats.m_aGems = m_aGemList;
 		m_PlayerStats.m_aDestroyCount = new int [m_aGemList.Length];
 		for (int i = 0; i < m_aGemList.Length; ++i)
@@ -276,13 +295,6 @@ public class GemSpawner : MonoBehaviour
 			m_Network = GameObject.Find( "Network Manager" ).GetComponent<NetworkGameLogic>();
 		}
 
-		// Gem details
-		m_GemDetails = GameObject.FindGameObjectWithTag( "Gem Details" ).GetComponent<GemDetails>();
-		if ( m_GemDetails != null )
-		{
-			Debug.Log( "Reset explosion!" );
-			m_GemExplosionPrefab = m_GemDetails.m_GemSet.m_Explosion;
-		}
 	}
 
 	public void PrepareFailList()
@@ -921,6 +933,12 @@ public class GemSpawner : MonoBehaviour
 		Gem gem = ng.GetComponent<Gem>();
 		int lane = gem.Lane;
 		//int gemType = gem.GemType;
+
+		// Change to user sprite
+		if ( m_GemDetails != null )
+		{
+			SetGemSpriteContainer( gem.GetComponent<GemSpriteContainer>(), gem.GemType );
+		}
 
 		// Updating live info
 		//m_aGemCount[gemType]++;

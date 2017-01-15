@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11490390}
   m_Layer: 0
   m_Name: GemDetails
-  m_TagString: Untagged
+  m_TagString: Gem Details
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07be55235e7255a4a836af8e29785436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mGemSet: {fileID: 0}
+  m_GemSet: {fileID: 11423140, guid: 7ab95070285ef6e4e85b175f16307a2d, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

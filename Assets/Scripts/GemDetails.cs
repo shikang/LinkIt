@@ -10,6 +10,7 @@ public class GemDetails : MonoBehaviour
 	{
 		DontDestroyOnLoad( this );
 
+		// @todo Load once in main menu.
 		SaveLoad.Load();
 		GemLibrary gemLibrary = GameObject.Find( "Gem Library" ).GetComponent<GemLibrary>();
 		m_GemSet = gemLibrary.m_GemsSetList[ (int)GameData.Instance.m_EquippedGemSet ];
@@ -17,6 +18,12 @@ public class GemDetails : MonoBehaviour
 
 	public void SetGemSpriteContainer( GemSpriteContainer gemSpriteContainer, int gemType )
 	{
+		gemSpriteContainer.GetComponent<SpriteRenderer>().sprite = m_GemSet.GetGemContainer( gemType )[0];
+		gemSpriteContainer.m_Sprites = m_GemSet.GetGemContainer( gemType );
+		gemSpriteContainer.m_GlowSprites = m_GemSet.GetGlowGemContainer( gemType );
+		gemSpriteContainer.m_StoneSprites = m_GemSet.GetStoneGemContainer( gemType );
+
+		/*
 		switch ( gemType )
 		{
 			case 0:
@@ -42,7 +49,8 @@ public class GemDetails : MonoBehaviour
 			default:
 				break;
 		}
+		*/
 	}
 
-	// @todo Equip
+	// @todo Equip (Set gem set)
 }

@@ -41,6 +41,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GemsSetList:
   - {fileID: 11423140, guid: e57c0bb8f97259045a325d88891c9a6b, type: 2}
+  - {fileID: 11423140, guid: 7ab95070285ef6e4e85b175f16307a2d, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
