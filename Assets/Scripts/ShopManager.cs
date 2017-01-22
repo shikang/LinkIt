@@ -8,7 +8,6 @@ public class ShopManager : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		SaveLoad.Load();
 	}
 	
 	// Update is called once per frame

@@ -6,10 +6,10 @@ public class GemLibrary : MonoBehaviour
 {
 	public enum GemSet
 	{
-		GEM = 0,
+		GEM = 0,		//!< Default
 		BELL,
-		FRUITS,		// Apple, Blueberry, WaterMelon, Banana
-		VEGGIE,		// Tomato, Eggplant, Veggie, Potato
+		//FRUITS,		// Apple, Blueberry, WaterMelon, Banana
+		//VEGGIE,		// Tomato, Eggplant, Veggie, Potato
 
 		TOTAL
 	}

@@ -5,15 +5,24 @@ public class GemDetails : MonoBehaviour
 {
 	public GemContainerSet m_GemSet;
 
+	GemLibrary m_GemLibrary;
+
 	// Use this for initialization
 	void Start ()
 	{
 		DontDestroyOnLoad( this );
 
-		// @todo Load once in main menu.
-		SaveLoad.Load();
-		GemLibrary gemLibrary = GameObject.Find( "Gem Library" ).GetComponent<GemLibrary>();
-		m_GemSet = gemLibrary.m_GemsSetList[ (int)GameData.Instance.m_EquippedGemSet ];
+		m_GemLibrary = GameObject.Find( "Gem Library" ).GetComponent<GemLibrary>();
+
+		// If gem set is inside the inventory
+		if ( GameData.Instance.m_Sets.Contains( GameData.Instance.m_EquippedGemSet ) )
+		{
+			m_GemSet = m_GemLibrary.m_GemsSetList[ (int)GameData.Instance.m_EquippedGemSet ];
+		}
+		else
+		{
+			EquipGemSet( GemLibrary.GemSet.GEM );
+		}
 	}
 
 	public void SetGemSpriteContainer( GemSpriteContainer gemSpriteContainer, int gemType )
@@ -52,5 +61,11 @@ public class GemDetails : MonoBehaviour
 		*/
 	}
 
-	// @todo Equip (Set gem set)
+	// Equip (Set gem set)
+	public void EquipGemSet( GemLibrary.GemSet gemSet )
+	{
+		m_GemSet = m_GemLibrary.m_GemsSetList[ (int)gemSet];
+		GameData.Instance.m_EquippedGemSet = gemSet;
+		SaveLoad.Save();
+	}
 }

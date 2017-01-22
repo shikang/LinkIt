@@ -1378,6 +1378,7 @@ public class GemSpawner : MonoBehaviour
 		{
 			m_bGameover = true;
 			m_Link.BreakLink();
+			BreakCombo();
 			m_Link.CheckForDestroy = false;
 			foreach ( Gem g in m_LinkedGem )
 			{
@@ -1401,6 +1402,9 @@ public class GemSpawner : MonoBehaviour
 
 	void CreateLink()
 	{
+		if ( m_bGameover )
+			return;
+
 		if ( NetworkManager.IsConnected() )
 		{
 			m_LinkObject = PhotonNetwork.Instantiate( "Link", Vector3.zero, Quaternion.identity, 0 );
