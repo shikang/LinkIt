@@ -1,22 +1,43 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ShopManager : MonoBehaviour
 {
 	const int PER_BUY = 100;
 
+	public GemLibrary m_GemLibrary;
+	public GameObject m_ItemContent;
+
+	public GameObject m_ItemPrefab;
+
 	// Use this for initialization
 	void Start ()
 	{
+		InitialiseShopList();
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		//if( Input.GetMouseButtonDown(0) )
+
+	}
+
+	void InitialiseShopList()
+	{
+		// @debug variables
+		List<GemContainerSet> gemsSetList = new List<GemContainerSet>();
+		for( int i = 0; i < 2; ++i )
 		{
-			Buy();
+			gemsSetList.Add( m_GemLibrary.m_GemsSetList[i % 2] );
 		}
+
+		// @todo Resize Item Prefab for new art assets
+		// Resize base on item count
+		RectTransform transform = m_ItemContent.GetComponent<RectTransform>();
+		Vector2 dimension = transform.sizeDelta;
+		dimension.x += 20 * ( gemsSetList.Count - 1 ); // @todo add with prefab width and padding left right
+		transform.sizeDelta = dimension;
 	}
 
 	public bool Buy()
