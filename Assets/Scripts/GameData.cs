@@ -12,6 +12,9 @@ public class GameData
 	public int m_MultiplayerHighestCombo;
 	public int m_Coin;
 	public GemLibrary.GemSet m_EquippedGemSet;
+	public List<GemLibrary.GemSet> m_GemList;
+
+	[System.NonSerialized]
 	public HashSet<GemLibrary.GemSet> m_Sets;
 
 	public GameData()
@@ -22,6 +25,7 @@ public class GameData
 		m_MultiplayerHighestCombo = 0;
 		m_Coin = 0;
 		m_EquippedGemSet = GemLibrary.GemSet.GEM;
+		m_GemList = new List<GemLibrary.GemSet>();
 		m_Sets = new HashSet<GemLibrary.GemSet>();
 	}
 }

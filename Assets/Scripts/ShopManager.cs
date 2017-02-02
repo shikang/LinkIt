@@ -60,26 +60,28 @@ public class ShopManager : MonoBehaviour
 
 	}
 
-	void SetItemIconEnable( Button itemIcon, bool enable )
+	void SetItemIconEnable( GameObject itemIcon, bool enable )
 	{
+		Button button = itemIcon.GetComponent<Button>();
+
 		float opacity = enable ? 1.0f : 0.5f;
 		float scale = enable ? 2.0f : 1.0f;
-		itemIcon.enabled = enable;
+		button.enabled = enable;
 
 		// Button color
 		{
-			ColorBlock cb = itemIcon.colors;
+			ColorBlock cb = button.colors;
 			Color c = cb.normalColor;
 			c.a = opacity;
 			cb.normalColor = c;
-			itemIcon.colors = cb;
+			button.colors = cb;
 		}
 
 		// Image color
 		{
-			Color c = itemIcon.image.color;
+			Color c = button.image.color;
 			c.a = opacity;
-			itemIcon.image.color = c;
+			button.image.color = c;
 		}
 
 		// Scale
@@ -104,6 +106,7 @@ public class ShopManager : MonoBehaviour
 			Button button = itemIcon.GetComponent<Button>();
 			button.image.sprite = m_GemLibrary.m_GemsSetList[i % 2].GetGemContainer( GemContainerSet.BLUE_GEM_CONTAINER_INDEX )[0];
 			itemIcon.GetComponentInChildren<Text>().text = m_GemLibrary.m_GemsSetList[i % 2].m_sGemContainerSetName;
+			itemIcon.GetComponent<ItemIcon>().m_ItemType = (GemLibrary.GemSet)( i % 2 );	// @debug
 
 			m_ItemIcons.Add( itemIcon );
 		}
@@ -128,7 +131,7 @@ public class ShopManager : MonoBehaviour
 			pos.z = m_ItemIconStartPos.z;
 			itemIconTransform.localPosition = pos;
 
-			SetItemIconEnable( itemIcon.GetComponent<Button>(), i == 0 );
+			SetItemIconEnable( itemIcon, i == 0 );
 		}
 
 		m_ItemPrefab.SetActive( false );
@@ -152,10 +155,10 @@ public class ShopManager : MonoBehaviour
 		for ( int i = 0; i < m_ItemIcons.Count; ++i )
 		{
 			GameObject itemIcon = m_ItemIcons[i];
-			SetItemIconEnable( itemIcon.GetComponent<Button>(), i == nIndex );
+			SetItemIconEnable( itemIcon, i == nIndex );
 		}
 
-		if ( dir.sqrMagnitude <= 1.0f )
+		if ( dir.sqrMagnitude <= HorizontalScrollSnap.SNAP_SPEED )
 		{
 			m_HorizontalScrollSnap.SetScrollStop();
 		}

@@ -23,10 +23,16 @@ public static class SaveLoad
 			GameData.Instance = ( GameData )bf.Deserialize( file );
 			file.Close();
 
-			if ( GameData.Instance.m_Sets == null )
+			if ( GameData.Instance.m_GemList == null )
 			{
-				GameData.Instance.m_Sets = new HashSet<GemLibrary.GemSet>();
+				GameData.Instance.m_GemList = new List<GemLibrary.GemSet>();
 				GameData.Instance.m_EquippedGemSet = GemLibrary.GemSet.GEM;
+			}
+
+			GameData.Instance.m_Sets = new HashSet<GemLibrary.GemSet>();
+			foreach ( GemLibrary.GemSet gemSet in GameData.Instance.m_GemList )
+			{
+				GameData.Instance.m_Sets.Add( gemSet );
 			}
 		}
 		else

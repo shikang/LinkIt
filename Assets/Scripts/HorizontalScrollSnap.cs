@@ -6,6 +6,8 @@ using System.Collections.Generic;
 [RequireComponent(typeof(ScrollRect))]
 public class HorizontalScrollSnap : MonoBehaviour
 {
+	public const float SNAP_SPEED = 1.0f;
+
 	public RectTransform m_ContentTransform;
 
 	private ShopManager m_ShopManager;
@@ -62,6 +64,11 @@ public class HorizontalScrollSnap : MonoBehaviour
 	{
 		if ( m_ScrollRect.horizontal )
 		{
+			if ( m_ScrollRect.velocity.sqrMagnitude <= SNAP_SPEED )
+			{
+				SetScrollStop();
+			}
+
 			m_bLerp = true;
 
 			if ( m_bScrollStop )
