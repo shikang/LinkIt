@@ -12,6 +12,7 @@ public class MainMenuManager : MonoBehaviour
 	{
 		MAIN_MENU,
 		CO_OP,
+		ITEM,
 	}
 
 	public GameObject m_Logo;
