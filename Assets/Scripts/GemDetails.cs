@@ -62,13 +62,16 @@ public class GemDetails : MonoBehaviour
 	}
 
 	// Equip (Set gem set)
-	public void EquipGemSet( GemLibrary.GemSet gemSet )
+	public bool EquipGemSet( GemLibrary.GemSet gemSet )
 	{
 		m_GemSet = m_GemLibrary.m_GemsSetList[ (int)gemSet ];
 		if ( GameData.Instance.m_Sets.Contains( gemSet ) )
 		{
 			GameData.Instance.m_EquippedGemSet = gemSet;
 			SaveLoad.Save();
+			return true;
 		}
+
+		return false;
 	}
 }

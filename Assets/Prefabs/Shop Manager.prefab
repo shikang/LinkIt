@@ -29,6 +29,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GemLibrary: {fileID: 0}
   m_ItemContent: {fileID: 0}
+  m_Equipped: {fileID: 0}
   m_ItemPrefab: {fileID: 0}
   m_HorizontalScrollSnap: {fileID: 0}
 --- !u!224 &22430334

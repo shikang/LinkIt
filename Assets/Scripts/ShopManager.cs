@@ -10,6 +10,7 @@ public class ShopManager : MonoBehaviour
 
 	public GemLibrary m_GemLibrary;
 	public GameObject m_ItemContent;
+	public GameObject m_Equipped;
 
 	public GameObject m_ItemPrefab;
 
@@ -17,6 +18,7 @@ public class ShopManager : MonoBehaviour
 
 	//float m_fItemContentWidth = 0.0f;
 	float m_fItemIconWidth = 0.0f;
+	Vector2 m_ItemIconDim;
 	Vector3 m_ItemIconStartPos;
 	Vector3 m_PreviousContentPos;
 
@@ -44,12 +46,15 @@ public class ShopManager : MonoBehaviour
 	{
 		//m_fItemContentWidth = m_ItemContent.GetComponent<RectTransform>().sizeDelta.x;
 		m_fItemIconWidth = m_ItemPrefab.GetComponent<RectTransform>().sizeDelta.x;
+		m_ItemIconDim = m_ItemPrefab.GetComponent<RectTransform>().sizeDelta;
 		m_ItemIconStartPos = m_ItemPrefab.GetComponent<RectTransform>().localPosition;
 
 		m_ItemContentTransform = m_ItemContent.GetComponent<RectTransform>();
 		m_ItemIcons = new List<GameObject>();
 
 		m_PreviousContentPos = m_ItemContentTransform.localPosition;
+
+		ChangeEquippedSprite( GameData.Instance.m_EquippedGemSet );
 
 		InitialiseShopList();
 	}
@@ -87,7 +92,7 @@ public class ShopManager : MonoBehaviour
 		// Scale
 		{
 			RectTransform t = itemIcon.GetComponent<RectTransform>();
-			t.localScale = scale * Vector3.one;
+			t.sizeDelta = scale * m_ItemIconDim;
 		}
 
 		// Text
@@ -130,6 +135,7 @@ public class ShopManager : MonoBehaviour
 			pos.y = m_ItemIconStartPos.y;
 			pos.z = m_ItemIconStartPos.z;
 			itemIconTransform.localPosition = pos;
+			itemIconTransform.localScale = Vector3.one;
 
 			SetItemIconEnable( itemIcon, i == 0 );
 		}
@@ -202,5 +208,11 @@ public class ShopManager : MonoBehaviour
 		}
 		*/
 		return true;
+	}
+
+	public void ChangeEquippedSprite( GemLibrary.GemSet gemType )
+	{
+		SpriteRenderer sr = m_Equipped.GetComponent<SpriteRenderer>();
+		sr.sprite = m_GemLibrary.m_GemsSetList[ (int)gemType ].GetGemContainer( GemContainerSet.BLUE_GEM_CONTAINER_INDEX )[0];
 	}
 }

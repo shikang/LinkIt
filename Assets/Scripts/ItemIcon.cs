@@ -16,6 +16,17 @@ public class ItemIcon : MonoBehaviour
 	{
 		GameObject gemDetails = GameObject.Find( "Gem Details" );
 		GemDetails gd = gemDetails.GetComponent<GemDetails>();
-		gd.EquipGemSet( m_ItemType );
+		bool equipped = gd.EquipGemSet( m_ItemType );
+
+		GameObject shopManager = GameObject.Find( "Shop Manager" );
+		ShopManager sm = shopManager.GetComponent<ShopManager>();
+		if ( equipped )
+		{
+			sm.ChangeEquippedSprite( m_ItemType );
+		}
+		else
+		{
+			// @todo In app purchase logic
+		}
 	}
 }
