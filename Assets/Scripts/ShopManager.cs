@@ -5,20 +5,39 @@ using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
-	const int PER_BUY = 100;
-	const int ITEM_PAD = 50;
+	public const int PER_BUY = 100;
+	public const int ITEM_PAD = 50;
 
 	public GemLibrary m_GemLibrary;
 	public GameObject m_ItemContent;
 
 	public GameObject m_ItemPrefab;
 
+	public HorizontalScrollSnap m_HorizontalScrollSnap;
+
 	//float m_fItemContentWidth = 0.0f;
 	float m_fItemIconWidth = 0.0f;
 	Vector3 m_ItemIconStartPos;
+	Vector3 m_PreviousContentPos;
 
 	RectTransform m_ItemContentTransform;
 	List<GameObject> m_ItemIcons;
+
+	public List<GameObject> ItemIcons
+	{
+		get
+		{
+			return m_ItemIcons;
+		}
+	}
+
+	public float ItemIconWidth
+	{
+		get
+		{
+			return m_fItemIconWidth;
+		}
+	}
 
 	// Use this for initialization
 	void Start ()
@@ -29,6 +48,8 @@ public class ShopManager : MonoBehaviour
 
 		m_ItemContentTransform = m_ItemContent.GetComponent<RectTransform>();
 		m_ItemIcons = new List<GameObject>();
+
+		m_PreviousContentPos = m_ItemContentTransform.localPosition;
 
 		InitialiseShopList();
 	}
@@ -66,6 +87,12 @@ public class ShopManager : MonoBehaviour
 			RectTransform t = itemIcon.GetComponent<RectTransform>();
 			t.localScale = scale * Vector3.one;
 		}
+
+		// Text
+		{
+			GameObject label = itemIcon.transform.GetChild( 0 ).gameObject;
+			label.SetActive( enable );
+		}
 	}
 
 	void InitialiseShopList()
@@ -76,6 +103,7 @@ public class ShopManager : MonoBehaviour
 			GameObject itemIcon = (GameObject)Instantiate( m_ItemPrefab, m_ItemIconStartPos, Quaternion.identity );
 			Button button = itemIcon.GetComponent<Button>();
 			button.image.sprite = m_GemLibrary.m_GemsSetList[i % 2].GetGemContainer( GemContainerSet.BLUE_GEM_CONTAINER_INDEX )[0];
+			itemIcon.GetComponentInChildren<Text>().text = m_GemLibrary.m_GemsSetList[i % 2].m_sGemContainerSetName;
 
 			m_ItemIcons.Add( itemIcon );
 		}
@@ -106,21 +134,30 @@ public class ShopManager : MonoBehaviour
 		m_ItemPrefab.SetActive( false );
 	}
 
-	public void OnSwipe( Vector2 dir )
+	public void OnScroll( Vector2 pos )
 	{
+		Vector3 dir = m_ItemContentTransform.localPosition - m_PreviousContentPos;
+		m_PreviousContentPos = m_ItemContentTransform.localPosition;
+
+		/*
 		float x = -m_ItemContentTransform.localPosition.x;
 		x -= m_ItemIconStartPos.x;
-		x += ( dir.x >= 0 ) ? ITEM_PAD : - 0.5f * ITEM_PAD;
+		x += ITEM_PAD;
 
 		float fIndex = x / ( m_fItemIconWidth + ITEM_PAD ) + 1.0f;
 		int nIndex = Mathf.Clamp( (int)Mathf.Round( fIndex ), 0, m_ItemIcons.Count - 1 );
-		//Debug.Log( "Float: " + index );
-		Debug.Log( "Int: " + nIndex );
+		*/
+		int nIndex = m_HorizontalScrollSnap.FindClosestIndex();
 
 		for ( int i = 0; i < m_ItemIcons.Count; ++i )
 		{
 			GameObject itemIcon = m_ItemIcons[i];
 			SetItemIconEnable( itemIcon.GetComponent<Button>(), i == nIndex );
+		}
+
+		if ( dir.sqrMagnitude <= 1.0f )
+		{
+			m_HorizontalScrollSnap.SetScrollStop();
 		}
 	}
 

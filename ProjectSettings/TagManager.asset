@@ -11,6 +11,7 @@ TagManager:
   - Gem Spawner
   - Network Manager
   - Gem Details
+  - Shop Manager
   layers:
   - Default
   - TransparentFX

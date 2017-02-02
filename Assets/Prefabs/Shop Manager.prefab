@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11465348}
   m_Layer: 5
   m_Name: Shop Manager
-  m_TagString: Untagged
+  m_TagString: Shop Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GemLibrary: {fileID: 0}
   m_ItemContent: {fileID: 0}
-  m_ItemPrefab: {fileID: 189284, guid: defb2738c3cb35b43bf28b80b328d26c, type: 2}
+  m_ItemPrefab: {fileID: 0}
+  m_HorizontalScrollSnap: {fileID: 0}
 --- !u!224 &22430334
 RectTransform:
   m_ObjectHideFlags: 1
