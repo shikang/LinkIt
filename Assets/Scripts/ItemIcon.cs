@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class ItemIcon : MonoBehaviour
 {
 	public GemLibrary.GemSet m_ItemType;
+	public bool m_bLocked = true;
 
 	public  void Start()
 	{
@@ -14,19 +15,19 @@ public class ItemIcon : MonoBehaviour
 
 	void Equip()
 	{
-		GameObject gemDetails = GameObject.Find( "Gem Details" );
-		GemDetails gd = gemDetails.GetComponent<GemDetails>();
-		bool equipped = gd.EquipGemSet( m_ItemType );
-
-		GameObject shopManager = GameObject.Find( "Shop Manager" );
-		ShopManager sm = shopManager.GetComponent<ShopManager>();
-		if ( equipped )
+		if ( m_bLocked )
 		{
-			sm.ChangeEquippedSprite( m_ItemType );
+			// @todo In App Purchase
 		}
 		else
 		{
-			// @todo In app purchase logic
+			GameObject gemDetails = GameObject.Find( "Gem Details" );
+			GemDetails gd = gemDetails.GetComponent<GemDetails>();
+			bool equipped = gd.EquipGemSet( m_ItemType );
+
+			GameObject shopManager = GameObject.Find( "Shop Manager" );
+			ShopManager sm = shopManager.GetComponent<ShopManager>();
+			sm.ChangeEquippedSprite( m_ItemType );
 		}
 	}
 }

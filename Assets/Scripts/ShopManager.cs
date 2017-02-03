@@ -19,6 +19,7 @@ public class ShopManager : MonoBehaviour
 	//float m_fItemContentWidth = 0.0f;
 	float m_fItemIconWidth = 0.0f;
 	Vector2 m_ItemIconDim;
+	Vector2 m_ItemIconLockDim;
 	Vector3 m_ItemIconStartPos;
 	Vector3 m_PreviousContentPos;
 
@@ -47,6 +48,7 @@ public class ShopManager : MonoBehaviour
 		//m_fItemContentWidth = m_ItemContent.GetComponent<RectTransform>().sizeDelta.x;
 		m_fItemIconWidth = m_ItemPrefab.GetComponent<RectTransform>().sizeDelta.x;
 		m_ItemIconDim = m_ItemPrefab.GetComponent<RectTransform>().sizeDelta;
+		m_ItemIconLockDim = m_ItemPrefab.transform.GetChild( 1 ).GetComponent<RectTransform>().sizeDelta;
 		m_ItemIconStartPos = m_ItemPrefab.GetComponent<RectTransform>().localPosition;
 
 		m_ItemContentTransform = m_ItemContent.GetComponent<RectTransform>();
@@ -68,8 +70,9 @@ public class ShopManager : MonoBehaviour
 	void SetItemIconEnable( GameObject itemIcon, bool enable )
 	{
 		Button button = itemIcon.GetComponent<Button>();
+		ItemIcon ic = itemIcon.GetComponent<ItemIcon>();
 
-		float opacity = enable ? 1.0f : 0.5f;
+		float opacity = enable ? ( ic.m_bLocked ? 0.7f : 1.0f ) : 0.5f;
 		float scale = enable ? 2.0f : 1.0f;
 		button.enabled = enable;
 
@@ -100,6 +103,13 @@ public class ShopManager : MonoBehaviour
 			GameObject label = itemIcon.transform.GetChild( 0 ).gameObject;
 			label.SetActive( enable );
 		}
+
+		// Lock
+		{
+			GameObject keyhole = itemIcon.transform.GetChild( 1 ).gameObject;
+			RectTransform t = keyhole.GetComponent<RectTransform>();
+			t.sizeDelta = scale * m_ItemIconLockDim;
+		}
 	}
 
 	void InitialiseShopList()
@@ -107,11 +117,34 @@ public class ShopManager : MonoBehaviour
 		// @debug variables
 		for ( int i = 0; i < 20; ++i )
 		{
+			// @debug
+			int nIndex = i % 2;
+			GemLibrary.GemSet gemType = (GemLibrary.GemSet)nIndex;
+
 			GameObject itemIcon = (GameObject)Instantiate( m_ItemPrefab, m_ItemIconStartPos, Quaternion.identity );
 			Button button = itemIcon.GetComponent<Button>();
-			button.image.sprite = m_GemLibrary.m_GemsSetList[i % 2].GetGemContainer( GemContainerSet.BLUE_GEM_CONTAINER_INDEX )[0];
-			itemIcon.GetComponentInChildren<Text>().text = m_GemLibrary.m_GemsSetList[i % 2].m_sGemContainerSetName;
-			itemIcon.GetComponent<ItemIcon>().m_ItemType = (GemLibrary.GemSet)( i % 2 );	// @debug
+			button.image.sprite = m_GemLibrary.m_GemsSetList[nIndex].GetGemContainer( GemContainerSet.BLUE_GEM_CONTAINER_INDEX )[0];
+
+			Text label = itemIcon.GetComponentInChildren<Text>();
+			label.text = m_GemLibrary.m_GemsSetList[nIndex].m_sGemContainerSetName;
+
+			ItemIcon ic = itemIcon.GetComponent<ItemIcon>();
+			ic.m_ItemType = gemType;
+
+			// Hide lock if unlocked
+			if ( GameData.Instance.m_Sets.Contains( gemType ) )
+			{
+				itemIcon.transform.GetChild( 1 ).gameObject.SetActive( false );
+				ic.m_bLocked = false;
+			}
+			else
+			{
+				Color c = label.color;
+				c.a = 0.5f;
+				label.color = c;
+
+				ic.m_bLocked = true;
+			}
 
 			m_ItemIcons.Add( itemIcon );
 		}
