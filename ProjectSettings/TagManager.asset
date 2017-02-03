@@ -12,6 +12,7 @@ TagManager:
   - Network Manager
   - Gem Details
   - Shop Manager
+  - Gem Library
   layers:
   - Default
   - TransparentFX

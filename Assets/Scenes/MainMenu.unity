@@ -291,6 +291,21 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1413162987}
   m_Script: {fileID: 11500000, guid: 42f5cbb48ff7b59499701145ce4a57e8, type: 3}
+--- !u!1 &487918407 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 126778, guid: c1f4cef977b3ead4187b9f7e46687d36, type: 2}
+  m_PrefabInternal: {fileID: 1413162987}
+--- !u!114 &487918408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 487918407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c31599b0007d9ac49adeb3a1310627a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &788839930
 Prefab:
   m_ObjectHideFlags: 0
@@ -526,6 +541,10 @@ Prefab:
     - target: {fileID: 463742, guid: 15c30b154d1d2114cbc7386a80676c97, type: 2}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 128386, guid: 15c30b154d1d2114cbc7386a80676c97, type: 2}
+      propertyPath: m_TagString
+      value: Gem Library
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15c30b154d1d2114cbc7386a80676c97, type: 2}
