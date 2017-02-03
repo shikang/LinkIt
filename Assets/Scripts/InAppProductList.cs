@@ -10,8 +10,18 @@ public class InAppProductList : Singleton<InAppProductList>
 
 	public const string PRODUCT_PREFIX = "com." + COMPANY_NAME + "." + PROJECT_NAME + ".";
 
-	public const string PRODUCT_COIN = "coin.";
-	public const string PRODUCT_AVATAR = "avatar.";
+	// Product Type
+	public enum ProductType
+	{
+		COIN,
+		AVATAR,
+	}
+
+	// Comsumables
+	Dictionary<ProductType, List<int>> m_ConsumableMap = new Dictionary<ProductType, List<int>>
+														{
+															{ ProductType.COIN, new List<int>{ 100, 200 } },
+														};
 
 	[Flags]
 	public enum Store
@@ -27,7 +37,7 @@ public class InAppProductList : Singleton<InAppProductList>
 		public string m_sProductIdentifier;
 		public Store m_nStoreFlag;
 
-		public ProductInfo ( string productIdentifier, Store storeFlag )
+		public ProductInfo( string productIdentifier, Store storeFlag )
 		{
 			m_sProductIdentifier = productIdentifier;
 			m_nStoreFlag = storeFlag;
@@ -44,13 +54,26 @@ public class InAppProductList : Singleton<InAppProductList>
 			return;
 
 		// Consumables
-		m_ConsumableList.Add( new ProductInfo( PRODUCT_PREFIX + PRODUCT_COIN + "100", Store.ALL ) );
+		foreach ( KeyValuePair<ProductType, List<int>> consumeInfo in m_ConsumableMap )
+		{
+			foreach ( int amount in consumeInfo.Value )
+			{
+				string productIdentifier = PRODUCT_PREFIX + consumeInfo.Key.ToString().ToLower() + "." + amount.ToString();
+				m_ConsumableList.Add( new ProductInfo( productIdentifier, Store.ALL ) );
 
+				InAppProcessor.Instance.AddProductParam( productIdentifier, consumeInfo.Key, amount );
+			}
+		}
+		
 		// Non-consumables
 		GemLibrary gemLibrary = GameObject.Find( "Gem Library" ).GetComponent<GemLibrary>();
-		foreach ( GemContainerSet gemSet in gemLibrary.m_GemsSetList )
+		for ( int i = 0; i < gemLibrary.m_GemsSetList.Count; ++i )
 		{
-			m_NonConsumableList.Add( new ProductInfo( PRODUCT_PREFIX + PRODUCT_AVATAR + gemSet.m_sGemContainerSetName, Store.ALL ) );
+			GemContainerSet gemSet = gemLibrary.m_GemsSetList[i];
+			string productIdentifier = PRODUCT_PREFIX + ProductType.AVATAR.ToString().ToLower() + "." + gemSet.m_sGemContainerSetName;
+			m_NonConsumableList.Add( new ProductInfo( productIdentifier, Store.ALL ) );
+
+			InAppProcessor.Instance.AddProductParam( productIdentifier, ProductType.AVATAR, i );
 		}
 
 		// Subscriptions

@@ -23,7 +23,7 @@ public class ItemIcon : MonoBehaviour
 		{
 			GameObject gemDetails = GameObject.Find( "Gem Details" );
 			GemDetails gd = gemDetails.GetComponent<GemDetails>();
-			bool equipped = gd.EquipGemSet( m_ItemType );
+			gd.EquipGemSet( m_ItemType );
 
 			GameObject shopManager = GameObject.Find( "Shop Manager" );
 			ShopManager sm = shopManager.GetComponent<ShopManager>();

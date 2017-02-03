@@ -115,7 +115,7 @@ public class InAppPurchaser : MonoBehaviour, IStoreListener
 			else
 			{
 				// ... report the product look-up failure situation  
-				Debug.Log( "BuyProductID: FAIL. Not purchasing product, either is not found or is not available for purchase" );
+				Debug.Log( "InAppPurchaser::BuyProductID: FAIL. Not purchasing product, either is not found or is not available for purchase" );
 			}
 		}
 		// Otherwise ...
@@ -123,7 +123,7 @@ public class InAppPurchaser : MonoBehaviour, IStoreListener
 		{
 			// ... report the fact Purchasing has not succeeded initializing yet. Consider waiting longer or 
 			// retrying initiailization.
-			Debug.Log( "BuyProductID FAIL. Not initialized." );
+			Debug.Log( "InAppPurchaser::BuyProductID FAIL. Not initialized." );
 		}
 	}
 
@@ -136,7 +136,7 @@ public class InAppPurchaser : MonoBehaviour, IStoreListener
 		if ( !IsInitialized() )
 		{
 			// ... report the situation and stop restoring. Consider either waiting longer, or retrying initialization.
-			Debug.Log( "RestorePurchases FAIL. Not initialized." );
+			Debug.Log( "InAppPurchaser::RestorePurchases FAIL. Not initialized." );
 			return;
 		}
 
@@ -145,7 +145,7 @@ public class InAppPurchaser : MonoBehaviour, IStoreListener
 			 Application.platform == RuntimePlatform.OSXPlayer )
 		{
 			// ... begin restoring purchases
-			Debug.Log( "RestorePurchases started ..." );
+			Debug.Log( "InAppPurchaser::RestorePurchases started ..." );
 
 			// Fetch the Apple store-specific subsystem.
 			var apple = m_StoreExtensionProvider.GetExtension<IAppleExtensions>();
@@ -154,14 +154,14 @@ public class InAppPurchaser : MonoBehaviour, IStoreListener
 			apple.RestoreTransactions( (result) => {
 				// The first phase of restoration. If no more responses are received on ProcessPurchase then 
 				// no purchases are available to be restored.
-				Debug.Log( "RestorePurchases continuing: " + result + ". If no further messages, no purchases available to restore." );
+				Debug.Log( "InAppPurchaser::RestorePurchases continuing: " + result + ". If no further messages, no purchases available to restore." );
 			} );
 		}
 		// Otherwise ...
 		else
 		{
 			// We are not running on an Apple device. No work is necessary to restore purchases.
-			Debug.Log( "RestorePurchases FAIL. Not supported on this platform. Current = " + Application.platform );
+			Debug.Log( "InAppPurchaser::RestorePurchases FAIL. Not supported on this platform. Current = " + Application.platform );
 		}
 	}
 
@@ -173,7 +173,7 @@ public class InAppPurchaser : MonoBehaviour, IStoreListener
 	public void OnInitialized( IStoreController controller, IExtensionProvider extensions )
 	{
 		// Purchasing has succeeded initializing. Collect our Purchasing references.
-		Debug.Log( "OnInitialized: PASS" );
+		Debug.Log( "InAppPurchaser::OnInitialized: PASS" );
 
 		// Overall Purchasing system, configured with products for this application.
 		m_StoreController = controller;
@@ -185,39 +185,13 @@ public class InAppPurchaser : MonoBehaviour, IStoreListener
 	public void OnInitializeFailed( InitializationFailureReason error )
 	{
 		// Purchasing set-up has not succeeded. Check error for reason. Consider sharing this reason with the user.
-		Debug.Log( "OnInitializeFailed InitializationFailureReason:" + error );
+		Debug.Log( "InAppPurchaser::OnInitializeFailed InitializationFailureReason:" + error );
 	}
 
 
 	public PurchaseProcessingResult ProcessPurchase( PurchaseEventArgs args )
 	{
-#if USE_TUTORIAL_CODE
-		// A consumable product has been purchased by this user.
-		if ( String.Equals( args.purchasedProduct.definition.id, kProductIDConsumable, StringComparison.Ordinal ) )
-		{
-			Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
-			// The consumable item has been successfully purchased, add 100 coins to the player's in-game score.
-			GameData.Instance.m_Coin += 100;
-			SaveLoad.Save();
-		}
-		// Or ... a non-consumable product has been purchased by this user.
-		else if ( String.Equals( args.purchasedProduct.definition.id, kProductIDNonConsumable, StringComparison.Ordinal ) )
-		{
-			Debug.Log(string.Format( "ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id ) );
-			// TODO: The non-consumable item has been successfully purchased, grant this item to the player.
-		}
-		// Or ... a subscription product has been purchased by this user.
-		else if ( String.Equals( args.purchasedProduct.definition.id, kProductIDSubscription, StringComparison.Ordinal ) )
-		{
-			Debug.Log( string.Format( "ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id ) );
-			// TODO: The subscription item has been successfully purchased, grant this to the player.
-		}
-		// Or ... an unknown product has been purchased by this user. Fill in additional products here....
-		else
-		{
-			Debug.Log( string.Format( "ProcessPurchase: FAIL. Unrecognized product: '{0}'", args.purchasedProduct.definition.id ) );
-		}
-#endif
+		InAppProcessor.Instance.ProcessPurchase( args.purchasedProduct.definition.id );
 
 		// Return a flag indicating whether this product has completely been received, or if the application needs 
 		// to be reminded of this purchase at next app launch. Use PurchaseProcessingResult.Pending when still 
@@ -230,6 +204,6 @@ public class InAppPurchaser : MonoBehaviour, IStoreListener
 	{
 		// A product purchase attempt did not succeed. Check failureReason for more detail. Consider sharing 
 		// this reason with the user to guide their troubleshooting actions.
-		Debug.Log( string.Format( "OnPurchaseFailed: FAIL. Product: '{0}', PurchaseFailureReason: {1}", product.definition.storeSpecificId, failureReason ) );
+		Debug.Log( string.Format( "InAppPurchaser::OnPurchaseFailed: FAIL. Product: '{0}', PurchaseFailureReason: {1}", product.definition.storeSpecificId, failureReason ) );
 	}
 }
