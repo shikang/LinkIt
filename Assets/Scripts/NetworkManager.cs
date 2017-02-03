@@ -50,6 +50,8 @@ public class NetworkManager : MonoBehaviour
 	{
 		Debug.Log( log );
 		GameObject debugText = GameObject.Find( "Debug Text" );
-		debugText.GetComponent<Text>().text = log;
+
+		if ( debugText != null )
+			debugText.GetComponent<Text>().text = log;
 	}
 }
