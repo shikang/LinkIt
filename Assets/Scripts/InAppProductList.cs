@@ -58,7 +58,7 @@ public class InAppProductList : Singleton<InAppProductList>
 		{
 			foreach ( int amount in consumeInfo.Value )
 			{
-				string productIdentifier = PRODUCT_PREFIX + consumeInfo.Key.ToString().ToLower() + "." + amount.ToString();
+				string productIdentifier = GetProductIdentifier( consumeInfo.Key, amount );
 				m_ConsumableList.Add( new ProductInfo( productIdentifier, Store.ALL ) );
 
 				InAppProcessor.Instance.AddProductParam( productIdentifier, consumeInfo.Key, amount );
@@ -69,14 +69,30 @@ public class InAppProductList : Singleton<InAppProductList>
 		GemLibrary gemLibrary = GameObject.Find( "Gem Library" ).GetComponent<GemLibrary>();
 		for ( int i = 0; i < gemLibrary.m_GemsSetList.Count; ++i )
 		{
-			GemContainerSet gemSet = gemLibrary.m_GemsSetList[i];
-			string productIdentifier = PRODUCT_PREFIX + ProductType.AVATAR.ToString().ToLower() + "." + gemSet.m_sGemContainerSetName;
+			string productIdentifier = GetProductIdentifier( ProductType.AVATAR, i );
 			m_NonConsumableList.Add( new ProductInfo( productIdentifier, Store.ALL ) );
 
 			InAppProcessor.Instance.AddProductParam( productIdentifier, ProductType.AVATAR, i );
 		}
 
 		// Subscriptions
+	}
+
+	// return: com.<company_name>.<project_name>.<product_type>.<product_identifier>
+	public static string GetProductIdentifier( ProductType productType, int productParam )
+	{
+		switch ( productType )
+		{
+			case InAppProductList.ProductType.COIN:
+				return PRODUCT_PREFIX + productType.ToString().ToLower() + "." + productParam.ToString();
+			case InAppProductList.ProductType.AVATAR:
+				GemLibrary gemLibrary = GameObject.Find( "Gem Library" ).GetComponent<GemLibrary>();
+				GemContainerSet gemSet = gemLibrary.m_GemsSetList[productParam];
+				return PRODUCT_PREFIX + ProductType.AVATAR.ToString().ToLower() + "." + gemSet.m_sGemContainerSetName.ToLower();
+			default:
+				Debug.Log( string.Format( "InAppProcessor::GetProductIdentifier: FAIL. Invalid product type: '{0}'", productType.ToString() ) );
+				return "";
+		}
 	}
 
 	protected InAppProductList()

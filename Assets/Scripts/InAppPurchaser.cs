@@ -94,6 +94,11 @@ public class InAppPurchaser : MonoBehaviour, IStoreListener
 		*/
 	}
 
+	public void BuyProduct( InAppProductList.ProductType productType, int productParam )
+	{
+		BuyProductID( InAppProductList.GetProductIdentifier( productType, productParam ) );
+	}
+
 	void BuyProductID( string productId )
 	{
 		// If Purchasing has been initialized ...

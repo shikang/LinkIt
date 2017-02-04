@@ -39,6 +39,8 @@ public class InAppProcessor : Singleton<InAppProcessor>
 				case InAppProductList.ProductType.COIN:
 					GameData.Instance.m_Coin += productParam.m_nProductParam;
 					Debug.Log( string.Format( "InAppProcessor::ProcessPurchase: PASS. Product: '{0}'", productIdentifier ) );
+
+					// @todo Some feedback
 					break;
 				case InAppProductList.ProductType.AVATAR:
 					GemLibrary.GemSet gemType = (GemLibrary.GemSet)productParam.m_nProductParam;
@@ -50,6 +52,8 @@ public class InAppProcessor : Singleton<InAppProcessor>
 					}
 
 					Debug.Log( string.Format( "InAppProcessor::ProcessPurchase: PASS. Product: '{0}'", productIdentifier ) );
+
+					// @todo Some feedback
 					break;
 				default:
 					Debug.Log( string.Format( "InAppProcessor::ProcessPurchase: FAIL. Invalid product type: '{0}'", productParam.m_ProductType.ToString() ) );

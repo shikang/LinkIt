@@ -15,17 +15,20 @@ public class ItemIcon : MonoBehaviour
 
 	void Equip()
 	{
+		GameObject shopManager = GameObject.Find( "Shop Manager" );
+
 		if ( m_bLocked )
 		{
-			// @todo In App Purchase
+			// In App Purchase
+			shopManager.GetComponent<InAppPurchaser>().BuyProduct( InAppProductList.ProductType.AVATAR, (int)m_ItemType );
 		}
 		else
 		{
+			// Equip
 			GameObject gemDetails = GameObject.Find( "Gem Details" );
 			GemDetails gd = gemDetails.GetComponent<GemDetails>();
 			gd.EquipGemSet( m_ItemType );
 
-			GameObject shopManager = GameObject.Find( "Shop Manager" );
 			ShopManager sm = shopManager.GetComponent<ShopManager>();
 			sm.ChangeEquippedSprite( m_ItemType );
 		}
