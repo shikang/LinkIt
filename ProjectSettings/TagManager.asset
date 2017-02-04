@@ -13,6 +13,7 @@ TagManager:
   - Gem Details
   - Shop Manager
   - Gem Library
+  - Main Menu Manager
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - UI Particles
   - 
   - 
   - 

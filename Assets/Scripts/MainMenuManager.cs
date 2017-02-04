@@ -113,4 +113,20 @@ public class MainMenuManager : MonoBehaviour
 		else
 			t.text = PLAY_WITH_FRIEND_TEXT;
 	}
+
+	public void EnableBackButton( eScreen screen, bool enable )
+	{
+		if ( screen == eScreen.MAIN_MENU )
+			return;
+
+		Transform t = m_Screens[(int)screen].transform.FindChild( "Back Button" );
+		Button b = t.GetComponent<Button>();
+		b.enabled = enable;
+
+		ButtonScript bs = t.GetComponent<ButtonScript>();
+		if ( enable )
+			bs.SetEnable();
+		else
+			bs.SetDisable();
+	}
 }

@@ -214,22 +214,54 @@ Prefab:
       objectReference: {fileID: 1717894127}
     - target: {fileID: 22420746, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.30522454
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22420746, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.7121906
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22420746, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22425466, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22425466, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473482, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+      propertyPath: m_DisableColor.r
+      value: 0.49411768
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473482, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+      propertyPath: m_DisableColor.g
+      value: 0.49411768
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473482, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+      propertyPath: m_DisableColor.b
+      value: 0.49411768
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473482, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+      propertyPath: m_DisableColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11444630, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+      propertyPath: m_DisableColor.r
+      value: 0.49411768
+      objectReference: {fileID: 0}
+    - target: {fileID: 11444630, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+      propertyPath: m_DisableColor.g
+      value: 0.49411768
+      objectReference: {fileID: 0}
+    - target: {fileID: 11444630, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+      propertyPath: m_DisableColor.b
+      value: 0.49411768
+      objectReference: {fileID: 0}
+    - target: {fileID: 11444630, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+      propertyPath: m_DisableColor.a
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -618,6 +650,10 @@ Prefab:
       propertyPath: m_Screens.Array.data[2]
       value: 
       objectReference: {fileID: 1386758402}
+    - target: {fileID: 114132, guid: a6a6b18b54434ea449f6d820f3512217, type: 2}
+      propertyPath: m_TagString
+      value: Main Menu Manager
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6a6b18b54434ea449f6d820f3512217, type: 2}
   m_IsPrefabParent: 0

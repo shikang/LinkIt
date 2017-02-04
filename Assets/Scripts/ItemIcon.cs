@@ -15,10 +15,14 @@ public class ItemIcon : MonoBehaviour
 
 	void Equip()
 	{
-		GameObject shopManager = GameObject.Find( "Shop Manager" );
+		GameObject shopManager = GameObject.FindGameObjectWithTag( "Shop Manager" );
+		ShopManager sm = shopManager.GetComponent<ShopManager>();
 
 		if ( m_bLocked )
 		{
+			// Disable item page controls
+			sm.EnableItemScreenControl( false );
+
 			// In App Purchase
 			shopManager.GetComponent<InAppPurchaser>().BuyProduct( InAppProductList.ProductType.AVATAR, (int)m_ItemType );
 		}
@@ -29,7 +33,6 @@ public class ItemIcon : MonoBehaviour
 			GemDetails gd = gemDetails.GetComponent<GemDetails>();
 			gd.EquipGemSet( m_ItemType );
 
-			ShopManager sm = shopManager.GetComponent<ShopManager>();
 			sm.ChangeEquippedSprite( m_ItemType );
 		}
 	}

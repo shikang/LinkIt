@@ -53,7 +53,22 @@ public class InAppProcessor : Singleton<InAppProcessor>
 
 					Debug.Log( string.Format( "InAppProcessor::ProcessPurchase: PASS. Product: '{0}'", productIdentifier ) );
 
-					// @todo Some feedback
+					// Enable item screen controls
+					GameObject shopManager = GameObject.FindGameObjectWithTag( "Shop Manager" );
+					ShopManager sm = shopManager.GetComponent<ShopManager>();
+					sm.EnableItemScreenControl( true );
+
+					// Some feedback
+					GemLibrary gemLibrary = GameObject.Find( "Gem Library" ).GetComponent<GemLibrary>();
+					GemContainerSet gemSet = gemLibrary.m_GemsSetList[productParam.m_nProductParam];
+
+					GameObject explosion = ( GameObject )Instantiate( gemSet.m_Explosion, sm.GetCurrentItemIcon().transform.position, Quaternion.identity );
+					explosion.layer = LayerMask.NameToLayer( "UI Particles" );
+					ParticleSystem ps = explosion.GetComponent<ParticleSystem>();
+					ps.GetComponent<Renderer>().sortingLayerName = "UI Particles";
+					ps.GetComponent<Renderer>().sortingOrder = LayerMask.NameToLayer( "UI Particles" );
+					Destroy( explosion, ps.duration + ps.startLifetime + Time.deltaTime );
+
 					break;
 				default:
 					Debug.Log( string.Format( "InAppProcessor::ProcessPurchase: FAIL. Invalid product type: '{0}'", productParam.m_ProductType.ToString() ) );

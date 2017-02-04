@@ -174,6 +174,9 @@ public class ShopManager : MonoBehaviour
 		}
 
 		m_ItemPrefab.SetActive( false );
+
+		// @todo set scroll to equipped
+		// @todo back button in item screen will scroll to equipped as well
 	}
 
 	public void OnScroll( Vector2 pos )
@@ -247,5 +250,55 @@ public class ShopManager : MonoBehaviour
 	{
 		SpriteRenderer sr = m_Equipped.GetComponent<SpriteRenderer>();
 		sr.sprite = m_GemLibrary.m_GemsSetList[ (int)gemType ].GetGemContainer( GemContainerSet.BLUE_GEM_CONTAINER_INDEX )[0];
+	}
+
+	public void EnableScrolling( bool enable )
+	{
+		ScrollRect scroll = m_HorizontalScrollSnap.GetComponent<ScrollRect>();
+		scroll.horizontal = enable;
+	}
+
+	public void EnableItemScreenControl( bool enable )
+	{
+		EnableScrolling( enable );
+
+		GameObject mainMenuManager = GameObject.FindGameObjectWithTag( "Main Menu Manager" );
+		MainMenuManager mmm = mainMenuManager.GetComponent<MainMenuManager>();
+		mmm.EnableBackButton( MainMenuManager.eScreen.ITEM, enable );
+
+		GameObject itemIcon = GetCurrentItemIcon();
+		Button b = itemIcon.GetComponent<Button>();
+		b.enabled = enable;
+
+		if ( enable )
+		{
+			ItemIcon ic = itemIcon.GetComponent<ItemIcon>();
+			if ( GameData.Instance.m_Sets.Contains( ic.m_ItemType ) )
+			{
+				itemIcon.transform.GetChild( 1 ).gameObject.SetActive( false );
+				ic.m_bLocked = false;
+
+				Text label = itemIcon.GetComponentInChildren<Text>();
+				Color c = label.color;
+				c.a = 1.0f;
+				label.color = c;
+
+				SetItemIconEnable( itemIcon, true );
+			}
+		}
+	}
+
+	public GameObject GetCurrentItemIcon()
+	{
+		for ( int i = 0; i < m_ItemIcons.Count; ++i )
+		{
+			GameObject itemIcon = m_ItemIcons[i];
+			GameObject label = itemIcon.transform.GetChild( 0 ).gameObject;
+
+			if ( label.GetActive() )
+				return itemIcon;
+		}
+
+		return null;
 	}
 }
