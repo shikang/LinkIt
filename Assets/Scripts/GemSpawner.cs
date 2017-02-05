@@ -398,7 +398,7 @@ public class GemSpawner : MonoBehaviour
 				}
 
 				// Check for linking
-				if ( m_Link.Linking && LinkGem( m_Gems[i][j] ) )
+				if ( !m_bGameover && m_Link.Linking && LinkGem( m_Gems[i][j] ) )
 				{
 					linkedGemList[i].Add( g );
 					continue;
@@ -708,7 +708,7 @@ public class GemSpawner : MonoBehaviour
 
 	bool UnlinkGems()
 	{
-		if ( !m_Link.CheckForDestroy )
+		if ( m_bGameover || !m_Link.CheckForDestroy )
 			return false;
 
 		bool destroy = m_LinkedGem.Count >= 3;
