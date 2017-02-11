@@ -94,6 +94,16 @@ public class InAppPurchaser : MonoBehaviour, IStoreListener
 		*/
 	}
 
+	public string GetProductLocalisePrice( InAppProductList.ProductType productType, int productParam )
+	{
+		return GetProductLocalisePrice( InAppProductList.GetProductIdentifier( productType, productParam ) );
+	}
+
+	string GetProductLocalisePrice( string productId )
+	{
+		return m_StoreController.products.WithID( productId ).metadata.localizedPriceString;
+	}
+
 	public void BuyProduct( InAppProductList.ProductType productType, int productParam )
 	{
 		BuyProductID( InAppProductList.GetProductIdentifier( productType, productParam ) );
@@ -184,6 +194,28 @@ public class InAppPurchaser : MonoBehaviour, IStoreListener
 		m_StoreController = controller;
 		// Store specific subsystem, for accessing device-specific store features.
 		m_StoreExtensionProvider = extensions;
+
+		// Update product price
+		// Add Consumable
+		foreach ( InAppProductList.ProductInfo product in InAppProductList.Instance.ConsumableList )
+		{
+			product.m_fPrice = GetProductLocalisePrice( product.m_sProductIdentifier );
+			Debug.Log( "InAppPurchaser::OnInitialized: Update price[" + product.m_sProductIdentifier + "," + product.m_fPrice + "]" );
+		}
+
+		// Continue adding the non-consumable product.
+		foreach ( InAppProductList.ProductInfo product in InAppProductList.Instance.NonConsumableList )
+		{
+			product.m_fPrice = GetProductLocalisePrice( product.m_sProductIdentifier );
+			Debug.Log( "InAppPurchaser::OnInitialized: Update price[" + product.m_sProductIdentifier + "," + product.m_fPrice + "]" );
+		}
+
+		// Adding subscription
+		foreach ( InAppProductList.ProductInfo product in InAppProductList.Instance.SubscriptionList )
+		{
+			product.m_fPrice = GetProductLocalisePrice( product.m_sProductIdentifier );
+			Debug.Log( "InAppPurchaser::OnInitialized: Update price[" + product.m_sProductIdentifier + "," + product.m_fPrice + "]" );
+		}
 	}
 
 

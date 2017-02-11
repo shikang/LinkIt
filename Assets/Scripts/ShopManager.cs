@@ -110,6 +110,11 @@ public class ShopManager : MonoBehaviour
 			RectTransform t = keyhole.GetComponent<RectTransform>();
 			t.sizeDelta = scale * m_ItemIconLockDim;
 		}
+
+		// Price
+		{
+			itemIcon.transform.GetChild( 2 ).gameObject.SetActive( enable && ic.m_bLocked );
+		}
 	}
 
 	void InitialiseShopList()
@@ -130,6 +135,8 @@ public class ShopManager : MonoBehaviour
 
 			ItemIcon ic = itemIcon.GetComponent<ItemIcon>();
 			ic.m_ItemType = gemType;
+
+			itemIcon.transform.GetChild( 2 ).gameObject.SetActive( false );
 
 			// Hide lock if unlocked
 			if ( GameData.Instance.m_Sets.Contains( gemType ) )

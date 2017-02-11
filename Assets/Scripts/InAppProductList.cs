@@ -36,11 +36,13 @@ public class InAppProductList : Singleton<InAppProductList>
 	{
 		public string m_sProductIdentifier;
 		public Store m_nStoreFlag;
+		public string m_fPrice;
 
 		public ProductInfo( string productIdentifier, Store storeFlag )
 		{
 			m_sProductIdentifier = productIdentifier;
 			m_nStoreFlag = storeFlag;
+			m_fPrice = "Invalid Price";
 		}
 	}
 
