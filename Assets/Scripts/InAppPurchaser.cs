@@ -195,22 +195,21 @@ public class InAppPurchaser : MonoBehaviour, IStoreListener
 		// Store specific subsystem, for accessing device-specific store features.
 		m_StoreExtensionProvider = extensions;
 
-		// Update product price
-		// Add Consumable
+		// Update consumable product price
 		foreach ( KeyValuePair<string, InAppProductList.ProductInfo> product in InAppProductList.Instance.ConsumableList )
 		{
 			product.Value.m_sPrice = GetProductLocalisePrice( product.Value.m_sProductIdentifier );
 			Debug.Log( "InAppPurchaser::OnInitialized: Update price[" + product.Value.m_sProductIdentifier + "," + product.Value.m_sPrice + "]" );
 		}
 
-		// Continue adding the non-consumable product.
+		// Continue updating non-consumable product price.
 		foreach ( KeyValuePair<string, InAppProductList.ProductInfo> product in InAppProductList.Instance.NonConsumableList )
 		{
 			product.Value.m_sPrice = GetProductLocalisePrice( product.Value.m_sProductIdentifier );
 			Debug.Log( "InAppPurchaser::OnInitialized: Update price[" + product.Value.m_sProductIdentifier + "," + product.Value.m_sPrice + "]" );
 		}
 
-		// Adding subscription
+		// Updateing subscription price
 		foreach ( KeyValuePair<string, InAppProductList.ProductInfo> product in InAppProductList.Instance.SubscriptionList )
 		{
 			product.Value.m_sPrice = GetProductLocalisePrice( product.Value.m_sProductIdentifier );
