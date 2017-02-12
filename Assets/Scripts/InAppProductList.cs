@@ -36,19 +36,19 @@ public class InAppProductList : Singleton<InAppProductList>
 	{
 		public string m_sProductIdentifier;
 		public Store m_nStoreFlag;
-		public string m_fPrice;
+		public string m_sPrice;
 
 		public ProductInfo( string productIdentifier, Store storeFlag )
 		{
 			m_sProductIdentifier = productIdentifier;
 			m_nStoreFlag = storeFlag;
-			m_fPrice = "Invalid Price";
+			m_sPrice = "Invalid Price";
 		}
 	}
 
-	private List<ProductInfo> m_ConsumableList;
-	private List<ProductInfo> m_NonConsumableList;
-	private List<ProductInfo> m_SubscriptionList;
+	private Dictionary<string, ProductInfo> m_ConsumableList;
+	private Dictionary<string, ProductInfo> m_NonConsumableList;
+	private Dictionary<string, ProductInfo> m_SubscriptionList;
 
 	public void InitialiseProductList()
 	{
@@ -61,7 +61,7 @@ public class InAppProductList : Singleton<InAppProductList>
 			foreach ( int amount in consumeInfo.Value )
 			{
 				string productIdentifier = GetProductIdentifier( consumeInfo.Key, amount );
-				m_ConsumableList.Add( new ProductInfo( productIdentifier, Store.ALL ) );
+				m_ConsumableList.Add( productIdentifier, new ProductInfo( productIdentifier, Store.ALL ) );
 
 				InAppProcessor.Instance.AddProductParam( productIdentifier, consumeInfo.Key, amount );
 			}
@@ -72,7 +72,7 @@ public class InAppProductList : Singleton<InAppProductList>
 		for ( int i = 0; i < gemLibrary.m_GemsSetList.Count; ++i )
 		{
 			string productIdentifier = GetProductIdentifier( ProductType.AVATAR, i );
-			m_NonConsumableList.Add( new ProductInfo( productIdentifier, Store.ALL ) );
+			m_NonConsumableList.Add( productIdentifier, new ProductInfo( productIdentifier, Store.ALL ) );
 
 			InAppProcessor.Instance.AddProductParam( productIdentifier, ProductType.AVATAR, i );
 		}
@@ -99,12 +99,12 @@ public class InAppProductList : Singleton<InAppProductList>
 
 	protected InAppProductList()
 	{
-		m_ConsumableList = new List<ProductInfo>();
-		m_NonConsumableList = new List<ProductInfo>();
-		m_SubscriptionList = new List<ProductInfo>();
+		m_ConsumableList = new Dictionary<string, ProductInfo>();
+		m_NonConsumableList = new Dictionary<string, ProductInfo>();
+		m_SubscriptionList = new Dictionary<string, ProductInfo>();
 	}
 
-	public List<ProductInfo> ConsumableList
+	public Dictionary<string, ProductInfo> ConsumableList
 	{
 		get
 		{
@@ -112,7 +112,7 @@ public class InAppProductList : Singleton<InAppProductList>
 		}
 	}
 
-	public List<ProductInfo> NonConsumableList
+	public Dictionary<string, ProductInfo> NonConsumableList
 	{
 		get
 		{
@@ -120,7 +120,7 @@ public class InAppProductList : Singleton<InAppProductList>
 		}
 	}
 
-	public List<ProductInfo> SubscriptionList
+	public Dictionary<string, ProductInfo> SubscriptionList
 	{
 		get
 		{

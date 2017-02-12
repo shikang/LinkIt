@@ -151,6 +151,17 @@ public class ShopManager : MonoBehaviour
 				label.color = c;
 
 				ic.m_bLocked = true;
+
+				string productIdentifier = InAppProductList.GetProductIdentifier( InAppProductList.ProductType.AVATAR, nIndex );
+				if ( InAppProductList.Instance.NonConsumableList.ContainsKey( productIdentifier ) )
+				{
+					InAppProductList.ProductInfo product = InAppProductList.Instance.NonConsumableList[productIdentifier];
+
+					GameObject priceTag = itemIcon.transform.GetChild( 2 ).gameObject;
+					Text priceText = priceTag.GetComponent<Text>();
+					priceText.text = product.m_sPrice;
+				}
+				
 			}
 
 			m_ItemIcons.Add( itemIcon );

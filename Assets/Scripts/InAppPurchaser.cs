@@ -34,21 +34,21 @@ public class InAppPurchaser : MonoBehaviour, IStoreListener
 		InAppProductList.Instance.InitialiseProductList();
 
 		// Add Consumable
-		foreach ( InAppProductList.ProductInfo product in InAppProductList.Instance.ConsumableList )
+		foreach ( KeyValuePair<string, InAppProductList.ProductInfo> product in InAppProductList.Instance.ConsumableList )
 		{
-			AddProduct( builder, product, ProductType.Consumable );
+			AddProduct( builder, product.Value, ProductType.Consumable );
 		}
 
 		// Continue adding the non-consumable product.
-		foreach ( InAppProductList.ProductInfo product in InAppProductList.Instance.NonConsumableList )
+		foreach ( KeyValuePair<string, InAppProductList.ProductInfo> product in InAppProductList.Instance.NonConsumableList )
 		{
-			AddProduct( builder, product, ProductType.NonConsumable );
+			AddProduct( builder, product.Value, ProductType.NonConsumable );
 		}
 
 		// Adding subscription
-		foreach ( InAppProductList.ProductInfo product in InAppProductList.Instance.SubscriptionList )
+		foreach ( KeyValuePair<string, InAppProductList.ProductInfo> product in InAppProductList.Instance.SubscriptionList )
 		{
-			AddProduct( builder, product, ProductType.Subscription );
+			AddProduct( builder, product.Value, ProductType.Subscription );
 		}
 
 		// Kick off the remainder of the set-up with an asynchrounous call, passing the configuration 
@@ -197,24 +197,24 @@ public class InAppPurchaser : MonoBehaviour, IStoreListener
 
 		// Update product price
 		// Add Consumable
-		foreach ( InAppProductList.ProductInfo product in InAppProductList.Instance.ConsumableList )
+		foreach ( KeyValuePair<string, InAppProductList.ProductInfo> product in InAppProductList.Instance.ConsumableList )
 		{
-			product.m_fPrice = GetProductLocalisePrice( product.m_sProductIdentifier );
-			Debug.Log( "InAppPurchaser::OnInitialized: Update price[" + product.m_sProductIdentifier + "," + product.m_fPrice + "]" );
+			product.Value.m_sPrice = GetProductLocalisePrice( product.Value.m_sProductIdentifier );
+			Debug.Log( "InAppPurchaser::OnInitialized: Update price[" + product.Value.m_sProductIdentifier + "," + product.Value.m_sPrice + "]" );
 		}
 
 		// Continue adding the non-consumable product.
-		foreach ( InAppProductList.ProductInfo product in InAppProductList.Instance.NonConsumableList )
+		foreach ( KeyValuePair<string, InAppProductList.ProductInfo> product in InAppProductList.Instance.NonConsumableList )
 		{
-			product.m_fPrice = GetProductLocalisePrice( product.m_sProductIdentifier );
-			Debug.Log( "InAppPurchaser::OnInitialized: Update price[" + product.m_sProductIdentifier + "," + product.m_fPrice + "]" );
+			product.Value.m_sPrice = GetProductLocalisePrice( product.Value.m_sProductIdentifier );
+			Debug.Log( "InAppPurchaser::OnInitialized: Update price[" + product.Value.m_sProductIdentifier + "," + product.Value.m_sPrice + "]" );
 		}
 
 		// Adding subscription
-		foreach ( InAppProductList.ProductInfo product in InAppProductList.Instance.SubscriptionList )
+		foreach ( KeyValuePair<string, InAppProductList.ProductInfo> product in InAppProductList.Instance.SubscriptionList )
 		{
-			product.m_fPrice = GetProductLocalisePrice( product.m_sProductIdentifier );
-			Debug.Log( "InAppPurchaser::OnInitialized: Update price[" + product.m_sProductIdentifier + "," + product.m_fPrice + "]" );
+			product.Value.m_sPrice = GetProductLocalisePrice( product.Value.m_sProductIdentifier );
+			Debug.Log( "InAppPurchaser::OnInitialized: Update price[" + product.Value.m_sProductIdentifier + "," + product.Value.m_sPrice + "]" );
 		}
 	}
 
