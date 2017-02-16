@@ -319,4 +319,10 @@ public class ShopManager : MonoBehaviour
 
 		return null;
 	}
+
+	// @debug
+	public void AddGold()
+	{
+		Debugger.AddGold();
+	}
 }

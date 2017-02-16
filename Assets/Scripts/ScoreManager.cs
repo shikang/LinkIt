@@ -16,6 +16,8 @@ public class ScoreManager : MonoBehaviour
 	public GameObject[] m_DummyGems;
 	public GameObject m_DummyLeaked;
 
+	public GameObject m_Coins;
+
 	// Animation variables
 	private int m_nFrameNum;
 	private float m_fAnimationIntervalTimer = 0.0f;
@@ -57,7 +59,13 @@ public class ScoreManager : MonoBehaviour
 
 		m_GemDetails = GameObject.FindGameObjectWithTag( "Gem Details" ).GetComponent<GemDetails>();
 
-		// @todo Save
+		GameData.Instance.m_Coin += m_PlayerStats.m_nCoinsGain;
+
+		Text coinsText = m_Coins.GetComponent<Text>();
+		coinsText.text = GameData.Instance.m_Coin.ToString() + " (+" + m_PlayerStats.m_nCoinsGain + ")";
+
+		// Save
+		SaveLoad.Save();
 	}
 	
 	// Update is called once per frame

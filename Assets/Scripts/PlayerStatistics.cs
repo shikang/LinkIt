@@ -8,6 +8,7 @@ public class PlayerStatistics : MonoBehaviour
 	public int m_nLeakCount = 0;
 	public int m_nScore = 0;
 	public int m_nMaxCombo = 0;
+	public int m_nCoinsGain;
 
 	// Use this for initialization
 	void Start ()
