@@ -28,10 +28,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Score: {fileID: 0}
-  m_Counters: []
+  m_Counters:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_LeakedCounter: {fileID: 0}
-  m_DummyGems: []
+  m_ComboCounter: {fileID: 0}
+  m_DummyGems:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_DummyLeaked: {fileID: 0}
+  m_Coins: {fileID: 0}
+  m_ScoreCanvas: {fileID: 0}
+  m_GachaCanvas: {fileID: 0}
 --- !u!224 &22405976
 RectTransform:
   m_ObjectHideFlags: 1

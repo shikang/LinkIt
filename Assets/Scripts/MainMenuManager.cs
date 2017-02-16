@@ -119,6 +119,11 @@ public class MainMenuManager : MonoBehaviour
 			m_Screens[m_CurrentScreen].GetComponent<RectTransform>().localPosition = currentPos;
 
 			m_bScreenAnimate = m_fScreenAnimateTimer < SCREEN_ANIMATE_TIME;
+
+			if ( !m_bScreenAnimate )
+			{
+				m_Screens[m_PreviousScreen].SetActive( false );
+			}
 		}
 	}
 

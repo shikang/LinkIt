@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
+	public const float SCREEN_ANIMATE_TIME = 0.125f;        //!< In seconds
+
 	PlayerStatistics m_PlayerStats;
 	GemDetails m_GemDetails;
 
@@ -18,12 +20,22 @@ public class ScoreManager : MonoBehaviour
 
 	public GameObject m_Coins;
 
+	public GameObject m_ScoreCanvas;
+	public GameObject m_GachaCanvas;
+
 	// Animation variables
 	private int m_nFrameNum;
 	private float m_fAnimationIntervalTimer = 0.0f;
 	private float m_fAnimationTimer = 0.0f;
 	private bool m_bAnimating = false;
 	private int m_nAnimatingFrame = -1;
+
+	// Screens
+	private bool m_bIsCurrentScreenScore = true;
+	private bool m_bScreenAnimate = false;
+	private float m_fScreenAnimateTimer = 0.0f;
+	private float m_fScreenWidth = 0.0f;
+	private float m_fScreenFrom = 0.0f;
 
 	// Use this for initialization
 	void Start ()
@@ -66,12 +78,19 @@ public class ScoreManager : MonoBehaviour
 
 		// Save
 		SaveLoad.Save();
+
+		m_bIsCurrentScreenScore = true;
+		m_bScreenAnimate = false;
+		m_fScreenAnimateTimer = 0.0f;
+		m_fScreenWidth = m_ScoreCanvas.GetComponent<RectTransform>().sizeDelta.x;
+		GoToScore();
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
 		AnimateGems();
+		AnimationScreen();
 	}
 
 	void OnDestroy()
@@ -142,6 +161,87 @@ public class ScoreManager : MonoBehaviour
 						m_DummyGems[i].GetComponent<SpriteRenderer>().sprite = m_DummyGems[i].GetComponent<GemSpriteContainer>().m_Sprites[0];
 					}
 				}
+			}
+		}
+	}
+
+	public void GoToGacha()
+	{
+		if ( !m_bIsCurrentScreenScore )
+		{
+			m_ScoreCanvas.SetActive( false );
+			m_GachaCanvas.SetActive( true );
+			return;
+		}
+
+		m_bIsCurrentScreenScore = false;
+
+		m_ScoreCanvas.SetActive( true );
+		m_GachaCanvas.SetActive( true );
+
+		PrepareAnimateScreen( m_ScoreCanvas, m_GachaCanvas );
+	}
+
+	public void GoToScore()
+	{
+		if ( m_bIsCurrentScreenScore )
+		{
+			m_ScoreCanvas.SetActive( true );
+			m_GachaCanvas.SetActive( false );
+			return;
+		}
+
+		m_bIsCurrentScreenScore = true;
+
+		m_ScoreCanvas.SetActive( true );
+		m_GachaCanvas.SetActive( true );
+
+		PrepareAnimateScreen( m_GachaCanvas, m_ScoreCanvas );
+	}
+
+	void PrepareAnimateScreen( GameObject previousScreen, GameObject currentScreen )
+	{
+		m_bScreenAnimate = true;
+		if ( m_bScreenAnimate )
+		{
+			m_fScreenAnimateTimer = 0.0f;
+
+			// Setting screen to correct position
+			Vector3 prevPos = previousScreen.GetComponent<RectTransform>().localPosition;
+			prevPos.x = 0.0f;
+			previousScreen.GetComponent<RectTransform>().localPosition = prevPos;
+
+			Vector3 currentPos = currentScreen.GetComponent<RectTransform>().localPosition;
+			currentPos.x = m_bIsCurrentScreenScore ? -m_fScreenWidth : m_fScreenWidth;
+			currentScreen.GetComponent<RectTransform>().localPosition = currentPos;
+
+			m_fScreenFrom = currentPos.x;
+		}
+	}
+
+	void AnimationScreen()
+	{
+		if ( m_bScreenAnimate )
+		{
+			GameObject previousScreen = m_bIsCurrentScreenScore ? m_GachaCanvas : m_ScoreCanvas;
+			GameObject currentScreen = m_bIsCurrentScreenScore ? m_ScoreCanvas : m_GachaCanvas;
+
+			m_fScreenAnimateTimer += Time.deltaTime;
+
+			float factor = Mathf.Pow( Mathf.Clamp( m_fScreenAnimateTimer / SCREEN_ANIMATE_TIME, 0.0f, 1.0f ), 2.0f );
+			Vector3 prevPos = previousScreen.GetComponent<RectTransform>().localPosition;
+			prevPos.x = Mathf.Lerp( 0.0f, -m_fScreenFrom, factor );
+			previousScreen.GetComponent<RectTransform>().localPosition = prevPos;
+
+			Vector3 currentPos = currentScreen.GetComponent<RectTransform>().localPosition;
+			currentPos.x = Mathf.Lerp( m_fScreenFrom, 0.0f, factor );
+			currentScreen.GetComponent<RectTransform>().localPosition = currentPos;
+
+			m_bScreenAnimate = m_fScreenAnimateTimer < SCREEN_ANIMATE_TIME;
+
+			if ( !m_bScreenAnimate )
+			{
+				previousScreen.SetActive( false );
 			}
 		}
 	}
