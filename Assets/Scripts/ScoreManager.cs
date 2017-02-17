@@ -74,7 +74,7 @@ public class ScoreManager : MonoBehaviour
 		GameData.Instance.m_Coin += m_PlayerStats.m_nCoinsGain;
 
 		Text coinsText = m_Coins.GetComponent<Text>();
-		coinsText.text = GameData.Instance.m_Coin.ToString() + " (+" + m_PlayerStats.m_nCoinsGain + ")";
+		coinsText.text = GameData.Instance.m_Coin.ToString();// + " (+" + m_PlayerStats.m_nCoinsGain + ")";
 
 		// Save
 		SaveLoad.Save();
