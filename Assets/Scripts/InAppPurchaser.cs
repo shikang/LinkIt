@@ -129,6 +129,8 @@ public class InAppPurchaser : MonoBehaviour, IStoreListener
 			// Otherwise ...
 			else
 			{
+				InAppProcessor.Instance.ProcessPurchaseFail( productId );
+
 				// ... report the product look-up failure situation  
 				Debug.Log( "InAppPurchaser::BuyProductID: FAIL. Not purchasing product, either is not found or is not available for purchase" );
 			}
@@ -136,6 +138,8 @@ public class InAppPurchaser : MonoBehaviour, IStoreListener
 		// Otherwise ...
 		else
 		{
+			InAppProcessor.Instance.ProcessPurchaseFail( productId );
+
 			// ... report the fact Purchasing has not succeeded initializing yet. Consider waiting longer or 
 			// retrying initiailization.
 			Debug.Log( "InAppPurchaser::BuyProductID FAIL. Not initialized." );
@@ -238,6 +242,8 @@ public class InAppPurchaser : MonoBehaviour, IStoreListener
 
 	public void OnPurchaseFailed( Product product, PurchaseFailureReason failureReason )
 	{
+		InAppProcessor.Instance.ProcessPurchaseFail( product.definition.id );
+
 		// A product purchase attempt did not succeed. Check failureReason for more detail. Consider sharing 
 		// this reason with the user to guide their troubleshooting actions.
 		Debug.Log( string.Format( "InAppPurchaser::OnPurchaseFailed: FAIL. Product: '{0}', PurchaseFailureReason: {1}", product.definition.storeSpecificId, failureReason ) );
