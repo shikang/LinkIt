@@ -83,6 +83,40 @@ public class InAppProcessor : Singleton<InAppProcessor>
 		}
 	}
 
+	public void ProcessPurchaseFail( string productIdentifier )
+	{
+		if( m_ProductParamMap.ContainsKey( productIdentifier ) )
+		{
+			ProductParam productParam = m_ProductParamMap[productIdentifier];
+
+			switch ( productParam.m_ProductType )
+			{
+				case InAppProductList.ProductType.COIN:
+					Debug.Log( string.Format( "InAppProcessor::ProcessPurchase: FAIL. Product: '{0}'", productIdentifier ) );
+
+					break;
+				case InAppProductList.ProductType.AVATAR:
+					Debug.Log( string.Format( "InAppProcessor::ProcessPurchase: FAIL. Product: '{0}'", productIdentifier ) );
+
+					// Enable item screen controls
+					GameObject shopManager = GameObject.FindGameObjectWithTag( "Shop Manager" );
+					ShopManager sm = shopManager.GetComponent<ShopManager>();
+					sm.EnableItemScreenControl( true );
+
+					break;
+				default:
+					Debug.Log( string.Format( "InAppProcessor::ProcessPurchase: FAIL. Invalid product type: '{0}'", productParam.m_ProductType.ToString() ) );
+					return;
+			}
+
+			SaveLoad.Save();
+		}
+		else
+		{
+			Debug.Log( string.Format( "InAppProcessor::ProcessPurchase: FAIL. Unrecognized product: '{0}'", productIdentifier ) );
+		}
+	}
+
 	public Dictionary<string, ProductParam> ProductParamMap
 	{
 		get
