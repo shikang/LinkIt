@@ -40,6 +40,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb983b879eb40b4dbd2fef27134ffb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_GachaButton: {fileID: 0}
+  m_RecieveButton: {fileID: 0}
 --- !u!114 &11479210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -52,6 +54,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FountainDustPrefab: {fileID: 178708, guid: 94c6b038a4730bb4a9e22ea5d32db920, type: 2}
+  m_GachaItemPrefab: {fileID: 154092, guid: bfc80d8e62fb5f0498a1bcbd50e5fc64, type: 2}
+  m_ItemLightBurstPrefab: {fileID: 196338, guid: bf62f7cc20b13de499671f69cdc283d8,
+    type: 2}
   m_Flash: {fileID: 0}
   m_Coin: {fileID: 0}
   m_Fountain: {fileID: 0}
