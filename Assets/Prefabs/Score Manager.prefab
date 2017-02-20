@@ -42,6 +42,7 @@ MonoBehaviour:
   - {fileID: 0}
   m_DummyLeaked: {fileID: 0}
   m_Coins: {fileID: 0}
+  m_Coin: {fileID: 0}
   m_ScoreCanvas: {fileID: 0}
   m_GachaCanvas: {fileID: 0}
 --- !u!224 &22405976
