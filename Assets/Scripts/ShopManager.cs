@@ -8,7 +8,8 @@ public class ShopManager : MonoBehaviour
 	public const int PER_BUY = 100;
 	public const int ITEM_PAD = 50;
 
-	public GemLibrary m_GemLibrary;
+	//public GemLibrary m_GemLibrary;
+	GemLibrary m_GemLibrary;
 	public GameObject m_ItemContent;
 	public GameObject m_Equipped;
 
@@ -45,6 +46,8 @@ public class ShopManager : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		m_GemLibrary = GemLibrary.Instance;
+
 		//m_fItemContentWidth = m_ItemContent.GetComponent<RectTransform>().sizeDelta.x;
 		m_fItemIconWidth = m_ItemPrefab.GetComponent<RectTransform>().sizeDelta.x;
 		m_ItemIconDim = m_ItemPrefab.GetComponent<RectTransform>().sizeDelta;
@@ -128,10 +131,10 @@ public class ShopManager : MonoBehaviour
 
 			GameObject itemIcon = (GameObject)Instantiate( m_ItemPrefab, m_ItemIconStartPos, Quaternion.identity );
 			Button button = itemIcon.GetComponent<Button>();
-			button.image.sprite = m_GemLibrary.m_GemsSetList[nIndex].GetGemContainer( GemContainerSet.BLUE_GEM_CONTAINER_INDEX )[0];
+			button.image.sprite = m_GemLibrary.GemsSetList[nIndex].GetGemContainer( GemContainerSet.BLUE_GEM_CONTAINER_INDEX )[0];
 
 			Text label = itemIcon.GetComponentInChildren<Text>();
-			label.text = m_GemLibrary.m_GemsSetList[nIndex].m_sGemContainerSetName;
+			label.text = m_GemLibrary.GemsSetList[nIndex].m_sGemContainerSetName;
 
 			ItemIcon ic = itemIcon.GetComponent<ItemIcon>();
 			ic.m_ItemType = gemType;
@@ -267,7 +270,7 @@ public class ShopManager : MonoBehaviour
 	public void ChangeEquippedSprite( GemLibrary.GemSet gemType )
 	{
 		SpriteRenderer sr = m_Equipped.GetComponent<SpriteRenderer>();
-		sr.sprite = m_GemLibrary.m_GemsSetList[ (int)gemType ].GetGemContainer( GemContainerSet.BLUE_GEM_CONTAINER_INDEX )[0];
+		sr.sprite = m_GemLibrary.GemsSetList[ (int)gemType ].GetGemContainer( GemContainerSet.BLUE_GEM_CONTAINER_INDEX )[0];
 	}
 
 	public void EnableScrolling( bool enable )
