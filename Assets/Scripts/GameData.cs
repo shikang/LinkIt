@@ -28,4 +28,13 @@ public class GameData
 		m_GemList = new List<GemLibrary.GemSet>();
 		m_Sets = new HashSet<GemLibrary.GemSet>();
 	}
+
+	public void UnlockGem( GemLibrary.GemSet gemType )
+	{
+		if ( !m_Sets.Contains( gemType ) )
+		{
+			m_Sets.Add( gemType );
+			m_GemList.Add( gemType );
+		}
+	}
 }

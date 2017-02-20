@@ -68,8 +68,9 @@ public class InAppProductList : Singleton<InAppProductList>
 		}
 		
 		// Non-consumables
-		GemLibrary gemLibrary = GameObject.Find( "Gem Library" ).GetComponent<GemLibrary>();
-		for ( int i = 0; i < gemLibrary.m_GemsSetList.Count; ++i )
+		//GemLibrary gemLibrary = GameObject.Find( "Gem Library" ).GetComponent<GemLibrary>();
+		GemLibrary gemLibrary = GemLibrary.Instance;
+		for ( int i = 0; i < gemLibrary.GemsSetList.Count; ++i )
 		{
 			string productIdentifier = GetProductIdentifier( ProductType.AVATAR, i );
 			m_NonConsumableList.Add( productIdentifier, new ProductInfo( productIdentifier, Store.ALL ) );
@@ -88,8 +89,9 @@ public class InAppProductList : Singleton<InAppProductList>
 			case InAppProductList.ProductType.COIN:
 				return PRODUCT_PREFIX + productType.ToString().ToLower() + "." + productParam.ToString();
 			case InAppProductList.ProductType.AVATAR:
-				GemLibrary gemLibrary = GameObject.Find( "Gem Library" ).GetComponent<GemLibrary>();
-				GemContainerSet gemSet = gemLibrary.m_GemsSetList[productParam];
+				//GemLibrary gemLibrary = GameObject.Find( "Gem Library" ).GetComponent<GemLibrary>();
+				GemLibrary gemLibrary = GemLibrary.Instance;
+				GemContainerSet gemSet = gemLibrary.GemsSetList[productParam];
 				return PRODUCT_PREFIX + ProductType.AVATAR.ToString().ToLower() + "." + gemSet.m_sGemContainerSetName.ToLower();
 			default:
 				Debug.Log( string.Format( "InAppProcessor::GetProductIdentifier: FAIL. Invalid product type: '{0}'", productType.ToString() ) );

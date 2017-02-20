@@ -45,11 +45,14 @@ public class InAppProcessor : Singleton<InAppProcessor>
 				case InAppProductList.ProductType.AVATAR:
 					GemLibrary.GemSet gemType = (GemLibrary.GemSet)productParam.m_nProductParam;
 
+					/*
 					if ( !GameData.Instance.m_Sets.Contains( gemType ) )
 					{
 						GameData.Instance.m_Sets.Add( gemType );
 						GameData.Instance.m_GemList.Add( gemType );
 					}
+					*/
+					GameData.Instance.UnlockGem( gemType );
 
 					Debug.Log( string.Format( "InAppProcessor::ProcessPurchase: PASS. Product: '{0}'", productIdentifier ) );
 
@@ -59,8 +62,9 @@ public class InAppProcessor : Singleton<InAppProcessor>
 					sm.EnableItemScreenControl( true );
 
 					// Some feedback
-					GemLibrary gemLibrary = GameObject.Find( "Gem Library" ).GetComponent<GemLibrary>();
-					GemContainerSet gemSet = gemLibrary.m_GemsSetList[productParam.m_nProductParam];
+					//GemLibrary gemLibrary = GameObject.Find( "Gem Library" ).GetComponent<GemLibrary>();
+					GemLibrary gemLibrary = GemLibrary.Instance;
+					GemContainerSet gemSet = gemLibrary.GemsSetList[productParam.m_nProductParam];
 
 					GameObject explosion = ( GameObject )Instantiate( gemSet.m_Explosion, sm.GetCurrentItemIcon().transform.position, Quaternion.identity );
 					explosion.layer = LayerMask.NameToLayer( "UI Particles" );

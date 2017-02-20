@@ -12,12 +12,13 @@ public class GemDetails : MonoBehaviour
 	{
 		DontDestroyOnLoad( this );
 
-		m_GemLibrary = GameObject.Find( "Gem Library" ).GetComponent<GemLibrary>();
+		//m_GemLibrary = GameObject.Find( "Gem Library" ).GetComponent<GemLibrary>();
+		m_GemLibrary = GemLibrary.Instance;
 
 		// If gem set is inside the inventory
 		if ( GameData.Instance.m_Sets.Contains( GameData.Instance.m_EquippedGemSet ) )
 		{
-			m_GemSet = m_GemLibrary.m_GemsSetList[ (int)GameData.Instance.m_EquippedGemSet ];
+			m_GemSet = m_GemLibrary.GemsSetList[ (int)GameData.Instance.m_EquippedGemSet ];
 		}
 		else
 		{
@@ -64,7 +65,7 @@ public class GemDetails : MonoBehaviour
 	// Equip (Set gem set)
 	public bool EquipGemSet( GemLibrary.GemSet gemSet )
 	{
-		m_GemSet = m_GemLibrary.m_GemsSetList[ (int)gemSet ];
+		m_GemSet = m_GemLibrary.GemsSetList[ (int)gemSet ];
 		if ( GameData.Instance.m_Sets.Contains( gemSet ) )
 		{
 			GameData.Instance.m_EquippedGemSet = gemSet;

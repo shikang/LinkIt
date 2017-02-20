@@ -40,8 +40,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb983b879eb40b4dbd2fef27134ffb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PrizeButton: {fileID: 0}
   m_GachaButton: {fileID: 0}
-  m_RecieveButton: {fileID: 0}
+  m_BackButton: {fileID: 0}
+  m_ReceiveText: {fileID: 0}
 --- !u!114 &11479210
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -12,7 +12,7 @@ public class GachaAnimator : MonoBehaviour
 	const float WISH_FULFILL_TIME = 0.5f;
 	const float ITEM_DROP_TIME = 0.5f;
 
-	const float ITEM_SHOW_Y = 200.0f;
+	const float ITEM_SHOW_Y = 175.0f;
 
 	enum GachaAnimationPhase
 	{
@@ -40,6 +40,8 @@ public class GachaAnimator : MonoBehaviour
 
 	private GameObject m_CurrentItem;
 	private GameObject m_CurrentItemLight;
+
+	GemLibrary.GemSet m_GemType;
 
 	public delegate void AfterAnimation();
 
@@ -132,7 +134,7 @@ public class GachaAnimator : MonoBehaviour
 						// Create burst
 						m_CurrentItemLight = (GameObject)Instantiate( m_ItemLightBurstPrefab, ITEM_SHOW_Y * Vector3.up, Quaternion.identity );
 						m_CurrentItemLight.transform.parent = m_Fountain.transform.parent;
-						m_CurrentItemLight.transform.localPosition = m_Fountain.transform.localPosition + ITEM_SHOW_Y * Vector3.up;
+						m_CurrentItemLight.transform.localPosition = /*m_Fountain.transform.localPosition +*/ ITEM_SHOW_Y * Vector3.up;
 						m_CurrentItemLight.transform.localScale = Vector3.one;
 						m_CurrentItemLight.SetActive( false );
 
@@ -141,6 +143,7 @@ public class GachaAnimator : MonoBehaviour
 						m_CurrentItem.transform.parent = m_Fountain.transform.parent;
 						m_CurrentItem.transform.localPosition = m_Fountain.transform.localPosition;
 						m_CurrentItem.transform.localScale = Vector3.zero;
+						m_CurrentItem.GetComponent<Image>().sprite = GemLibrary.Instance.GemsSetList[ (int)m_GemType ].GetGemContainer( GemContainerSet.BLUE_GEM_CONTAINER_INDEX )[0];
 					}
 				}
 				break;
@@ -154,6 +157,8 @@ public class GachaAnimator : MonoBehaviour
 
 					if ( m_AnimationTimer >= ITEM_DROP_TIME )
 					{
+						// @todo Play victory sound effect
+
 						m_AnimationPhase = (int)GachaAnimationPhase.ITEM_RECIEVED;
 						m_AnimationTimer = 0.0f;
 
@@ -163,14 +168,15 @@ public class GachaAnimator : MonoBehaviour
 				break;
 
 			case (int)GachaAnimationPhase.ITEM_RECIEVED:
-				if ( OnAfterAnimation != null )
-				{ 
-					OnAfterAnimation();
+				{
+					if ( OnAfterAnimation != null )
+					{ 
+						OnAfterAnimation();
+					}
+
+					m_AnimationPhase = (int)GachaAnimationPhase.NONE;
+					m_AnimationTimer = 0.0f;
 				}
-
-				m_AnimationPhase = (int)GachaAnimationPhase.NONE;
-				m_AnimationTimer = 0.0f;
-
 				break;
 
 			case (int)GachaAnimationPhase.NONE:
@@ -180,8 +186,9 @@ public class GachaAnimator : MonoBehaviour
 		}
 	}
 	
-	public void StartGachaAnimation()
+	public void StartGachaAnimation( GemLibrary.GemSet gemType )
 	{
+		m_GemType = gemType;
 		m_AnimationPhase = (int)GachaAnimationPhase.THROW_COIN;
 
 		m_Coin.transform.localPosition = m_CoinStartPos;

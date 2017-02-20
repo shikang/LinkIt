@@ -17,9 +17,29 @@ public class GemLibrary : MonoBehaviour
 
 	public List<GemContainerSet> m_GemsSetList;
 
+	static private GemLibrary m_Instance = null;
+
+	static public GemLibrary Instance
+	{
+		get { return m_Instance; }
+	}
+
+	public List<GemContainerSet> GemsSetList
+	{
+		get { return m_GemsSetList; }
+	}
+
 	// Use this for initialization
 	void Start ()
 	{
-	
+		if ( m_Instance != null )
+		{
+			Destroy( this );
+		}
+		else
+		{
+			m_Instance = this;
+			DontDestroyOnLoad( this );
+		}
 	}
 }
