@@ -37,7 +37,9 @@ public class GemSpawner : MonoBehaviour
 
 	public const float COMBO_FADE_TIME_RECIPROCAL = 1.0f / TIME_TO_COMBO_FADE;
 
-	public const float GAMEOVER_ANIMATION = 2.0f;		//!< In seconds
+	public const float GAMEOVER_ANIMATION = 2.0f;       //!< In seconds
+
+	public const float HEALTH_LOW_OVERLAY_FADE_IN_TIME = 0.5f;	//!< In seconds
 
 	// Game constants
 	public const float UNLINKABLE_ZONE = 0.1f;          //!< Percentage from bottom
@@ -51,6 +53,7 @@ public class GemSpawner : MonoBehaviour
 	public const int HEALTH_LOST_PER_GEM = 10;
 	public const int HEALTH_GAIN_PER_LINK = 1;
 	public const int MAX_HEALTH = 100;
+	public const int LOW_HEALTH = (int)( 0.25f * MAX_HEALTH );
 
 	public readonly string[] PRAISE_ARRAY = { "", "", "", "Good", "Great", "Incredible!", "Awesome!" };
 
@@ -122,6 +125,10 @@ public class GemSpawner : MonoBehaviour
 	// Particle effect
 	public GameObject m_GemExplosionPrefab;
 	public GameObject m_LevelUpOverlayPrefab;
+
+	// Overlays
+	public GameObject m_HealthLowOverlay;
+	private float m_HealthLowTimer = 0.0f;
 
 	// Player stats
 	private int m_nLevel = 0;
@@ -239,6 +246,16 @@ public class GemSpawner : MonoBehaviour
 		m_bAnimating = false;
 		m_nAnimatingFrame = -1;
 
+		// Overlays
+		{
+			SpriteRenderer sr = m_HealthLowOverlay.GetComponent<SpriteRenderer>();
+			Color c = sr.color;
+			c.a = 0.0f;
+			sr.color = c;
+
+			m_HealthLowOverlay.SetActive( true );
+		}
+
 		// Initialise player's stats
 		m_nLevel = 0;
 		m_nPoints = 0;
@@ -334,6 +351,7 @@ public class GemSpawner : MonoBehaviour
 		AnimatePoints();
 		AnimateCombo();
 		AnimatePraise();
+		AnimateOverlays();
 
 		CheckGameOver();
 		UpdateGameover();
@@ -1328,6 +1346,27 @@ public class GemSpawner : MonoBehaviour
 		Vector3 pos = m_PraiseText.transform.position;
 		pos.y = m_PraisePos.y + factor * PRAISE_MOVE_DISTANCE;
 		m_PraiseText.transform.position = pos;
+	}
+
+	void AnimateOverlays()
+	{
+		if ( m_nHealth <= LOW_HEALTH )
+		{
+			m_HealthLowTimer += Time.deltaTime;
+		}
+		else
+		{
+			m_HealthLowTimer -= Time.deltaTime;
+		}
+
+		m_HealthLowTimer = Mathf.Clamp( m_HealthLowTimer, 0.0f, HEALTH_LOW_OVERLAY_FADE_IN_TIME );
+
+		float factor = Mathf.Pow( m_HealthLowTimer / HEALTH_LOW_OVERLAY_FADE_IN_TIME, 2.0f );
+
+		SpriteRenderer sr = m_HealthLowOverlay.GetComponent<SpriteRenderer>();
+		Color c = sr.color;
+		c.a = factor;
+		sr.color = c;
 	}
 
 	bool DidGemCollide( Gem lhs, Gem rhs )

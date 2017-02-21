@@ -78,6 +78,7 @@ MonoBehaviour:
   m_GemExplosionPrefab: {fileID: 194224, guid: 75bd6bc8c365fc049b5c339375208996, type: 2}
   m_LevelUpOverlayPrefab: {fileID: 111248, guid: 76a7a2b4a66ade745bc19d027f90199b,
     type: 2}
+  m_HealthLowOverlay: {fileID: 0}
   m_GameCanvas: {fileID: 0}
   m_ScoreText: {fileID: 0}
   m_LevelText: {fileID: 0}

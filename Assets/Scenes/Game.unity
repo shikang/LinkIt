@@ -229,8 +229,8 @@ Prefab:
       value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 111248, guid: 76a7a2b4a66ade745bc19d027f90199b, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_Name
+      value: Level Up Overlay
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 76a7a2b4a66ade745bc19d027f90199b, type: 2}
@@ -565,6 +565,52 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4556b7380d68d2449a7a2f5aacf38ffa, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &605101373
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 492878, guid: 659ab134d0c724a49a851271654ea914, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492878, guid: 659ab134d0c724a49a851271654ea914, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492878, guid: 659ab134d0c724a49a851271654ea914, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492878, guid: 659ab134d0c724a49a851271654ea914, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492878, guid: 659ab134d0c724a49a851271654ea914, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492878, guid: 659ab134d0c724a49a851271654ea914, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 492878, guid: 659ab134d0c724a49a851271654ea914, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 492878, guid: 659ab134d0c724a49a851271654ea914, type: 2}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 166538, guid: 659ab134d0c724a49a851271654ea914, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 659ab134d0c724a49a851271654ea914, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &754372700 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 145278, guid: eda1c069cf745714a91322fa29857eba, type: 2}
@@ -673,9 +719,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 145278, guid: eda1c069cf745714a91322fa29857eba, type: 2}
+      propertyPath: m_Name
+      value: Life Line
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eda1c069cf745714a91322fa29857eba, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1225489518 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 166538, guid: 659ab134d0c724a49a851271654ea914, type: 2}
+  m_PrefabInternal: {fileID: 605101373}
 --- !u!1001 &1247211743
 Prefab:
   m_ObjectHideFlags: 0
@@ -1071,6 +1125,10 @@ Prefab:
       propertyPath: m_LineLine
       value: 
       objectReference: {fileID: 754372700}
+    - target: {fileID: 11467488, guid: 13445aaefa94b584cba5e58d98946d2e, type: 2}
+      propertyPath: m_HealthLowOverlay
+      value: 
+      objectReference: {fileID: 1225489518}
     - target: {fileID: 11467488, guid: 13445aaefa94b584cba5e58d98946d2e, type: 2}
       propertyPath: m_GameCanvas
       value: 
