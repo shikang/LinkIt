@@ -79,6 +79,7 @@ MonoBehaviour:
   m_LevelUpOverlayPrefab: {fileID: 111248, guid: 76a7a2b4a66ade745bc19d027f90199b,
     type: 2}
   m_HealthLowOverlay: {fileID: 0}
+  m_HighComboZone: {fileID: 0}
   m_GameCanvas: {fileID: 0}
   m_ScoreText: {fileID: 0}
   m_LevelText: {fileID: 0}

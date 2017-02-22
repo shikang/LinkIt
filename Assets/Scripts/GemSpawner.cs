@@ -39,7 +39,8 @@ public class GemSpawner : MonoBehaviour
 
 	public const float GAMEOVER_ANIMATION = 2.0f;       //!< In seconds
 
-	public const float HEALTH_LOW_OVERLAY_FADE_IN_TIME = 0.5f;	//!< In seconds
+	public const float HEALTH_LOW_OVERLAY_FADE_TIME = 0.5f;  //!< In seconds
+	public const float HIGH_COMBO_OVERLAY_FADE_TIME = 0.5f;  //!< In seconds
 
 	// Game constants
 	public const float UNLINKABLE_ZONE = 0.1f;          //!< Percentage from bottom
@@ -54,6 +55,8 @@ public class GemSpawner : MonoBehaviour
 	public const int HEALTH_GAIN_PER_LINK = 1;
 	public const int MAX_HEALTH = 100;
 	public const int LOW_HEALTH = (int)( 0.25f * MAX_HEALTH );
+
+	public const int HIGH_COMBO = 50;
 
 	public readonly string[] PRAISE_ARRAY = { "", "", "", "Good", "Great", "Incredible!", "Awesome!" };
 
@@ -129,6 +132,8 @@ public class GemSpawner : MonoBehaviour
 	// Overlays
 	public GameObject m_HealthLowOverlay;
 	private float m_HealthLowTimer = 0.0f;
+	public GameObject m_HighComboZone;
+	private float m_HighComboZoneTimer = 0.0f;
 
 	// Player stats
 	private int m_nLevel = 0;
@@ -254,6 +259,16 @@ public class GemSpawner : MonoBehaviour
 			sr.color = c;
 
 			m_HealthLowOverlay.SetActive( true );
+			m_HealthLowTimer = 0.0f;
+		}
+		{
+			SpriteRenderer sr = m_HighComboZone.GetComponent<SpriteRenderer>();
+			Color c = sr.color;
+			c.a = 0.0f;
+			sr.color = c;
+
+			m_HighComboZone.SetActive( true );
+			m_HighComboZoneTimer = 0.0f;
 		}
 
 		// Initialise player's stats
@@ -1350,23 +1365,47 @@ public class GemSpawner : MonoBehaviour
 
 	void AnimateOverlays()
 	{
-		if ( m_nHealth <= LOW_HEALTH )
+		// Low Health
 		{
-			m_HealthLowTimer += Time.deltaTime;
+			if ( m_nHealth <= LOW_HEALTH )
+			{
+				m_HealthLowTimer += Time.deltaTime;
+			}
+			else
+			{
+				m_HealthLowTimer -= Time.deltaTime;
+			}
+
+			m_HealthLowTimer = Mathf.Clamp( m_HealthLowTimer, 0.0f, HEALTH_LOW_OVERLAY_FADE_TIME );
+
+			float factor = Mathf.Pow( m_HealthLowTimer / HEALTH_LOW_OVERLAY_FADE_TIME, 2.0f );
+
+			SpriteRenderer sr = m_HealthLowOverlay.GetComponent<SpriteRenderer>();
+			Color c = sr.color;
+			c.a = factor;
+			sr.color = c;
 		}
-		else
+
+		// High combo
 		{
-			m_HealthLowTimer -= Time.deltaTime;
+			if ( m_nCurrentCombo >= HIGH_COMBO )
+			{
+				m_HighComboZoneTimer += Time.deltaTime;
+			}
+			else
+			{
+				m_HighComboZoneTimer -= Time.deltaTime;
+			}
+
+			m_HighComboZoneTimer = Mathf.Clamp( m_HighComboZoneTimer, 0.0f, HIGH_COMBO_OVERLAY_FADE_TIME );
+
+			float factor = Mathf.Pow( m_HighComboZoneTimer / HIGH_COMBO_OVERLAY_FADE_TIME, 2.0f );
+
+			SpriteRenderer sr = m_HighComboZone.GetComponent<SpriteRenderer>();
+			Color c = sr.color;
+			c.a = factor;
+			sr.color = c;
 		}
-
-		m_HealthLowTimer = Mathf.Clamp( m_HealthLowTimer, 0.0f, HEALTH_LOW_OVERLAY_FADE_IN_TIME );
-
-		float factor = Mathf.Pow( m_HealthLowTimer / HEALTH_LOW_OVERLAY_FADE_IN_TIME, 2.0f );
-
-		SpriteRenderer sr = m_HealthLowOverlay.GetComponent<SpriteRenderer>();
-		Color c = sr.color;
-		c.a = factor;
-		sr.color = c;
 	}
 
 	bool DidGemCollide( Gem lhs, Gem rhs )
