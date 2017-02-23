@@ -41,6 +41,7 @@ public class GemSpawner : MonoBehaviour
 
 	public const float HEALTH_LOW_OVERLAY_FADE_TIME = 0.5f;  //!< In seconds
 	public const float HIGH_COMBO_OVERLAY_FADE_TIME = 0.5f;  //!< In seconds
+	public const float HIGH_COMBO_SPECULAR_INTERVAL = 10.0f;  //!< In seconds
 
 	// Game constants
 	public const float UNLINKABLE_ZONE = 0.1f;          //!< Percentage from bottom
@@ -56,7 +57,7 @@ public class GemSpawner : MonoBehaviour
 	public const int MAX_HEALTH = 100;
 	public const int LOW_HEALTH = (int)( 0.25f * MAX_HEALTH );
 
-	public const int HIGH_COMBO = 50;
+	public const int HIGH_COMBO = 30;
 
 	public readonly string[] PRAISE_ARRAY = { "", "", "", "Good", "Great", "Incredible!", "Awesome!" };
 
@@ -134,6 +135,15 @@ public class GemSpawner : MonoBehaviour
 	private float m_HealthLowTimer = 0.0f;
 	public GameObject m_HighComboZone;
 	private float m_HighComboZoneTimer = 0.0f;
+
+	public GameObject m_HighComboStrip;
+	private Vector3 m_HighComboStripPos;
+	private Vector3 m_HighComboStripScale;
+	public GameObject m_HighComboSpecular;
+	private Vector3 m_HighComboSpecularPos;
+	private Vector3 m_HighComboSpecularScale;
+	private GameObject m_CurrentHighComboStrip;
+	private float m_HighComboStripSpecularTimer;
 
 	// Player stats
 	private int m_nLevel = 0;
@@ -269,6 +279,15 @@ public class GemSpawner : MonoBehaviour
 
 			m_HighComboZone.SetActive( true );
 			m_HighComboZoneTimer = 0.0f;
+
+			m_HighComboStripPos = m_HighComboStrip.transform.localPosition;
+			m_HighComboSpecularPos = m_HighComboSpecular.transform.localPosition;
+
+			m_HighComboStripScale = m_HighComboStrip.transform.localScale;
+			m_HighComboSpecularScale = m_HighComboSpecular.transform.localScale;
+
+			m_CurrentHighComboStrip = null;
+			m_HighComboStripSpecularTimer = 0.0f;
 		}
 
 		// Initialise player's stats
@@ -718,6 +737,16 @@ public class GemSpawner : MonoBehaviour
 		m_fComboTimer = 0.0f;
 		m_nPrevCombo = m_nCurrentCombo;
 		m_nCurrentCombo += comboGain;
+
+		if ( m_nCurrentCombo >= HIGH_COMBO && m_CurrentHighComboStrip == null )
+		{
+			CreateComboStrip();
+		}
+
+		//if ( m_nCurrentCombo >= HIGH_COMBO )
+		//{
+		//	CreateComboSpecular();
+		//}
 
 		Color c = m_ComboText.GetComponent<Text>().color;
 		c.a = 1.0f;
@@ -1405,6 +1434,16 @@ public class GemSpawner : MonoBehaviour
 			Color c = sr.color;
 			c.a = factor;
 			sr.color = c;
+
+			if ( m_nCurrentCombo >= HIGH_COMBO )
+			{
+				m_HighComboStripSpecularTimer += Time.deltaTime;
+				if ( m_HighComboStripSpecularTimer >= HIGH_COMBO_SPECULAR_INTERVAL )
+				{
+					m_HighComboStripSpecularTimer -= HIGH_COMBO_SPECULAR_INTERVAL;
+					CreateComboSpecular();
+				}
+			}
 		}
 	}
 
@@ -1519,6 +1558,11 @@ public class GemSpawner : MonoBehaviour
 	{
 		// @todo check if current combo more than 1, shake screen?
 
+		if ( m_CurrentHighComboStrip != null )
+		{
+			DestroyComboStrip();
+		}
+
 		m_nCurrentCombo = 0;
 		m_ComboText.GetComponent<Text>().text = "Combo\n" + m_nCurrentCombo.ToString();
 
@@ -1526,6 +1570,40 @@ public class GemSpawner : MonoBehaviour
 		c.a = 0.0f;
 		m_ComboText.GetComponent<Text>().color = c;
 		//m_nComboOpacity = 0.0f;
+	}
+
+	void CreateComboStrip()
+	{
+		if ( m_CurrentHighComboStrip != null )
+			return;
+
+		m_CurrentHighComboStrip = (GameObject)Instantiate( m_HighComboStrip, Vector3.zero, Quaternion.identity );
+		m_CurrentHighComboStrip.transform.SetParent( m_GameCanvas.transform );
+		m_CurrentHighComboStrip.transform.localPosition = m_HighComboStripPos;
+		m_CurrentHighComboStrip.transform.localScale = m_HighComboStripScale;
+		m_CurrentHighComboStrip.GetComponent<ComboMove>().StartEnter();
+		m_CurrentHighComboStrip.SetActive( true );
+
+		m_HighComboStripSpecularTimer = 0.0f;
+	}
+
+	void DestroyComboStrip()
+	{
+		if ( m_CurrentHighComboStrip == null )
+			return;
+
+		m_CurrentHighComboStrip.GetComponent<ComboMove>().StartExit( -m_HighComboStripPos.y );
+		m_CurrentHighComboStrip = null;
+	}
+
+	void CreateComboSpecular()
+	{
+		GameObject currentHighComboStrip = (GameObject)Instantiate( m_HighComboSpecular, Vector3.zero, Quaternion.identity );
+		currentHighComboStrip.transform.SetParent( m_GameCanvas.transform );
+		currentHighComboStrip.transform.localPosition = m_HighComboSpecularPos;
+		currentHighComboStrip.transform.localScale = m_HighComboSpecularScale;
+		currentHighComboStrip.GetComponent<ComboMove>().StartAllTheWay( -m_HighComboSpecularPos.y );
+		currentHighComboStrip.SetActive( true );
 	}
 
 	static void GoToScore()
