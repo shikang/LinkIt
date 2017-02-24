@@ -135,6 +135,8 @@ public class GemSpawner : MonoBehaviour
 	private float m_HealthLowTimer = 0.0f;
 	public GameObject m_HighComboZone;
 	private float m_HighComboZoneTimer = 0.0f;
+	public GameObject m_HighComboEffectLeft;
+	public GameObject m_HighComboEffectRight;
 
 	public GameObject m_HighComboStrip;
 	private Vector3 m_HighComboStripPos;
@@ -304,6 +306,9 @@ public class GemSpawner : MonoBehaviour
 
 			m_CurrentHighComboStrip = null;
 			m_HighComboStripSpecularTimer = 0.0f;
+
+			m_HighComboEffectLeft.GetComponent<ParticleSystem>().Stop();
+			m_HighComboEffectRight.GetComponent<ParticleSystem>().Stop();
 		}
 
 		// Initialise player's stats
@@ -1624,6 +1629,9 @@ public class GemSpawner : MonoBehaviour
 		m_CurrentHighComboStrip.SetActive( true );
 
 		m_HighComboStripSpecularTimer = 0.0f;
+
+		m_HighComboEffectLeft.GetComponent<ParticleSystem>().Play();
+		m_HighComboEffectRight.GetComponent<ParticleSystem>().Play();
 	}
 
 	void DestroyComboStrip()
@@ -1633,6 +1641,9 @@ public class GemSpawner : MonoBehaviour
 
 		m_CurrentHighComboStrip.GetComponent<ComboMove>().StartExit( -m_HighComboStripPos.y );
 		m_CurrentHighComboStrip = null;
+
+		m_HighComboEffectLeft.GetComponent<ParticleSystem>().Stop();
+		m_HighComboEffectRight.GetComponent<ParticleSystem>().Stop();
 	}
 
 	void CreateComboSpecular()
