@@ -226,7 +226,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 403122, guid: 76a7a2b4a66ade745bc19d027f90199b, type: 2}
       propertyPath: m_RootOrder
-      value: 20
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 111248, guid: 76a7a2b4a66ade745bc19d027f90199b, type: 2}
       propertyPath: m_Name
@@ -895,7 +895,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 425964, guid: dc4ed397eedbd7448a08af94a25f09ef, type: 2}
       propertyPath: m_RootOrder
-      value: 21
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 164800, guid: dc4ed397eedbd7448a08af94a25f09ef, type: 2}
       propertyPath: m_IsActive
@@ -1203,18 +1203,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 22
       objectReference: {fileID: 0}
-    - target: {fileID: 19890036, guid: 589f19aaa39d21342b077162c6f29ee9, type: 2}
-      propertyPath: playOnAwake
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19890036, guid: 589f19aaa39d21342b077162c6f29ee9, type: 2}
-      propertyPath: ShapeModule.boxX
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 19890036, guid: 589f19aaa39d21342b077162c6f29ee9, type: 2}
-      propertyPath: ShapeModule.boxY
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 589f19aaa39d21342b077162c6f29ee9, type: 2}
   m_IsPrefabParent: 0
@@ -1350,14 +1338,6 @@ Prefab:
     - target: {fileID: 496298, guid: 6a37a6fe73ff69e40b38c430896553f8, type: 2}
       propertyPath: m_RootOrder
       value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 19848204, guid: 6a37a6fe73ff69e40b38c430896553f8, type: 2}
-      propertyPath: ShapeModule.boxX
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 19848204, guid: 6a37a6fe73ff69e40b38c430896553f8, type: 2}
-      propertyPath: ShapeModule.boxY
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a37a6fe73ff69e40b38c430896553f8, type: 2}
@@ -1622,7 +1602,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 443962, guid: 5f66563156b8c9348854232ac0127a12, type: 2}
       propertyPath: m_RootOrder
-      value: 22
+      value: 21
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f66563156b8c9348854232ac0127a12, type: 2}
