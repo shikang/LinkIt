@@ -18,6 +18,8 @@ public class GemSpawner : MonoBehaviour
 	public const float BASE_GEM_DROP_TIME = 5.0f;       //!< In seconds
 	public const float SPAWN_RATE_GROWTH = 0.06f;       //!< In seconds
 	public const float GEM_DROP_TIME_GROWTH = 0.1f;     //!< In seconds
+	public const int GEM_LOOKBACK_NUM = 2;
+	public const float SPAWN_DANGER_AREA = 0.5f;        //!< Percentage from bottom
 
 	// Type constants
 	public const int INVALID_LANE = -1;
@@ -55,9 +57,9 @@ public class GemSpawner : MonoBehaviour
 	public const int HEALTH_LOST_PER_GEM = 10;
 	public const int HEALTH_GAIN_PER_LINK = 1;
 	public const int MAX_HEALTH = 100;
-	public const int LOW_HEALTH = (int)( 0.25f * MAX_HEALTH );
+	public const int LOW_HEALTH = (int)( 0.3f * MAX_HEALTH );
 
-	public const int HIGH_COMBO = 30;
+	public const int HIGH_COMBO = 10;
 
 	public readonly string[] PRAISE_ARRAY = { "", "", "", "Good", "Great", "Incredible!", "Awesome!" };
 
@@ -89,6 +91,7 @@ public class GemSpawner : MonoBehaviour
 	private int m_nSequenceIndex;
 	private int m_nSequenceIndexFromList;
 	private List<int> m_lFailedSequenceCount;
+	private float m_SpawnDangerArea = 0.0f;
 
 	// Spawning interval
 	private float m_fSpawnRate = BASE_SPAWN_RATE;
@@ -135,6 +138,8 @@ public class GemSpawner : MonoBehaviour
 	private float m_HealthLowTimer = 0.0f;
 	public GameObject m_HighComboZone;
 	private float m_HighComboZoneTimer = 0.0f;
+	public GameObject m_HighComboEffectLeft;
+	public GameObject m_HighComboEffectRight;
 
 	public GameObject m_HighComboStrip;
 	private Vector3 m_HighComboStripPos;
@@ -193,11 +198,15 @@ public class GemSpawner : MonoBehaviour
 		//m_fBaseGemDropSpeed = m_HalfDimension.y * 2.0f / BASE_GEM_DROP_TIME;
 
 		// Gem details
-		m_GemDetails = GameObject.FindGameObjectWithTag("Gem Details").GetComponent<GemDetails>();
-		if (m_GemDetails != null)
+		GameObject gemDetailsObject = GameObject.FindGameObjectWithTag( "Gem Details" );
+		if ( gemDetailsObject != null )
 		{
-			Debug.Log("Reset explosion!");
-			m_GemExplosionPrefab = m_GemDetails.m_GemSet.m_Explosion;
+			m_GemDetails = gemDetailsObject.GetComponent<GemDetails>();
+			if (m_GemDetails != null)
+			{
+				Debug.Log("Reset explosion!");
+				m_GemExplosionPrefab = m_GemDetails.m_GemSet.m_Explosion;
+			}
 		}
 
 		//m_nGemTypeNum = m_aGemList.Length;
@@ -211,6 +220,7 @@ public class GemSpawner : MonoBehaviour
 		m_mSequenceGemTypeMap = new List<int>();
 		m_nSequenceIndex = 0;
 		m_nSequenceIndexFromList = -1;
+		m_SpawnDangerArea = ( SPAWN_DANGER_AREA * m_HalfDimension.y * 2.0f ) + -m_HalfDimension.y;
 
 		m_nLastInsertedLaneIndex = -1;
 
@@ -249,11 +259,23 @@ public class GemSpawner : MonoBehaviour
 			m_nFrameNum = m_nFrameNum > num ? num : m_nFrameNum;
 		}
 		*/
-		m_nFrameNum = m_GemDetails.GetComponent< GemDetails >().m_GemSet.GetGemContainer( 0 ).Length;
-		for (int i = 1; i < GemContainerSet.GEM_SET_NUM; ++i)
+		if ( m_GemDetails != null )
 		{
-			int num = m_GemDetails.GetComponent< GemDetails >().m_GemSet.GetGemContainer( i ).Length;
-			m_nFrameNum = m_nFrameNum > num ? num : m_nFrameNum;
+			m_nFrameNum = m_GemDetails.GetComponent< GemDetails >().m_GemSet.GetGemContainer( 0 ).Length;
+			for (int i = 1; i < GemContainerSet.GEM_SET_NUM; ++i)
+			{
+				int num = m_GemDetails.GetComponent< GemDetails >().m_GemSet.GetGemContainer( i ).Length;
+				m_nFrameNum = m_nFrameNum > num ? num : m_nFrameNum;
+			}
+		}
+		else
+		{
+			m_nFrameNum = m_aGemList[0].GetComponent<GemSpriteContainer>().m_Sprites.Length;
+			for ( int i = 1; i < m_aGemList.Length; ++i )
+			{
+				int num = m_aGemList[i].GetComponent<GemSpriteContainer>().m_Sprites.Length;
+				m_nFrameNum = m_nFrameNum > num ? num : m_nFrameNum;
+			}
 		}
 
 		m_fAnimationIntervalTimer = 0.0f;
@@ -288,6 +310,9 @@ public class GemSpawner : MonoBehaviour
 
 			m_CurrentHighComboStrip = null;
 			m_HighComboStripSpecularTimer = 0.0f;
+
+			m_HighComboEffectLeft.GetComponent<ParticleSystem>().Stop();
+			m_HighComboEffectRight.GetComponent<ParticleSystem>().Stop();
 		}
 
 		// Initialise player's stats
@@ -920,6 +945,62 @@ public class GemSpawner : MonoBehaviour
 			*/
 		}
 
+		SortedDictionary<float, int> gemTypeToCheck = new SortedDictionary<float, int>();	// key: y, value: gem type
+		// Check for unlinkable gem
+		for ( int i = 0; i < LANE_NUM; ++i )
+		{
+			for ( int j = 0; j < m_Gems[i].Count; ++j )
+			{
+				Gem g = m_Gems[i][j].GetComponent<Gem>();
+
+				if( g.transform.position.y <= m_SpawnDangerArea )
+				{
+					if ( m_aGemCount[g.GemType] < 3 )
+					{
+						if ( !gemTypeToCheck.ContainsValue( g.GemType ) )
+							gemTypeToCheck.Add( g.transform.position.y, g.GemType );
+					}
+				}
+				else
+				{
+					break;
+				}
+			}
+		}
+
+		foreach ( KeyValuePair<float, int> entry in gemTypeToCheck)
+		{
+			int gemType = entry.Value;
+			if (m_aGemCount[gemType] > 0 && m_aGemCount[gemType] < 3)
+			{
+			}
+		}
+
+		//for ( int i = 0; i < m_aGemCount.Length; ++i )
+		foreach ( KeyValuePair<float, int> entry in gemTypeToCheck )
+		{
+			int gemType = entry.Value;
+			// If there is a gem there is unlinkable. Spawn
+			if ( m_aGemCount[gemType] > 0 && m_aGemCount[gemType] < 3 )
+			{
+				int nLookBackNum = Math.Min( GEM_LOOKBACK_NUM, m_lSequence.Count - m_nSequenceIndex );
+				bool bContainGemType = false;
+				for ( int j = 0; j < nLookBackNum; ++j )
+				{
+					if ( m_lSequence[m_nSequenceIndex + j] == gemType )
+					{
+						bContainGemType = true;
+						break;
+					}
+				}
+
+				// Spawn
+				if ( !bContainGemType )
+					return gemType;
+			}
+		}
+		
+
 		int gemMapKey = m_lSequence[m_nSequenceIndex];
 		m_nSequenceIndex++;
 
@@ -1334,6 +1415,8 @@ public class GemSpawner : MonoBehaviour
 		if ( destroy )
 		{ 
 			m_Gems[gem.Lane].Remove( gem.gameObject );
+			m_aGemCount[gem.GemType]--;
+			m_nTotalGemCount--;
 
 			DestroyGemImpl( gem );
 		}
@@ -1405,13 +1488,24 @@ public class GemSpawner : MonoBehaviour
 				m_HealthLowTimer -= Time.deltaTime;
 			}
 
+			Pulsing pulsing = m_HealthLowOverlay.GetComponent<Pulsing>();
+			if ( !pulsing.IsPulsing() && m_HealthLowTimer >= HEALTH_LOW_OVERLAY_FADE_TIME )
+			{
+				pulsing.StartFadeOut();
+			}
+			else if ( pulsing.IsPulsing() && m_nHealth > LOW_HEALTH )
+			{
+				pulsing.StopPulsing();
+				m_HealthLowTimer = ( m_HealthLowOverlay.GetComponent<SpriteRenderer>().color.a / pulsing.m_fMaxAlpha ) * HEALTH_LOW_OVERLAY_FADE_TIME;
+			}
+
 			m_HealthLowTimer = Mathf.Clamp( m_HealthLowTimer, 0.0f, HEALTH_LOW_OVERLAY_FADE_TIME );
 
 			float factor = Mathf.Pow( m_HealthLowTimer / HEALTH_LOW_OVERLAY_FADE_TIME, 2.0f );
 
 			SpriteRenderer sr = m_HealthLowOverlay.GetComponent<SpriteRenderer>();
 			Color c = sr.color;
-			c.a = factor;
+			c.a = factor * pulsing.m_fMaxAlpha;
 			sr.color = c;
 		}
 
@@ -1426,13 +1520,19 @@ public class GemSpawner : MonoBehaviour
 				m_HighComboZoneTimer -= Time.deltaTime;
 			}
 
+			Pulsing pulsing = m_HighComboZone.GetComponent<Pulsing>();
+			if ( !pulsing.IsPulsing() && m_HighComboZoneTimer >= HIGH_COMBO_OVERLAY_FADE_TIME )
+			{
+				pulsing.StartFadeOut();
+			}
+
 			m_HighComboZoneTimer = Mathf.Clamp( m_HighComboZoneTimer, 0.0f, HIGH_COMBO_OVERLAY_FADE_TIME );
 
 			float factor = Mathf.Pow( m_HighComboZoneTimer / HIGH_COMBO_OVERLAY_FADE_TIME, 2.0f );
 
 			SpriteRenderer sr = m_HighComboZone.GetComponent<SpriteRenderer>();
 			Color c = sr.color;
-			c.a = factor;
+			c.a = factor * pulsing.m_fMaxAlpha;
 			sr.color = c;
 
 			if ( m_nCurrentCombo >= HIGH_COMBO )
@@ -1563,6 +1663,12 @@ public class GemSpawner : MonoBehaviour
 			DestroyComboStrip();
 		}
 
+		{
+			Pulsing pulsing = m_HighComboZone.GetComponent<Pulsing>();
+			pulsing.StopPulsing();
+			m_HighComboZoneTimer = ( m_HighComboZone.GetComponent<SpriteRenderer>().color.a / pulsing.m_fMaxAlpha ) * HIGH_COMBO_OVERLAY_FADE_TIME;
+		}
+
 		m_nCurrentCombo = 0;
 		m_ComboText.GetComponent<Text>().text = "Combo\n" + m_nCurrentCombo.ToString();
 
@@ -1585,6 +1691,9 @@ public class GemSpawner : MonoBehaviour
 		m_CurrentHighComboStrip.SetActive( true );
 
 		m_HighComboStripSpecularTimer = 0.0f;
+
+		m_HighComboEffectLeft.GetComponent<ParticleSystem>().Play();
+		m_HighComboEffectRight.GetComponent<ParticleSystem>().Play();
 	}
 
 	void DestroyComboStrip()
@@ -1594,6 +1703,9 @@ public class GemSpawner : MonoBehaviour
 
 		m_CurrentHighComboStrip.GetComponent<ComboMove>().StartExit( -m_HighComboStripPos.y );
 		m_CurrentHighComboStrip = null;
+
+		m_HighComboEffectLeft.GetComponent<ParticleSystem>().Stop();
+		m_HighComboEffectRight.GetComponent<ParticleSystem>().Stop();
 	}
 
 	void CreateComboSpecular()

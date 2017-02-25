@@ -80,6 +80,8 @@ MonoBehaviour:
     type: 2}
   m_HealthLowOverlay: {fileID: 0}
   m_HighComboZone: {fileID: 0}
+  m_HighComboEffectLeft: {fileID: 0}
+  m_HighComboEffectRight: {fileID: 0}
   m_HighComboStrip: {fileID: 0}
   m_HighComboSpecular: {fileID: 0}
   m_GameCanvas: {fileID: 0}
