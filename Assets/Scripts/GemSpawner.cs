@@ -18,6 +18,8 @@ public class GemSpawner : MonoBehaviour
 	public const float BASE_GEM_DROP_TIME = 5.0f;       //!< In seconds
 	public const float SPAWN_RATE_GROWTH = 0.06f;       //!< In seconds
 	public const float GEM_DROP_TIME_GROWTH = 0.1f;     //!< In seconds
+	public const int GEM_LOOKBACK_NUM = 4;
+	public const float SPAWN_DANGER_AREA = 0.5f;        //!< Percentage from bottom
 
 	// Type constants
 	public const int INVALID_LANE = -1;
@@ -89,6 +91,7 @@ public class GemSpawner : MonoBehaviour
 	private int m_nSequenceIndex;
 	private int m_nSequenceIndexFromList;
 	private List<int> m_lFailedSequenceCount;
+	private float m_SpawnDangerArea = 0.0f;
 
 	// Spawning interval
 	private float m_fSpawnRate = BASE_SPAWN_RATE;
@@ -217,6 +220,7 @@ public class GemSpawner : MonoBehaviour
 		m_mSequenceGemTypeMap = new List<int>();
 		m_nSequenceIndex = 0;
 		m_nSequenceIndexFromList = -1;
+		m_SpawnDangerArea = ( SPAWN_DANGER_AREA * m_HalfDimension.y * 2.0f ) + -m_HalfDimension.y;
 
 		m_nLastInsertedLaneIndex = -1;
 
@@ -941,6 +945,54 @@ public class GemSpawner : MonoBehaviour
 			*/
 		}
 
+		Dictionary<float, int> gemTypeToCheck = new Dictionary<float, int>();	// key: y, value: gem type
+		// Check for unlinkable gem
+		for ( int i = 0; i < LANE_NUM; ++i )
+		{
+			for ( int j = 0; j < m_Gems[i].Count; ++j )
+			{
+				Gem g = m_Gems[i][j].GetComponent<Gem>();
+
+				if( g.transform.position.y <= m_SpawnDangerArea )
+				{
+					if ( m_aGemCount[g.GemType] < 3 )
+					{
+						if ( !gemTypeToCheck.ContainsValue( g.GemType ) )
+							gemTypeToCheck.Add( g.transform.position.y, g.GemType );
+					}
+				}
+				else
+				{
+					break;
+				}
+			}
+		}
+
+		//for ( int i = 0; i < m_aGemCount.Length; ++i )
+		foreach ( KeyValuePair<float, int> entry in gemTypeToCheck )
+		{
+			int gemType = entry.Value;
+			// If there is a gem there is unlinkable. Spawn
+			if ( m_aGemCount[gemType] > 0 && m_aGemCount[gemType] < 3 )
+			{
+				int nLookBackNum = Math.Min( GEM_LOOKBACK_NUM, m_lSequence.Count - m_nSequenceIndex );
+				bool bContainGemType = false;
+				for ( int j = 0; j < nLookBackNum; ++j )
+				{
+					if ( m_lSequence[m_nSequenceIndex + j] == gemType )
+					{
+						bContainGemType = true;
+						break;
+					}
+				}
+
+				// Spawn
+				if ( !bContainGemType )
+					return gemType;
+			}
+		}
+		
+
 		int gemMapKey = m_lSequence[m_nSequenceIndex];
 		m_nSequenceIndex++;
 
@@ -1355,6 +1407,8 @@ public class GemSpawner : MonoBehaviour
 		if ( destroy )
 		{ 
 			m_Gems[gem.Lane].Remove( gem.gameObject );
+			m_aGemCount[gem.GemType]--;
+			m_nTotalGemCount--;
 
 			DestroyGemImpl( gem );
 		}
