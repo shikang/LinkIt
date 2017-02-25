@@ -18,7 +18,7 @@ public class GemSpawner : MonoBehaviour
 	public const float BASE_GEM_DROP_TIME = 5.0f;       //!< In seconds
 	public const float SPAWN_RATE_GROWTH = 0.06f;       //!< In seconds
 	public const float GEM_DROP_TIME_GROWTH = 0.1f;     //!< In seconds
-	public const int GEM_LOOKBACK_NUM = 4;
+	public const int GEM_LOOKBACK_NUM = 2;
 	public const float SPAWN_DANGER_AREA = 0.5f;        //!< Percentage from bottom
 
 	// Type constants
@@ -57,7 +57,7 @@ public class GemSpawner : MonoBehaviour
 	public const int HEALTH_LOST_PER_GEM = 10;
 	public const int HEALTH_GAIN_PER_LINK = 1;
 	public const int MAX_HEALTH = 100;
-	public const int LOW_HEALTH = (int)( 0.25f * MAX_HEALTH );
+	public const int LOW_HEALTH = (int)( 0.3f * MAX_HEALTH );
 
 	public const int HIGH_COMBO = 10;
 
@@ -945,7 +945,7 @@ public class GemSpawner : MonoBehaviour
 			*/
 		}
 
-		Dictionary<float, int> gemTypeToCheck = new Dictionary<float, int>();	// key: y, value: gem type
+		SortedDictionary<float, int> gemTypeToCheck = new SortedDictionary<float, int>();	// key: y, value: gem type
 		// Check for unlinkable gem
 		for ( int i = 0; i < LANE_NUM; ++i )
 		{
@@ -965,6 +965,14 @@ public class GemSpawner : MonoBehaviour
 				{
 					break;
 				}
+			}
+		}
+
+		foreach ( KeyValuePair<float, int> entry in gemTypeToCheck)
+		{
+			int gemType = entry.Value;
+			if (m_aGemCount[gemType] > 0 && m_aGemCount[gemType] < 3)
+			{
 			}
 		}
 
