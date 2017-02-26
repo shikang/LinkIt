@@ -60,6 +60,7 @@ public class GemSpawner : MonoBehaviour
 	public const int LOW_HEALTH = (int)( 0.3f * MAX_HEALTH );
 
 	public const int HIGH_COMBO = 10;
+	public readonly int[] COMBO_MULTIPLIER_ARRAY = { HIGH_COMBO, 2 * HIGH_COMBO, 8 * HIGH_COMBO };
 
 	public readonly string[] PRAISE_ARRAY = { "", "", "", "Good", "Great", "Incredible!", "Awesome!" };
 
@@ -149,6 +150,7 @@ public class GemSpawner : MonoBehaviour
 	private Vector3 m_HighComboSpecularScale;
 	private GameObject m_CurrentHighComboStrip;
 	private float m_HighComboStripSpecularTimer;
+	private float m_HighComboEffectStartSpeed;
 
 	// Player stats
 	private int m_nLevel = 0;
@@ -167,6 +169,7 @@ public class GemSpawner : MonoBehaviour
 	//private float m_nComboOpacity = 0.0f;
 	private float m_fPraiseTimer = 0.0f;
 	private Vector3 m_PraisePos;
+	private int m_nHighComboMultiplierIndex = 0;
 
 	// Gameover
 	private float m_fGameoverTimer = 0.0f;
@@ -313,6 +316,8 @@ public class GemSpawner : MonoBehaviour
 
 			m_HighComboEffectLeft.GetComponent<ParticleSystem>().Stop();
 			m_HighComboEffectRight.GetComponent<ParticleSystem>().Stop();
+
+			m_HighComboEffectStartSpeed = m_HighComboEffectLeft.GetComponent<ParticleSystem>().startSpeed;
 		}
 
 		// Initialise player's stats
@@ -331,6 +336,7 @@ public class GemSpawner : MonoBehaviour
 		m_PraisePos = m_PraiseText.transform.position;
 		m_fSpawnRate = BASE_SPAWN_RATE - m_nLevel * SPAWN_RATE_GROWTH;
 		m_fBaseGemDropSpeed = m_HalfDimension.y * 2.0f / ( BASE_GEM_DROP_TIME - ( m_nLevel / 2 ) * GEM_DROP_TIME_GROWTH );
+		m_nHighComboMultiplierIndex = 0;
 
 		m_PlayerStats = GameObject.FindGameObjectWithTag( "Player Statistics" ).GetComponent<PlayerStatistics>();
 
@@ -744,10 +750,10 @@ public class GemSpawner : MonoBehaviour
 		}
 	}
 
-	int GetPointsGain( int num )
+	int GetPointsGain( int num, int multiplier )
 	{
 		int pointsGain = num * PER_GEM_POINTS + num * ( ( num - 3 ) * ( PER_GEM_POINTS / 10 ) );
-		return pointsGain;
+		return multiplier * pointsGain;
 	}
 
 	void StartRollingPoints( int pointsGain )
@@ -757,7 +763,7 @@ public class GemSpawner : MonoBehaviour
 		m_nPoints += pointsGain;
 	}
 
-	void StartRollingCombo(int comboGain)
+	void StartRollingCombo( int comboGain )
 	{
 		m_fComboTimer = 0.0f;
 		m_nPrevCombo = m_nCurrentCombo;
@@ -766,6 +772,18 @@ public class GemSpawner : MonoBehaviour
 		if ( m_nCurrentCombo >= HIGH_COMBO && m_CurrentHighComboStrip == null )
 		{
 			CreateComboStrip();
+			m_HighComboZone.GetComponent<HighComboColor>().SetComboColor( 0 );
+		}
+
+		if ( m_nHighComboMultiplierIndex < COMBO_MULTIPLIER_ARRAY.Length && 
+			 m_nCurrentCombo >= COMBO_MULTIPLIER_ARRAY[m_nHighComboMultiplierIndex] && 
+			 m_CurrentHighComboStrip!= null )
+		{
+			m_CurrentHighComboStrip.GetComponent<HighComboColor>().SetComboColor( m_nHighComboMultiplierIndex );
+			m_HighComboZone.GetComponent<HighComboColor>().SetComboColor( m_nHighComboMultiplierIndex );
+			m_HighComboEffectLeft.GetComponent<ParticleSystem>().startSpeed = m_HighComboEffectStartSpeed + m_nHighComboMultiplierIndex * 0.5f;
+			m_HighComboEffectRight.GetComponent<ParticleSystem>().startSpeed = m_HighComboEffectStartSpeed + m_nHighComboMultiplierIndex * 0.5f;
+			++m_nHighComboMultiplierIndex;
 		}
 
 		//if ( m_nCurrentCombo >= HIGH_COMBO )
@@ -798,11 +816,12 @@ public class GemSpawner : MonoBehaviour
 		if ( m_bGameover || !m_Link.CheckForDestroy )
 			return false;
 
+		int multiplier = m_nHighComboMultiplierIndex + 1;
 		bool destroy = m_LinkedGem.Count >= 3;
 		if ( destroy )
 		{
 			// Points
-			int pointsGain = GetPointsGain( m_LinkedGem.Count );
+			int pointsGain = GetPointsGain( m_LinkedGem.Count, multiplier );
 			int eachGain = pointsGain / m_LinkedGem.Count;
 			StartRollingPoints( pointsGain );
 			m_PlayerStats.m_nScore = m_nPoints;
@@ -858,12 +877,12 @@ public class GemSpawner : MonoBehaviour
 				if ( NetworkManager.IsPlayerOne() )
 				{
 					// RPC particle effect
-					m_Network.InformGemsDestroyed( m_LinkedGem );
+					m_Network.InformGemsDestroyed( m_LinkedGem, multiplier );
 				}
 				else
 				{
 					// RPC destroy gem
-					m_Network.DestroyNetworkGems( m_LinkedGem );
+					m_Network.DestroyNetworkGems( m_LinkedGem, multiplier );
 				}
 			}
 			else
@@ -1173,10 +1192,10 @@ public class GemSpawner : MonoBehaviour
 		}
 	}
 
-	public void DestroyNetworkGems( string[] ids )
+	public void DestroyNetworkGems( string[] ids, int multiplier )
 	{
 		// Sychron point
-		int pointsGain = GetPointsGain( ids.Length );
+		int pointsGain = GetPointsGain( ids.Length, multiplier );
 		int eachGain = pointsGain / ids.Length;
 		StartRollingPoints( pointsGain );
 		m_PlayerStats.m_nScore = m_nPoints;
@@ -1260,10 +1279,10 @@ public class GemSpawner : MonoBehaviour
 		}
 	}
 
-	public void NetworkAddGainPointsEffects( string[] ids )
+	public void NetworkAddGainPointsEffects( string[] ids, int multiplier )
 	{
 		// Sychron point
-		int pointsGain = GetPointsGain( ids.Length );
+		int pointsGain = GetPointsGain( ids.Length, multiplier );
 		int eachGain = pointsGain / ids.Length;
 		StartRollingPoints( pointsGain );
 		m_PlayerStats.m_nScore = m_nPoints;
@@ -1676,6 +1695,8 @@ public class GemSpawner : MonoBehaviour
 		c.a = 0.0f;
 		m_ComboText.GetComponent<Text>().color = c;
 		//m_nComboOpacity = 0.0f;
+
+		m_nHighComboMultiplierIndex = 0;
 	}
 
 	void CreateComboStrip()
