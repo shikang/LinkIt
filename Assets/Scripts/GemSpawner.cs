@@ -184,9 +184,11 @@ public class GemSpawner : MonoBehaviour
 	public GameObject m_ComboText;
 	public GameObject m_PraiseText;
 	public GameObject m_MultiplierText;
+	public GameObject m_DisconnectText;
 	public GameObject m_PointsGain;
 
 	NetworkGameLogic m_Network = null;
+	bool m_bOriginalPlayerOne = true;
 
 	// Use this for initialization
 	void Start ()
@@ -387,7 +389,9 @@ public class GemSpawner : MonoBehaviour
 		if ( NetworkManager.IsConnected() )
 		{
 			m_Network = GameObject.Find( "Network Manager" ).GetComponent<NetworkGameLogic>();
+			m_bOriginalPlayerOne = NetworkManager.IsPlayerOne();
 		}
+		m_DisconnectText.SetActive( false );
 
 	}
 
@@ -1791,5 +1795,30 @@ public class GemSpawner : MonoBehaviour
 	static void GoToScore()
 	{
 		SceneManager.LoadScene( "Score" );
+	}
+
+	public void OnNetworkDisconnect()
+	{
+		if ( !NetworkManager.IsConnected() )
+			return;
+
+		m_nHealth = 0;
+		m_ComboText.SetActive( false );
+		m_PraiseText.SetActive( false );
+		m_MultiplierText.SetActive( false );
+
+		m_DisconnectText.SetActive( true );
+
+		if ( !m_bOriginalPlayerOne )
+		{
+			for ( int i = 0; i < LANE_NUM; ++i )
+			{
+				m_Gems[i].Clear();
+			}
+			m_StonedGems.Clear();
+			m_GemsToBeRemoved.Clear();
+			m_GemsToBeDestroyed.Clear();
+			m_NetworkGemsToBeDestroyed.Clear();
+		}
 	}
 }

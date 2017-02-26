@@ -123,10 +123,16 @@ public class NetworkGameLogic : Photon.PunBehaviour
 	[PunRPC]
 	public void UpdateHealth_RPC( int healthGain )
 	{
-		GemSpawner spawner = GameObject.Find("GemSpawner").GetComponent<GemSpawner>();
+		GemSpawner spawner = GameObject.Find( "GemSpawner" ).GetComponent<GemSpawner>();
 
 		spawner.UpdateNetworkHealth( healthGain );
 	}
 
-	// @todo OnPhotonDisconnect (Go to score)
+	// OnPhotonDisconnect (Go to score)
+	public override void OnPhotonPlayerDisconnected( PhotonPlayer otherPlayer )
+	{
+		GemSpawner spawner = GameObject.Find( "GemSpawner" ).GetComponent<GemSpawner>();
+
+		spawner.OnNetworkDisconnect();
+	}
 }

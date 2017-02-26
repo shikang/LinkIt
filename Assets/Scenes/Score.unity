@@ -486,6 +486,10 @@ Prefab:
       value: 
       objectReference: {fileID: 1344190926}
     - target: {fileID: 11447868, guid: 1328ecb71c414284a95e4f4ebfbf057f, type: 2}
+      propertyPath: m_BestScore
+      value: 
+      objectReference: {fileID: 1940129751}
+    - target: {fileID: 11447868, guid: 1328ecb71c414284a95e4f4ebfbf057f, type: 2}
       propertyPath: m_Counters.Array.data[0]
       value: 
       objectReference: {fileID: 296123151}
@@ -533,10 +537,6 @@ Prefab:
       propertyPath: m_Coins
       value: 
       objectReference: {fileID: 1533433945}
-    - target: {fileID: 11447868, guid: 1328ecb71c414284a95e4f4ebfbf057f, type: 2}
-      propertyPath: m_Coin
-      value: 
-      objectReference: {fileID: 1179633557}
     - target: {fileID: 11447868, guid: 1328ecb71c414284a95e4f4ebfbf057f, type: 2}
       propertyPath: m_ScoreCanvas
       value: 
@@ -713,6 +713,10 @@ GameObject:
 --- !u!1 &1940129750 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 125774, guid: 5277a13f5e6f0004a9cc04eb9f54540d, type: 2}
+  m_PrefabInternal: {fileID: 1940129748}
+--- !u!1 &1940129751 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 103948, guid: 5277a13f5e6f0004a9cc04eb9f54540d, type: 2}
   m_PrefabInternal: {fileID: 1940129748}
 --- !u!1 &1962294806 stripped
 GameObject:
