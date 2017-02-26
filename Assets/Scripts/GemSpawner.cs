@@ -59,8 +59,8 @@ public class GemSpawner : MonoBehaviour
 	public const int MAX_HEALTH = 100;
 	public const int LOW_HEALTH = (int)( 0.3f * MAX_HEALTH );
 
-	public const int HIGH_COMBO = 10;
-	public readonly int[] COMBO_MULTIPLIER_ARRAY = { HIGH_COMBO, 2 * HIGH_COMBO, 8 * HIGH_COMBO };
+	public const int HIGH_COMBO = 20;
+	public readonly int[] COMBO_MULTIPLIER_ARRAY = { HIGH_COMBO, 3 * HIGH_COMBO, 8 * HIGH_COMBO };
 
 	public readonly string[] PRAISE_ARRAY = { "", "", "", "Good", "Great", "Incredible!", "Awesome!" };
 
@@ -169,6 +169,8 @@ public class GemSpawner : MonoBehaviour
 	//private float m_nComboOpacity = 0.0f;
 	private float m_fPraiseTimer = 0.0f;
 	private Vector3 m_PraisePos;
+	private float m_fShowMultiplierTimer = 0.0f;
+	private Vector3 m_ShowMultiplierPos;
 	private int m_nHighComboMultiplierIndex = 0;
 
 	// Gameover
@@ -181,6 +183,7 @@ public class GemSpawner : MonoBehaviour
 	public GameObject m_HealthText;     //!< Debug
 	public GameObject m_ComboText;
 	public GameObject m_PraiseText;
+	public GameObject m_MultiplierText;
 	public GameObject m_PointsGain;
 
 	NetworkGameLogic m_Network = null;
@@ -334,6 +337,8 @@ public class GemSpawner : MonoBehaviour
 		m_fComboTimer = 0.0f;
 		m_fPraiseTimer = 0.0f;
 		m_PraisePos = m_PraiseText.transform.position;
+		m_fShowMultiplierTimer = 0.0f;
+		m_ShowMultiplierPos = m_MultiplierText.transform.position;
 		m_fSpawnRate = BASE_SPAWN_RATE - m_nLevel * SPAWN_RATE_GROWTH;
 		m_fBaseGemDropSpeed = m_HalfDimension.y * 2.0f / ( BASE_GEM_DROP_TIME - ( m_nLevel / 2 ) * GEM_DROP_TIME_GROWTH );
 		m_nHighComboMultiplierIndex = 0;
@@ -361,6 +366,13 @@ public class GemSpawner : MonoBehaviour
 			Color c = m_PraiseText.GetComponent<Text>().color;
 			c.a = 0.0f;
 			m_PraiseText.GetComponent<Text>().color = c;
+		}
+		{
+			m_MultiplierText.GetComponent<Text>().text = "";
+
+			Color c = m_MultiplierText.GetComponent<Text>().color;
+			c.a = 0.0f;
+			m_MultiplierText.GetComponent<Text>().color = c;
 		}
 		m_LineLine.GetComponent<SpriteRenderer>().color = GetLifeLineColour();
 
@@ -416,6 +428,7 @@ public class GemSpawner : MonoBehaviour
 		AnimatePoints();
 		AnimateCombo();
 		AnimatePraise();
+		AnimateShowMultiplier();
 		AnimateOverlays();
 
 		CheckGameOver();
@@ -784,6 +797,8 @@ public class GemSpawner : MonoBehaviour
 			m_HighComboEffectLeft.GetComponent<ParticleSystem>().startSpeed = m_HighComboEffectStartSpeed + m_nHighComboMultiplierIndex * 0.5f;
 			m_HighComboEffectRight.GetComponent<ParticleSystem>().startSpeed = m_HighComboEffectStartSpeed + m_nHighComboMultiplierIndex * 0.5f;
 			++m_nHighComboMultiplierIndex;
+
+			StartShowingMultiplier( m_nHighComboMultiplierIndex + 1 );
 		}
 
 		//if ( m_nCurrentCombo >= HIGH_COMBO )
@@ -809,6 +824,19 @@ public class GemSpawner : MonoBehaviour
 		m_PraiseText.GetComponent<Text>().text = PRAISE_ARRAY[index];
 
 		m_PraiseText.transform.position = m_PraisePos;
+	}
+
+	void StartShowingMultiplier( int multiplier )
+	{
+		m_fShowMultiplierTimer = 0.0f;
+
+		Color c = m_MultiplierText.GetComponent<Text>().color;
+		c.a = 1.0f;
+		m_MultiplierText.GetComponent<Text>().color = c;
+
+		m_MultiplierText.GetComponent<Text>().text = "x" + multiplier;
+
+		m_MultiplierText.transform.position = m_ShowMultiplierPos;
 	}
 
 	bool UnlinkGems()
@@ -909,7 +937,7 @@ public class GemSpawner : MonoBehaviour
 	int GetLevelUpRequiredPoints( int nLevel )
 	{
 		//return ( nLevel + 1 ) * 2000 + ( nLevel * nLevel * 1000 );
-		return ( nLevel + 1 ) * 250 + ( nLevel * nLevel * 100 );
+		return ( nLevel + 1 ) * 300 + ( nLevel * nLevel * 200 );
 	}
 
 	int GetRandomLane()
@@ -1481,8 +1509,11 @@ public class GemSpawner : MonoBehaviour
 
 	void AnimatePraise()
 	{
+		if ( m_fPraiseTimer >= TIME_TO_PRAISE_FADE )
+			return;
+
 		m_fPraiseTimer += Time.deltaTime;
-		m_fPraiseTimer = Math.Min(TIME_TO_PRAISE_FADE, m_fPraiseTimer);
+		m_fPraiseTimer = Math.Min( TIME_TO_PRAISE_FADE, m_fPraiseTimer );
 
 		float factor = m_fPraiseTimer / TIME_TO_PRAISE_FADE;
 		Color c = m_PraiseText.GetComponent<Text>().color;
@@ -1492,6 +1523,24 @@ public class GemSpawner : MonoBehaviour
 		Vector3 pos = m_PraiseText.transform.position;
 		pos.y = m_PraisePos.y + factor * PRAISE_MOVE_DISTANCE;
 		m_PraiseText.transform.position = pos;
+	}
+
+	void AnimateShowMultiplier()
+	{
+		if ( m_fShowMultiplierTimer >= TIME_TO_PRAISE_FADE )
+			return;
+
+		m_fShowMultiplierTimer += Time.deltaTime;
+		m_fShowMultiplierTimer = Math.Min( TIME_TO_PRAISE_FADE, m_fShowMultiplierTimer );
+
+		float factor = m_fShowMultiplierTimer / TIME_TO_PRAISE_FADE;
+		Color c = m_MultiplierText.GetComponent<Text>().color;
+		c.a = 1.0f - (float)Math.Pow( factor, 2.0 );
+		m_MultiplierText.GetComponent<Text>().color = c;
+
+		Vector3 pos = m_MultiplierText.transform.position;
+		pos.y = m_ShowMultiplierPos.y + factor * PRAISE_MOVE_DISTANCE;
+		m_MultiplierText.transform.position = pos;
 	}
 
 	void AnimateOverlays()
