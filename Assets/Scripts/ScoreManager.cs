@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour
 	GemDetails m_GemDetails;
 
 	public GameObject m_Score;
+	public GameObject m_BestScore;
 	public GameObject[] m_Counters;
 	public GameObject m_LeakedCounter;
 	public GameObject m_ComboCounter;
@@ -51,6 +52,13 @@ public class ScoreManager : MonoBehaviour
 
 		m_LeakedCounter.GetComponent<Text>().text = m_PlayerStats.m_nLeakCount.ToString();
 		m_ComboCounter.GetComponent<Text>().text = m_PlayerStats.m_nMaxCombo.ToString();
+
+		if ( GameData.Instance.m_HighScore < m_PlayerStats.m_nScore )
+		{
+			GameData.Instance.m_HighScore = m_PlayerStats.m_nScore;
+		}
+
+		m_BestScore.GetComponent<Text>().text = "Best " + GameData.Instance.m_HighScore.ToString();
 
 		// Initialising animation timer
 		m_nFrameNum = m_PlayerStats.m_aGems[0].GetComponent<GemSpriteContainer>().m_Sprites.Length;
