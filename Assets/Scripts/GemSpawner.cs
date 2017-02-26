@@ -59,7 +59,8 @@ public class GemSpawner : MonoBehaviour
 	public const int MAX_HEALTH = 100;
 	public const int LOW_HEALTH = (int)( 0.3f * MAX_HEALTH );
 
-	public const int HIGH_COMBO = 10;
+	public const int HIGH_COMBO = 20;
+	public readonly int[] COMBO_MULTIPLIER_ARRAY = { HIGH_COMBO, 3 * HIGH_COMBO, 8 * HIGH_COMBO };
 
 	public readonly string[] PRAISE_ARRAY = { "", "", "", "Good", "Great", "Incredible!", "Awesome!" };
 
@@ -149,6 +150,7 @@ public class GemSpawner : MonoBehaviour
 	private Vector3 m_HighComboSpecularScale;
 	private GameObject m_CurrentHighComboStrip;
 	private float m_HighComboStripSpecularTimer;
+	private float m_HighComboEffectStartSpeed;
 
 	// Player stats
 	private int m_nLevel = 0;
@@ -167,6 +169,9 @@ public class GemSpawner : MonoBehaviour
 	//private float m_nComboOpacity = 0.0f;
 	private float m_fPraiseTimer = 0.0f;
 	private Vector3 m_PraisePos;
+	private float m_fShowMultiplierTimer = 0.0f;
+	private Vector3 m_ShowMultiplierPos;
+	private int m_nHighComboMultiplierIndex = 0;
 
 	// Gameover
 	private float m_fGameoverTimer = 0.0f;
@@ -178,6 +183,7 @@ public class GemSpawner : MonoBehaviour
 	public GameObject m_HealthText;     //!< Debug
 	public GameObject m_ComboText;
 	public GameObject m_PraiseText;
+	public GameObject m_MultiplierText;
 	public GameObject m_PointsGain;
 
 	NetworkGameLogic m_Network = null;
@@ -313,6 +319,8 @@ public class GemSpawner : MonoBehaviour
 
 			m_HighComboEffectLeft.GetComponent<ParticleSystem>().Stop();
 			m_HighComboEffectRight.GetComponent<ParticleSystem>().Stop();
+
+			m_HighComboEffectStartSpeed = m_HighComboEffectLeft.GetComponent<ParticleSystem>().startSpeed;
 		}
 
 		// Initialise player's stats
@@ -329,8 +337,11 @@ public class GemSpawner : MonoBehaviour
 		m_fComboTimer = 0.0f;
 		m_fPraiseTimer = 0.0f;
 		m_PraisePos = m_PraiseText.transform.position;
+		m_fShowMultiplierTimer = 0.0f;
+		m_ShowMultiplierPos = m_MultiplierText.transform.position;
 		m_fSpawnRate = BASE_SPAWN_RATE - m_nLevel * SPAWN_RATE_GROWTH;
 		m_fBaseGemDropSpeed = m_HalfDimension.y * 2.0f / ( BASE_GEM_DROP_TIME - ( m_nLevel / 2 ) * GEM_DROP_TIME_GROWTH );
+		m_nHighComboMultiplierIndex = 0;
 
 		m_PlayerStats = GameObject.FindGameObjectWithTag( "Player Statistics" ).GetComponent<PlayerStatistics>();
 
@@ -355,6 +366,13 @@ public class GemSpawner : MonoBehaviour
 			Color c = m_PraiseText.GetComponent<Text>().color;
 			c.a = 0.0f;
 			m_PraiseText.GetComponent<Text>().color = c;
+		}
+		{
+			m_MultiplierText.GetComponent<Text>().text = "";
+
+			Color c = m_MultiplierText.GetComponent<Text>().color;
+			c.a = 0.0f;
+			m_MultiplierText.GetComponent<Text>().color = c;
 		}
 		m_LineLine.GetComponent<SpriteRenderer>().color = GetLifeLineColour();
 
@@ -410,6 +428,7 @@ public class GemSpawner : MonoBehaviour
 		AnimatePoints();
 		AnimateCombo();
 		AnimatePraise();
+		AnimateShowMultiplier();
 		AnimateOverlays();
 
 		CheckGameOver();
@@ -744,10 +763,10 @@ public class GemSpawner : MonoBehaviour
 		}
 	}
 
-	int GetPointsGain( int num )
+	int GetPointsGain( int num, int multiplier )
 	{
 		int pointsGain = num * PER_GEM_POINTS + num * ( ( num - 3 ) * ( PER_GEM_POINTS / 10 ) );
-		return pointsGain;
+		return multiplier * pointsGain;
 	}
 
 	void StartRollingPoints( int pointsGain )
@@ -757,7 +776,7 @@ public class GemSpawner : MonoBehaviour
 		m_nPoints += pointsGain;
 	}
 
-	void StartRollingCombo(int comboGain)
+	void StartRollingCombo( int comboGain )
 	{
 		m_fComboTimer = 0.0f;
 		m_nPrevCombo = m_nCurrentCombo;
@@ -766,6 +785,20 @@ public class GemSpawner : MonoBehaviour
 		if ( m_nCurrentCombo >= HIGH_COMBO && m_CurrentHighComboStrip == null )
 		{
 			CreateComboStrip();
+			m_HighComboZone.GetComponent<HighComboColor>().SetComboColor( 0 );
+		}
+
+		if ( m_nHighComboMultiplierIndex < COMBO_MULTIPLIER_ARRAY.Length && 
+			 m_nCurrentCombo >= COMBO_MULTIPLIER_ARRAY[m_nHighComboMultiplierIndex] && 
+			 m_CurrentHighComboStrip!= null )
+		{
+			m_CurrentHighComboStrip.GetComponent<HighComboColor>().SetComboColor( m_nHighComboMultiplierIndex );
+			m_HighComboZone.GetComponent<HighComboColor>().SetComboColor( m_nHighComboMultiplierIndex );
+			m_HighComboEffectLeft.GetComponent<ParticleSystem>().startSpeed = m_HighComboEffectStartSpeed + m_nHighComboMultiplierIndex * 0.5f;
+			m_HighComboEffectRight.GetComponent<ParticleSystem>().startSpeed = m_HighComboEffectStartSpeed + m_nHighComboMultiplierIndex * 0.5f;
+			++m_nHighComboMultiplierIndex;
+
+			StartShowingMultiplier( m_nHighComboMultiplierIndex + 1 );
 		}
 
 		//if ( m_nCurrentCombo >= HIGH_COMBO )
@@ -793,16 +826,30 @@ public class GemSpawner : MonoBehaviour
 		m_PraiseText.transform.position = m_PraisePos;
 	}
 
+	void StartShowingMultiplier( int multiplier )
+	{
+		m_fShowMultiplierTimer = 0.0f;
+
+		Color c = m_MultiplierText.GetComponent<Text>().color;
+		c.a = 1.0f;
+		m_MultiplierText.GetComponent<Text>().color = c;
+
+		m_MultiplierText.GetComponent<Text>().text = "x" + multiplier;
+
+		m_MultiplierText.transform.position = m_ShowMultiplierPos;
+	}
+
 	bool UnlinkGems()
 	{
 		if ( m_bGameover || !m_Link.CheckForDestroy )
 			return false;
 
+		int multiplier = m_nHighComboMultiplierIndex + 1;
 		bool destroy = m_LinkedGem.Count >= 3;
 		if ( destroy )
 		{
 			// Points
-			int pointsGain = GetPointsGain( m_LinkedGem.Count );
+			int pointsGain = GetPointsGain( m_LinkedGem.Count, multiplier );
 			int eachGain = pointsGain / m_LinkedGem.Count;
 			StartRollingPoints( pointsGain );
 			m_PlayerStats.m_nScore = m_nPoints;
@@ -858,12 +905,12 @@ public class GemSpawner : MonoBehaviour
 				if ( NetworkManager.IsPlayerOne() )
 				{
 					// RPC particle effect
-					m_Network.InformGemsDestroyed( m_LinkedGem );
+					m_Network.InformGemsDestroyed( m_LinkedGem, multiplier );
 				}
 				else
 				{
 					// RPC destroy gem
-					m_Network.DestroyNetworkGems( m_LinkedGem );
+					m_Network.DestroyNetworkGems( m_LinkedGem, multiplier );
 				}
 			}
 			else
@@ -890,7 +937,7 @@ public class GemSpawner : MonoBehaviour
 	int GetLevelUpRequiredPoints( int nLevel )
 	{
 		//return ( nLevel + 1 ) * 2000 + ( nLevel * nLevel * 1000 );
-		return ( nLevel + 1 ) * 250 + ( nLevel * nLevel * 100 );
+		return ( nLevel + 1 ) * 300 + ( nLevel * nLevel * 200 );
 	}
 
 	int GetRandomLane()
@@ -1173,10 +1220,10 @@ public class GemSpawner : MonoBehaviour
 		}
 	}
 
-	public void DestroyNetworkGems( string[] ids )
+	public void DestroyNetworkGems( string[] ids, int multiplier )
 	{
 		// Sychron point
-		int pointsGain = GetPointsGain( ids.Length );
+		int pointsGain = GetPointsGain( ids.Length, multiplier );
 		int eachGain = pointsGain / ids.Length;
 		StartRollingPoints( pointsGain );
 		m_PlayerStats.m_nScore = m_nPoints;
@@ -1260,10 +1307,10 @@ public class GemSpawner : MonoBehaviour
 		}
 	}
 
-	public void NetworkAddGainPointsEffects( string[] ids )
+	public void NetworkAddGainPointsEffects( string[] ids, int multiplier )
 	{
 		// Sychron point
-		int pointsGain = GetPointsGain( ids.Length );
+		int pointsGain = GetPointsGain( ids.Length, multiplier );
 		int eachGain = pointsGain / ids.Length;
 		StartRollingPoints( pointsGain );
 		m_PlayerStats.m_nScore = m_nPoints;
@@ -1462,8 +1509,11 @@ public class GemSpawner : MonoBehaviour
 
 	void AnimatePraise()
 	{
+		if ( m_fPraiseTimer >= TIME_TO_PRAISE_FADE )
+			return;
+
 		m_fPraiseTimer += Time.deltaTime;
-		m_fPraiseTimer = Math.Min(TIME_TO_PRAISE_FADE, m_fPraiseTimer);
+		m_fPraiseTimer = Math.Min( TIME_TO_PRAISE_FADE, m_fPraiseTimer );
 
 		float factor = m_fPraiseTimer / TIME_TO_PRAISE_FADE;
 		Color c = m_PraiseText.GetComponent<Text>().color;
@@ -1473,6 +1523,24 @@ public class GemSpawner : MonoBehaviour
 		Vector3 pos = m_PraiseText.transform.position;
 		pos.y = m_PraisePos.y + factor * PRAISE_MOVE_DISTANCE;
 		m_PraiseText.transform.position = pos;
+	}
+
+	void AnimateShowMultiplier()
+	{
+		if ( m_fShowMultiplierTimer >= TIME_TO_PRAISE_FADE )
+			return;
+
+		m_fShowMultiplierTimer += Time.deltaTime;
+		m_fShowMultiplierTimer = Math.Min( TIME_TO_PRAISE_FADE, m_fShowMultiplierTimer );
+
+		float factor = m_fShowMultiplierTimer / TIME_TO_PRAISE_FADE;
+		Color c = m_MultiplierText.GetComponent<Text>().color;
+		c.a = 1.0f - (float)Math.Pow( factor, 2.0 );
+		m_MultiplierText.GetComponent<Text>().color = c;
+
+		Vector3 pos = m_MultiplierText.transform.position;
+		pos.y = m_ShowMultiplierPos.y + factor * PRAISE_MOVE_DISTANCE;
+		m_MultiplierText.transform.position = pos;
 	}
 
 	void AnimateOverlays()
@@ -1676,6 +1744,8 @@ public class GemSpawner : MonoBehaviour
 		c.a = 0.0f;
 		m_ComboText.GetComponent<Text>().color = c;
 		//m_nComboOpacity = 0.0f;
+
+		m_nHighComboMultiplierIndex = 0;
 	}
 
 	void CreateComboStrip()

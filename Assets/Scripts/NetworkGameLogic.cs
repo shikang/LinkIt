@@ -68,37 +68,37 @@ public class NetworkGameLogic : Photon.PunBehaviour
 	}
 
 	// Player 2 to Player 1
-	public void DestroyNetworkGems( List<Gem> gems )
+	public void DestroyNetworkGems( List<Gem> gems, int multiplier )
 	{
 		string csv = GetGemsCSV( gems );
 
-		photonView.RPC( "DestroyNetworkGems_RPC", PhotonTargets.Others, csv );
+		photonView.RPC( "DestroyNetworkGems_RPC", PhotonTargets.Others, csv, multiplier );
 	}
 
 	[PunRPC]
-	public void DestroyNetworkGems_RPC( string idsCSV )
+	public void DestroyNetworkGems_RPC( string idsCSV, int multiplier )
 	{
 		string[] ids = GetGemsId( idsCSV );
 		GemSpawner spawner = GameObject.Find( "GemSpawner" ).GetComponent<GemSpawner>();
 
-		spawner.DestroyNetworkGems( ids );
+		spawner.DestroyNetworkGems( ids, multiplier );
 	}
 
 	// Player 1 to Player 2
-	public void InformGemsDestroyed( List<Gem> gems )
+	public void InformGemsDestroyed( List<Gem> gems, int multiplier )
 	{
 		string csv = GetGemsCSV( gems );
 
-		photonView.RPC("InformGemsDestroyed_RPC", PhotonTargets.Others, csv );
+		photonView.RPC("InformGemsDestroyed_RPC", PhotonTargets.Others, csv, multiplier );
 	}
 
 	[PunRPC]
-	public void InformGemsDestroyed_RPC( string idsCSV )
+	public void InformGemsDestroyed_RPC( string idsCSV, int multiplier )
 	{
 		string[] ids = GetGemsId( idsCSV );
 		GemSpawner spawner = GameObject.Find( "GemSpawner" ).GetComponent<GemSpawner>();
 
-		spawner.NetworkAddGainPointsEffects( ids );
+		spawner.NetworkAddGainPointsEffects( ids, multiplier );
 	}
 
 	// Both ways
