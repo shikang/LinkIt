@@ -16,6 +16,7 @@ public class ComboMove : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+
 	}
 	
 	// Update is called once per frame
@@ -75,6 +76,7 @@ public class ComboMove : MonoBehaviour
 		m_bEnter = true;
 		m_fTimer = 0.0f;
 		m_fStart = transform.localPosition.y;
+		CorrectWidth();
 	}
 
 	public void StartExit(float fDestination )
@@ -89,5 +91,13 @@ public class ComboMove : MonoBehaviour
 		m_fTimer = 0.0f;
 		m_fStart = transform.localPosition.y;
 		m_fDestination = fDestination;
+		CorrectWidth();
+	}
+
+	void CorrectWidth()
+	{
+		Vector3 localScale = transform.localScale;
+		localScale.x = ( ( (float)Screen.width / (float)Screen.height ) / ( 9.0f / 16.0f ) ) * localScale.x;
+		transform.localScale = localScale;
 	}
 }
