@@ -89,7 +89,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleIdentifier: com.Poncho.LinkIt
+  bundleIdentifier: com.WhyWool.LinkIt
   bundleVersion: 1.0
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
@@ -158,8 +158,8 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: C:/Users/ShiKang.Me/Desktop/LinkIt/LinkIt/Keystore/whywool.keystore
+  AndroidKeyaliasName: whywool
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 1
