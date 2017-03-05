@@ -28,8 +28,7 @@ GameObject:
   - 212: {fileID: 21222516}
   - 114: {fileID: 11483206}
   - 114: {fileID: 11413102}
-  - 114: {fileID: 11425258}
-  - 114: {fileID: 11437534}
+  - 114: {fileID: 11413580}
   m_Layer: 0
   m_Name: Blue Gem
   m_TagString: Untagged
@@ -106,7 +105,7 @@ MonoBehaviour:
   m_bLinked: 0
   m_nSequenceIndex: -1
   m_nPetrified: 0
---- !u!114 &11425258
+--- !u!114 &11413580
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -114,34 +113,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 189226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e5d3855ca8908c4c8d9d40c44d1cffe, type: 3}
+  m_Script: {fileID: 11500000, guid: b9c42932b49be5041b77b622b06a7689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11437534
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 189226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ownerId: 0
-  group: 0
-  prefixBackup: -1
-  observed: {fileID: 0}
-  synchronization: 3
-  onSerializeTransformOption: 0
-  onSerializeRigidBodyOption: 2
-  ownershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 11425258}
-  ObservedComponentsFoldoutOpen: 1
-  viewIdField: 0
-  instantiationId: -1
-  isRuntimeInstantiated: 0
 --- !u!114 &11483206
 MonoBehaviour:
   m_ObjectHideFlags: 1
