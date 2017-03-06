@@ -102,7 +102,13 @@ public class NetworkGameLogic : Photon.PunBehaviour
 		string idcsv = GetGemsIDCSV( gems );
 		string lanecsv = GetGemsLaneCSV( gems );
 
-		photonView.RPC( "DestroyNetworkGems_RPC", PhotonTargets.Others, idcsv, lanecsv, multiplier );
+		//photonView.RPC( "DestroyNetworkGems_RPC", PhotonTargets.Others, idcsv, lanecsv, multiplier );
+		DestroyNetworkGems( idcsv, lanecsv, multiplier );
+	}
+
+	public void DestroyNetworkGems( string idsCSV, string lanesCSV, int multiplier )
+	{
+		photonView.RPC( "DestroyNetworkGems_RPC", PhotonTargets.Others, idsCSV, lanesCSV, multiplier );
 	}
 
 	[PunRPC]

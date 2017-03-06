@@ -881,7 +881,7 @@ public class GemSpawner : MonoBehaviour
 
 		int multiplier = m_nHighComboMultiplierIndex + 1;
 		bool destroy = m_LinkedGem.Count >= 3;
-		if ( destroy )
+		if ( destroy && ( !NetworkManager.IsConnected() || NetworkManager.IsPlayerOne() ) )
 		{
 			// Points
 			int pointsGain = GetPointsGain( m_LinkedGem.Count, multiplier );
@@ -931,9 +931,12 @@ public class GemSpawner : MonoBehaviour
 			}
 		}
 
-		foreach ( Gem g in m_LinkedGem )
+		if ( !destroy || ( destroy && ( !NetworkManager.IsConnected() || NetworkManager.IsPlayerOne() ) ) )
 		{
-			UnlinkGem( g, destroy );
+			foreach ( Gem g in m_LinkedGem )
+			{
+				UnlinkGem( g, destroy );
+			}
 		}
 
 		m_LinkedGem.Clear();
@@ -1020,14 +1023,6 @@ public class GemSpawner : MonoBehaviour
 				{
 					break;
 				}
-			}
-		}
-
-		foreach ( KeyValuePair<float, int> entry in gemTypeToCheck)
-		{
-			int gemType = entry.Value;
-			if (m_aGemCount[gemType] > 0 && m_aGemCount[gemType] < 3)
-			{
 			}
 		}
 
@@ -1274,6 +1269,11 @@ public class GemSpawner : MonoBehaviour
 
 	public void DestroyNetworkGems( string[] ids, string[] lanes, int multiplier )
 	{
+		if ( NetworkManager.IsConnected() && NetworkManager.IsPlayerOne() )
+		{
+			m_Network.DestroyNetworkGems( string.Join( ",", ids ), string.Join( ",", lanes ), multiplier );
+		}
+
 		// Sychron point
 		int pointsGain = GetPointsGain( ids.Length, multiplier );
 		int eachGain = pointsGain / ids.Length;
