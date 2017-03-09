@@ -85,16 +85,4 @@ public class Gem : MonoBehaviour
 	{
 	
 	}
-
-	void OnDestroy()
-	{
-		if ( NetworkManager.IsConnected() && !NetworkManager.IsPlayerOne() )
-		{
-			GameObject spawner = GameObject.Find( "GemSpawner" );
-			if ( spawner )
-			{
-				spawner.GetComponent<GemSpawner>().RemoveNetworkGem( this, false );
-			}
-		}
-	}
 }

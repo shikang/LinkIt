@@ -93,6 +93,8 @@ MonoBehaviour:
   m_MultiplierText: {fileID: 0}
   m_DisconnectText: {fileID: 0}
   m_PointsGain: {fileID: 128640, guid: faf7eddd0b5fba4419c6d517005cc3f0, type: 2}
+  m_NetworkGameTimerPrefab: {fileID: 125840, guid: a74d3c6a8188fc3459e629a58b85405a,
+    type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

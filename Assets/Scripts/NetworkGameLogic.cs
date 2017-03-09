@@ -18,13 +18,26 @@ public class NetworkGameLogic : Photon.PunBehaviour
 	
 	}
 
-	string GetGemsCSV( List<Gem> gems )
+	string GetGemsIDCSV( List<Gem> gems )
 	{
 		string csv = "";
 		foreach ( Gem gem in gems )
 		{
-			PhotonView p = gem.GetComponent<PhotonView>();
-			csv += p.instantiationId + ",";
+			GemNetworkInfo info = gem.GetComponent<GemNetworkInfo>();
+			csv += info.ID + ",";
+		}
+		//csv.TrimEnd( ","[0] );
+		csv = csv.Remove( csv.Length - 1 );
+
+		return csv;
+	}
+
+	string GetGemsLaneCSV( List<Gem> gems )
+	{
+		string csv = "";
+		foreach ( Gem gem in gems )
+		{
+			csv += gem.Lane + ",";
 		}
 		//csv.TrimEnd( ","[0] );
 		csv = csv.Remove( csv.Length - 1 );
@@ -34,98 +47,116 @@ public class NetworkGameLogic : Photon.PunBehaviour
 
 	string[] GetGemsId( string idsCSV )
 	{
-		return idsCSV.Split(","[0]); ;
+		return idsCSV.Split( ","[0] );
 	}
 
-	// Player 2 to Player 1
-	public void LinkNetworkGem( Gem gem, bool link )
+	string[] GetGemsLane( string lanesCSV )
 	{
-		PhotonView p = gem.GetComponent<PhotonView>();
-		photonView.RPC( "LinkNetworkGem_RPC", PhotonTargets.Others, p.instantiationId, link );
+		return lanesCSV.Split( ","[0] );
+	}
+
+	public void SpawnNetworkGem( Gem gem, float spawnTime )
+	{
+		GemNetworkInfo info = gem.GetComponent<GemNetworkInfo>();
+		photonView.RPC("SpawnNetworkGem_RPC", PhotonTargets.Others, info.ID, gem.GemType, gem.Lane, spawnTime );
 	}
 
 	[PunRPC]
-	public void LinkNetworkGem_RPC( int id, bool link )
+	public void SpawnNetworkGem_RPC( int gemID, int gemType, int lane, float spawnTime )
 	{
-		GameObject.Find( "GemSpawner" ).GetComponent<GemSpawner>().LinkNetworkGem( id, link );
+		GameObject.Find( "GemSpawner" ).GetComponent<GemSpawner>().SpawnNetworkGem( gemID, gemType, lane, spawnTime );
 	}
 
-	// Player 2 to Player 1
-	public void UnlinkNetworkGems( List<Gem> gems )
+	public void LinkNetworkGem( Gem gem, bool link, float linkTime )
 	{
-		string csv = GetGemsCSV( gems );
-
-		photonView.RPC( "UnlinkNetworkGems_RPC", PhotonTargets.Others, csv );
+		GemNetworkInfo info = gem.GetComponent<GemNetworkInfo>();
+		photonView.RPC( "LinkNetworkGem_RPC", PhotonTargets.Others, info.ID, gem.Lane, link, linkTime );
 	}
 
 	[PunRPC]
-	public void UnlinkNetworkGems_RPC( string idsCSV )
+	public void LinkNetworkGem_RPC( int id, int lane, bool link, float linkTime )
+	{
+		GameObject.Find( "GemSpawner" ).GetComponent<GemSpawner>().LinkNetworkGem( id, lane, link, linkTime );
+	}
+
+	public void UnlinkNetworkGems( List<Gem> gems, float linkTime )
+	{
+		string idcsv = GetGemsIDCSV( gems );
+		string lanecsv = GetGemsLaneCSV( gems );
+
+		photonView.RPC( "UnlinkNetworkGems_RPC", PhotonTargets.Others, idcsv, lanecsv, linkTime);
+	}
+
+	[PunRPC]
+	public void UnlinkNetworkGems_RPC( string idsCSV, string lanesCSV, float linkTime )
 	{
 		string[] ids = GetGemsId( idsCSV );
+		string[] lanes = GetGemsLane( lanesCSV );
 		GemSpawner spawner = GameObject.Find( "GemSpawner" ).GetComponent<GemSpawner>();
 
-		spawner.UnlinkNetworkGems( ids );
+		spawner.UnlinkNetworkGems( ids, lanes, linkTime );
 	}
 
-	// Player 2 to Player 1
 	public void DestroyNetworkGems( List<Gem> gems, int multiplier )
 	{
-		string csv = GetGemsCSV( gems );
+		string idcsv = GetGemsIDCSV( gems );
+		string lanecsv = GetGemsLaneCSV( gems );
 
-		photonView.RPC( "DestroyNetworkGems_RPC", PhotonTargets.Others, csv, multiplier );
+		//photonView.RPC( "DestroyNetworkGems_RPC", PhotonTargets.Others, idcsv, lanecsv, multiplier );
+		DestroyNetworkGems( idcsv, lanecsv, multiplier );
+	}
+
+	public void DestroyNetworkGems( string idsCSV, string lanesCSV, int multiplier )
+	{
+		photonView.RPC( "DestroyNetworkGems_RPC", PhotonTargets.Others, idsCSV, lanesCSV, multiplier );
 	}
 
 	[PunRPC]
-	public void DestroyNetworkGems_RPC( string idsCSV, int multiplier )
+	public void DestroyNetworkGems_RPC( string idsCSV, string lanesCSV, int multiplier )
 	{
 		string[] ids = GetGemsId( idsCSV );
+		string[] lanes = GetGemsLane( lanesCSV );
 		GemSpawner spawner = GameObject.Find( "GemSpawner" ).GetComponent<GemSpawner>();
 
-		spawner.DestroyNetworkGems( ids, multiplier );
-	}
-
-	// Player 1 to Player 2
-	public void InformGemsDestroyed( List<Gem> gems, int multiplier )
-	{
-		string csv = GetGemsCSV( gems );
-
-		photonView.RPC("InformGemsDestroyed_RPC", PhotonTargets.Others, csv, multiplier );
-	}
-
-	[PunRPC]
-	public void InformGemsDestroyed_RPC( string idsCSV, int multiplier )
-	{
-		string[] ids = GetGemsId( idsCSV );
-		GemSpawner spawner = GameObject.Find( "GemSpawner" ).GetComponent<GemSpawner>();
-
-		spawner.NetworkAddGainPointsEffects( ids, multiplier );
+		spawner.DestroyNetworkGems( ids, lanes, multiplier );
 	}
 
 	// Both ways
 	public void CreateRepel( Gem gem )
 	{
-		PhotonView p = gem.GetComponent<PhotonView>();
-		photonView.RPC( "CreateRepel_RPC", PhotonTargets.Others, p.instantiationId );
+		GemNetworkInfo info = gem.GetComponent<GemNetworkInfo>();
+		Gem g = gem.GetComponent<Gem>();
+		photonView.RPC( "CreateRepel_RPC", PhotonTargets.Others, info.ID, g.Lane );
 	}
 
 	[PunRPC]
-	public void CreateRepel_RPC( int id )
+	public void CreateRepel_RPC( int id, int lane )
 	{
-		GameObject.Find("GemSpawner").GetComponent<GemSpawner>().CreateNetworkRepel( id );
+		GameObject.Find("GemSpawner").GetComponent<GemSpawner>().CreateNetworkRepel( id, lane );
 	}
 
-	// Both ways
-	public void UpdateHealth( int healthGain )
+	// Player 2 to Player 1
+	public void RequestSyncInfo()
 	{
-		photonView.RPC( "UpdateHealth_RPC", PhotonTargets.Others, healthGain);
+		photonView.RPC("RequestSyncInfo_RPC", PhotonTargets.Others);
 	}
 
 	[PunRPC]
-	public void UpdateHealth_RPC( int healthGain )
+	public void RequestSyncInfo_RPC()
 	{
-		GemSpawner spawner = GameObject.Find( "GemSpawner" ).GetComponent<GemSpawner>();
+		GameObject.Find("GemSpawner").GetComponent<GemSpawner>().RequestSyncInfo();
+	}
 
-		spawner.UpdateNetworkHealth( healthGain );
+	// Player 1 to Player 2
+	public void SendSyncInfo( int combo, int health, int points )
+	{
+		photonView.RPC("RequestSyncInfo_RPC", PhotonTargets.Others, combo, health, points );
+	}
+
+	[PunRPC]
+	public void SendSyncInfo_RPC( int combo, int health, int points )
+	{
+		GameObject.Find("GemSpawner").GetComponent<GemSpawner>().SyncInfo( combo, health, points );
 	}
 
 	// OnPhotonDisconnect (Go to score)
