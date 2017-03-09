@@ -40,4 +40,6 @@ MonoBehaviour:
   - CreateRepel_RPC
   - UpdateHealth_RPC
   - SpawnNetworkGem_RPC
+  - RequestSyncInfo_RPC
+  - SendSyncInfo_RPC
   DisableAutoOpenWizard: 1

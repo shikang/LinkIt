@@ -81,6 +81,8 @@ public class GemSpawner : MonoBehaviour
 	private Vector3 m_HalfDimension;
 	private float m_fLaneWidth;
 	private float m_fBaseGemDropSpeed;
+	private Vector3 m_DefaultGemScale;
+	private Vector3 m_LinkedGemScale;
 
 	// Spawning history variables
 	private List<int> m_PreviousLanes;
@@ -279,6 +281,9 @@ public class GemSpawner : MonoBehaviour
 				m_nFrameNum = m_nFrameNum > num ? num : m_nFrameNum;
 			}
 		}
+
+		m_DefaultGemScale = m_aGemList[0].transform.localScale;
+		m_LinkedGemScale = LINKED_SCALE_FACTOR * m_DefaultGemScale;
 
 		m_fAnimationIntervalTimer = 0.0f;
 		m_fAnimationTimer = 0.0f;
@@ -729,14 +734,14 @@ public class GemSpawner : MonoBehaviour
 	{
 		gem.Linked = true;
 		gem.GetComponent<SpriteRenderer>().sprite = gem.GetComponent<GemSpriteContainer>().m_GlowSprites[0];
-		gem.transform.localScale = new Vector3( LINKED_SCALE_FACTOR, LINKED_SCALE_FACTOR, 1.0f );
+		gem.transform.localScale = m_LinkedGemScale;
 	}
 
 	public void UnsetLinkGemEffect( Gem gem )
 	{
 		gem.Linked = false;
 		gem.GetComponent<SpriteRenderer>().sprite = gem.GetComponent<GemSpriteContainer>().m_Sprites[0];
-		gem.transform.localScale = Vector3.one;
+		gem.transform.localScale = m_DefaultGemScale;
 	}
 
 	void AddGainPointsEffect( Vector3 position, int gemType, int eachGain )
@@ -948,7 +953,7 @@ public class GemSpawner : MonoBehaviour
 	int GetLevelUpRequiredPoints( int nLevel )
 	{
 		//return ( nLevel + 1 ) * 2000 + ( nLevel * nLevel * 1000 );
-		return ( nLevel + 1 ) * 150 + ( nLevel * nLevel * 100 );
+		return ( nLevel + 1 ) * 200 + ( nLevel * nLevel * Math.Max( (int)( 0.5f * nLevel ), 1 ) * 100 );
 	}
 
 	int GetRandomLane()
