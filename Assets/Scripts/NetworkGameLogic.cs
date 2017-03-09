@@ -135,6 +135,30 @@ public class NetworkGameLogic : Photon.PunBehaviour
 		GameObject.Find("GemSpawner").GetComponent<GemSpawner>().CreateNetworkRepel( id, lane );
 	}
 
+	// Player 2 to Player 1
+	public void RequestSyncInfo()
+	{
+		photonView.RPC("RequestSyncInfo_RPC", PhotonTargets.Others);
+	}
+
+	[PunRPC]
+	public void RequestSyncInfo_RPC()
+	{
+		GameObject.Find("GemSpawner").GetComponent<GemSpawner>().RequestSyncInfo();
+	}
+
+	// Player 1 to Player 2
+	public void SendSyncInfo( int combo, int health, int points )
+	{
+		photonView.RPC("RequestSyncInfo_RPC", PhotonTargets.Others, combo, health, points );
+	}
+
+	[PunRPC]
+	public void SendSyncInfo_RPC( int combo, int health, int points )
+	{
+		GameObject.Find("GemSpawner").GetComponent<GemSpawner>().SyncInfo( combo, health, points );
+	}
+
 	// OnPhotonDisconnect (Go to score)
 	public override void OnPhotonPlayerDisconnected( PhotonPlayer otherPlayer )
 	{

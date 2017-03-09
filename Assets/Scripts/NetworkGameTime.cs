@@ -3,7 +3,9 @@ using System.Collections;
 
 public class NetworkGameTime : Photon.MonoBehaviour
 {
-	const float TIME_DIFF_THRESHOLD = 2.0f;	//!< In seconds
+	public const float LAGGY_TIME_DIFF = 1.5f;
+
+	const float TIME_DIFF_THRESHOLD = 1.0f;	//!< In seconds
 
 	private float m_fGameTime = 0.0f;
 

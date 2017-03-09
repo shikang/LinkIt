@@ -19,7 +19,7 @@ public class GemSpawner : MonoBehaviour
 	public const float SPAWN_RATE_GROWTH = 0.06f;       //!< In seconds
 	public const float GEM_DROP_TIME_GROWTH = 0.1f;     //!< In seconds
 	public const int GEM_LOOKBACK_NUM = 2;
-	public const float SPAWN_DANGER_AREA = 0.6f;        //!< Percentage from bottom
+	public const float SPAWN_DANGER_AREA = 0.7f;        //!< Percentage from bottom
 
 	// Type constants
 	public const int INVALID_LANE = -1;
@@ -1154,6 +1154,8 @@ public class GemSpawner : MonoBehaviour
 		m_aGemCount[gemType]++;
 		m_nTotalGemCount++;
 		m_Gems[lane].Add( gem );
+
+		CheckDelayedTime( spawnTime );
 	}
 
 	// Use by Network Gem (NOT USED)
@@ -1184,10 +1186,17 @@ public class GemSpawner : MonoBehaviour
 			string lane = lanes[i];
 			LinkNetworkGem( Convert.ToInt32( id ), Convert.ToInt32( lane ), false, linkTime );
 		}
+
+		CheckDelayedTime( linkTime );
 	}
 
 	public void LinkNetworkGem( int id, int lane, bool link, float linkTime )
 	{
+		if ( link )
+		{
+			CheckDelayedTime( linkTime );
+		}
+
 		if ( lane >= 0 || lane < LANE_NUM )
 		{
 			for ( int j = 0; j < m_Gems[lane].Count; ++j )
@@ -1362,6 +1371,8 @@ public class GemSpawner : MonoBehaviour
 		{
 			UnlinkGem( g, true );
 
+			m_PlayerStats.m_aDestroyCount[g.GemType]++;
+
 			// Particle effect
 			AddGainPointsEffect( g.transform.position, g.GemType, eachGain );
 		}
@@ -1406,6 +1417,29 @@ public class GemSpawner : MonoBehaviour
 		{
 			BreakCombo();
 		}
+	}
+
+	public void CheckDelayedTime( float timeSent )
+	{
+		float timeReceived = m_NetworkGameTimer.GetGameTime();
+		if ( Mathf.Abs( timeReceived - timeSent ) > NetworkGameTime.LAGGY_TIME_DIFF )
+		{
+			// Sent request to sync combo, health and score
+			m_Network.RequestSyncInfo();
+		}
+	}
+
+	public void RequestSyncInfo()
+	{
+		// Sent info to sync combo, health and score
+		m_Network.SendSyncInfo( m_nCurrentCombo, m_nHealth, m_nPoints );
+	}
+
+	public void SyncInfo(  int combo, int health, int points  )
+	{
+		m_nCurrentCombo = combo;
+		m_nHealth = health;
+		m_nPoints = points;
 	}
 
 	public void PetrifyGem( Gem gem )
