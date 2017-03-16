@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
 	public const float SCREEN_ANIMATE_TIME = 0.125f;        //!< In seconds
+	public const float TIME_TO_ACTUAL_COINS = 0.5f;			//!< In seconds
 
 	PlayerStatistics m_PlayerStats;
 	GemDetails m_GemDetails;
@@ -31,6 +32,11 @@ public class ScoreManager : MonoBehaviour
 	private bool m_bAnimating = false;
 	private int m_nAnimatingFrame = -1;
 
+	private int m_CurrentCoins = 0;
+	private int m_nShowingCoins = 0;
+	private int m_nPrevCoins = 0;
+	private float m_fCoinsTimer = 0.0f;
+
 	// Screens
 	private bool m_bIsCurrentScreenScore = true;
 	private bool m_bScreenAnimate = false;
@@ -45,9 +51,11 @@ public class ScoreManager : MonoBehaviour
 		m_PlayerStats = GameObject.FindGameObjectWithTag( "Player Statistics" ).GetComponent<PlayerStatistics>();
 		m_Score.GetComponent<Text>().text = m_PlayerStats.m_nScore.ToString();
 
+		int gemDestroyed = 0;
 		for ( int i = 0; i < m_PlayerStats.m_aDestroyCount.Length; ++i )
 		{
 			m_Counters[i].GetComponent<Text>().text = m_PlayerStats.m_aDestroyCount[i].ToString();
+			gemDestroyed += m_PlayerStats.m_aDestroyCount[i];
 		}
 
 		m_LeakedCounter.GetComponent<Text>().text = m_PlayerStats.m_nLeakCount.ToString();
@@ -77,15 +85,21 @@ public class ScoreManager : MonoBehaviour
 			NetworkManager.Disconnect();
 		}
 
-		m_GemDetails = GameObject.FindGameObjectWithTag( "Gem Details" ).GetComponent<GemDetails>();
-
 		GameData.Instance.m_Coin += m_PlayerStats.m_nCoinsGain;
+		m_CurrentCoins = GameData.Instance.m_Coin + gemDestroyed;
+		m_nShowingCoins = GameData.Instance.m_Coin;
+		m_nPrevCoins = GameData.Instance.m_Coin;
+		m_fCoinsTimer = 0.0f;
+		GameData.Instance.m_Coin += gemDestroyed;
 
 		Text coinsText = m_Coins.GetComponent<Text>();
-		coinsText.text = GameData.Instance.m_Coin.ToString();// + " (+" + m_PlayerStats.m_nCoinsGain + ")";
+		coinsText.text = m_nShowingCoins.ToString();// + " (+" + m_PlayerStats.m_nCoinsGain + ")";
 
 		// Save
 		SaveLoad.Save();
+
+		if ( GameObject.FindGameObjectWithTag( "Gem Details" ) != null )
+			m_GemDetails = GameObject.FindGameObjectWithTag( "Gem Details" ).GetComponent<GemDetails>();
 
 		m_bIsCurrentScreenScore = true;
 		m_bScreenAnimate = false;
@@ -98,6 +112,7 @@ public class ScoreManager : MonoBehaviour
 	void Update ()
 	{
 		AnimateGems();
+		AnimateCoins();
 		AnimationScreen();
 	}
 
@@ -170,6 +185,18 @@ public class ScoreManager : MonoBehaviour
 					}
 				}
 			}
+		}
+	}
+
+	void AnimateCoins()
+	{
+		m_fCoinsTimer += Time.deltaTime;
+
+		if ( m_fCoinsTimer < TIME_TO_ACTUAL_COINS + Time.deltaTime )
+		{
+			m_fCoinsTimer = m_fCoinsTimer > TIME_TO_ACTUAL_COINS ? TIME_TO_ACTUAL_COINS : m_fCoinsTimer;
+			m_nShowingCoins = (int)( ( m_fCoinsTimer / TIME_TO_ACTUAL_COINS ) * ( m_CurrentCoins - m_nPrevCoins ) ) + m_nPrevCoins;
+			m_Coins.GetComponent<Text>().text = m_nShowingCoins.ToString();
 		}
 	}
 

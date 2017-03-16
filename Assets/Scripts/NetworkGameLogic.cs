@@ -159,6 +159,17 @@ public class NetworkGameLogic : Photon.PunBehaviour
 		GameObject.Find("GemSpawner").GetComponent<GemSpawner>().SyncInfo( combo, health, points );
 	}
 
+	public void SpawnNetworkGoldDrop( int lane, float spawnTime )
+	{
+		photonView.RPC( "SpawnNetworkGoldDrop_RPC", PhotonTargets.Others, lane, spawnTime );
+	}
+
+	[PunRPC]
+	public void SpawnNetworkGoldDrop_RPC( int lane, float spawnTime )
+	{
+		GameObject.Find( "GemSpawner" ).GetComponent<GemSpawner>().SpawnNetworkGoldDrop(  lane, spawnTime );
+	}
+
 	// OnPhotonDisconnect (Go to score)
 	public override void OnPhotonPlayerDisconnected( PhotonPlayer otherPlayer )
 	{

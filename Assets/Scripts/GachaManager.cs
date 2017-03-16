@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GachaManager : MonoBehaviour
 {
-	public const int GACHA_COST = 100;
+	public const int GACHA_COST = 1000;
 	public const float PRIZE_MOVE_TIME = 0.5f;
 
 	public GameObject m_PrizeButton;
