@@ -18,8 +18,13 @@ public class GemSpawner : MonoBehaviour
 	public const float BASE_GEM_DROP_TIME = 5.0f;       //!< In seconds
 	public const float SPAWN_RATE_GROWTH = 0.06f;       //!< In seconds
 	public const float GEM_DROP_TIME_GROWTH = 0.1f;     //!< In seconds
-	public const int GEM_LOOKBACK_NUM = 2;
-	public const float SPAWN_DANGER_AREA = 0.7f;        //!< Percentage from bottom
+	public const int GEM_LOOKBACK_NUM = 1;
+	public const float SPAWN_DANGER_AREA = 0.6f;        //!< Percentage from bottom
+
+	// Spawning gold contants
+	public const float GOLD_SPAWN_INTERVAL = 30.0f;		//!< In seconds
+	public const float GOLD_SPAWN_CHANCE = 0.1f;        //!< Percentage (Over 1.0f)
+	public const int GOLD_DROP_AMOUNT = 100;
 
 	// Type constants
 	public const int INVALID_LANE = -1;
@@ -71,6 +76,7 @@ public class GemSpawner : MonoBehaviour
 	private GameObject m_LinkObject;
 	public Color[] m_LinkColours;
 	public Color m_NeutralColor;
+	public Color m_GoldColor;
 	private Link m_Link;
 	private List<Gem> m_LinkedGem;
 
@@ -83,6 +89,11 @@ public class GemSpawner : MonoBehaviour
 	private float m_fBaseGemDropSpeed;
 	private Vector3 m_DefaultGemScale;
 	private Vector3 m_LinkedGemScale;
+
+	// Spawning gold info
+	public GameObject m_GoldPrefab;
+	private float m_GoldIntervalTimer;
+	private GameObject m_GoldObject;
 
 	// Spawning history variables
 	private List<int> m_PreviousLanes;
@@ -247,6 +258,10 @@ public class GemSpawner : MonoBehaviour
 		m_GemsToBeDestroyed = new List<GameObject>();
 		if ( NetworkManager.IsConnected() )
 			m_NetworkGemsToBeDestroyed = new List<GameObject>();
+
+		// Initialise gold drop
+		m_GoldIntervalTimer = 0.0f;
+		m_GoldObject = null;
 
 		// Initialise life line
 		if ( m_LineLine != null )
@@ -450,6 +465,7 @@ public class GemSpawner : MonoBehaviour
 
 		UnlinkGems();
 		UpdateGems();
+		UpdateGoldDrop();
 		AnimateGems();
 		AnimatePoints();
 		AnimateCombo();
@@ -484,7 +500,19 @@ public class GemSpawner : MonoBehaviour
 			// Spawning logic
 			//Debug.Log( "Random lane: " + GetRandomLane() );
 			//Debug.Log( "Random gem: " + GetRandomGem() );
-			CreateGem( GetRandomLane(), GetRandomGem() );
+
+			int gemType = GetRandomGem();
+			int lane = GetRandomLane();
+
+			if ( gemType == m_nGemTypeNum )
+			{
+				// Spawn gold
+				CreateGoldDrop( lane );
+			}
+			else
+			{
+				CreateGem( lane, gemType );
+			}
 		}
 	}
 
@@ -547,6 +575,7 @@ public class GemSpawner : MonoBehaviour
 				}
 			}
 		}
+		
 
 		// Check for link breaking
 		for ( int i = 0; i < LANE_NUM; ++i )
@@ -674,24 +703,7 @@ public class GemSpawner : MonoBehaviour
 		else
 			linkCollider = gem.GetComponentInChildren<CircleCollider2D>();
 
-		Vector3 dir = m_Link.CurrentPoint - m_Link.PreviousPoint;
-		float length = dir.magnitude;
-		bool linked = false;
-
-		if ( length >= float.Epsilon )
-		{
-			dir.Normalize();
-
-			Ray ray = new Ray( m_Link.PreviousPoint, dir );
-			float distance = 0.0f;
-			bool intersected = linkCollider.bounds.IntersectRay( ray, out distance );
-			linked = intersected ? distance <= length : false;
-		}
-		else
-		{
-			// Test for point inside bound
-			linked = linkCollider.bounds.Contains( m_Link.CurrentPoint );
-		}
+		bool linked = CheckLinkLinked( linkCollider );
 
 		// Link logic
 		if ( linked )
@@ -730,18 +742,52 @@ public class GemSpawner : MonoBehaviour
 		return linked;
 	}
 
+	bool CheckLinkLinked( Collider2D collider )
+	{
+		Vector3 dir = m_Link.CurrentPoint - m_Link.PreviousPoint;
+		float length = dir.magnitude;
+		bool linked = false;
+
+		if ( length >= float.Epsilon )
+		{
+			dir.Normalize();
+
+			Ray ray = new Ray( m_Link.PreviousPoint, dir );
+			float distance = 0.0f;
+			bool intersected = collider.bounds.IntersectRay( ray, out distance );
+			linked = intersected ? distance <= length : false;
+		}
+		else
+		{
+			// Test for point inside bound
+			linked = collider.bounds.Contains( m_Link.CurrentPoint );
+		}
+
+		return linked;
+	}
+
 	public void SetLinkGemEffect( Gem gem )
 	{
 		gem.Linked = true;
 		gem.GetComponent<SpriteRenderer>().sprite = gem.GetComponent<GemSpriteContainer>().m_GlowSprites[0];
-		gem.transform.localScale = m_LinkedGemScale;
+		ScaleLinkEffect( gem.transform );
+	}
+
+	public void ScaleLinkEffect( Transform t )
+	{
+		t.localScale = m_LinkedGemScale;
 	}
 
 	public void UnsetLinkGemEffect( Gem gem )
 	{
 		gem.Linked = false;
 		gem.GetComponent<SpriteRenderer>().sprite = gem.GetComponent<GemSpriteContainer>().m_Sprites[0];
-		gem.transform.localScale = m_DefaultGemScale;
+		UnscaleLinkEffect( gem.transform );
+	}
+
+	public void UnscaleLinkEffect( Transform t )
+	{
+		t.localScale = m_DefaultGemScale;
 	}
 
 	void AddGainPointsEffect( Vector3 position, int gemType, int eachGain )
@@ -777,6 +823,38 @@ public class GemSpawner : MonoBehaviour
 
 			Destroy( pg, ps.duration + PointsGain.LIFETIME );
 		}
+	}
+
+	void AddGainGoldEffect( Vector3 position )
+	{
+		// Particles
+		GameObject explosion = ( GameObject )Instantiate( m_GemExplosionPrefab, position, Quaternion.identity );
+		ParticleSystem ps = explosion.GetComponent<ParticleSystem>();
+		ps.startColor = m_GoldColor;
+		Destroy( explosion, ps.duration + ps.startLifetime + Time.deltaTime );
+
+		// Text animation
+		GameObject pg = new GameObject( "Gold Gain Text" );
+		pg.transform.SetParent( m_GameCanvas.transform );
+
+		RectTransform pgtrans = pg.AddComponent<RectTransform>();
+		pgtrans.anchoredPosition = m_PointsGain.GetComponent<RectTransform>().anchoredPosition;
+		pgtrans.localPosition = Vector3.zero;
+		pgtrans.localScale = m_PointsGain.GetComponent<RectTransform>().localScale;
+		pgtrans.localRotation = m_PointsGain.GetComponent<RectTransform>().localRotation;
+		pgtrans.sizeDelta = m_PointsGain.GetComponent<RectTransform>().sizeDelta;
+
+		Text pgtext = pg.AddComponent<Text>();
+		pgtext.text = GOLD_DROP_AMOUNT.ToString();
+		pgtext.fontSize = m_PointsGain.GetComponent<Text>().fontSize;
+		pgtext.font = m_PointsGain.GetComponent<Text>().font;
+		pgtext.alignment = TextAnchor.MiddleCenter;
+		pgtext.color = m_GoldColor;
+
+		pg.AddComponent<PointsGain>();
+		pg.transform.position = position + 0.2f * Vector3.up;
+
+		Destroy( pg, ps.duration + PointsGain.LIFETIME );
 	}
 
 	int GetPointsGain( int num, int multiplier )
@@ -947,6 +1025,8 @@ public class GemSpawner : MonoBehaviour
 		m_LinkedGem.Clear();
 		m_Link.CheckForDestroy = false;
 
+		UnlinkGold( destroy );
+
 		return true;
 	}
 
@@ -975,8 +1055,9 @@ public class GemSpawner : MonoBehaviour
 
 	int GetRandomGem()
 	{
+		bool getNextSeq = m_lSequence.Count <= m_nSequenceIndex;
 		// Get the next sequence
-		if ( m_lSequence.Count <= m_nSequenceIndex )
+		if ( getNextSeq )
 		{
 			m_mSequenceGemTypeMap.Clear();
 			m_nSequenceIndex = 0;
@@ -1054,6 +1135,17 @@ public class GemSpawner : MonoBehaviour
 					return gemType;
 			}
 		}
+
+		// Sequence end 
+		if ( getNextSeq && m_GoldObject == null && m_GoldIntervalTimer >= GOLD_SPAWN_INTERVAL )
+		{
+			float range = UnityEngine.Random.Range( 0.0f, 1.0f );
+			if ( range <= GOLD_SPAWN_CHANCE )
+			{
+				m_GoldIntervalTimer = 0.0f;	// Reset gold timer
+				return m_nGemTypeNum;		// Return size to indicate spawn gold
+			}
+		}
 		
 
 		int gemMapKey = m_lSequence[m_nSequenceIndex];
@@ -1129,6 +1221,25 @@ public class GemSpawner : MonoBehaviour
 		m_aGemCount[gemType]++;
 		m_nTotalGemCount++;
 		m_Gems[lane].Add( gem );
+	}
+
+	void CreateGoldDrop( int lane )
+	{
+		m_GoldObject = ( GameObject )Instantiate( m_GoldPrefab, new Vector3( GetGemX( lane ), m_HalfDimension.y ), Quaternion.identity );
+		if ( NetworkManager.IsConnected() && NetworkManager.IsPlayerOne() )
+		{
+			// RPC spawn gold
+			m_Network.SpawnNetworkGoldDrop( lane, m_NetworkGameTimer.GetGameTime() );
+		}
+	}
+
+	void DestroyGoldDrop()
+	{
+		if ( m_GoldObject == null )
+			return;
+
+		Destroy( m_GoldObject );
+		m_GoldObject = null;
 	}
 
 	public void AddNetworkGameTimer( NetworkGameTime networkGameTimer )
@@ -1447,6 +1558,22 @@ public class GemSpawner : MonoBehaviour
 		m_nPoints = points;
 	}
 
+	public void SpawnNetworkGoldDrop( int lane, float spawnTime )
+	{
+		if ( m_GoldObject != null )
+			return;
+
+		CreateGoldDrop( lane );
+
+		// Move gold
+		float timeElapsed = m_NetworkGameTimer.GetGameTime() - spawnTime;
+		Vector3 pos = m_GoldObject.transform.position;
+		pos.y -= m_fBaseGemDropSpeed * timeElapsed;
+		m_GoldObject.transform.position = pos;
+
+		CheckDelayedTime( spawnTime );
+	}
+
 	public void PetrifyGem( Gem gem )
 	{
 		m_aGemCount[gem.GemType]--;
@@ -1506,10 +1633,40 @@ public class GemSpawner : MonoBehaviour
 		}
 	}
 
+	public void UnlinkGold( bool destroy )
+	{
+		if ( m_GoldObject == null )
+			return;
+
+		GoldDrop gd = m_GoldObject.GetComponent<GoldDrop>();
+
+		if ( !gd.GetLink() )
+			return;
+
+		if ( destroy )
+		{
+			// particle effects
+			AddGainGoldEffect( m_GoldObject.transform.position );
+
+			DestroyGoldDrop();
+			m_PlayerStats.m_nCoinsGain += GOLD_DROP_AMOUNT;
+		}
+		else
+		{
+			gd.LinkGold( false );
+			UnscaleLinkEffect( m_GoldObject.transform );
+		}
+	}
+
 	public bool IsGemStoned( Gem gem )
 	{
 		Transform t = gem.transform;
-		Renderer r = gem.GetComponent<SpriteRenderer>();
+		return IsInUnlinkableZone( t );
+	}
+
+	public bool IsInUnlinkableZone( Transform t )
+	{
+		Renderer r = t.GetComponent<SpriteRenderer>();
 		return ( t.position.y + r.bounds.size.y <= m_LineLine.transform.position.y ) ||
 			   ( t.position.y <= ( ( m_fGameoverTimer / GAMEOVER_ANIMATION ) * m_HalfDimension.y * 2.0f ) + -m_HalfDimension.y );
 	}
@@ -1747,7 +1904,7 @@ public class GemSpawner : MonoBehaviour
 
 	void BreakCombo()
 	{
-		// @todo check if current combo more than 1, shake screen?
+		// Check if current combo more than 1, shake screen?
 
 		if ( m_CurrentHighComboStrip != null )
 		{
@@ -1809,6 +1966,46 @@ public class GemSpawner : MonoBehaviour
 		currentHighComboStrip.transform.localScale = m_HighComboSpecularScale;
 		currentHighComboStrip.GetComponent<ComboMove>().StartAllTheWay( -m_HighComboSpecularPos.y );
 		currentHighComboStrip.SetActive( true );
+	}
+
+	void UpdateGoldDrop()
+	{
+		if ( m_GoldObject == null )
+		{
+			m_GoldIntervalTimer += Time.deltaTime;
+		}
+		else
+		{
+			GoldDrop gd = m_GoldObject.GetComponent<GoldDrop>();
+
+			// Check for linking
+			if ( !gd.GetLink() && !m_bGameover && m_Link.Linking && CheckLinkLinked( m_GoldObject.GetComponentInChildren<BoxCollider2D>() ) )
+			{
+				gd.LinkGold( true );
+				ScaleLinkEffect( m_GoldObject.transform );
+			}
+
+			// Move gem
+			// Linked gems don't move
+			if ( !gd.GetLink() )
+			{
+				Vector3 pos = m_GoldObject.transform.position;
+				pos.y -= m_fBaseGemDropSpeed * Time.deltaTime;
+				m_GoldObject.transform.position = pos;
+
+				// Check for gold in unlinkable zone
+				if ( !gd.GetPetrify() && IsInUnlinkableZone( m_GoldObject.transform ) )
+				{
+					gd.PetrifyGold();
+				}
+
+				// Check out of screen
+				if( pos.y < -m_HalfDimension.y )
+				{
+					DestroyGoldDrop();
+				}
+			}
+		}
 	}
 
 	static void GoToScore()

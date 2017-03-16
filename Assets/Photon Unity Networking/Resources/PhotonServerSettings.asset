@@ -42,4 +42,5 @@ MonoBehaviour:
   - SpawnNetworkGem_RPC
   - RequestSyncInfo_RPC
   - SendSyncInfo_RPC
+  - SpawnNetworkGoldDrop_RPC
   DisableAutoOpenWizard: 1
