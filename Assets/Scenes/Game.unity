@@ -168,18 +168,6 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 467552710}
-    - target: {fileID: 22486908, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 417648, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 407062, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
   m_IsPrefabParent: 0
@@ -985,18 +973,6 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 21231174, guid: dc4ed397eedbd7448a08af94a25f09ef, type: 2}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 21231174, guid: dc4ed397eedbd7448a08af94a25f09ef, type: 2}
-      propertyPath: m_Color.g
-      value: 0.3372549
-      objectReference: {fileID: 0}
-    - target: {fileID: 21231174, guid: dc4ed397eedbd7448a08af94a25f09ef, type: 2}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dc4ed397eedbd7448a08af94a25f09ef, type: 2}
   m_IsPrefabParent: 0
@@ -1004,35 +980,6 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 164800, guid: dc4ed397eedbd7448a08af94a25f09ef, type: 2}
   m_PrefabInternal: {fileID: 1346170137}
---- !u!114 &1346170139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1346170138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b5b8aa5ad467df43b80ecfa3736d24d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_fMinAlpha: 0.4
-  m_fMaxAlpha: 0.7
-  m_fPulseCycleRate: 3
---- !u!114 &1346170140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1346170138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 348d49bc540cc9d409598af242bda928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ComboColor:
-  - {r: 0, g: 0.3372549, b: 1, a: 0.6862745}
-  - {r: 0.03529412, g: 1, b: 0, a: 0.6862745}
-  - {r: 1, g: 0.76470596, b: 0, a: 0.6862745}
 --- !u!1 &1354954216 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 107848, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
@@ -1416,6 +1363,30 @@ Prefab:
       propertyPath: m_DisconnectText
       value: 
       objectReference: {fileID: 582991506}
+    - target: {fileID: 11467488, guid: 13445aaefa94b584cba5e58d98946d2e, type: 2}
+      propertyPath: m_LinkColours.Array.data[0].a
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 11467488, guid: 13445aaefa94b584cba5e58d98946d2e, type: 2}
+      propertyPath: m_LinkColours.Array.data[1].a
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 11467488, guid: 13445aaefa94b584cba5e58d98946d2e, type: 2}
+      propertyPath: m_LinkColours.Array.data[2].a
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 11467488, guid: 13445aaefa94b584cba5e58d98946d2e, type: 2}
+      propertyPath: m_LinkColours.Array.data[3].a
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 11467488, guid: 13445aaefa94b584cba5e58d98946d2e, type: 2}
+      propertyPath: m_NeutralColor.a
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 11467488, guid: 13445aaefa94b584cba5e58d98946d2e, type: 2}
+      propertyPath: m_GoldColor.a
+      value: 0.5019608
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 13445aaefa94b584cba5e58d98946d2e, type: 2}
   m_IsPrefabParent: 0

@@ -23,7 +23,7 @@ public class GemSpawner : MonoBehaviour
 
 	// Spawning gold contants
 	public const float GOLD_SPAWN_INTERVAL = 30.0f;		//!< In seconds
-	public const float GOLD_SPAWN_CHANCE = 0.1f;        //!< Percentage (Over 1.0f)
+	public const float GOLD_SPAWN_CHANCE = 0.0f;        //!< Percentage (Over 1.0f)
 	public const int GOLD_DROP_AMOUNT = 100;
 
 	// Type constants
@@ -1667,7 +1667,8 @@ public class GemSpawner : MonoBehaviour
 	public bool IsInUnlinkableZone( Transform t )
 	{
 		Renderer r = t.GetComponent<SpriteRenderer>();
-		return ( t.position.y + r.bounds.size.y <= m_LineLine.transform.position.y ) ||
+		BoxCollider2D c = t.GetComponentInChildren<BoxCollider2D>();
+		return ( t.position.y + c.size.y <= m_LineLine.transform.position.y ) ||
 			   ( t.position.y <= ( ( m_fGameoverTimer / GAMEOVER_ANIMATION ) * m_HalfDimension.y * 2.0f ) + -m_HalfDimension.y );
 	}
 
