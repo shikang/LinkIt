@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 172792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children:
   - {fileID: 486220}
   m_Father: {fileID: 0}
@@ -72,7 +72,7 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0.03}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.12924503
 --- !u!61 &6165480
@@ -86,9 +86,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.00025224686, y: -0.0012612939}
+  m_Offset: {x: -0.005418429, y: 0.012515027}
   serializedVersion: 2
-  m_Size: {x: 0.70634663, y: 0.7062944}
+  m_Size: {x: 0.59958017, y: 0.5891957}
 --- !u!114 &11429882
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,15 +117,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprites:
-  - {fileID: 21300000, guid: bd2274625a338204f9a1e984ba117ca0, type: 3}
-  - {fileID: 21300000, guid: 796e83a9240dcfb49b68f1dcdbad4211, type: 3}
-  - {fileID: 21300000, guid: 8d256f2a6d52b1541870daed4d4e082d, type: 3}
-  - {fileID: 21300000, guid: 52c31c71ea9c94e4096adc4556bcd7d6, type: 3}
+  - {fileID: 21300000, guid: 1de975423bde093478f8165c0eb78fd9, type: 3}
+  - {fileID: 21300000, guid: 657fbf2a37e696541bccf7a4168c3d5d, type: 3}
+  - {fileID: 21300000, guid: 417f60e2d092fd744b12b2494ad68eea, type: 3}
+  - {fileID: 21300000, guid: d116cefc66af22246a6ce207c5d546a8, type: 3}
+  - {fileID: 21300000, guid: e948b1862269ace49b67f0f441b3f9c7, type: 3}
+  - {fileID: 21300000, guid: 25b65e955b7227741a0e924264e128a7, type: 3}
   m_GlowSprites:
-  - {fileID: 21300000, guid: 8675dff56c086cd44be184e94c8404f7, type: 3}
-  - {fileID: 21300000, guid: ead472716cf55fb4ba96ce65b29a1dce, type: 3}
-  - {fileID: 21300000, guid: 68d3da7b7918a37449515eb66a9a412f, type: 3}
-  - {fileID: 21300000, guid: 811558d6fa9b6354d8a361a6cec1a40a, type: 3}
+  - {fileID: 21300000, guid: ca01d2510d9c054428d4dbca40b10fd6, type: 3}
+  - {fileID: 21300000, guid: c288a0913c34a4c43ae9c15e80e5bbf4, type: 3}
+  - {fileID: 21300000, guid: 5e8d59cbc550d4e48974af5d70957de2, type: 3}
+  - {fileID: 21300000, guid: 4823c70b0c2b83f45a795bedaa08ccf1, type: 3}
+  - {fileID: 21300000, guid: f3830a0c4414a8f419d729d771dcf880, type: 3}
+  - {fileID: 21300000, guid: ed62a3cf8ec82a3479d7a3936248792c, type: 3}
   m_StoneSprites:
   - {fileID: 21300000, guid: f5eb4a3774574b74fa018e9b005c64e0, type: 3}
   - {fileID: 21300000, guid: 3b7c608e69da801448faf765fde82a73, type: 3}
@@ -168,7 +172,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bd2274625a338204f9a1e984ba117ca0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1de975423bde093478f8165c0eb78fd9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

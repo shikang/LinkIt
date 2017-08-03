@@ -9,6 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 425964}
   - 212: {fileID: 21231174}
+  - 114: {fileID: 11486254}
+  - 114: {fileID: 11440676}
   m_Layer: 0
   m_Name: High Combo Zone
   m_TagString: Untagged
@@ -28,6 +30,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11440676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 348d49bc540cc9d409598af242bda928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComboColor:
+  - {r: 1, g: 0.76470596, b: 0, a: 0.6862745}
+  - {r: 0, g: 1, b: 1, a: 0.6862745}
+  - {r: 0.68235296, g: 0, b: 0.8745099, a: 0.6862745}
+--- !u!114 &11486254
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b5b8aa5ad467df43b80ecfa3736d24d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fMinAlpha: 0.4
+  m_fMaxAlpha: 0.7
+  m_fPulseCycleRate: 3
 --- !u!212 &21231174
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -55,7 +86,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: aceebc2cfc887414c8cae5c8e3817518, type: 3}
-  m_Color: {r: 0, g: 0.33793116, b: 1, a: 0.688}
+  m_Color: {r: 1, g: 0.76470596, b: 0, a: 0.688}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1001 &100100000
