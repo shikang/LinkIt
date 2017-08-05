@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//#define USE_SINGLE_REPEL
+
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -82,7 +84,11 @@ public class GemSpawner : MonoBehaviour
 
 	// Spawning information
 	public GameObject[] m_aGemList;                     //!< Prefab to create from
-	public GameObject[] m_aRepels;						//!< Prefab for repel
+#if USE_SINGLE_REPEL
+	public GameObject m_Repel;                          //!< Prefab for repel
+#else
+	public GameObject[] m_aRepels;                      //!< Prefab for repel
+#endif
 	private int m_nGemTypeNum = 0;						//!< Number of gem types
 	private Vector3 m_HalfDimension;
 	private float m_fLaneWidth;
@@ -1817,9 +1823,16 @@ public class GemSpawner : MonoBehaviour
 	void CreateRepel( Gem g )
 	{
 		// Repel effect
+#if USE_SINGLE_REPEL
+		GameObject repel = ( GameObject )Instantiate( m_Repel, g.transform.position + FRONT_OFFSET, Quaternion.identity );
+		repel.transform.SetParent( g.transform );
+		repel.GetComponent<SpriteRenderer>().color = m_LinkColours[g.GetComponent<Gem>().m_nGemType];
+		Destroy( repel, Repel.REPEL_ANIM_TIME );
+#else
 		GameObject repel = ( GameObject )Instantiate( m_aRepels[g.GemType], g.transform.position + FRONT_OFFSET, Quaternion.identity );
 		repel.transform.SetParent( g.transform );
 		Destroy( repel, RepelAnimator.LIFETIME );
+#endif
 	}
 
 	Color GetLifeLineColour()
