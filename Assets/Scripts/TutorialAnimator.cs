@@ -52,6 +52,12 @@ public class TutorialAnimator : MonoBehaviour
 			return;
 		}
 
+		if ( NetworkManager.IsConnected() )
+		{
+			DisableTutorial();
+			return;
+		}
+
 		m_nLoopCounter = 0;
 
 		m_CopyLinkPos = new List<Vector3>();
