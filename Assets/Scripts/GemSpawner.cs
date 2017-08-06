@@ -13,7 +13,7 @@ public class GemSpawner : MonoBehaviour
 	public static Vector3 FRONT_OFFSET = Vector3.back;
 
 	// Spawning constants
-	public const float GAME_START_DELAY = 3.0f;			//!< In seconds
+	public const float GAME_START_DELAY = 2.0f;			//!< In seconds
 	public const int LANE_NUM = 5;
 	public const int LOOKBACK_NUM = 3;
 	public const float BASE_SPAWN_RATE = 1.0f;			//!< In seconds
@@ -493,6 +493,12 @@ public class GemSpawner : MonoBehaviour
 
 		if ( !m_bGameStart )
 		{
+			GameObject tutorialManager = GameObject.FindGameObjectWithTag( "Tutorial Manager" );
+			if ( tutorialManager != null && tutorialManager.GetActive() )
+			{
+				m_fSpawnTimer = 0.0f;
+			}
+
 			if ( m_fSpawnTimer >= GAME_START_DELAY )
 			{
 				m_fSpawnTimer -= GAME_START_DELAY;
