@@ -14,6 +14,7 @@ TagManager:
   - Shop Manager
   - Gem Library
   - Main Menu Manager
+  - Tutorial Manager
   layers:
   - Default
   - TransparentFX

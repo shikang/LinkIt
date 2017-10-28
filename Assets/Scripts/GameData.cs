@@ -13,6 +13,7 @@ public class GameData
 	public int m_Coin;
 	public GemLibrary.GemSet m_EquippedGemSet;
 	public List<GemLibrary.GemSet> m_GemList;
+	public bool m_SeenTutorial;
 
 	[System.NonSerialized]
 	public HashSet<GemLibrary.GemSet> m_Sets;
@@ -27,6 +28,7 @@ public class GameData
 		m_EquippedGemSet = GemLibrary.GemSet.GEM;
 		m_GemList = new List<GemLibrary.GemSet>();
 		m_Sets = new HashSet<GemLibrary.GemSet>();
+		m_SeenTutorial = false;
 	}
 
 	public void UnlockGem( GemLibrary.GemSet gemType )
