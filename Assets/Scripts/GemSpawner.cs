@@ -1,4 +1,5 @@
 ﻿//#define USE_SINGLE_REPEL
+//#define DEBUG_SPAWN
 
 using UnityEngine;
 using System.Collections;
@@ -1124,6 +1125,15 @@ public class GemSpawner : MonoBehaviour
 			}
 		}
 
+#if DEBUG_SPAWN
+		SpawnIndicator spawnIndicator = GameObject.Find( "Spawn Indicator" ).GetComponent<SpawnIndicator>();
+		for ( int i = 0; i < 10; ++i )
+		{
+			spawnIndicator.SetGemTypeCheck( i, 0, false, false );
+		}
+
+		int spawnIndicateCounter = 9;
+#endif
 		//for ( int i = 0; i < m_aGemCount.Length; ++i )
 		foreach ( KeyValuePair<float, int> entry in gemTypeToCheck )
 		{
@@ -1144,9 +1154,25 @@ public class GemSpawner : MonoBehaviour
 
 				// Spawn
 				if ( !bContainGemType )
+				{
+#if DEBUG_SPAWN
+					spawnIndicator.SetGemTypeCheck( spawnIndicateCounter--, gemType, true, true );
+#endif
 					return gemType;
+				}
+				else
+				{
+#if DEBUG_SPAWN
+					spawnIndicator.SetGemTypeCheck( spawnIndicateCounter--, gemType, true, false );
+#endif
+					// Check the first one only
+					break;
+				}
 			}
 		}
+
+		// Check number of different leak gems and speed up spawn timer if need be
+		//m_fSpawnTimer;
 
 		// Sequence end 
 		if ( getNextSeq && m_GoldObject == null && m_GoldIntervalTimer >= GOLD_SPAWN_INTERVAL )
