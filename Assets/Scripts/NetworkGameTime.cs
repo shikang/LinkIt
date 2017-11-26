@@ -3,6 +3,7 @@ using System.Collections;
 
 public class NetworkGameTime : Photon.MonoBehaviour
 {
+#if LINKIT_COOP
 	public const float LAGGY_TIME_DIFF = 1.5f;
 
 	const float TIME_DIFF_THRESHOLD = 1.0f;	//!< In seconds
@@ -54,4 +55,12 @@ public class NetworkGameTime : Photon.MonoBehaviour
 			spawner.AddNetworkGameTimer( this );
 		}
 	}
+#else  // !LINKIT_COOP
+	// Use this for initialization
+	void Start()
+	{
+		// Destroy unneeded photon view
+		Destroy( GetComponent<PhotonView>() );
+	}
+#endif	// LINKIT_COOP
 }

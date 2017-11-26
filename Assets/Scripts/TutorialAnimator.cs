@@ -52,11 +52,13 @@ public class TutorialAnimator : MonoBehaviour
 			return;
 		}
 
+#if LINKIT_COOP
 		if ( NetworkManager.IsConnected() )
 		{
 			DisableTutorial();
 			return;
 		}
+#endif	// LINKIT_COOP
 
 		m_nLoopCounter = 0;
 

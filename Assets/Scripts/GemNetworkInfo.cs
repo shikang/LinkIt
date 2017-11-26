@@ -3,6 +3,7 @@ using System.Collections;
 
 public class GemNetworkInfo : MonoBehaviour
 {
+#if LINKIT_COOP
 	private int m_ID;
 	private Vector3 m_HalfDimension;
 	private Gem m_Gem = null;
@@ -62,4 +63,5 @@ public class GemNetworkInfo : MonoBehaviour
 		}
 		m_bOtherLinked = linked;
 	}
+#endif	// LINKIT_COOP
 }

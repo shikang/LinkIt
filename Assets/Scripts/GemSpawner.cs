@@ -124,8 +124,10 @@ public class GemSpawner : MonoBehaviour
 	private List< List<GameObject> > m_Gems;							//!< Gems in game
 	private List<GameObject> m_StonedGems;								//!< Unlinkable gems
 	private List<GameObject> m_GemsToBeRemoved;							//!< Gems to be removed after a loop
-	private List<GameObject> m_GemsToBeDestroyed;						//!< Gems to be destroyed after a loop
+	private List<GameObject> m_GemsToBeDestroyed;                       //!< Gems to be destroyed after a loop
+#if LINKIT_COOP
 	private List<GameObject> m_NetworkGemsToBeDestroyed;                //!< Delayed destroy because the other player could be linking it
+#endif	// LINKIT_COOP
 
 	// Gem sprites
 	private GemDetails m_GemDetails;
@@ -195,9 +197,12 @@ public class GemSpawner : MonoBehaviour
 	public GameObject m_ComboText;
 	public GameObject m_PraiseText;
 	public GameObject m_MultiplierText;
+#if LINKIT_COOP
 	public GameObject m_DisconnectText;
+#endif	// LINKIT_COOP
 	public GameObject m_PointsGain;
 
+#if LINKIT_COOP
 	// Network
 	public GameObject m_NetworkGameTimerPrefab;
 	NetworkGameTime m_NetworkGameTimer = null;
@@ -205,6 +210,7 @@ public class GemSpawner : MonoBehaviour
 	bool m_bOriginalPlayerOne = true;
 	Queue<int> m_UnusedGemIDList;
 	int m_NextGemID = 0;
+#endif  // LINKIT_COOP
 
 	// Use this for initialization
 	void Start ()
@@ -263,8 +269,10 @@ public class GemSpawner : MonoBehaviour
 		m_StonedGems = new List<GameObject>();
 		m_GemsToBeRemoved = new List<GameObject>();
 		m_GemsToBeDestroyed = new List<GameObject>();
+#if LINKIT_COOP
 		if ( NetworkManager.IsConnected() )
 			m_NetworkGemsToBeDestroyed = new List<GameObject>();
+#endif  // LINKIT_COOP
 
 		// Initialise gold drop
 		m_GoldIntervalTimer = 0.0f;
@@ -407,6 +415,7 @@ public class GemSpawner : MonoBehaviour
 		GameObject transition = GameObject.FindGameObjectWithTag( "Transition" );
 		transition.transform.position += 5.0f * FRONT_OFFSET;
 
+#if LINKIT_COOP
 		if ( NetworkManager.IsConnected() )
 		{
 			m_Network = GameObject.Find( "Network Manager" ).GetComponent<NetworkGameLogic>();
@@ -422,6 +431,7 @@ public class GemSpawner : MonoBehaviour
 			}
 		}
 		m_DisconnectText.SetActive( false );
+#endif	// LINKIT_COOP
 
 		// @debug
 		/*
@@ -487,8 +497,10 @@ public class GemSpawner : MonoBehaviour
 	// -------------------------------- Updating functions --------------------------------------------
 	void Spawn()
 	{
+#if LINKIT_COOP
 		if ( NetworkManager.IsConnected() && !NetworkManager.IsPlayerOne() )
 			return;
+#endif	// LINKIT_COOP
 
 		m_fSpawnTimer += Time.deltaTime;
 
@@ -531,7 +543,9 @@ public class GemSpawner : MonoBehaviour
 
 	void UpdateGems()
 	{
+#if LINKIT_COOP
 		bool connected = NetworkManager.IsConnected();
+#endif	// LINKIT_COOP
 
 		List< List< Gem > > linkedGemList = new List< List< Gem > >();
 		List< List< Gem > > unLinkedGemList = new List< List< Gem > >();
@@ -554,11 +568,13 @@ public class GemSpawner : MonoBehaviour
 					continue;
 				}
 
+#if LINKIT_COOP
 				// Other player's linked gem
 				if ( connected && g.GetComponent<GemNetworkInfo>().OtherLinked )
 				{
 					continue;
 				}
+#endif	// LINKIT_COOP
 
 				// Check for linking
 				if ( !m_bGameover && m_Link.Linking && LinkGem( m_Gems[i][j] ) )
@@ -730,8 +746,10 @@ public class GemSpawner : MonoBehaviour
 
 				m_Link.ChangeLinkColor( g.GemType );
 
+#if LINKIT_COOP
 				if ( NetworkManager.IsConnected() )
 					m_Network.LinkNetworkGem( g, true, m_NetworkGameTimer.GetGameTime() ); //, ( g.transform.position.y - -m_HalfDimension.y ) / ( m_HalfDimension.y * 2.0f ) );
+#endif  // LINKIT_COOP
 			}
 			// Not linkable
 			else
@@ -744,11 +762,13 @@ public class GemSpawner : MonoBehaviour
 				// Repel effect
 				CreateRepel( g );
 
+#if LINKIT_COOP
 				// RPC create repel
 				if ( NetworkManager.IsConnected() )
 				{
 					m_Network.CreateRepel( g );
 				}
+#endif	// LINKIT_COOP
 			}
 		}
 
@@ -977,7 +997,11 @@ public class GemSpawner : MonoBehaviour
 
 		int multiplier = m_nHighComboMultiplierIndex + 1;
 		bool destroy = m_LinkedGem.Count >= 3;
-		if ( destroy && ( !NetworkManager.IsConnected() || NetworkManager.IsPlayerOne() ) )
+		if ( destroy
+#if LINKIT_COOP
+			&& ( !NetworkManager.IsConnected() || NetworkManager.IsPlayerOne() ) 
+#endif  // LINKIT_COOP
+			)
 		{
 			// Points
 			int pointsGain = GetPointsGain( m_LinkedGem.Count, multiplier );
@@ -1009,6 +1033,7 @@ public class GemSpawner : MonoBehaviour
 			}
 		}
 
+#if LINKIT_COOP
 		// Multiplayer logic
 		if ( NetworkManager.IsConnected() )
 		{
@@ -1026,8 +1051,13 @@ public class GemSpawner : MonoBehaviour
 				}
 			}
 		}
+#endif	// LINKIT_COOP
 
-		if ( !destroy || ( destroy && ( !NetworkManager.IsConnected() || NetworkManager.IsPlayerOne() ) ) )
+#if LINKIT_COOP
+		if ( !destroy
+			|| ( destroy && ( !NetworkManager.IsConnected() || NetworkManager.IsPlayerOne() ) ) 
+			)
+#endif	// LINKIT_COOP
 		{
 			foreach ( Gem g in m_LinkedGem )
 			{
@@ -1230,6 +1260,7 @@ public class GemSpawner : MonoBehaviour
 		gem.GetComponent<Gem>().Lane = lane;
 		gem.GetComponent<Gem>().GemType = gemType;
 		gem.GetComponent<Gem>().SequenceIndex = m_nSequenceIndexFromList;
+#if LINKIT_COOP
 		if ( NetworkManager.IsConnected() )
 		{
 			int id = 0;
@@ -1249,6 +1280,9 @@ public class GemSpawner : MonoBehaviour
 		{
 			Destroy ( gem.GetComponent<GemNetworkInfo>() );
 		}
+#else	// !LINKIT_COOP
+		Destroy ( gem.GetComponent<GemNetworkInfo>() );
+#endif	// LINKIT_COOP
 
 		if ( m_GemDetails != null )
 		{
@@ -1264,11 +1298,13 @@ public class GemSpawner : MonoBehaviour
 	void CreateGoldDrop( int lane )
 	{
 		m_GoldObject = ( GameObject )Instantiate( m_GoldPrefab, new Vector3( GetGemX( lane ), m_HalfDimension.y ), Quaternion.identity );
+#if LINKIT_COOP
 		if ( NetworkManager.IsConnected() && NetworkManager.IsPlayerOne() )
 		{
 			// RPC spawn gold
 			m_Network.SpawnNetworkGoldDrop( lane, m_NetworkGameTimer.GetGameTime() );
 		}
+#endif	// LINKIT_COOP
 	}
 
 	void DestroyGoldDrop()
@@ -1280,6 +1316,7 @@ public class GemSpawner : MonoBehaviour
 		m_GoldObject = null;
 	}
 
+#if LINKIT_COOP
 	public void AddNetworkGameTimer( NetworkGameTime networkGameTimer )
 	{
 		m_NetworkGameTimer = networkGameTimer;
@@ -1611,6 +1648,7 @@ public class GemSpawner : MonoBehaviour
 
 		CheckDelayedTime( spawnTime );
 	}
+#endif	// LINKIT_COOP
 
 	public void PetrifyGem( Gem gem )
 	{
@@ -1621,8 +1659,12 @@ public class GemSpawner : MonoBehaviour
 		gem.GetComponent<SpriteRenderer>().sprite = gem.GetComponent<GemSpriteContainer>().m_StoneSprites[0];
 		gem.Petrified = true;
 
+#if LINKIT_COOP
 		if ( !NetworkManager.IsConnected() || NetworkManager.IsPlayerOne() )
 			m_lFailedSequenceCount[gem.GetComponent<Gem>().SequenceIndex]++;
+#else	// !LINKIT_COOP
+		m_lFailedSequenceCount[gem.GetComponent<Gem>().SequenceIndex]++;
+#endif	// LINKIT_COOP
 	}
 
 	public void UnPetrifyGem( Gem gem )
@@ -1634,14 +1676,19 @@ public class GemSpawner : MonoBehaviour
 		gem.GetComponent<SpriteRenderer>().sprite = gem.GetComponent<GemSpriteContainer>().m_Sprites[0];
 		gem.Petrified = false;
 
+#if LINKIT_COOP
 		if ( !NetworkManager.IsConnected() || NetworkManager.IsPlayerOne() )
 			m_lFailedSequenceCount[gem.GetComponent<Gem>().SequenceIndex]--;
+#else	// !LINKIT_COOP
+		m_lFailedSequenceCount[gem.GetComponent<Gem>().SequenceIndex]--;
+#endif	// LINKIT_COOP
 	}
 
 	public void DestroyGem( Gem gem )
 	{
 		m_StonedGems.Remove( gem.gameObject );
 
+#if LINKIT_COOP
 		if ( NetworkManager.IsConnected() )
 		{
 			GemNetworkInfo info = gem.GetComponent<GemNetworkInfo>();
@@ -1651,6 +1698,7 @@ public class GemSpawner : MonoBehaviour
 				return;
 			}
 		}
+#endif	// LINKIT_COOP
 
 		DestroyGemImpl( gem );
 	}
@@ -1926,6 +1974,7 @@ public class GemSpawner : MonoBehaviour
 		if ( m_bGameover )
 			return;
 
+#if LINKIT_COOP
 		if ( NetworkManager.IsConnected() )
 		{
 			m_LinkObject = PhotonNetwork.Instantiate( "Link", Vector3.zero, Quaternion.identity, 0 );
@@ -1936,14 +1985,21 @@ public class GemSpawner : MonoBehaviour
 			Destroy( m_LinkObject.GetComponent<PhotonView>() );
 			Destroy( m_LinkObject.GetComponent<NetworkLink>() );
 		}
+#else	// !LINKIT_COOP
+		m_LinkObject = ( GameObject )Instantiate( m_LinkPrefab, Vector3.zero, Quaternion.identity );
+		Destroy( m_LinkObject.GetComponent<PhotonView>() );
+		Destroy( m_LinkObject.GetComponent<NetworkLink>() );
+#endif	// LINKIT_COOP
 	}
 
 	void DestroyGemImpl( Gem gem )
 	{
+#if LINKIT_COOP
 		if ( NetworkManager.IsConnected() && NetworkManager.IsPlayerOne() )
 		{
 			m_UnusedGemIDList.Enqueue( gem.GetComponent<GemNetworkInfo>().ID );
 		}
+#endif	// LINKIT_COOP
 
 		Destroy( gem.gameObject );
 	}
@@ -2059,6 +2115,7 @@ public class GemSpawner : MonoBehaviour
 		SceneManager.LoadScene( "Score" );
 	}
 
+#if LINKIT_COOP
 	public void OnNetworkDisconnect()
 	{
 		if ( !NetworkManager.IsConnected() )
@@ -2093,4 +2150,5 @@ public class GemSpawner : MonoBehaviour
 		}
 		*/
 	}
+#endif	// LINKIT_COOP
 }

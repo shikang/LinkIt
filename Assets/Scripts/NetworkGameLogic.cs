@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
+#if LINKIT_COOP
 public class NetworkGameLogic : Photon.PunBehaviour
 {
 
@@ -178,3 +179,14 @@ public class NetworkGameLogic : Photon.PunBehaviour
 		spawner.OnNetworkDisconnect();
 	}
 }
+#else	// !LINKIT_COOP
+public class NetworkGameLogic : MonoBehaviour
+{
+	// Use this for initialization
+	void Start()
+	{
+		// Destroy unneeded photon view
+		Destroy( GetComponent<PhotonView>() );
+	}
+}
+#endif	// LINKIT_COOP

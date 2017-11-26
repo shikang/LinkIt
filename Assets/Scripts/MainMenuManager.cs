@@ -13,7 +13,13 @@ public class MainMenuManager : MonoBehaviour
 	public enum eScreen
 	{
 		MAIN_MENU,
+		// Global define
+		// https://docs.unity3d.com/Manual/PlatformDependentCompilation.html
+#if LINKIT_COOP
 		CO_OP,
+#else	// !LINKIT_COOP
+		CO_OP_DUMMY,
+#endif	// LINKIT_COOP
 		ITEM,
 
 		TOTAL
@@ -51,6 +57,14 @@ public class MainMenuManager : MonoBehaviour
 		m_bScreenAnimate = false;
 		m_fScreenAnimateTimer = 0.0f;
 		m_fScreenWidth = m_Screens[(int)eScreen.MAIN_MENU].GetComponent<RectTransform>().sizeDelta.x;
+
+#if !LINKIT_COOP
+		Transform coopBtn = m_Screens[(int)eScreen.MAIN_MENU].transform.Find( "Co-op Button" );
+		if ( coopBtn != null )
+		{
+			coopBtn.gameObject.SetActive( false );
+		}
+#endif	// !LINKIT_COOP
 
 		GoToScreen( (int)eScreen.MAIN_MENU );
 	}
@@ -168,6 +182,7 @@ public class MainMenuManager : MonoBehaviour
 		}
 	}
 
+#if LINKIT_COOP
 	public void ChangeOnlineButtonText( string password )
 	{
 		Text t = m_Screens[(int)eScreen.CO_OP].transform.FindChild("Online Button").GetComponentInChildren<Text>();
@@ -176,6 +191,12 @@ public class MainMenuManager : MonoBehaviour
 		else
 			t.text = PLAY_WITH_FRIEND_TEXT;
 	}
+#else  // !LINKIT_COOP
+	public void ChangeOnlineButtonText(string password)
+	{
+		// Empty
+	}
+#endif	// LINKIT_COOP
 
 	public void EnableBackButton( eScreen screen, bool enable )
 	{
