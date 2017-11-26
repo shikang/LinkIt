@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class NetworkManager : MonoBehaviour
 {
-
+#if LINKIT_COOP
 	// Use this for initialization
 	void Start ()
 	{
@@ -54,4 +54,5 @@ public class NetworkManager : MonoBehaviour
 		if ( debugText != null )
 			debugText.GetComponent<Text>().text = log;
 	}
+#endif	// LINKIT_COOP
 }

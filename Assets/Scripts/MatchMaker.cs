@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
+#if LINKIT_COOP
 public class MatchMaker : Photon.PunBehaviour
 {
 	public GameObject m_PasswordInputField;
@@ -211,3 +212,39 @@ public class MatchMaker : Photon.PunBehaviour
 		return PhotonNetwork.isMasterClient;
 	}
 }
+#else	// !LINKIT_COOP
+public class MatchMaker : MonoBehaviour
+{
+	// Use this for initialization
+	void Start()
+	{
+		// Destroy unneeded photon view
+		Destroy( GetComponent<PhotonView>() );
+	}
+
+	public void JoiningRoom()
+	{
+		// Empty
+	}
+
+	public void LeaveRoom()
+	{
+		// Empty
+	}
+
+	public void StartConnecting()
+	{
+		// Empty
+	}
+
+	public void StartDisconnecting()
+	{
+		// Empty
+	}
+
+	static public bool IsPlayerOne()
+	{
+		return true;
+	}
+}
+#endif	// LINKIT_COOP

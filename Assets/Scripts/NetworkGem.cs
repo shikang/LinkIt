@@ -3,6 +3,7 @@ using System.Collections;
 
 public class NetworkGem : Photon.MonoBehaviour
 {
+#if LINKIT_COOP
 	const float DISTANCE_THRESHOLD = 0.05f;
 
 	private Vector3 m_HalfDimension;
@@ -106,4 +107,5 @@ public class NetworkGem : Photon.MonoBehaviour
 			spawner.SetGemSpriteContainer( GetComponent<GemSpriteContainer>(), gemType );
 		}
 	}
+#endif	// LINKIT_COOP
 }

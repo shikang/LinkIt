@@ -3,6 +3,7 @@ using System.Collections;
 
 public class NetworkLink : Photon.MonoBehaviour
 {
+#if LINKIT_COOP
 	public GameObject m_OtherPlayerDustPrefab;
 
 	private const float LINK_ALPHA = 0.25f;
@@ -99,5 +100,5 @@ public class NetworkLink : Photon.MonoBehaviour
 
 		}
 	}
-
+#endif	// LINKIT_COOP
 }

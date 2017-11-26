@@ -80,10 +80,12 @@ public class ScoreManager : MonoBehaviour
 		m_bAnimating = false;
 		m_nAnimatingFrame = -1;
 
+#if LINKIT_COOP
 		if( NetworkManager.IsConnected() )
 		{
 			NetworkManager.Disconnect();
 		}
+#endif   // LINKIT_COOP
 
 		GameData.Instance.m_Coin += m_PlayerStats.m_nCoinsGain;
 		m_CurrentCoins = GameData.Instance.m_Coin + gemDestroyed;
