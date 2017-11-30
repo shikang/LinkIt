@@ -1,0 +1,63 @@
+Event	ID	Name			Wwise Object Path	Notes
+	35801126	GetPoints			\Default Work Unit\Gameplay\GetPoints	
+	441443463	Place_Confirm			\Default Work Unit\Gameplay\Place_Confirm	
+	907660662	GachaCount			\Default Work Unit\Gacha\GachaCount	
+	1057362666	AvatarSelect			\Default Work Unit\Menu\AvatarSelect	
+	1382992335	StartGame_Scaling			\Default Work Unit\Gameplay\StartGame_Scaling	
+	1412691440	GachaEnd			\Default Work Unit\Gacha\GachaEnd	
+	1495286007	BoughtIcon			\Default Work Unit\Gacha\BoughtIcon	
+	1505888634	Countdown			\Default Work Unit\Gameplay\Countdown	
+	1521187885	StartGame			\Default Work Unit\Menu\StartGame	
+	1559875400	Back			\Default Work Unit\Menu\Back	
+	1584507803	Click			\Default Work Unit\Menu\Click	
+	2542411811	PlayBGM			\Default Work Unit\Gameplay\PlayBGM	
+	2908016785	WinBigGrid			\Default Work Unit\Gameplay\WinBigGrid	
+	2953646070	StartGame_Flash			\Default Work Unit\Gameplay\StartGame_Flash	
+	3162847632	ChangeTurn			\Default Work Unit\Gameplay\ChangeTurn	
+	3187750163	Place_Highlight			\Default Work Unit\Gameplay\Place_Highlight	
+	3203837125	StopBGM			\Default Work Unit\Gameplay\StopBGM	
+	3258849071	WinGame			\Default Work Unit\Gameplay\WinGame	
+	3378095718	Place_Invalid			\Default Work Unit\Gameplay\Place_Invalid	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	907660662	GachaCount			\Default Work Unit\GachaCount	
+	3169738330	IconType			\Default Work Unit\IconType	
+
+Switch	ID	Name	Switch Group			Notes
+	3757300432	Gacha3	GachaCount			
+	3757300433	Gacha2	GachaCount			
+	3757300434	Gacha1	GachaCount			
+	2539557199	Treble	IconType			
+	3743865770	DefaultIcons	IconType			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	40138861	Shred PP2	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\Shred PP2_10D6E168.wem		\Interactive Music Hierarchy\Default Work Unit\BGM\Shred PP2\Shred PP2		1116244
+	85938634	Gacha3	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\Gacha3_7E3EC3EE.wem		\Actor-Mixer Hierarchy\Default Work Unit\MainMenu\GachaSounds\Gacha\Gacha3		22550
+	140801951	Gacha2	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\Gacha2_061883EB.wem		\Actor-Mixer Hierarchy\Default Work Unit\MainMenu\GachaSounds\Gacha\Gacha2		21383
+	232910334	Backe2	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\Backe2_7E3EC3EE.wem		\Actor-Mixer Hierarchy\Default Work Unit\MainMenu\Back\Backe2		9161
+	329215217	GetPoints	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\GetPoints_7E3EC3EE.wem		\Actor-Mixer Hierarchy\Default Work Unit\Gameplay\GetPoints		41862
+	346329211	Scaling	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\Scaling_7E3EC3EE.wem		\Actor-Mixer Hierarchy\Default Work Unit\Gameplay\StartGame\Scaling		52636
+	390641870	Placement	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\Placement_7E3EC3EE.wem		\Actor-Mixer Hierarchy\Default Work Unit\Gameplay\Placement		28188
+	421854454	Countdown	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\Countdown_CF540122.wem		\Actor-Mixer Hierarchy\Default Work Unit\Gameplay\Countdown		10438
+	425723482	WinBigGrid2	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\WinBigGrid2_609E6455.wem		\Actor-Mixer Hierarchy\Default Work Unit\Gameplay\BigGrid_Win\DefaultIcons\WinBigGrid2		63647
+	471297279	Shred PP1	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\Shred PP1_10D6E168.wem		\Interactive Music Hierarchy\Default Work Unit\BGM\Shred PP1\Shred PP1		423382
+	484115436	Gacha1	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\Gacha1_D7DB4B4C.wem		\Actor-Mixer Hierarchy\Default Work Unit\MainMenu\GachaSounds\Gacha\Gacha1		22317
+	488933611	Place_Highlight2	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\Place_Highlight2_084CB489.wem		\Actor-Mixer Hierarchy\Default Work Unit\Gameplay\Place_Highlight\Place_Highlight2		9430
+	501525472	GachaFinal	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\GachaFinal_7E3EC3EE.wem		\Actor-Mixer Hierarchy\Default Work Unit\MainMenu\GachaSounds\GachaFinal		50278
+	591671644	AvatarSelect2	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\AvatarSelect2_58327B83.wem		\Actor-Mixer Hierarchy\Default Work Unit\MainMenu\AvatarSelect\AvatarSelect2		11684
+	674151597	AvatarSelect3	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\AvatarSelect3_4C3C99A5.wem		\Actor-Mixer Hierarchy\Default Work Unit\MainMenu\AvatarSelect\AvatarSelect3		5917
+	716354945	Backe1	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\Backe1_7E3EC3EE.wem		\Actor-Mixer Hierarchy\Default Work Unit\MainMenu\Back\Backe1		9161
+	758821720	Clicke2	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\Clicke2_7E3EC3EE.wem		\Actor-Mixer Hierarchy\Default Work Unit\MainMenu\Click\Clicke2		5137
+	761950348	Clicke1	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\Clicke1_7E3EC3EE.wem		\Actor-Mixer Hierarchy\Default Work Unit\MainMenu\Click\Clicke1		5466
+	794968390	Clicke4	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\Clicke4_7E3EC3EE.wem		\Actor-Mixer Hierarchy\Default Work Unit\MainMenu\Click\Clicke4		6322
+	810067903	WinBigGrid1	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\WinBigGrid1_5249110F.wem		\Actor-Mixer Hierarchy\Default Work Unit\Gameplay\BigGrid_Win\DefaultIcons\WinBigGrid1		45097
+	828134313	AvatarSelect1	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\AvatarSelect1_7E3EC3EE.wem		\Actor-Mixer Hierarchy\Default Work Unit\MainMenu\AvatarSelect\AvatarSelect1		12309
+	840343982	Place_Highlight1	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\Place_Highlight1_100F5B59.wem		\Actor-Mixer Hierarchy\Default Work Unit\Gameplay\Place_Highlight\Place_Highlight1		9776
+	850308048	Flash	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\Flash_7E3EC3EE.wem		\Actor-Mixer Hierarchy\Default Work Unit\Gameplay\StartGame\Flash		35336
+	915839140	StartGame	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\StartGame_FACA0B23.wem		\Actor-Mixer Hierarchy\Default Work Unit\MainMenu\StartGame		20923
+	921396232	ChangeTurn	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\ChangeTurn_7E3EC3EE.wem		\Actor-Mixer Hierarchy\Default Work Unit\Gameplay\ChangeTurn		27649
+	954038039	WinGame	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\WinGame_9B8F8ABC.wem		\Actor-Mixer Hierarchy\Default Work Unit\Gameplay\WinGame		116359
+	975026500	BoughtIcon	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\BoughtIcon_3297707D.wem		\Actor-Mixer Hierarchy\Default Work Unit\MainMenu\GachaSounds\BoughtIcon		54961
+	1055088442	Place_Invalid	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\Place_Invalid_76828BBB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Gameplay\Place_Invalid		15026
+	1059125190	Clicke3	C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\SFX\Clicke3_7E3EC3EE.wem		\Actor-Mixer Hierarchy\Default Work Unit\MainMenu\Click\Clicke3		6437
+
