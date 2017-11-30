@@ -18,9 +18,16 @@ public class MainMenuManager : MonoBehaviour
 #if LINKIT_COOP
 		CO_OP,
 #else	// !LINKIT_COOP
-		CO_OP_DUMMY,
+		//CO_OP_DUMMY,
 #endif	// LINKIT_COOP
-		ITEM,
+		//ITEM,
+
+		PLAY,
+		RANKINGS,
+		SHOP,
+		OPTIONS,
+		CREDITS,
+		ACHIEVEMENTS,
 
 		TOTAL
 	}
