@@ -23,6 +23,7 @@ public class GemSpawner : MonoBehaviour
 	public const float GEM_DROP_TIME_GROWTH = 0.1f;     //!< In seconds
 	public const int GEM_LOOKBACK_NUM = 1;
 	public const float SPAWN_DANGER_AREA = 0.6f;        //!< Percentage from bottom
+	public const float GAME_WIDTH_AREA = 0.75f;			//!< Percentage
 
 	// Spawning gold contants
 	public const float GOLD_SPAWN_INTERVAL = 30.0f;		//!< In seconds
@@ -62,10 +63,15 @@ public class GemSpawner : MonoBehaviour
 
 	public const int MAX_LEVEL = ( ( int )SpawnPattern.DifficultyLevel.Total - 1 ) * 3;
 
+	public const int MIN_GEM_LINK = 3;
+
 	public const int HEALTH_LOST_PER_GEM = 10;
 	public const int HEALTH_GAIN_PER_LINK = 1;
 	public const int MAX_HEALTH = 100;
 	public const int LOW_HEALTH = (int)( 0.3f * MAX_HEALTH );
+
+	public const int MANA_GAIN_PER_LINK = 100;
+	public const int MAX_MANA = 100;
 
 	public const int HIGH_COMBO = 20;
 	public readonly int[] COMBO_MULTIPLIER_ARRAY = { HIGH_COMBO, 3 * HIGH_COMBO, 8 * HIGH_COMBO };
@@ -93,6 +99,7 @@ public class GemSpawner : MonoBehaviour
 	private int m_nGemTypeNum = 0;						//!< Number of gem types
 	private Vector3 m_HalfDimension;
 	private float m_fLaneWidth;
+	private float m_fLaneOffset;
 	private float m_fBaseGemDropSpeed;
 	private Vector3 m_DefaultGemScale;
 	private Vector3 m_LinkedGemScale;
@@ -135,6 +142,16 @@ public class GemSpawner : MonoBehaviour
 	// Life line variables
 	public Color[] m_LineLineColors;
 	public GameObject m_LineLine;
+
+	// Separator variable
+	public GameObject m_Separator;
+
+	// Mana
+	private int[] m_Mana;
+	public GameObject[] m_SkillGems;
+	private bool m_ManaPulsing = false;
+	private int m_ManaPulseFrame = 0;
+	private float m_ManaPulseTimer = 0.0f;
 
 	// Animation variables
 	private int m_nFrameNum;
@@ -223,8 +240,11 @@ public class GemSpawner : MonoBehaviour
 		m_LinkedGem = new List<Gem>();
 
 		// Get spawning information
-		m_HalfDimension = Camera.main.ScreenToWorldPoint( new Vector3( ( Screen.width ), ( Screen.height ) ) );
+		Vector3 screenHalfDim = Camera.main.ScreenToWorldPoint( new Vector3( ( Screen.width ), ( Screen.height ) ) );
+		m_HalfDimension = screenHalfDim;
+		m_HalfDimension.x *= GAME_WIDTH_AREA;
 		m_fLaneWidth = m_HalfDimension.x * 2.0f / LANE_NUM;
+		m_fLaneOffset = -( screenHalfDim.x * ( 1.0f - GAME_WIDTH_AREA ) );
 		//m_fBaseGemDropSpeed = m_HalfDimension.y * 2.0f / BASE_GEM_DROP_TIME;
 
 		// Gem details
@@ -278,10 +298,29 @@ public class GemSpawner : MonoBehaviour
 		m_GoldIntervalTimer = 0.0f;
 		m_GoldObject = null;
 
+		// Initialise mana
+		m_Mana = Enumerable.Repeat( 0, m_nGemTypeNum ).ToArray();
+		for ( int i = 0; i < m_nGemTypeNum; ++i )
+		{
+			SetMana( 0, i );
+		}
+		m_ManaPulsing = false;
+		m_ManaPulseFrame = 0;
+		m_ManaPulseTimer = 0.0f;
+
 		// Initialise life line
 		if ( m_LineLine != null )
 		{
 			m_LineLine.transform.position = new Vector3( 0.0f, ( UNLINKABLE_ZONE * m_HalfDimension.y * 2.0f ) + -m_HalfDimension.y, 0.0f ) + FRONT_OFFSET;
+		}
+
+		// Initialise Separator
+		if ( m_Separator != null )
+		{
+			Vector3 scale = m_Separator.transform.localScale;
+			scale.x = ( m_HalfDimension.y * 2 * ( 1.0f - UNLINKABLE_ZONE ) ) / m_Separator.GetComponent<SpriteRenderer>().sprite.bounds.size.x + 0.07f;	// 0.05f asthreshold
+			m_Separator.transform.localScale = scale;
+			m_Separator.transform.position = new Vector3( m_HalfDimension.x + m_fLaneOffset, ( m_HalfDimension.y * UNLINKABLE_ZONE ), 0.0f ) + FRONT_OFFSET;
 		}
 
 		// Initialising animation timer
@@ -296,7 +335,7 @@ public class GemSpawner : MonoBehaviour
 		if ( m_GemDetails != null )
 		{
 			m_nFrameNum = m_GemDetails.GetComponent< GemDetails >().m_GemSet.GetGemContainer( 0 ).Length;
-			for (int i = 1; i < GemContainerSet.GEM_SET_NUM; ++i)
+			for ( int i = 1; i < GemContainerSet.GEM_SET_NUM; ++i )
 			{
 				int num = m_GemDetails.GetComponent< GemDetails >().m_GemSet.GetGemContainer( i ).Length;
 				m_nFrameNum = m_nFrameNum > num ? num : m_nFrameNum;
@@ -377,8 +416,15 @@ public class GemSpawner : MonoBehaviour
 		m_PlayerStats = GameObject.FindGameObjectWithTag( "Player Statistics" ).GetComponent<PlayerStatistics>();
 
 		m_PlayerStats.m_aGems = m_aGemList;
+		if ( m_GemDetails != null )
+		{
+			for ( int i = 0; i < m_aGemList.Length; ++i )
+			{
+				SetGemSpriteContainer( m_PlayerStats.m_aGems[i].GetComponent<GemSpriteContainer>(), i );
+			}
+		}
 		m_PlayerStats.m_aDestroyCount = new int [m_aGemList.Length];
-		for (int i = 0; i < m_aGemList.Length; ++i)
+		for ( int i = 0; i < m_aGemList.Length; ++i )
 		{
 			m_PlayerStats.m_aDestroyCount[i] = 0;
 		}
@@ -487,6 +533,7 @@ public class GemSpawner : MonoBehaviour
 		AnimatePoints();
 		AnimateCombo();
 		AnimatePraise();
+		AnimateSkills();
 		AnimateShowMultiplier();
 		AnimateOverlays();
 
@@ -892,7 +939,7 @@ public class GemSpawner : MonoBehaviour
 
 	int GetPointsGain( int num, int multiplier )
 	{
-		int pointsGain = num * PER_GEM_POINTS + num * ( ( num - 3 ) * ( PER_GEM_POINTS / 10 ) );
+		int pointsGain = num * PER_GEM_POINTS + num * ( ( num - MIN_GEM_LINK ) * ( PER_GEM_POINTS / 10 ) );
 		return multiplier * pointsGain;
 	}
 
@@ -923,6 +970,7 @@ public class GemSpawner : MonoBehaviour
 			m_HighComboZone.GetComponent<HighComboColor>().SetComboColor( m_nHighComboMultiplierIndex );
 			m_HighComboEffectLeft.GetComponent<ParticleSystem>().startSpeed = m_HighComboEffectStartSpeed + m_nHighComboMultiplierIndex * 0.5f;
 			m_HighComboEffectRight.GetComponent<ParticleSystem>().startSpeed = m_HighComboEffectStartSpeed + m_nHighComboMultiplierIndex * 0.5f;
+			m_Separator.GetComponent<HighComboColor>().SetComboColor( m_nHighComboMultiplierIndex + 1 );
 			++m_nHighComboMultiplierIndex;
 
 			StartShowingMultiplier( m_nHighComboMultiplierIndex + 1 );
@@ -990,13 +1038,60 @@ public class GemSpawner : MonoBehaviour
 		}
 	}
 
+	void SetMana( int mana, int gemType )
+	{
+		int old_mana = m_Mana[gemType];
+		m_Mana[gemType] = Math.Min( mana, MAX_MANA );
+
+		Color c = m_SkillGems[gemType].GetComponent<SpriteRenderer>().color;
+		c.a = m_Mana[gemType] / ( float )MAX_MANA;
+		m_SkillGems[gemType].GetComponent<SpriteRenderer>().color = c;
+
+		if ( old_mana != m_Mana[gemType] )
+		{
+			if ( m_Mana[gemType] == MAX_MANA )
+			{
+				m_ManaPulsing = true;
+
+			}
+			else
+			{
+				bool got_max = false;
+				for ( int i = 0; i < m_nGemTypeNum; ++i )
+				{
+					if ( m_Mana[i] == MAX_MANA )
+					{
+						got_max = true;
+					}
+					else
+					{
+						GameObject gem = m_SkillGems[i];
+						gem.GetComponent<SpriteRenderer>().sprite = gem.GetComponent<GemSpriteContainer>().m_Sprites[0];
+					}
+				}
+
+				if ( !got_max )
+				{
+					m_ManaPulsing = false;
+					m_ManaPulseFrame = 0;
+					m_ManaPulseTimer = 0.0f;
+				}
+			}
+		}
+	}
+
+	void GainMana( int count, int gemType )
+	{
+		SetMana( m_Mana[gemType] + MANA_GAIN_PER_LINK + ( count - MIN_GEM_LINK ) * ( MANA_GAIN_PER_LINK / 2 ), gemType );
+	}
+
 	bool UnlinkGems()
 	{
 		if ( m_bGameover || !m_Link.CheckForDestroy )
 			return false;
 
 		int multiplier = m_nHighComboMultiplierIndex + 1;
-		bool destroy = m_LinkedGem.Count >= 3;
+		bool destroy = m_LinkedGem.Count >= MIN_GEM_LINK;
 		if ( destroy
 #if LINKIT_COOP
 			&& ( !NetworkManager.IsConnected() || NetworkManager.IsPlayerOne() ) 
@@ -1014,11 +1109,14 @@ public class GemSpawner : MonoBehaviour
 			m_PlayerStats.m_nMaxCombo = m_nMaxCombo = Math.Max( m_nMaxCombo, m_nCurrentCombo );
 			StartRollingCombo( m_LinkedGem.Count );
 
+			// Mana
+			GainMana( m_LinkedGem.Count, m_LinkedGem[0].GemType );
+
 			// Praise
 			StartPraising( m_LinkedGem.Count );
 
 			// Health
-			m_nHealth += HEALTH_GAIN_PER_LINK + ( m_LinkedGem.Count - 3 ) * HEALTH_GAIN_PER_LINK;
+			m_nHealth += HEALTH_GAIN_PER_LINK + ( m_LinkedGem.Count - MIN_GEM_LINK ) * HEALTH_GAIN_PER_LINK;
 			m_HealthText.GetComponent<Text>().text = m_nHealth.ToString();
 			m_LineLine.GetComponent<SpriteRenderer>().color = GetLifeLineColour();
 
@@ -1142,7 +1240,7 @@ public class GemSpawner : MonoBehaviour
 
 				if( g.transform.position.y <= m_SpawnDangerArea )
 				{
-					if ( m_aGemCount[g.GemType] < 3 )
+					if ( m_aGemCount[g.GemType] < MIN_GEM_LINK )
 					{
 						if ( !gemTypeToCheck.ContainsValue( g.GemType ) )
 							gemTypeToCheck.Add( g.transform.position.y, g.GemType );
@@ -1169,7 +1267,7 @@ public class GemSpawner : MonoBehaviour
 		{
 			int gemType = entry.Value;
 			// If there is a gem there is unlinkable. Spawn
-			if ( m_aGemCount[gemType] > 0 && m_aGemCount[gemType] < 3 )
+			if ( m_aGemCount[gemType] > 0 && m_aGemCount[gemType] < MIN_GEM_LINK )
 			{
 				int nLookBackNum = Math.Min( GEM_LOOKBACK_NUM, m_lSequence.Count - m_nSequenceIndex );
 				bool bContainGemType = false;
@@ -1227,13 +1325,13 @@ public class GemSpawner : MonoBehaviour
 
 		if ( m_PreviousGems.Count > 0 )
 		{
-			random = ( m_PreviousGems.Count == 1 && m_nTotalGemCount < 3 ) ? Random.Range( 0, m_nGemTypeNum - 1 ) == 0 : false;
+			random = ( m_PreviousGems.Count == 1 && m_nTotalGemCount < MIN_GEM_LINK ) ? Random.Range( 0, m_nGemTypeNum - 1 ) == 0 : false;
 		}
 
 		int gem = ( random ) ? Random.Range( 0, m_nGemTypeNum ) : m_PreviousGems[0];
 
 		// If linkable, don't need to force generate same gem the next time round
-		if ( m_aGemCount[gem] + 1 >= 3 )
+		if ( m_aGemCount[gem] + 1 >= MIN_GEM_LINK )
 		{
 			m_PreviousGems.Remove( gem );
 		}
@@ -1251,7 +1349,7 @@ public class GemSpawner : MonoBehaviour
 
 	public float GetGemX( int lane )
 	{
-		return ( lane + 0.5f ) * m_fLaneWidth + -m_HalfDimension.x;
+		return ( lane + 0.5f ) * m_fLaneWidth + -m_HalfDimension.x + m_fLaneOffset;
 	}
 
 	void CreateGem( int lane, int gemType )
@@ -1486,7 +1584,7 @@ public class GemSpawner : MonoBehaviour
 		StartRollingCombo( ids.Length );
 
 		// Sychron health
-		m_nHealth += HEALTH_GAIN_PER_LINK + ( ids.Length - 3 ) * HEALTH_GAIN_PER_LINK;
+		m_nHealth += HEALTH_GAIN_PER_LINK + ( ids.Length - MIN_GEM_LINK ) * HEALTH_GAIN_PER_LINK;
 		m_HealthText.GetComponent<Text>().text = m_nHealth.ToString();
 		m_LineLine.GetComponent<SpriteRenderer>().color = GetLifeLineColour();
 
@@ -1648,7 +1746,7 @@ public class GemSpawner : MonoBehaviour
 
 		CheckDelayedTime( spawnTime );
 	}
-#endif	// LINKIT_COOP
+#endif // LINKIT_COOP
 
 	public void PetrifyGem( Gem gem )
 	{
@@ -1800,6 +1898,32 @@ public class GemSpawner : MonoBehaviour
 		Vector3 pos = m_PraiseText.transform.position;
 		pos.y = m_PraisePos.y + factor * PRAISE_MOVE_DISTANCE;
 		m_PraiseText.transform.position = pos;
+	}
+
+	void AnimateSkills()
+	{
+		if ( !m_ManaPulsing )
+			return;
+
+		m_ManaPulseTimer += Time.deltaTime;
+		
+		if ( m_ManaPulseTimer >= ANIMATION_RATE )
+		{
+			m_ManaPulseTimer -= ANIMATION_RATE;
+
+			m_ManaPulseFrame = ( m_ManaPulseFrame + 1 ) % ( m_nFrameNum + 1 );
+			int frame = m_ManaPulseFrame % m_nFrameNum;
+
+			for ( int i = 0; i < GemContainerSet.GEM_SET_NUM; ++i )
+			{
+				GameObject gem = m_SkillGems[i];
+
+				if ( m_Mana[i] == MAX_MANA )
+				{
+					gem.GetComponent<SpriteRenderer>().sprite = gem.GetComponent<GemSpriteContainer>().m_GlowSprites[frame];
+				}
+			}
+		}
 	}
 
 	void AnimateShowMultiplier()
@@ -2058,6 +2182,8 @@ public class GemSpawner : MonoBehaviour
 
 		m_HighComboEffectLeft.GetComponent<ParticleSystem>().Stop();
 		m_HighComboEffectRight.GetComponent<ParticleSystem>().Stop();
+
+		m_Separator.GetComponent<HighComboColor>().SetComboColor( 0 );
 	}
 
 	void CreateComboSpecular()
