@@ -154,46 +154,43 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>C:/Users/SolidRocker/Documents/GitHub/Linkit/Assets/Photon Unity Networking/Editor/PhotonNetwork/Newtonsoft.Json.dll</HintPath>
+ <HintPath>D:/Linkit/Assets/Photon Unity Networking/Editor/PhotonNetwork/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="AndroidVibrationPlugin">
- <HintPath>C:/Users/SolidRocker/Documents/GitHub/Linkit/Assets/Plugins/AndroidVibrationPlugin.dll</HintPath>
+ <HintPath>D:/Linkit/Assets/Plugins/AndroidVibrationPlugin.dll</HintPath>
  </Reference>
  <Reference Include="Photon3Unity3D">
- <HintPath>C:/Users/SolidRocker/Documents/GitHub/Linkit/Assets/Plugins/Photon3Unity3D.dll</HintPath>
+ <HintPath>D:/Linkit/Assets/Plugins/Photon3Unity3D.dll</HintPath>
  </Reference>
  <Reference Include="Common">
- <HintPath>C:/Users/SolidRocker/Documents/GitHub/Linkit/Assets/Plugins/UnityPurchasing/Bin/Common.dll</HintPath>
+ <HintPath>D:/Linkit/Assets/Plugins/UnityPurchasing/Bin/Common.dll</HintPath>
  </Reference>
  <Reference Include="Editor">
- <HintPath>C:/Users/SolidRocker/Documents/GitHub/Linkit/Assets/Plugins/UnityPurchasing/Bin/Editor.dll</HintPath>
+ <HintPath>D:/Linkit/Assets/Plugins/UnityPurchasing/Bin/Editor.dll</HintPath>
  </Reference>
  <Reference Include="Security">
- <HintPath>C:/Users/SolidRocker/Documents/GitHub/Linkit/Assets/Plugins/UnityPurchasing/Bin/Security.dll</HintPath>
+ <HintPath>D:/Linkit/Assets/Plugins/UnityPurchasing/Bin/Security.dll</HintPath>
  </Reference>
  <Reference Include="Stores">
- <HintPath>C:/Users/SolidRocker/Documents/GitHub/Linkit/Assets/Plugins/UnityPurchasing/Bin/Stores.dll</HintPath>
+ <HintPath>D:/Linkit/Assets/Plugins/UnityPurchasing/Bin/Stores.dll</HintPath>
  </Reference>
  <Reference Include="Apple">
- <HintPath>C:/Users/SolidRocker/Documents/GitHub/Linkit/Assets/Plugins/UnityPurchasing/Bin/Apple/Apple.dll</HintPath>
+ <HintPath>D:/Linkit/Assets/Plugins/UnityPurchasing/Bin/Apple/Apple.dll</HintPath>
  </Reference>
  <Reference Include="Tizen">
- <HintPath>C:/Users/SolidRocker/Documents/GitHub/Linkit/Assets/Plugins/UnityPurchasing/Bin/Tizen/Tizen.dll</HintPath>
+ <HintPath>D:/Linkit/Assets/Plugins/UnityPurchasing/Bin/Tizen/Tizen.dll</HintPath>
  </Reference>
  <Reference Include="winrt">
- <HintPath>C:/Users/SolidRocker/Documents/GitHub/Linkit/Assets/Plugins/UnityPurchasing/winrt/winrt.dll</HintPath>
+ <HintPath>D:/Linkit/Assets/Plugins/UnityPurchasing/winrt/winrt.dll</HintPath>
  </Reference>
  <Reference Include="websocket-sharp">
- <HintPath>C:/Users/SolidRocker/Documents/GitHub/Linkit/Assets/Plugins/WebSocket/websocket-sharp.dll</HintPath>
+ <HintPath>D:/Linkit/Assets/Plugins/WebSocket/websocket-sharp.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Android.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.iOS.Extensions">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
