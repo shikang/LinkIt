@@ -89,16 +89,16 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleIdentifier: com.WhyWool.LinkIt
-  bundleVersion: 1.0
+  bundleIdentifier: com.WhyWool.LinkItTest
+  bundleVersion: 10.0
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0
   virtualRealitySupported: 0
   productGUID: a3ec95e67cd5705409cd0364ffbe5a0b
-  AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 9
+  AndroidBundleVersionCode: 10
+  AndroidMinSdkVersion: 14
   AndroidPreferredInstallLocation: 1
   aotOptions: 
   apiCompatibilityLevel: 2
@@ -158,8 +158,9 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/ShiKang.Me/Desktop/LinkIt/Keystore/whywool.keystore
-  AndroidKeyaliasName: whywool
+  AndroidKeystoreName: C:/Users/ShiKang.Me/Desktop/LinkIt/Keystore/App-Signing/App
+    Signing/whywoolupload.jks
+  AndroidKeyaliasName: upload
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 1

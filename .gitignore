@@ -32,3 +32,8 @@ sysinfo.txt
 *.apk
 *.unitypackage
 *.keystore
+Keystore/App-Signing/App Signing/whywoolupload.jks
+Keystore/App-Signing/App Signing/publiccert.pem
+Keystore/App-Signing/App Signing/google-services.json
+Keystore/App-Signing/App Signing/privatekey.pem
+Keystore/App-Signing/App Signing/client_secret_166665260343-nlc4ttki8juo6m5igh9cbj3khm5pfeha.apps.googleusercontent.com.json
