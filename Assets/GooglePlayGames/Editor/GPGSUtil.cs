@@ -13,7 +13,9 @@
 //  See the License for the specific language governing permissions and
 //    limitations under the License.
 // </copyright>
-// Keep this even on unsupported configurations.
+// Keep this even if NO_GPGS is defined so we can clean up the project
+// post build.
+#if (UNITY_ANDROID || UNITY_IPHONE)
 
 namespace GooglePlayGames.Editor
 {
@@ -115,14 +117,6 @@ namespace GooglePlayGames.Editor
         /// The game info file path.  This is a generated file.
         /// </summary>
         private const string GameInfoPath = "Assets/GooglePlayGames/GameInfo.cs";
-
-        /// <summary>
-        /// The manifest path.
-        /// </summary>
-        /// <remarks>The Games SDK requires additional metadata in the AndroidManifest.xml
-        ///     file. </remarks>
-        private const string ManifestPath =
-           "Assets/GooglePlayGames/Plugins/Android/GooglePlayGamesManifest.plugin/AndroidManifest.xml";
 
         /// <summary>
         /// The map of replacements for filling in code templates.  The
@@ -450,7 +444,8 @@ namespace GooglePlayGames.Editor
         /// <returns><c>true</c>, if the file exists <c>false</c> otherwise.</returns>
         public static bool AndroidManifestExists()
         {
-            string destFilename = GPGSUtil.SlashesToPlatformSeparator(ManifestPath);
+            string destFilename = GPGSUtil.SlashesToPlatformSeparator(
+                                      "Assets/Plugins/Android/MainLibProj/AndroidManifest.xml");
 
             return File.Exists(destFilename);
         }
@@ -460,8 +455,8 @@ namespace GooglePlayGames.Editor
         /// </summary>
         public static void GenerateAndroidManifest()
         {
-
-            string destFilename = GPGSUtil.SlashesToPlatformSeparator(ManifestPath);
+            string destFilename = GPGSUtil.SlashesToPlatformSeparator(
+                                      "Assets/Plugins/Android/MainLibProj/AndroidManifest.xml");
 
             // Generate AndroidManifest.xml
             string manifestBody = GPGSUtil.ReadEditorTemplate("template-AndroidManifest");
@@ -627,3 +622,4 @@ namespace GooglePlayGames.Editor
         }
     }
 }
+#endif

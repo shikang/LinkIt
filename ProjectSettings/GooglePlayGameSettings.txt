@@ -1,5 +1,5 @@
-lastUpgrade=00942
-proj.pluginVersion=0.9.42
+lastUpgrade=00939
+proj.pluginVersion=0.9.39
 proj.AppId=166665260343
 and.BundleId=com.WhyWool.LinkItTest
 proj.classDir=Assets

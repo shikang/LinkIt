@@ -14,7 +14,8 @@
 //    limitations under the License.
 // </copyright>
 
-// Keep the strings all the time even if on an unsupported configuration.
+// Keep the strings even if NO_GPGS 
+#if (UNITY_ANDROID || UNITY_IPHONE)
 
 namespace GooglePlayGames.Editor
 {
@@ -198,3 +199,4 @@ namespace GooglePlayGames.Editor
                                           "limitations under the License.";
     }
 }
+#endif

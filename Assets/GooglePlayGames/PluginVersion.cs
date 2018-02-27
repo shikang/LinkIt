@@ -13,6 +13,7 @@
 //  See the License for the specific language governing permissions and
 //    limitations under the License.
 // </copyright>
+#if (UNITY_ANDROID || (UNITY_IPHONE && !NO_GPGS))
 
 namespace GooglePlayGames
 {
@@ -34,9 +35,9 @@ namespace GooglePlayGames
     public const string VersionKeyJarResolverDLL = "00935";
 
     // Current Version.
-    public const int VersionInt = 0x0942;
-    public const string VersionString = "0.9.42";
-    public const string VersionKey = "00942";
+    public const int VersionInt = 0x0939;
+    public const string VersionString = "0.9.39";
+    public const string VersionKey = "00939";
 
     // used to check for the correct min version or play services: 10.2
     public const int MinGmsCoreVersionCode = 10200000;
@@ -45,3 +46,4 @@ namespace GooglePlayGames
     public const string PlayServicesVersionConstraint = "10+";
   }
 }
+#endif

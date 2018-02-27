@@ -14,7 +14,8 @@
 //    limitations under the License.
 // </copyright>
 
-// Keep this file even on unsupported configurations.
+// Keep this file even if NO_GPGS is defined, so the xcode project can be cleaned up.
+#if (UNITY_ANDROID || UNITY_IPHONE)
 
 namespace GooglePlayGames.Editor
 {
@@ -57,7 +58,7 @@ namespace GooglePlayGames.Editor
                     "Assets/GooglePlayGames/Editor/projsettings.txt".Replace("/", ds),
                     "Assets/Editor/projsettings.txt".Replace("/", ds)
                 };
-
+            
             foreach (string f in fileLocations)
             {
                 if (File.Exists(f))
@@ -67,7 +68,7 @@ namespace GooglePlayGames.Editor
                     break;
                 }
             }
-
+                
             if (rd != null)
             {
                 while (!rd.EndOfStream)
@@ -173,10 +174,11 @@ namespace GooglePlayGames.Editor
             wr.Close();
             mDirty = false;
         }
-
+        
         public static void Reload ()
-        {
-            sInstance = new GPGSProjectSettings();
-        }
+	    {
+		    sInstance = new GPGSProjectSettings();
+	    }
     }
 }
+#endif

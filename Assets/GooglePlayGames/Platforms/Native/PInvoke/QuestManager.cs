@@ -26,12 +26,10 @@ namespace GooglePlayGames.Native.PInvoke
     using Status = GooglePlayGames.Native.Cwrapper.CommonErrorStatus;
     using Types = GooglePlayGames.Native.Cwrapper.Types;
 
-    [Obsolete("Quests are being removed in 2018.")]
     internal class QuestManager
     {
         private readonly GameServices mServices;
 
-        [Obsolete("Quests are being removed in 2018.")]
         internal QuestManager(GameServices services)
         {
             mServices = Misc.CheckNotNull(services);
@@ -113,7 +111,6 @@ namespace GooglePlayGames.Native.PInvoke
                 "QuestManager#AcceptCallback", Callbacks.Type.Temporary, response, data);
         }
 
-        [Obsolete("Quests are being removed in 2018.")]
         internal void ClaimMilestone(NativeQuestMilestone milestone,
                                  Action<ClaimMilestoneResponse> callback)
         {

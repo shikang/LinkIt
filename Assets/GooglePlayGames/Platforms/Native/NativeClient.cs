@@ -55,7 +55,6 @@ namespace GooglePlayGames.Native
         private volatile NativeRealtimeMultiplayerClient mRealTimeClient;
         private volatile ISavedGameClient mSavedGameClient;
         private volatile IEventsClient mEventsClient;
-        [Obsolete("Quests are being removed in 2018.")]
         private volatile IQuestsClient mQuestsClient;
         private volatile IVideoClient mVideoClient;
         private volatile TokenClient mTokenClient;
@@ -121,26 +120,50 @@ namespace GooglePlayGames.Native
                 }
             }
 
+            // If game services are uninitialized, creating them will start a silent auth attempt.
+            InitializeGameServices();
+
             // reset friends loading flag
             friendsLoading = false;
 
-            InitializeTokenClient();
-
-            // If we need to use the token client to authenticate, do that before initializing the GPG library.
-            if (mTokenClient.NeedsToRun()) {
-                Debug.Log("Starting Auth with token client.");
-                mTokenClient.FetchTokens((int result) => {
-                    InitializeGameServices();
-                    if (result == 0) {
+            if (silent && mTokenClient.NeedsToRun())
+            {
+                Debug.Log("Using AuthHelper to sign in silently");
+                mTokenClient.FetchTokens((int result) =>
+                {
+                    if (result == 0)
+                    {
                         GameServices().StartAuthorizationUI();
-                    } else {
+                    }
+                    else
+                    {
                         HandleAuthTransition(Types.AuthOperation.SIGN_IN, (Status.AuthStatus)result);
                     }
                 });
-            } else {
-                // If game services are uninitialized, creating them will start a silent auth attempt.
-                InitializeGameServices();
-                if (!silent) {
+
+            }
+
+            if (!silent)
+            {
+                // If we need tokens or email, then get those first
+                if (mTokenClient.NeedsToRun())
+                {
+                    Debug.Log("Using AuthHelper to sign in not silent");
+                    mTokenClient.FetchTokens((int result) =>
+                    {
+                        if (result == 0)
+                        {
+                            GameServices().StartAuthorizationUI();
+                        }
+                        else
+                        {
+                            HandleAuthTransition(Types.AuthOperation.SIGN_IN,
+                                    (Status.AuthStatus)result);
+                        }
+                    });
+                }
+                else
+                {
                     GameServices().StartAuthorizationUI();
                 }
             }
@@ -231,9 +254,7 @@ namespace GooglePlayGames.Native
                         mAuthState = AuthState.SilentPending;
                         mServices = builder.Build(config);
                         mEventsClient = new NativeEventClient(new EventManager(mServices));
-#pragma warning disable 0618 // Warning CS0618  'IQuestMilestone' is obsolete: 'Quests are being removed in 2018.'
                         mQuestsClient = new NativeQuestClient(new QuestManager(mServices));
-#pragma warning restore
                         mVideoClient = new NativeVideoClient(new VideoManager(mServices));
                         mTurnBasedClient =
                         new NativeTurnBasedMultiplayerClient(this, new TurnBasedManager(mServices));
@@ -256,31 +277,24 @@ namespace GooglePlayGames.Native
                         }
 
                         mAuthState = AuthState.SilentPending;
-                        InitializeTokenClient();
+                        mTokenClient = clientImpl.CreateTokenClient(true);
+
+                        if (!GameInfo.WebClientIdInitialized() &&
+                            (mConfiguration.IsRequestingIdToken || mConfiguration.IsRequestingAuthCode))
+                        {
+                            OurUtils.Logger.e("Server Auth Code and ID Token require web clientId to configured.");
+                        }
+                        // Set the auth flags in the token client.
+                        mTokenClient.SetWebClientId(GameInfo.WebClientId);
+                        mTokenClient.SetRequestAuthCode(mConfiguration.IsRequestingAuthCode, mConfiguration.IsForcingRefresh);
+                        mTokenClient.SetRequestEmail(mConfiguration.IsRequestingEmail);
+                        mTokenClient.SetRequestIdToken(mConfiguration.IsRequestingIdToken);
+                        mTokenClient.SetHidePopups(mConfiguration.IsHidingPopups);
+                        mTokenClient.AddOauthScopes(scopes);
+                        mTokenClient.SetAccountName(mConfiguration.AccountName);
                     }
                 }
             }
-        }
-
-        private void InitializeTokenClient() {
-            if (mTokenClient != null) {
-                return;
-            }
-            mTokenClient = clientImpl.CreateTokenClient(true);
-
-            if (!GameInfo.WebClientIdInitialized() &&
-                (mConfiguration.IsRequestingIdToken || mConfiguration.IsRequestingAuthCode)) {
-                OurUtils.Logger.e("Server Auth Code and ID Token require web clientId to configured.");
-            }
-            string[] scopes = mConfiguration.Scopes;
-            // Set the auth flags in the token client.
-            mTokenClient.SetWebClientId(GameInfo.WebClientId);
-            mTokenClient.SetRequestAuthCode(mConfiguration.IsRequestingAuthCode, mConfiguration.IsForcingRefresh);
-            mTokenClient.SetRequestEmail(mConfiguration.IsRequestingEmail);
-            mTokenClient.SetRequestIdToken(mConfiguration.IsRequestingIdToken);
-            mTokenClient.SetHidePopups(mConfiguration.IsHidingPopups);
-            mTokenClient.AddOauthScopes(scopes);
-            mTokenClient.SetAccountName(mConfiguration.AccountName);
         }
 
         internal void HandleInvitation(Types.MultiplayerEvent eventType, string invitationId,
@@ -362,13 +376,6 @@ namespace GooglePlayGames.Native
                 return null;
             }
             return mTokenClient.GetAuthCode();
-        }
-
-        public void GetAnotherServerAuthCode(bool reAuthenticateIfNeeded,
-                                             Action<string> callback)
-        {
-            mTokenClient.GetAnotherServerAuthCode(reAuthenticateIfNeeded,
-                                                  callback);
         }
 
         ///<summary></summary>
@@ -1131,7 +1138,6 @@ namespace GooglePlayGames.Native
 
         ///<summary></summary>
         /// <seealso cref="GooglePlayGames.BasicApi.IPlayGamesClient.GetQuestsClient"/>
-        [Obsolete("Quests are being removed in 2018.")]
         public IQuestsClient GetQuestsClient()
         {
             lock (GameServicesLock)
