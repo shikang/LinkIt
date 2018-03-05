@@ -67,7 +67,7 @@ public class ShopMainMenu : MonoBehaviour
 		return m_fCost;
 	}
 
-	public string GetDesc()
+	public string GetDesc ()
 	{
 		return m_sDesc;
 	}
