@@ -410,7 +410,10 @@ GameObject:
   m_Component:
   - 224: {fileID: 22413410}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 114: {fileID: 11430212}
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
@@ -795,9 +798,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22496224}
   - 222: {fileID: 22260698}
   - 114: {fileID: 11445016}
+=======
+  - 224: {fileID: 22468320}
+  - 222: {fileID: 22250824}
+  - 114: {fileID: 11418046}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22468320}
   - 222: {fileID: 22250824}
@@ -818,9 +827,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22468320}
   - 222: {fileID: 22250824}
   - 114: {fileID: 11418046}
+=======
+  - 224: {fileID: 22435870}
+  - 222: {fileID: 22256614}
+  - 114: {fileID: 11442364}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22435870}
   - 222: {fileID: 22256614}
@@ -841,9 +856,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22435870}
   - 222: {fileID: 22256614}
   - 114: {fileID: 11442364}
+=======
+  - 224: {fileID: 22449176}
+  - 222: {fileID: 22265362}
+  - 114: {fileID: 11490004}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22449176}
   - 222: {fileID: 22265362}
@@ -864,8 +885,14 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22495694}
   - 114: {fileID: 11405756}
+=======
+  - 224: {fileID: 22408968}
+  - 222: {fileID: 22290318}
+  - 114: {fileID: 11404862}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22408968}
   - 222: {fileID: 22290318}
@@ -886,12 +913,18 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22447622}
   - 222: {fileID: 22277310}
   - 114: {fileID: 11493162}
   - 114: {fileID: 11404916}
   - 61: {fileID: 6164192}
   - 114: {fileID: 11415252}
+=======
+  - 224: {fileID: 22450584}
+  - 222: {fileID: 22263522}
+  - 114: {fileID: 11496144}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22450584}
   - 222: {fileID: 22263522}
@@ -912,9 +945,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22449176}
   - 222: {fileID: 22265362}
   - 114: {fileID: 11490004}
+=======
+  - 224: {fileID: 22412792}
+  - 222: {fileID: 22275940}
+  - 114: {fileID: 11427816}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22412792}
   - 222: {fileID: 22275940}
@@ -935,9 +974,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22408968}
   - 222: {fileID: 22290318}
   - 114: {fileID: 11404862}
+=======
+  - 224: {fileID: 22470184}
+  - 222: {fileID: 22297524}
+  - 114: {fileID: 11479778}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22470184}
   - 222: {fileID: 22297524}
@@ -958,9 +1003,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22450584}
   - 222: {fileID: 22263522}
   - 114: {fileID: 11496144}
+=======
+  - 224: {fileID: 22404046}
+  - 222: {fileID: 22289836}
+  - 114: {fileID: 11437656}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22404046}
   - 222: {fileID: 22289836}
@@ -981,11 +1032,22 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22412792}
   - 222: {fileID: 22275940}
   - 114: {fileID: 11427816}
   m_Layer: 5
   m_Name: Pic
+=======
+  - 224: {fileID: 22465626}
+  - 222: {fileID: 22219630}
+  - 114: {fileID: 11425834}
+  - 114: {fileID: 11475088}
+  - 61: {fileID: 6197362}
+  - 114: {fileID: 11416474}
+  m_Layer: 5
+  m_Name: Rankings Button
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22465626}
   - 222: {fileID: 22219630}
@@ -1009,11 +1071,17 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22454000}
   - 222: {fileID: 22298964}
   - 114: {fileID: 11436448}
   - 114: {fileID: 11473700}
   - 114: {fileID: 11444252}
+=======
+  - 224: {fileID: 22412644}
+  - 222: {fileID: 22230284}
+  - 114: {fileID: 11473446}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22412644}
   - 222: {fileID: 22230284}
@@ -1034,9 +1102,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22470184}
   - 222: {fileID: 22297524}
   - 114: {fileID: 11479778}
+=======
+  - 224: {fileID: 22414322}
+  - 222: {fileID: 22218794}
+  - 114: {fileID: 11427390}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22414322}
   - 222: {fileID: 22218794}
@@ -1057,9 +1131,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22464656}
   - 222: {fileID: 22231974}
   - 114: {fileID: 11442934}
+=======
+  - 224: {fileID: 22497622}
+  - 222: {fileID: 22223988}
+  - 114: {fileID: 11489830}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22497622}
   - 222: {fileID: 22223988}
@@ -1080,9 +1160,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22404046}
   - 222: {fileID: 22289836}
   - 114: {fileID: 11437656}
+=======
+  - 224: {fileID: 22495190}
+  - 222: {fileID: 22233242}
+  - 114: {fileID: 11479614}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22495190}
   - 222: {fileID: 22233242}
@@ -1103,12 +1189,16 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22465626}
   - 222: {fileID: 22219630}
   - 114: {fileID: 11425834}
   - 114: {fileID: 11475088}
   - 61: {fileID: 6197362}
   - 114: {fileID: 11416474}
+=======
+  - 224: {fileID: 22473920}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22473920}
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
@@ -1127,9 +1217,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22412644}
   - 222: {fileID: 22230284}
   - 114: {fileID: 11473446}
+=======
+  - 224: {fileID: 22425466}
+  - 222: {fileID: 22254524}
+  - 114: {fileID: 11439272}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22425466}
   - 222: {fileID: 22254524}
@@ -1150,9 +1246,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22482292}
   - 222: {fileID: 22270420}
   - 114: {fileID: 11494834}
+=======
+  - 224: {fileID: 22418566}
+  - 222: {fileID: 22277206}
+  - 114: {fileID: 11465724}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22418566}
   - 222: {fileID: 22277206}
@@ -1173,16 +1275,22 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22462252}
   - 222: {fileID: 22297706}
   - 114: {fileID: 11402312}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22442104}
   - 222: {fileID: 22265018}
   - 114: {fileID: 11428628}
   - 114: {fileID: 11452842}
   - 61: {fileID: 6133586}
   - 114: {fileID: 11474520}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Desc
@@ -1199,9 +1307,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22414322}
   - 222: {fileID: 22218794}
   - 114: {fileID: 11427390}
+=======
+  - 224: {fileID: 22428588}
+  - 222: {fileID: 22254966}
+  - 114: {fileID: 11401052}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22428588}
   - 222: {fileID: 22254966}
@@ -1222,9 +1336,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22497622}
   - 222: {fileID: 22223988}
   - 114: {fileID: 11489830}
+=======
+  - 224: {fileID: 22431818}
+  - 222: {fileID: 22214876}
+  - 114: {fileID: 11491072}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22431818}
   - 222: {fileID: 22214876}
@@ -1245,9 +1365,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22495190}
   - 222: {fileID: 22233242}
   - 114: {fileID: 11479614}
+=======
+  - 224: {fileID: 22463104}
+  - 222: {fileID: 22242064}
+  - 114: {fileID: 11422092}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22463104}
   - 222: {fileID: 22242064}
@@ -1268,7 +1394,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22473920}
+=======
+  - 224: {fileID: 22487176}
+  - 222: {fileID: 22265610}
+  - 114: {fileID: 11496348}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22487176}
   - 222: {fileID: 22265610}
@@ -1289,9 +1421,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22425466}
   - 222: {fileID: 22254524}
   - 114: {fileID: 11439272}
+=======
+  - 224: {fileID: 22425584}
+  - 222: {fileID: 22279772}
+  - 114: {fileID: 11496588}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22425584}
   - 222: {fileID: 22279772}
@@ -1312,9 +1450,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22418566}
   - 222: {fileID: 22277206}
   - 114: {fileID: 11465724}
+=======
+  - 224: {fileID: 22497598}
+  - 222: {fileID: 22247684}
+  - 114: {fileID: 11471342}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22497598}
   - 222: {fileID: 22247684}
@@ -1335,12 +1479,18 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22442104}
   - 222: {fileID: 22265018}
   - 114: {fileID: 11428628}
   - 114: {fileID: 11452842}
   - 61: {fileID: 6133586}
   - 114: {fileID: 11474520}
+=======
+  - 224: {fileID: 22492836}
+  - 222: {fileID: 22231958}
+  - 114: {fileID: 11461402}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22492836}
   - 222: {fileID: 22231958}
@@ -1361,16 +1511,22 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22428588}
   - 222: {fileID: 22254966}
   - 114: {fileID: 11401052}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22484864}
   - 222: {fileID: 22202508}
   - 114: {fileID: 11418628}
   - 114: {fileID: 11486174}
   - 114: {fileID: 11499482}
   - 61: {fileID: 6152500}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Desc
@@ -1387,9 +1543,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22431818}
   - 222: {fileID: 22214876}
   - 114: {fileID: 11491072}
+=======
+  - 224: {fileID: 22438790}
+  - 222: {fileID: 22241144}
+  - 114: {fileID: 11482858}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22438790}
   - 222: {fileID: 22241144}
@@ -1410,16 +1572,22 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22428656}
   - 222: {fileID: 22205882}
   - 114: {fileID: 11404046}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22406428}
   - 222: {fileID: 22298586}
   - 114: {fileID: 11421568}
   - 114: {fileID: 11409938}
   - 61: {fileID: 6157094}
   - 114: {fileID: 11446396}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Cost
@@ -1436,10 +1604,16 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22464620}
   - 114: {fileID: 11451926}
   m_Layer: 5
   m_Name: Achievements Screen
+=======
+  - 224: {fileID: 22465830}
+  m_Layer: 5
+  m_Name: Play Screen
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22465830}
   m_Layer: 5
@@ -1458,9 +1632,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22471224}
   - 222: {fileID: 22222090}
   - 114: {fileID: 11446018}
+=======
+  - 224: {fileID: 22478646}
+  - 222: {fileID: 22277016}
+  - 114: {fileID: 11459560}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22478646}
   - 222: {fileID: 22277016}
@@ -1481,9 +1661,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22463104}
   - 222: {fileID: 22242064}
   - 114: {fileID: 11422092}
+=======
+  - 224: {fileID: 22476000}
+  - 222: {fileID: 22245488}
+  - 114: {fileID: 11441780}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22476000}
   - 222: {fileID: 22245488}
@@ -1504,9 +1690,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22487176}
   - 222: {fileID: 22265610}
   - 114: {fileID: 11496348}
+=======
+  - 224: {fileID: 22440528}
+  - 222: {fileID: 22268118}
+  - 114: {fileID: 11489274}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22440528}
   - 222: {fileID: 22268118}
@@ -1527,8 +1719,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22431494}
   - 114: {fileID: 11411560}
+=======
+  - 224: {fileID: 22470194}
+  - 114: {fileID: 11492564}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22470194}
   - 114: {fileID: 11492564}
@@ -1548,14 +1745,20 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22425584}
   - 222: {fileID: 22279772}
   - 114: {fileID: 11496588}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22406110}
   - 222: {fileID: 22220648}
   - 114: {fileID: 11486582}
   - 114: {fileID: 11476104}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Coin Background
@@ -1572,9 +1775,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22497598}
   - 222: {fileID: 22247684}
   - 114: {fileID: 11471342}
+=======
+  - 224: {fileID: 22491434}
+  - 222: {fileID: 22279308}
+  - 114: {fileID: 11424368}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22491434}
   - 222: {fileID: 22279308}
@@ -1595,9 +1804,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22492836}
   - 222: {fileID: 22231958}
   - 114: {fileID: 11461402}
+=======
+  - 224: {fileID: 22414700}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22414700}
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
@@ -1616,12 +1829,18 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22484864}
   - 222: {fileID: 22202508}
   - 114: {fileID: 11418628}
   - 114: {fileID: 11486174}
   - 114: {fileID: 11499482}
   - 61: {fileID: 6152500}
+=======
+  - 224: {fileID: 22421906}
+  - 222: {fileID: 22293952}
+  - 114: {fileID: 11471560}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22421906}
   - 222: {fileID: 22293952}
@@ -1642,15 +1861,21 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22438790}
   - 222: {fileID: 22241144}
   - 114: {fileID: 11482858}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22483956}
   - 222: {fileID: 22269752}
   - 114: {fileID: 11477528}
   - 114: {fileID: 11471402}
   - 114: {fileID: 11441076}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Coin
@@ -1667,12 +1892,18 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22406428}
   - 222: {fileID: 22298586}
   - 114: {fileID: 11421568}
   - 114: {fileID: 11409938}
   - 61: {fileID: 6157094}
   - 114: {fileID: 11446396}
+=======
+  - 224: {fileID: 22478918}
+  - 222: {fileID: 22276954}
+  - 114: {fileID: 11495980}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22478918}
   - 222: {fileID: 22276954}
@@ -1693,14 +1924,20 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22432738}
   - 222: {fileID: 22239684}
   - 114: {fileID: 11468758}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22464386}
   - 222: {fileID: 22255270}
   - 114: {fileID: 11496912}
   - 114: {fileID: 11486068}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Image
@@ -1717,14 +1954,20 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22465830}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22477018}
   - 222: {fileID: 22272766}
   - 114: {fileID: 11476200}
   - 114: {fileID: 11459820}
   - 61: {fileID: 6117906}
   - 114: {fileID: 11426754}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Play Screen
@@ -1741,9 +1984,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22478646}
   - 222: {fileID: 22277016}
   - 114: {fileID: 11459560}
+=======
+  - 224: {fileID: 22401004}
+  - 222: {fileID: 22241930}
+  - 114: {fileID: 11445964}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22401004}
   - 222: {fileID: 22241930}
@@ -1764,9 +2013,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22476000}
   - 222: {fileID: 22245488}
   - 114: {fileID: 11441780}
+=======
+  - 224: {fileID: 22476578}
+  - 222: {fileID: 22204140}
+  - 114: {fileID: 11478070}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22476578}
   - 222: {fileID: 22204140}
@@ -1787,9 +2042,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22440528}
   - 222: {fileID: 22268118}
   - 114: {fileID: 11489274}
+=======
+  - 224: {fileID: 22431174}
+  - 222: {fileID: 22229970}
+  - 114: {fileID: 11415716}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22431174}
   - 222: {fileID: 22229970}
@@ -1810,8 +2071,14 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22470194}
   - 114: {fileID: 11492564}
+=======
+  - 224: {fileID: 22484138}
+  - 222: {fileID: 22221460}
+  - 114: {fileID: 11480700}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22484138}
   - 222: {fileID: 22221460}
@@ -1832,10 +2099,16 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22406110}
   - 222: {fileID: 22220648}
   - 114: {fileID: 11486582}
   - 114: {fileID: 11476104}
+=======
+  - 224: {fileID: 22483062}
+  - 222: {fileID: 22241134}
+  - 114: {fileID: 11477938}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22483062}
   - 222: {fileID: 22241134}
@@ -1856,14 +2129,20 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22491434}
   - 222: {fileID: 22279308}
   - 114: {fileID: 11424368}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22440322}
   - 223: {fileID: 22328228}
   - 114: {fileID: 11488072}
   - 114: {fileID: 11458418}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Placeholder
@@ -1880,7 +2159,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22414700}
+=======
+  - 224: {fileID: 22420162}
+  - 222: {fileID: 22291922}
+  - 114: {fileID: 11491832}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22420162}
   - 222: {fileID: 22291922}
@@ -1901,9 +2186,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22421906}
   - 222: {fileID: 22293952}
   - 114: {fileID: 11471560}
+=======
+  - 224: {fileID: 22439926}
+  - 222: {fileID: 22252550}
+  - 114: {fileID: 11457316}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22439926}
   - 222: {fileID: 22252550}
@@ -1924,11 +2215,17 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22483956}
   - 222: {fileID: 22269752}
   - 114: {fileID: 11477528}
   - 114: {fileID: 11471402}
   - 114: {fileID: 11441076}
+=======
+  - 224: {fileID: 22419386}
+  - 222: {fileID: 22234698}
+  - 114: {fileID: 11414982}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22419386}
   - 222: {fileID: 22234698}
@@ -1949,9 +2246,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22478918}
   - 222: {fileID: 22276954}
   - 114: {fileID: 11495980}
+=======
+  - 224: {fileID: 22408290}
+  - 222: {fileID: 22255336}
+  - 114: {fileID: 11483268}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22408290}
   - 222: {fileID: 22255336}
@@ -1972,10 +2275,16 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22464386}
   - 222: {fileID: 22255270}
   - 114: {fileID: 11496912}
   - 114: {fileID: 11486068}
+=======
+  - 224: {fileID: 22478700}
+  - 222: {fileID: 22271630}
+  - 114: {fileID: 11459728}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22478700}
   - 222: {fileID: 22271630}
@@ -1996,13 +2305,19 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22458366}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22400800}
   - 222: {fileID: 22278768}
   - 114: {fileID: 11447806}
   - 114: {fileID: 11441924}
   - 114: {fileID: 11477712}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: MyCoins
@@ -2019,12 +2334,18 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22477018}
   - 222: {fileID: 22272766}
   - 114: {fileID: 11476200}
   - 114: {fileID: 11459820}
   - 61: {fileID: 6117906}
   - 114: {fileID: 11426754}
+=======
+  - 224: {fileID: 22479484}
+  - 222: {fileID: 22220424}
+  - 114: {fileID: 11491774}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22479484}
   - 222: {fileID: 22220424}
@@ -2045,9 +2366,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22401004}
   - 222: {fileID: 22241930}
   - 114: {fileID: 11445964}
+=======
+  - 224: {fileID: 22494376}
+  - 222: {fileID: 22233238}
+  - 114: {fileID: 11409164}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22494376}
   - 222: {fileID: 22233238}
@@ -2068,9 +2395,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22476578}
   - 222: {fileID: 22204140}
   - 114: {fileID: 11478070}
+=======
+  - 224: {fileID: 22480464}
+  - 222: {fileID: 22225228}
+  - 114: {fileID: 11468024}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22480464}
   - 222: {fileID: 22225228}
@@ -2091,9 +2424,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22431174}
   - 222: {fileID: 22229970}
   - 114: {fileID: 11415716}
+=======
+  - 224: {fileID: 22458214}
+  - 222: {fileID: 22210424}
+  - 114: {fileID: 11497808}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22458214}
   - 222: {fileID: 22210424}
@@ -2114,9 +2453,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22446486}
   - 222: {fileID: 22295638}
   - 114: {fileID: 11406996}
+=======
+  - 224: {fileID: 22446212}
+  - 222: {fileID: 22276518}
+  - 114: {fileID: 11404038}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22446212}
   - 222: {fileID: 22276518}
@@ -2137,9 +2482,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22484138}
   - 222: {fileID: 22221460}
   - 114: {fileID: 11480700}
+=======
+  - 224: {fileID: 22402366}
+  - 222: {fileID: 22203386}
+  - 114: {fileID: 11494614}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22402366}
   - 222: {fileID: 22203386}
@@ -2160,9 +2511,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22483062}
   - 222: {fileID: 22241134}
   - 114: {fileID: 11477938}
+=======
+  - 224: {fileID: 22402796}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22402796}
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
@@ -2181,10 +2536,16 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22440322}
   - 223: {fileID: 22328228}
   - 114: {fileID: 11488072}
   - 114: {fileID: 11458418}
+=======
+  - 224: {fileID: 22405464}
+  - 222: {fileID: 22282194}
+  - 114: {fileID: 11452148}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22405464}
   - 222: {fileID: 22282194}
@@ -2205,16 +2566,22 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22420162}
   - 222: {fileID: 22291922}
   - 114: {fileID: 11491832}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22407116}
   - 222: {fileID: 22226102}
   - 114: {fileID: 11419946}
   - 114: {fileID: 11492214}
   - 61: {fileID: 6117426}
   - 114: {fileID: 11441994}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Cost
@@ -2231,9 +2598,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22439926}
   - 222: {fileID: 22252550}
   - 114: {fileID: 11457316}
+=======
+  - 224: {fileID: 22415444}
+  - 222: {fileID: 22202152}
+  - 114: {fileID: 11453646}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22415444}
   - 222: {fileID: 22202152}
@@ -2254,9 +2627,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22419386}
   - 222: {fileID: 22234698}
   - 114: {fileID: 11414982}
+=======
+  - 224: {fileID: 22404712}
+  - 222: {fileID: 22274126}
+  - 114: {fileID: 11402438}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22404712}
   - 222: {fileID: 22274126}
@@ -2277,16 +2656,22 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22408290}
   - 222: {fileID: 22255336}
   - 114: {fileID: 11483268}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22484766}
   - 222: {fileID: 22221240}
   - 114: {fileID: 11466960}
   - 114: {fileID: 11419288}
   - 61: {fileID: 6192192}
   - 114: {fileID: 11478360}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Title
@@ -2303,9 +2688,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22478700}
   - 222: {fileID: 22271630}
   - 114: {fileID: 11459728}
+=======
+  - 224: {fileID: 22412324}
+  - 222: {fileID: 22233654}
+  - 114: {fileID: 11412730}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22412324}
   - 222: {fileID: 22233654}
@@ -2326,17 +2717,23 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22400800}
   - 222: {fileID: 22278768}
   - 114: {fileID: 11447806}
   - 114: {fileID: 11441924}
   - 114: {fileID: 11477712}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22464914}
   - 222: {fileID: 22288862}
   - 114: {fileID: 11409726}
   - 114: {fileID: 11446866}
   - 114: {fileID: 11478632}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Item4
@@ -2353,9 +2750,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22479484}
   - 222: {fileID: 22220424}
   - 114: {fileID: 11491774}
+=======
+  - 224: {fileID: 22470988}
+  - 222: {fileID: 22209898}
+  - 114: {fileID: 11482176}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22470988}
   - 222: {fileID: 22209898}
@@ -2376,9 +2779,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22494376}
   - 222: {fileID: 22233238}
   - 114: {fileID: 11409164}
+=======
+  - 224: {fileID: 22498120}
+  - 222: {fileID: 22203462}
+  - 114: {fileID: 11406998}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22498120}
   - 222: {fileID: 22203462}
@@ -2399,15 +2808,21 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22480464}
   - 222: {fileID: 22225228}
   - 114: {fileID: 11468024}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22451994}
   - 222: {fileID: 22249082}
   - 114: {fileID: 11449820}
   - 114: {fileID: 11447778}
   - 114: {fileID: 11428114}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Image
@@ -2424,16 +2839,22 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22458214}
   - 222: {fileID: 22210424}
   - 114: {fileID: 11497808}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22411158}
   - 222: {fileID: 22281976}
   - 114: {fileID: 11432496}
   - 114: {fileID: 11417066}
   - 61: {fileID: 6191858}
   - 114: {fileID: 11495418}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Text
@@ -2450,7 +2871,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22462854}
+=======
+  - 224: {fileID: 22404436}
+  - 222: {fileID: 22274616}
+  - 114: {fileID: 11409150}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22404436}
   - 222: {fileID: 22274616}
@@ -2471,9 +2898,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22446212}
   - 222: {fileID: 22276518}
   - 114: {fileID: 11404038}
+=======
+  - 224: {fileID: 22402132}
+  - 222: {fileID: 22219530}
+  - 114: {fileID: 11444116}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22402132}
   - 222: {fileID: 22219530}
@@ -2494,14 +2927,20 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22458182}
   - 114: {fileID: 11432328}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22400126}
   - 222: {fileID: 22234814}
   - 114: {fileID: 11465390}
   - 114: {fileID: 11406834}
   - 114: {fileID: 11486516}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: ScrollRect
@@ -2518,9 +2957,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22402366}
   - 222: {fileID: 22203386}
   - 114: {fileID: 11494614}
+=======
+  - 224: {fileID: 22484556}
+  - 222: {fileID: 22210400}
+  - 114: {fileID: 11429054}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22484556}
   - 222: {fileID: 22210400}
@@ -2541,9 +2986,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22444740}
   - 222: {fileID: 22244682}
   - 114: {fileID: 11470330}
+=======
+  - 224: {fileID: 22498896}
+  - 222: {fileID: 22209654}
+  - 114: {fileID: 11401898}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22498896}
   - 222: {fileID: 22209654}
@@ -2564,7 +3015,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22402796}
+=======
+  - 224: {fileID: 22416678}
+  - 222: {fileID: 22210002}
+  - 114: {fileID: 11421492}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22416678}
   - 222: {fileID: 22210002}
@@ -2585,15 +3042,21 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22491752}
   - 222: {fileID: 22248892}
   - 114: {fileID: 11456650}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22417320}
   - 222: {fileID: 22216770}
   - 114: {fileID: 11452090}
   - 114: {fileID: 11481672}
   - 114: {fileID: 11405058}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Text
@@ -2610,9 +3073,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22439714}
   - 222: {fileID: 22233756}
   - 114: {fileID: 11483682}
+=======
+  - 224: {fileID: 22474810}
+  - 222: {fileID: 22253074}
+  - 114: {fileID: 11422934}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22474810}
   - 222: {fileID: 22253074}
@@ -2633,15 +3102,21 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22470382}
   - 222: {fileID: 22207772}
   - 114: {fileID: 11425886}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22478014}
   - 222: {fileID: 22271454}
   - 114: {fileID: 11424132}
   - 114: {fileID: 11429186}
   - 114: {fileID: 11483080}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Image
@@ -2658,9 +3133,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22405464}
   - 222: {fileID: 22282194}
   - 114: {fileID: 11452148}
+=======
+  - 224: {fileID: 22449258}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22449258}
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
@@ -2679,12 +3158,18 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22407116}
   - 222: {fileID: 22226102}
   - 114: {fileID: 11419946}
   - 114: {fileID: 11492214}
   - 61: {fileID: 6117426}
   - 114: {fileID: 11441994}
+=======
+  - 224: {fileID: 22409920}
+  - 222: {fileID: 22243806}
+  - 114: {fileID: 11457300}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22409920}
   - 222: {fileID: 22243806}
@@ -2705,9 +3190,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22427348}
   - 222: {fileID: 22260290}
   - 114: {fileID: 11406690}
+=======
+  - 224: {fileID: 22486092}
+  - 222: {fileID: 22241246}
+  - 114: {fileID: 11425596}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22486092}
   - 222: {fileID: 22241246}
@@ -2728,9 +3219,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22415444}
   - 222: {fileID: 22202152}
   - 114: {fileID: 11453646}
+=======
+  - 224: {fileID: 22400472}
+  - 222: {fileID: 22258648}
+  - 114: {fileID: 11424038}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22400472}
   - 222: {fileID: 22258648}
@@ -2751,9 +3248,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22404712}
   - 222: {fileID: 22274126}
   - 114: {fileID: 11402438}
+=======
+  - 224: {fileID: 22431986}
+  - 222: {fileID: 22211156}
+  - 114: {fileID: 11476490}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22431986}
   - 222: {fileID: 22211156}
@@ -2774,6 +3277,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22484766}
   - 222: {fileID: 22221240}
   - 114: {fileID: 11466960}
@@ -2781,11 +3285,16 @@ GameObject:
   - 61: {fileID: 6192192}
   - 114: {fileID: 11478360}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22459810}
   - 222: {fileID: 22271066}
   - 114: {fileID: 11452556}
   - 114: {fileID: 11434254}
   - 114: {fileID: 11418654}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Co-op Button
@@ -2802,11 +3311,17 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22439594}
   - 222: {fileID: 22280136}
   - 114: {fileID: 11429042}
   - 114: {fileID: 11451274}
   - 114: {fileID: 11464490}
+=======
+  - 224: {fileID: 22437058}
+  - 222: {fileID: 22268388}
+  - 114: {fileID: 11461250}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22437058}
   - 222: {fileID: 22268388}
@@ -2827,16 +3342,22 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22450724}
   - 222: {fileID: 22298248}
   - 114: {fileID: 11406228}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22412318}
   - 222: {fileID: 22228064}
   - 114: {fileID: 11441734}
   - 114: {fileID: 11436980}
   - 61: {fileID: 6178484}
   - 114: {fileID: 11410012}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Desc
@@ -2853,9 +3374,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22427654}
   - 222: {fileID: 22259948}
   - 114: {fileID: 11463772}
+=======
+  - 224: {fileID: 22432876}
+  - 222: {fileID: 22278592}
+  - 114: {fileID: 11423786}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22432876}
   - 222: {fileID: 22278592}
@@ -2876,9 +3403,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22412324}
   - 222: {fileID: 22233654}
   - 114: {fileID: 11412730}
+=======
+  - 224: {fileID: 22467578}
+  - 222: {fileID: 22225010}
+  - 114: {fileID: 11435388}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22467578}
   - 222: {fileID: 22225010}
@@ -2899,11 +3432,17 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22464914}
   - 222: {fileID: 22288862}
   - 114: {fileID: 11409726}
   - 114: {fileID: 11446866}
   - 114: {fileID: 11478632}
+=======
+  - 224: {fileID: 22484330}
+  - 222: {fileID: 22215144}
+  - 114: {fileID: 11457838}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22484330}
   - 222: {fileID: 22215144}
@@ -2924,9 +3463,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22470988}
   - 222: {fileID: 22209898}
   - 114: {fileID: 11482176}
+=======
+  - 224: {fileID: 22490718}
+  - 222: {fileID: 22263006}
+  - 114: {fileID: 11423206}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22490718}
   - 222: {fileID: 22263006}
@@ -2947,9 +3492,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22459894}
   - 222: {fileID: 22200724}
   - 114: {fileID: 11471818}
+=======
+  - 224: {fileID: 22449650}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22449650}
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
@@ -2968,16 +3517,22 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22498120}
   - 222: {fileID: 22203462}
   - 114: {fileID: 11406998}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22490014}
   - 222: {fileID: 22242748}
   - 114: {fileID: 11477598}
   - 114: {fileID: 11427924}
   - 61: {fileID: 6194604}
   - 114: {fileID: 11444630}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: ItemTitle
@@ -2994,11 +3549,16 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22451994}
   - 222: {fileID: 22249082}
   - 114: {fileID: 11449820}
   - 114: {fileID: 11447778}
   - 114: {fileID: 11428114}
+=======
+  - 224: {fileID: 22454452}
+  - 114: {fileID: 11438058}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22454452}
   - 114: {fileID: 11438058}
@@ -3018,9 +3578,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22465940}
   - 222: {fileID: 22236440}
   - 114: {fileID: 11465320}
+=======
+  - 224: {fileID: 22402508}
+  - 222: {fileID: 22263056}
+  - 114: {fileID: 11400286}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22402508}
   - 222: {fileID: 22263056}
@@ -3041,15 +3607,21 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22494950}
   - 222: {fileID: 22288842}
   - 114: {fileID: 11472562}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22498220}
   - 222: {fileID: 22265228}
   - 114: {fileID: 11480994}
   - 114: {fileID: 11484392}
   - 114: {fileID: 11426378}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Text
@@ -3066,6 +3638,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22411158}
   - 222: {fileID: 22281976}
   - 114: {fileID: 11432496}
@@ -3075,6 +3648,8 @@ GameObject:
   m_Layer: 5
   m_Name: Item Button
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 4: {fileID: 455492}
   - 114: {fileID: 11423136}
   - 58: {fileID: 5825400}
@@ -3095,9 +3670,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22404436}
   - 222: {fileID: 22274616}
   - 114: {fileID: 11409150}
+=======
+  - 224: {fileID: 22445186}
+  - 222: {fileID: 22215494}
+  - 114: {fileID: 11416340}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22445186}
   - 222: {fileID: 22215494}
@@ -3118,9 +3699,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22402132}
   - 222: {fileID: 22219530}
   - 114: {fileID: 11444116}
+=======
+  - 224: {fileID: 22418548}
+  - 222: {fileID: 22200678}
+  - 114: {fileID: 11448714}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22418548}
   - 222: {fileID: 22200678}
@@ -3141,11 +3728,19 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22442330}
   - 222: {fileID: 22280448}
   - 114: {fileID: 11443492}
   m_Layer: 5
   m_Name: Title
+=======
+  - 224: {fileID: 22416802}
+  - 222: {fileID: 22245142}
+  - 114: {fileID: 11423604}
+  m_Layer: 5
+  m_Name: Pic
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22416802}
   - 222: {fileID: 22245142}
@@ -3166,11 +3761,17 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22400126}
   - 222: {fileID: 22234814}
   - 114: {fileID: 11465390}
   - 114: {fileID: 11406834}
   - 114: {fileID: 11486516}
+=======
+  - 224: {fileID: 22451010}
+  - 222: {fileID: 22242970}
+  - 114: {fileID: 11431286}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22451010}
   - 222: {fileID: 22242970}
@@ -3191,9 +3792,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22484556}
   - 222: {fileID: 22210400}
   - 114: {fileID: 11429054}
+=======
+  - 224: {fileID: 22447314}
+  - 222: {fileID: 22292242}
+  - 114: {fileID: 11413516}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22447314}
   - 222: {fileID: 22292242}
@@ -3214,16 +3821,22 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22473454}
   - 222: {fileID: 22275852}
   - 114: {fileID: 11451266}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22466830}
   - 222: {fileID: 22282168}
   - 114: {fileID: 11415820}
   - 114: {fileID: 11418092}
   - 61: {fileID: 6109240}
   - 114: {fileID: 11431030}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Coin Background
@@ -3240,9 +3853,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22498896}
   - 222: {fileID: 22209654}
   - 114: {fileID: 11401898}
+=======
+  - 224: {fileID: 22401116}
+  - 222: {fileID: 22287684}
+  - 114: {fileID: 11426946}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22401116}
   - 222: {fileID: 22287684}
@@ -3263,9 +3882,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22416678}
   - 222: {fileID: 22210002}
   - 114: {fileID: 11421492}
+=======
+  - 224: {fileID: 22434922}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22434922}
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
@@ -3284,18 +3907,24 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22417320}
   - 222: {fileID: 22216770}
   - 114: {fileID: 11452090}
   - 114: {fileID: 11481672}
   - 114: {fileID: 11405058}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22448172}
   - 222: {fileID: 22234700}
   - 114: {fileID: 11406772}
   - 114: {fileID: 11493682}
   - 61: {fileID: 6148674}
   - 114: {fileID: 11473482}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Item1
@@ -3312,12 +3941,18 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22481262}
   - 222: {fileID: 22274030}
   - 114: {fileID: 11408502}
   - 114: {fileID: 11494248}
   - 61: {fileID: 6113982}
   - 114: {fileID: 11424538}
+=======
+  - 224: {fileID: 22457494}
+  - 222: {fileID: 22227700}
+  - 114: {fileID: 11423546}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22457494}
   - 222: {fileID: 22227700}
@@ -3338,9 +3973,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22474810}
   - 222: {fileID: 22253074}
   - 114: {fileID: 11422934}
+=======
+  - 224: {fileID: 22430908}
+  - 222: {fileID: 22215248}
+  - 114: {fileID: 11475132}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22430908}
   - 222: {fileID: 22215248}
@@ -3361,11 +4002,17 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22478014}
   - 222: {fileID: 22271454}
   - 114: {fileID: 11424132}
   - 114: {fileID: 11429186}
   - 114: {fileID: 11483080}
+=======
+  - 224: {fileID: 22460910}
+  - 222: {fileID: 22216874}
+  - 114: {fileID: 11452716}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22460910}
   - 222: {fileID: 22216874}
@@ -3386,7 +4033,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22449258}
+=======
+  - 224: {fileID: 22472122}
+  - 222: {fileID: 22267060}
+  - 114: {fileID: 11444332}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22472122}
   - 222: {fileID: 22267060}
@@ -3407,9 +4060,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22409920}
   - 222: {fileID: 22243806}
   - 114: {fileID: 11457300}
+=======
+  - 224: {fileID: 22454356}
+  - 222: {fileID: 22219448}
+  - 114: {fileID: 11445478}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22454356}
   - 222: {fileID: 22219448}
@@ -3430,9 +4089,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22486092}
   - 222: {fileID: 22241246}
   - 114: {fileID: 11425596}
+=======
+  - 224: {fileID: 22480034}
+  - 222: {fileID: 22245314}
+  - 114: {fileID: 11456488}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22480034}
   - 222: {fileID: 22245314}
@@ -3453,9 +4118,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22400472}
   - 222: {fileID: 22258648}
   - 114: {fileID: 11424038}
+=======
+  - 224: {fileID: 22488720}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22488720}
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
@@ -3467,8 +4136,11 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &170876
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 --- !u!1 &191432
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
 GameObject:
@@ -3478,9 +4150,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22431986}
   - 222: {fileID: 22211156}
   - 114: {fileID: 11476490}
+=======
+  - 224: {fileID: 22425918}
+  - 222: {fileID: 22245008}
+  - 114: {fileID: 11455820}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22425918}
   - 222: {fileID: 22245008}
@@ -3501,9 +4179,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22409404}
   - 222: {fileID: 22234966}
   - 114: {fileID: 11452294}
+=======
+  - 224: {fileID: 22453374}
+  - 222: {fileID: 22252706}
+  - 114: {fileID: 11491672}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22453374}
   - 222: {fileID: 22252706}
@@ -3524,11 +4208,17 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22459810}
   - 222: {fileID: 22271066}
   - 114: {fileID: 11452556}
   - 114: {fileID: 11434254}
   - 114: {fileID: 11418654}
+=======
+  - 224: {fileID: 22402114}
+  - 222: {fileID: 22207540}
+  - 114: {fileID: 11466520}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22402114}
   - 222: {fileID: 22207540}
@@ -3549,9 +4239,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22437058}
   - 222: {fileID: 22268388}
   - 114: {fileID: 11461250}
+=======
+  - 224: {fileID: 22410934}
+  - 222: {fileID: 22293384}
+  - 114: {fileID: 11467922}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22410934}
   - 222: {fileID: 22293384}
@@ -3572,12 +4268,18 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22412318}
   - 222: {fileID: 22228064}
   - 114: {fileID: 11441734}
   - 114: {fileID: 11436980}
   - 61: {fileID: 6178484}
   - 114: {fileID: 11410012}
+=======
+  - 224: {fileID: 22437434}
+  - 222: {fileID: 22216870}
+  - 114: {fileID: 11490278}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22437434}
   - 222: {fileID: 22216870}
@@ -3598,14 +4300,20 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22432876}
   - 222: {fileID: 22278592}
   - 114: {fileID: 11423786}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22407380}
   - 114: {fileID: 11424292}
   - 222: {fileID: 22284558}
   - 114: {fileID: 11486438}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Coin
@@ -3622,16 +4330,22 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22467578}
   - 222: {fileID: 22225010}
   - 114: {fileID: 11435388}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22467748}
   - 222: {fileID: 22284878}
   - 114: {fileID: 11428404}
   - 114: {fileID: 11441332}
   - 61: {fileID: 6130386}
   - 114: {fileID: 11488040}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Text
@@ -3648,9 +4362,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22464266}
   - 222: {fileID: 22226848}
   - 114: {fileID: 11450130}
+=======
+  - 224: {fileID: 22494794}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22494794}
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
@@ -3686,9 +4404,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22490718}
   - 222: {fileID: 22263006}
   - 114: {fileID: 11423206}
+=======
+  - 224: {fileID: 22401288}
+  - 222: {fileID: 22290968}
+  - 114: {fileID: 11433534}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22401288}
   - 222: {fileID: 22290968}
@@ -3724,12 +4448,17 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22490014}
   - 222: {fileID: 22242748}
   - 114: {fileID: 11477598}
   - 114: {fileID: 11427924}
   - 61: {fileID: 6194604}
   - 114: {fileID: 11444630}
+=======
+  - 4: {fileID: 462352}
+  - 212: {fileID: 21281538}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 4: {fileID: 462352}
   - 212: {fileID: 21281538}
@@ -3749,8 +4478,14 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22454452}
   - 114: {fileID: 11438058}
+=======
+  - 224: {fileID: 22455274}
+  - 222: {fileID: 22269534}
+  - 114: {fileID: 11480608}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22455274}
   - 222: {fileID: 22269534}
@@ -3788,11 +4523,17 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22498220}
   - 222: {fileID: 22265228}
   - 114: {fileID: 11480994}
   - 114: {fileID: 11484392}
   - 114: {fileID: 11426378}
+=======
+  - 224: {fileID: 22492630}
+  - 222: {fileID: 22244250}
+  - 114: {fileID: 11418560}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22492630}
   - 222: {fileID: 22244250}
@@ -3831,9 +4572,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22401448}
   - 222: {fileID: 22290688}
   - 114: {fileID: 11485276}
+=======
+  - 224: {fileID: 22410424}
+  - 222: {fileID: 22288824}
+  - 114: {fileID: 11460398}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22410424}
   - 222: {fileID: 22288824}
@@ -3854,9 +4601,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22445186}
   - 222: {fileID: 22215494}
   - 114: {fileID: 11416340}
+=======
+  - 224: {fileID: 22477962}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22477962}
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
@@ -3875,9 +4626,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22415460}
   - 222: {fileID: 22222068}
   - 114: {fileID: 11485686}
+=======
+  - 224: {fileID: 22420150}
+  - 222: {fileID: 22228376}
+  - 114: {fileID: 11469934}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22420150}
   - 222: {fileID: 22228376}
@@ -3898,9 +4655,14 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22418548}
   - 222: {fileID: 22200678}
   - 114: {fileID: 11448714}
+=======
+  - 224: {fileID: 22492166}
+  - 114: {fileID: 11403316}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22492166}
   - 114: {fileID: 11403316}
@@ -3920,16 +4682,22 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22416802}
   - 222: {fileID: 22245142}
   - 114: {fileID: 11423604}
 =======
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   - 224: {fileID: 22468058}
   - 222: {fileID: 22254636}
   - 114: {fileID: 11416808}
   - 114: {fileID: 11462846}
   - 61: {fileID: 6135808}
   - 114: {fileID: 11431330}
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Layer: 5
   m_Name: Pic
@@ -3946,9 +4714,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 224: {fileID: 22451010}
   - 222: {fileID: 22242970}
   - 114: {fileID: 11431286}
+=======
+  - 224: {fileID: 22440202}
+  - 222: {fileID: 22240382}
+  - 114: {fileID: 11483978}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
   - 224: {fileID: 22440202}
   - 222: {fileID: 22240382}
@@ -3966,6 +4740,7 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
 <<<<<<< HEAD
   serializedVersion: 4
   m_Component:
@@ -4416,6 +5191,45 @@ CircleCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 180314}
+=======
+  m_GameObject: {fileID: 118192}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -125, y: 275.00003, z: 0}
+  m_LocalScale: {x: 200.00002, y: 200.00002, z: 200.00002}
+  m_Children:
+  - {fileID: 455492}
+  m_Father: {fileID: 22488720}
+  m_RootOrder: 1
+--- !u!4 &455492
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180314}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 451682}
+  m_RootOrder: 0
+--- !u!4 &462352
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195516}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 34, y: -7, z: 0}
+  m_LocalScale: {x: 100, y: 100, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22401116}
+  m_RootOrder: 0
+--- !u!58 &5825400
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180314}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -4552,6 +5366,218 @@ BoxCollider2D:
   m_Size: {x: 219.87885, y: 98.812126}
 --- !u!61 &6148674
 BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186708}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.4425331, y: -0.00006141663}
+  serializedVersion: 2
+  m_Size: {x: 319.19977, y: 98.812126}
+--- !u!61 &6148876
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180314}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.00025224686, y: -0.0012612939}
+  serializedVersion: 2
+  m_Size: {x: 0.70634663, y: 0.7062944}
+--- !u!61 &6151616
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106666}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+<<<<<<< HEAD
+  m_Offset: {x: 0, y: 0.03}
+  serializedVersion: 2
+  m_Radius: 0.12924503
+--- !u!61 &6103048
+=======
+  m_Offset: {x: 0.44251555, y: -0.000061035156}
+  serializedVersion: 2
+  m_Size: {x: 219.87885, y: 98.812126}
+--- !u!61 &6152500
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117650}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+<<<<<<< HEAD
+  m_Offset: {x: 0.44251555, y: -0.000061035156}
+  serializedVersion: 2
+  m_Size: {x: 219.87885, y: 98.812126}
+--- !u!61 &6106896
+=======
+  m_Offset: {x: 0.4425331, y: -0.00006141663}
+  serializedVersion: 2
+  m_Size: {x: 319.19977, y: 98.812126}
+--- !u!61 &6156296
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104708}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.44251555, y: -0.000061035156}
+  serializedVersion: 2
+  m_Size: {x: 219.87885, y: 98.812126}
+<<<<<<< HEAD
+--- !u!61 &6109240
+=======
+--- !u!61 &6157094
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184306}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.44251555, y: -0.000061035156}
+  serializedVersion: 2
+  m_Size: {x: 219.87885, y: 98.812126}
+<<<<<<< HEAD
+--- !u!61 &6117426
+=======
+--- !u!61 &6178484
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158046}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.44251555, y: -0.000061035156}
+  serializedVersion: 2
+  m_Size: {x: 219.87885, y: 98.812126}
+<<<<<<< HEAD
+--- !u!61 &6117906
+=======
+--- !u!61 &6191858
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147564}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.44251555, y: -0.000061035156}
+  serializedVersion: 2
+  m_Size: {x: 219.87885, y: 98.812126}
+<<<<<<< HEAD
+--- !u!61 &6118556
+=======
+--- !u!61 &6192192
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 106704}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.44251555, y: -0.000061035156}
+  serializedVersion: 2
+  m_Size: {x: 219.87885, y: 98.812126}
+<<<<<<< HEAD
+--- !u!61 &6130386
+=======
+--- !u!61 &6194604
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193762}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.44251555, y: -0.000061035156}
+  serializedVersion: 2
+  m_Size: {x: 219.87885, y: 98.812126}
+--- !u!61 &6133586
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132624}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.4425331, y: -0.00006141663}
+  serializedVersion: 2
+  m_Size: {x: 319.19977, y: 98.812126}
+<<<<<<< HEAD
+--- !u!61 &6135808
+=======
+--- !u!61 &6197362
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199540}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.44251555, y: -0.000061035156}
+  serializedVersion: 2
+  m_Size: {x: 219.87885, y: 98.812126}
+<<<<<<< HEAD
+--- !u!61 &6148674
+BoxCollider2D:
+=======
+--- !u!114 &11400286
+MonoBehaviour:
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -5963,13 +6989,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.14424738, g: 0.6769895, b: 0.85294116, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+<<<<<<< HEAD
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 25
@@ -6005,6 +7032,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 1
+=======
+  m_Sprite: {fileID: 21300000, guid: 93e0dae860ffd5a44b29124ca6eee927, type: 3}
+  m_Type: 0
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6419,10 +7450,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679acfac30185fa4382782af41698494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   m_ItemName: {fileID: 190602}
   m_Cost: {fileID: 181114}
   m_Desc: {fileID: 129074}
 --- !u!114 &11414982
+=======
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 11424132}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11483080}
+        m_MethodName: SetActive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &11429398
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -6720,6 +7796,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+<<<<<<< HEAD
       - m_Target: {fileID: 0}
         m_MethodName: GoToScreen
         m_Mode: 3
@@ -6727,6 +7804,15 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
+=======
+      - m_Target: {fileID: 11421970}
+        m_MethodName: SetActive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6883,10 +7969,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f23882b08daa9429a669a7033262f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   m_ItemName: {fileID: 152520}
   m_Cost: {fileID: 110102}
   m_Desc: {fileID: 114700}
 --- !u!114 &11419082
+=======
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.77205884, g: 0.77205884, b: 0.77205884, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 11452556}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: SetActive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &11435388
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -7035,7 +8166,26 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+<<<<<<< HEAD
 --- !u!114 &11421568
+=======
+--- !u!114 &11438058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10d48cb323c08e647ad0cf59a4434649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ItemSlot1: {fileID: 166404}
+  m_ItemSlot2: {fileID: 116952}
+  m_ItemSlot3: {fileID: 101550}
+  m_ItemSlot4: {fileID: 153412}
+--- !u!114 &11438194
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -7458,6 +8608,7 @@ MonoBehaviour:
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
+<<<<<<< HEAD
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -7476,6 +8627,23 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: Enter Password
 --- !u!114 &11424538
+=======
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: SetActive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &11447806
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -8428,9 +9596,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+<<<<<<< HEAD
       - m_Target: {fileID: 11449064}
         m_MethodName: SetActive
         m_Mode: 1
+=======
+      - m_Target: {fileID: 0}
+        m_MethodName: GoToScreen
+        m_Mode: 3
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8694,12 +9868,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
+<<<<<<< HEAD
         m_MethodName: GoToScreen
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 4
+=======
+        m_MethodName: SetActive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -9302,6 +10485,7 @@ MonoBehaviour:
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
+<<<<<<< HEAD
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -9314,6 +10498,23 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
 --- !u!114 &11445016
+=======
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: GoToScreen
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &11475132
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -9961,6 +11162,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+<<<<<<< HEAD
       - m_Target: {fileID: 11464490}
         m_MethodName: SetActive
         m_Mode: 1
@@ -9972,6 +11174,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11451926
@@ -10217,6 +11421,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+<<<<<<< HEAD
       - m_Target: {fileID: 0}
         m_MethodName: JoiningRoom
         m_Mode: 1
@@ -10228,6 +11433,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11453062
@@ -10805,6 +12012,109 @@ MonoBehaviour:
   m_GameObject: {fileID: 147564}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
+=======
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 300
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 800
+--- !u!114 &11492214
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.88965523, b: 0, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 11419946}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: GoToScreen
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &11492564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10d48cb323c08e647ad0cf59a4434649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ItemSlot1: {fileID: 168722}
+  m_ItemSlot2: {fileID: 180170}
+  m_ItemSlot3: {fileID: 169600}
+  m_ItemSlot4: {fileID: 111796}
+--- !u!114 &11493682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -11146,6 +12456,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11488198}
   m_OnClick:
     m_PersistentCalls:
+<<<<<<< HEAD
       m_Calls:
       - m_Target: {fileID: 0}
         m_MethodName: GoToScreen
@@ -11161,6 +12472,41 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11464286
+=======
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 7ddc280770b9a0e42a95e145b3475767, type: 3}
+    m_FontSize: 60
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 6
+    m_MaxSize: 60
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 0
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!114 &11499482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38f04ee8927042b49bb1938b33ee6993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TextHighlightColor: {r: 1, g: 0.89019614, b: 0, a: 1}
+  m_TextPressColor: {r: 0.49264705, g: 0.49264705, b: 0.49264705, a: 1}
+  m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+  m_DisableColor: {r: 0.49411768, g: 0.49411768, b: 0.49411768, a: 0.5019608}
+--- !u!114 &11499902
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -11252,6 +12598,7 @@ MonoBehaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190602}
   m_Enabled: 1
+<<<<<<< HEAD
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -11280,11 +12627,39 @@ MonoBehaviour:
   m_Text: Item 1
 --- !u!114 &11464350
 MonoBehaviour:
+=======
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 0
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 1f78277f02c130a4c9bf2b41a3aee06e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+--- !u!212 &21281538
+SpriteRenderer:
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119874}
   m_Enabled: 1
+<<<<<<< HEAD
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -11313,6 +12688,39 @@ MonoBehaviour:
   m_Text: Back
 --- !u!114 &11464490
 MonoBehaviour:
+=======
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 0
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 1f78277f02c130a4c9bf2b41a3aee06e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+--- !u!222 &22200678
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181278}
+--- !u!222 &22202152
+CanvasRenderer:
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -14345,6 +15753,7 @@ MonoBehaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112128}
   m_Enabled: 1
+<<<<<<< HEAD
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -14373,6 +15782,22 @@ MonoBehaviour:
   m_Text: Rankings
 --- !u!114 &11495980
 MonoBehaviour:
+=======
+  serializedVersion: 2
+  m_RenderMode: 1
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &22400126
+RectTransform:
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -16462,8 +17887,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+<<<<<<< HEAD
   m_Father: {fileID: 22459444}
   m_RootOrder: 1
+=======
+  m_Father: {fileID: 22400126}
+  m_RootOrder: 3
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.000012874603, y: 2}
@@ -16479,8 +17909,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+<<<<<<< HEAD
   m_Father: {fileID: 22459444}
   m_RootOrder: 5
+=======
+  m_Father: {fileID: 22451994}
+  m_RootOrder: 0
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -51.4, y: -66.5}
@@ -16495,6 +17930,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
   m_Children: []
   m_Father: {fileID: 22420696}
   m_RootOrder: 2
@@ -16502,6 +17938,16 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.7, y: -29.2}
   m_SizeDelta: {x: 142.3, y: 38.9}
+=======
+  m_Children:
+  - {fileID: 22467578}
+  m_Father: {fileID: 22488720}
+  m_RootOrder: 4
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -60}
+  m_SizeDelta: {x: 318.915, y: 52}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22434094
 RectTransform:
@@ -16513,12 +17959,21 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+<<<<<<< HEAD
   m_Father: {fileID: 22417320}
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.0000047683716, y: 2}
   m_SizeDelta: {x: 142.3, y: 22}
+=======
+  m_Father: {fileID: 22478014}
+  m_RootOrder: 2
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.7, y: -29.2}
+  m_SizeDelta: {x: 142.3, y: 38.9}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22434922
 RectTransform:
@@ -16530,6 +17985,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+<<<<<<< HEAD
   - {fileID: 22420746}
   m_Father: {fileID: 22406110}
   m_RootOrder: 0
@@ -16537,6 +17993,17 @@ RectTransform:
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
+=======
+  - {fileID: 22407380}
+  - {fileID: 22406110}
+  - {fileID: 22464386}
+  m_Father: {fileID: 22402796}
+  m_RootOrder: 2
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1, y: -74}
+  m_SizeDelta: {x: 413, y: 348}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22435870
 RectTransform:
@@ -16749,6 +18216,7 @@ CanvasRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
   m_GameObject: {fileID: 156226}
 --- !u!222 &22276954
 CanvasRenderer:
@@ -16794,10 +18262,95 @@ CanvasRenderer:
   m_GameObject: {fileID: 106704}
 --- !u!222 &22278592
 CanvasRenderer:
+=======
+  m_GameObject: {fileID: 187966}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22440322}
+  m_RootOrder: 3
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.00000333786, y: 285}
+  m_SizeDelta: {x: 460, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22431174
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149130}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22400894}
+  m_RootOrder: 4
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1.5500066, y: -88.80001}
+  m_SizeDelta: {x: 66, y: 25}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22431818
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132846}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22400126}
+  m_RootOrder: 2
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.7, y: -29.2}
+  m_SizeDelta: {x: 142.3, y: 38.9}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22431986
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22411158}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.0000038146486, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22432230
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 116254}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22459444}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.000012874603, y: 2}
+  m_SizeDelta: {x: 142.3, y: 22}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22432876
+RectTransform:
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175240}
+<<<<<<< HEAD
 --- !u!222 &22278768
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -17028,25 +18581,76 @@ CanvasRenderer:
   m_GameObject: {fileID: 113790}
 --- !u!223 &22328228
 Canvas:
+=======
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22459444}
+  m_RootOrder: 5
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -51.4, y: -66.5}
+  m_SizeDelta: {x: 26.6, y: 25}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22433394
+RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 151554}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_RenderMode: 1
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
---- !u!224 &22400126
-=======
+  m_GameObject: {fileID: 114412}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22420696}
+  m_RootOrder: 2
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.7, y: -29.2}
+  m_SizeDelta: {x: 142.3, y: 38.9}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22434094
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 116642}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22417320}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.0000047683716, y: 2}
+  m_SizeDelta: {x: 142.3, y: 22}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22434922
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 22420746}
+  m_Father: {fileID: 22406110}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22435870
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122454}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -17660,55 +19264,84 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22460484
 RectTransform:
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120550}
+  m_GameObject: {fileID: 151554}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_RenderMode: 1
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &22400126
+=======
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 22406428}
+  m_Father: {fileID: 22490014}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000008821487, y: 0}
-  m_SizeDelta: {x: -0.000015259, y: 0}
+  m_AnchoredPosition: {x: 0.0000038146486, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!224 &22460910
+--- !u!224 &22437058
 RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188218}
+  m_GameObject: {fileID: 172732}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+<<<<<<< HEAD
+  m_Father: {fileID: 22449650}
+  m_RootOrder: 0
+=======
   m_Father: {fileID: 22470684}
   m_RootOrder: 5
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -51.4, y: -66.5}
-  m_SizeDelta: {x: 26.6, y: 25}
+  m_AnchoredPosition: {x: 0, y: 285.00012}
+  m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!224 &22463104
+--- !u!224 &22437434
 RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 136050}
+  m_GameObject: {fileID: 192734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+<<<<<<< HEAD
+  m_Father: {fileID: 22465830}
+  m_RootOrder: 0
+=======
   m_Father: {fileID: 22470684}
   m_RootOrder: 3
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000500679, y: -66.9}
-  m_SizeDelta: {x: 142.3, y: 28.575}
+  m_AnchoredPosition: {x: 0, y: 285.00012}
+  m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
+--- !u!224 &22438476
+=======
 --- !u!224 &22464386
 RectTransform:
   m_ObjectHideFlags: 1
@@ -17728,14 +19361,20 @@ RectTransform:
   m_SizeDelta: {x: 20, y: -17}
   m_Pivot: {x: 1, y: 1}
 --- !u!224 &22464914
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161904}
+  m_GameObject: {fileID: 112542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
+  m_Children: []
+  m_Father: {fileID: 22470194}
+  m_RootOrder: 1
+=======
   m_Children:
   - {fileID: 22455274}
   - {fileID: 22487176}
@@ -17744,6 +19383,911 @@ RectTransform:
   - {fileID: 22400472}
   m_Father: {fileID: 22492166}
   m_RootOrder: 2
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.0000038146973, y: 93.25}
+  m_SizeDelta: {x: 299, y: 33}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22438790
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 138322}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22417320}
+  m_RootOrder: 5
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -51.4, y: -66.5}
+  m_SizeDelta: {x: 26.6, y: 25}
+=======
+  m_GameObject: {fileID: 126490}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 22474110}
+  m_Father: {fileID: 22488720}
+  m_RootOrder: 3
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 35}
+  m_SizeDelta: {x: 318.915, y: 52}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22439926
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 151874}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22412318}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.000008821487, y: 0}
+  m_SizeDelta: {x: -0.000015259, y: 0}
+=======
+  m_GameObject: {fileID: 138890}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 22437434}
+  - {fileID: 22466830}
+  - {fileID: 22496654}
+  - {fileID: 22470194}
+  m_Father: {fileID: 22440322}
+  m_RootOrder: 4
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 460.58, y: 736}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22440202
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199836}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
+  m_Children: []
+  m_Father: {fileID: 22400894}
+  m_RootOrder: 2
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -52.6}
+  m_SizeDelta: {x: 180.6, y: 29.3}
+=======
+  m_Children:
+  - {fileID: 22401004}
+  m_Father: {fileID: 22465830}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -221}
+  m_SizeDelta: {x: 220, y: 98}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22440322
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151554}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+<<<<<<< HEAD
+  - {fileID: 22488720}
+  - {fileID: 22477962}
+  - {fileID: 22402796}
+  - {fileID: 22430908}
+  - {fileID: 22465830}
+  - {fileID: 22414700}
+  - {fileID: 22413410}
+  - {fileID: 22473920}
+  - {fileID: 22449650}
+  - {fileID: 22485654}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!224 &22440528
+=======
+  - {fileID: 22497622}
+  m_Father: {fileID: 22488720}
+  m_RootOrder: 7
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -64, y: 37}
+  m_SizeDelta: {x: 183, y: 52}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22467578
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139774}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+<<<<<<< HEAD
+  m_Father: {fileID: 22498220}
+  m_RootOrder: 2
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.7, y: -29.2}
+  m_SizeDelta: {x: 142.3, y: 38.9}
+=======
+  m_Father: {fileID: 22427940}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.000008821487, y: 0}
+  m_SizeDelta: {x: -0.000015259, y: 0}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22442104
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132624}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+<<<<<<< HEAD
+  - {fileID: 22474810}
+  m_Father: {fileID: 22477962}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.0000033171282, y: 0}
+  m_SizeDelta: {x: 320, y: 98}
+=======
+  - {fileID: 22445186}
+  m_Father: {fileID: 22413410}
+  m_RootOrder: 2
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50.000008}
+  m_SizeDelta: {x: 220, y: 98}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22442374
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105300}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
+  m_Children: []
+  m_Father: {fileID: 22400126}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 7.125, y: 44.2}
+  m_SizeDelta: {x: 75, y: 55}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22445186
+=======
+  m_Children:
+  - {fileID: 22412324}
+  m_Father: {fileID: 22449650}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50.000008}
+  m_SizeDelta: {x: 220, y: 98}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22468320
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181032}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+<<<<<<< HEAD
+  m_Father: {fileID: 22467748}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.0000038146482, y: -0.0000009536743}
+  m_SizeDelta: {x: 0, y: -26}
+=======
+  m_Father: {fileID: 22417320}
+  m_RootOrder: 3
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.00000500679, y: -66.9}
+  m_SizeDelta: {x: 142.3, y: 28.575}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22446212
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156226}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22464914}
+  m_RootOrder: 3
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.00000023841858, y: -88.8}
+  m_SizeDelta: {x: 187, y: 37.4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22447314
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184048}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
+  m_Children: []
+  m_Father: {fileID: 22498220}
+  m_RootOrder: 0
+=======
+  m_Children:
+  - {fileID: 22457494}
+  - {fileID: 22438476}
+  - {fileID: 22417320}
+  - {fileID: 22498220}
+  - {fileID: 22478014}
+  - {fileID: 22420696}
+  m_Father: {fileID: 22465830}
+  m_RootOrder: 3
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.050004, y: 44.2}
+  m_SizeDelta: {x: 75, y: 55}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22448172
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186708}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+<<<<<<< HEAD
+  - {fileID: 22401288}
+  m_Father: {fileID: 22477962}
+  m_RootOrder: 2
+=======
+  - {fileID: 22458812}
+  - {fileID: 22415444}
+  - {fileID: 22423350}
+  - {fileID: 22463104}
+  - {fileID: 22419386}
+  - {fileID: 22460910}
+  m_Father: {fileID: 22454452}
+  m_RootOrder: 3
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -125}
+  m_SizeDelta: {x: 320, y: 98}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22448386
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112134}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+<<<<<<< HEAD
+  m_Father: {fileID: 22400126}
+  m_RootOrder: 1
+=======
+  m_Father: {fileID: 22459810}
+  m_RootOrder: 3
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.0000047683716, y: 2}
+  m_SizeDelta: {x: 142.3, y: 22}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22449176
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123970}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22413410}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 292}
+  m_SizeDelta: {x: 371, y: 86}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22449258
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170244}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 22425466}
+  m_Father: {fileID: 22464386}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22449650
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178750}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 22437058}
+  - {fileID: 22468058}
+  - {fileID: 22484330}
+  - {fileID: 22492166}
+  m_Father: {fileID: 22440322}
+<<<<<<< HEAD
+  m_RootOrder: 8
+=======
+  m_RootOrder: 7
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 460.58, y: 736}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22450584
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124750}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22459810}
+  m_RootOrder: 0
+<<<<<<< HEAD
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.0000019073486, y: 40.572}
+  m_SizeDelta: {x: 82.7, y: 81.144}
+=======
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.000008821487, y: 0}
+  m_SizeDelta: {x: -0.000015259, y: 0}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22451010
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+<<<<<<< HEAD
+  m_Father: {fileID: 22451994}
+  m_RootOrder: 2
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -52.6}
+  m_SizeDelta: {x: 180.6, y: 29.3}
+=======
+  m_Father: {fileID: 22442104}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.0000038146486, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22451994
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163174}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
+  m_Children:
+  - {fileID: 22425918}
+  - {fileID: 22498896}
+  - {fileID: 22451010}
+  - {fileID: 22484556}
+  - {fileID: 22420150}
+  m_Father: {fileID: 22492166}
+  m_RootOrder: 3
+=======
+  m_Children: []
+  m_Father: {fileID: 22400800}
+  m_RootOrder: 4
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -102.000175, y: -151}
+  m_SizeDelta: {x: 187, y: 215}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22452096
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101254}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+<<<<<<< HEAD
+  m_Father: {fileID: 22400894}
+  m_RootOrder: 1
+=======
+  m_Father: {fileID: 22459810}
+  m_RootOrder: 2
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1.6000152, y: -19}
+  m_SizeDelta: {x: 183.8, y: 25}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22453374
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191492}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+<<<<<<< HEAD
+  m_Father: {fileID: 22459444}
+  m_RootOrder: 3
+=======
+  m_Father: {fileID: 22485654}
+  m_RootOrder: 0
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.00000500679, y: -66.9}
+  m_SizeDelta: {x: 142.3, y: 28.575}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22454134
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100282}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
+  m_Children: []
+  m_Father: {fileID: 22420696}
+  m_RootOrder: 4
+=======
+  m_Children:
+  - {fileID: 22486092}
+  m_Father: {fileID: 22488720}
+  m_RootOrder: 2
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.7499895, y: -70.1}
+  m_SizeDelta: {x: 66, y: 25}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22454356
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188318}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22464914}
+  m_RootOrder: 2
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
+  m_AnchoredPosition: {x: 0, y: -52.6}
+  m_SizeDelta: {x: 180.6, y: 29.3}
+=======
+  m_AnchoredPosition: {x: -0.7, y: -29.2}
+  m_SizeDelta: {x: 142.3, y: 38.9}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22454452
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178934}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+<<<<<<< HEAD
+  - {fileID: 22472122}
+  - {fileID: 22498120}
+  - {fileID: 22400126}
+  - {fileID: 22470684}
+  - {fileID: 22459444}
+  - {fileID: 22400800}
+  m_Father: {fileID: 22488720}
+  m_RootOrder: 10
+=======
+  - {fileID: 22484864}
+  - {fileID: 22442104}
+  - {fileID: 22448172}
+  m_Father: {fileID: 22440322}
+  m_RootOrder: 1
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 92}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22455274
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196116}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
+  m_Children: []
+  m_Father: {fileID: 22464914}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.0000019073486, y: 40.572}
+  m_SizeDelta: {x: 82.7, y: 81.144}
+=======
+  m_Children:
+  - {fileID: 22480034}
+  - {fileID: 22484138}
+  - {fileID: 22428588}
+  - {fileID: 22408968}
+  - {fileID: 22499758}
+  - {fileID: 22418566}
+  m_Father: {fileID: 22470194}
+  m_RootOrder: 4
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -80, y: -193}
+  m_SizeDelta: {x: 142.3, y: 163.6}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22457494
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186768}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22470194}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -84.7}
+  m_SizeDelta: {x: 348, y: 410.4}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22458214
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154642}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+<<<<<<< HEAD
+  m_Father: {fileID: 22484864}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.00000095367, y: 0}
+  m_SizeDelta: {x: -0.000015259, y: 0}
+=======
+  m_Father: {fileID: 22485654}
+  m_RootOrder: 2
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22458812
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119520}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+<<<<<<< HEAD
+  m_Father: {fileID: 22470684}
+  m_RootOrder: 0
+=======
+  m_Father: {fileID: 22400800}
+  m_RootOrder: 1
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.050004, y: 44.2}
+  m_SizeDelta: {x: 75, y: 55}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22459444
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101550}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
+  m_Children:
+  - {fileID: 22412792}
+  - {fileID: 22432230}
+  - {fileID: 22477222}
+  - {fileID: 22453374}
+  - {fileID: 22495190}
+  - {fileID: 22432876}
+  m_Father: {fileID: 22454452}
+  m_RootOrder: 4
+=======
+  m_Children: []
+  m_Father: {fileID: 22488720}
+  m_RootOrder: 0
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -80, y: -193}
+  m_SizeDelta: {x: 142.3, y: 163.6}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22459554
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100192}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+<<<<<<< HEAD
+  m_Father: {fileID: 22400800}
+  m_RootOrder: 5
+=======
+  m_Father: {fileID: 22478014}
+  m_RootOrder: 0
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -51.4, y: -66.5}
+  m_SizeDelta: {x: 26.6, y: 25}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22459810
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 22450584}
+  - {fileID: 22408290}
+  - {fileID: 22476400}
+  - {fileID: 22470988}
+  - {fileID: 22408170}
+  m_Father: {fileID: 22492166}
+<<<<<<< HEAD
+  m_RootOrder: 1
+=======
+  m_RootOrder: 0
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -102, y: 82}
+  m_SizeDelta: {x: 187, y: 215}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22460484
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120550}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+<<<<<<< HEAD
+  m_Father: {fileID: 22406428}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.000008821487, y: 0}
+  m_SizeDelta: {x: -0.000015259, y: 0}
+=======
+  m_Father: {fileID: 22473920}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22460910
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188218}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
+  m_Children: []
+  m_Father: {fileID: 22470684}
+  m_RootOrder: 5
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -51.4, y: -66.5}
+  m_SizeDelta: {x: 26.6, y: 25}
+=======
+  m_Children:
+  - {fileID: 22415954}
+  - {fileID: 22416678}
+  - {fileID: 22421906}
+  m_Father: {fileID: 22494794}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 206.75002, y: 38.499992}
+  m_SizeDelta: {x: 88, y: 88}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22463104
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136050}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+<<<<<<< HEAD
+  m_Father: {fileID: 22470684}
+  m_RootOrder: 3
+=======
+  m_Father: {fileID: 22478014}
+  m_RootOrder: 1
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.00000500679, y: -66.9}
+  m_SizeDelta: {x: 142.3, y: 28.575}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22464386
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146754}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 22449258}
+  m_Father: {fileID: 22429266}
+  m_RootOrder: 2
+<<<<<<< HEAD
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+=======
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 20, y: -17}
+  m_Pivot: {x: 1, y: 1}
+--- !u!224 &22464914
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161904}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
+  m_Children:
+  - {fileID: 22455274}
+  - {fileID: 22487176}
+  - {fileID: 22454356}
+  - {fileID: 22446212}
+  - {fileID: 22400472}
+  m_Father: {fileID: 22492166}
+  m_RootOrder: 2
+=======
+  m_Children: []
+  m_Father: {fileID: 22451994}
+  m_RootOrder: 3
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 102, y: 82}
@@ -17761,7 +20305,11 @@ RectTransform:
   m_Children:
   - {fileID: 22474110}
   m_Father: {fileID: 22488720}
+<<<<<<< HEAD
   m_RootOrder: 3
+=======
+  m_RootOrder: 8
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 35}
@@ -17777,12 +20325,19 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+<<<<<<< HEAD
   - {fileID: 22437434}
   - {fileID: 22466830}
   - {fileID: 22496654}
   - {fileID: 22470194}
   m_Father: {fileID: 22440322}
   m_RootOrder: 4
+=======
+  - {fileID: 22491434}
+  - {fileID: 22458214}
+  m_Father: {fileID: 22477962}
+  m_RootOrder: 0
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -17798,9 +20353,17 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+<<<<<<< HEAD
   - {fileID: 22401004}
   m_Father: {fileID: 22465830}
   m_RootOrder: 1
+=======
+  - {fileID: 22476578}
+  - {fileID: 22418150}
+  - {fileID: 22478700}
+  m_Father: {fileID: 22440322}
+  m_RootOrder: 9
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -221}
@@ -17815,6 +20378,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
   m_Children:
   - {fileID: 22497622}
   m_Father: {fileID: 22488720}
@@ -17823,6 +20387,15 @@ RectTransform:
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -64, y: 37}
   m_SizeDelta: {x: 183, y: 52}
+=======
+  m_Children: []
+  m_Father: {fileID: 22477018}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.0000038146482, y: -0.0000009536743}
+  m_SizeDelta: {x: 0, y: -26}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22467578
 RectTransform:
@@ -17834,12 +20407,21 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+<<<<<<< HEAD
   m_Father: {fileID: 22427940}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.000008821487, y: 0}
   m_SizeDelta: {x: -0.000015259, y: 0}
+=======
+  m_Father: {fileID: 22464914}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1.6000152, y: -19}
+  m_SizeDelta: {x: 183.8, y: 25}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22467748
 RectTransform:
@@ -17851,6 +20433,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+<<<<<<< HEAD
   - {fileID: 22445186}
   m_Father: {fileID: 22413410}
   m_RootOrder: 2
@@ -17858,6 +20441,25 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 50.000008}
   m_SizeDelta: {x: 220, y: 98}
+=======
+  - {fileID: 22479484}
+  - {fileID: 451682}
+  - {fileID: 22477018}
+  - {fileID: 22465626}
+  - {fileID: 22427940}
+  - {fileID: 22406428}
+  - {fileID: 22412318}
+  - {fileID: 22467222}
+  - {fileID: 22484766}
+  - {fileID: 22411158}
+  - {fileID: 22454452}
+  m_Father: {fileID: 22440322}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 460.58, y: 736}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22468058
 RectTransform:
@@ -17872,10 +20474,17 @@ RectTransform:
   - {fileID: 22412324}
   m_Father: {fileID: 22449650}
   m_RootOrder: 1
+<<<<<<< HEAD
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 50.000008}
   m_SizeDelta: {x: 220, y: 98}
+=======
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -300}
+  m_SizeDelta: {x: 320, y: 98}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22468320
 RectTransform:
@@ -17887,12 +20496,21 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+<<<<<<< HEAD
   m_Father: {fileID: 22417320}
   m_RootOrder: 3
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.00000500679, y: -66.9}
   m_SizeDelta: {x: 142.3, y: 28.575}
+=======
+  m_Father: {fileID: 22407116}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.0000038146482, y: -0.0000009536743}
+  m_SizeDelta: {x: 0, y: -26}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22470184
 RectTransform:
@@ -17904,12 +20522,21 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+<<<<<<< HEAD
   m_Father: {fileID: 22400800}
   m_RootOrder: 3
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.00000500679, y: -66.9}
   m_SizeDelta: {x: 142.3, y: 28.575}
+=======
+  m_Father: {fileID: 22484864}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.0000019073, y: 0}
+  m_SizeDelta: {x: -0.000015259, y: 0}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22470194
 RectTransform:
@@ -17921,6 +20548,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+<<<<<<< HEAD
   - {fileID: 22457494}
   - {fileID: 22438476}
   - {fileID: 22417320}
@@ -17932,6 +20560,18 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 100}
+=======
+  - {fileID: 22480464}
+  - {fileID: 22459810}
+  - {fileID: 22464914}
+  - {fileID: 22451994}
+  - {fileID: 22400894}
+  m_Father: {fileID: 22449650}
+  m_RootOrder: 3
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -0.00000047683716}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22470684
@@ -17943,6 +20583,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
   m_Children:
   - {fileID: 22458812}
   - {fileID: 22415444}
@@ -17952,6 +20593,11 @@ RectTransform:
   - {fileID: 22460910}
   m_Father: {fileID: 22454452}
   m_RootOrder: 3
+=======
+  m_Children: []
+  m_Father: {fileID: 22473920}
+  m_RootOrder: 0
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 76.43602, y: -9}
@@ -17967,8 +20613,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+<<<<<<< HEAD
   m_Father: {fileID: 22459810}
   m_RootOrder: 3
+=======
+  m_Father: {fileID: 22420696}
+  m_RootOrder: 1
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.00000023841858, y: -88.8}
@@ -18023,12 +20674,21 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22465626}
   m_RootOrder: 0
+<<<<<<< HEAD
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.000008821487, y: 0}
   m_SizeDelta: {x: -0.000015259, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22474810
+=======
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -206.25002, y: -0.000008785288}
+  m_SizeDelta: {x: 412.5, y: 343}
+  m_Pivot: {x: 0, y: 1}
+--- !u!224 &22494948
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 RectTransform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -18040,10 +20700,17 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22442104}
   m_RootOrder: 0
+<<<<<<< HEAD
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.0000038146486, y: 0}
   m_SizeDelta: {x: 0, y: 0}
+=======
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 285.00012}
+  m_SizeDelta: {x: 300, y: 100}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22476000
 RectTransform:
@@ -18072,8 +20739,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+<<<<<<< HEAD
   m_Father: {fileID: 22459810}
   m_RootOrder: 2
+=======
+  m_Father: {fileID: 22413410}
+  m_RootOrder: 1
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -52.6}
@@ -18088,6 +20760,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
   m_Children: []
   m_Father: {fileID: 22485654}
   m_RootOrder: 0
@@ -18095,6 +20768,16 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 285.00012}
   m_SizeDelta: {x: 300, y: 100}
+=======
+  m_Children:
+  - {fileID: 22497598}
+  m_Father: {fileID: 22465830}
+  m_RootOrder: 2
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
+  m_SizeDelta: {x: 220, y: 98}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22477018
 RectTransform:
@@ -18105,6 +20788,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
   m_Children:
   - {fileID: 22486092}
   m_Father: {fileID: 22488720}
@@ -18113,6 +20797,15 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 135}
   m_SizeDelta: {x: 220, y: 98}
+=======
+  m_Children: []
+  m_Father: {fileID: 22496654}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.0000038146482, y: -0.0000009536743}
+  m_SizeDelta: {x: 0, y: -26}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22477222
 RectTransform:
@@ -18124,12 +20817,21 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+<<<<<<< HEAD
   m_Father: {fileID: 22459444}
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.7, y: -29.2}
   m_SizeDelta: {x: 142.3, y: 38.9}
+=======
+  m_Father: {fileID: 22467222}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.000008821487, y: 0}
+  m_SizeDelta: {x: -0.000015259, y: 0}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22477962
 RectTransform:
@@ -18168,7 +20870,11 @@ RectTransform:
   - {fileID: 22499758}
   - {fileID: 22418566}
   m_Father: {fileID: 22470194}
+<<<<<<< HEAD
   m_RootOrder: 4
+=======
+  m_RootOrder: 3
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -80, y: -193}
@@ -18203,10 +20909,17 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22485654}
   m_RootOrder: 2
+<<<<<<< HEAD
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
+=======
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50.000008}
+  m_SizeDelta: {x: 220, y: 98}
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22478918
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
@@ -18232,6 +20945,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22400800}
   m_RootOrder: 1
+<<<<<<< HEAD
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18251,15 +20967,19 @@ RectTransform:
 <<<<<<< HEAD
   m_Father: {fileID: 22464914}
   m_RootOrder: 4
+<<<<<<< HEAD
 =======
   m_Father: {fileID: 22488720}
   m_RootOrder: 0
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
+=======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1.5500066, y: -88.80001}
   m_SizeDelta: {x: 66, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
 --- !u!224 &22400800
 RectTransform:
   m_ObjectHideFlags: 1
@@ -22283,6 +25003,8 @@ RectTransform:
   m_AnchoredPosition: {x: 2.7499895, y: -70.1}
   m_SizeDelta: {x: 66, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
+=======
+>>>>>>> parent of e08ba16... Added Boosters and Achievements
 =======
 >>>>>>> parent of e08ba16... Added Boosters and Achievements
 --- !u!1001 &100100000
