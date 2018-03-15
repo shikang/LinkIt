@@ -10,7 +10,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: WhyWool
-  productName: LinkItTest
+  productName: LinkIt
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 1
@@ -89,7 +89,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleIdentifier: com.Company.ProductName
+  bundleIdentifier: com.WhyWool.LinkIt
   bundleVersion: 1.0
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
@@ -98,7 +98,7 @@ PlayerSettings:
   virtualRealitySupported: 0
   productGUID: a3ec95e67cd5705409cd0364ffbe5a0b
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 16
+  AndroidMinSdkVersion: 9
   AndroidPreferredInstallLocation: 1
   aotOptions: 
   apiCompatibilityLevel: 2
@@ -158,10 +158,10 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/SolidRocker/Documents/GitHub/whywool.keystore
+  AndroidKeystoreName: C:/Users/ShiKang.Me/Desktop/LinkIt/Keystore/whywool.keystore
   AndroidKeyaliasName: whywool
-  AndroidTVCompatibility: 0
-  AndroidIsGame: 0
+  AndroidTVCompatibility: 1
+  AndroidIsGame: 1
   androidEnableBanner: 1
   m_AndroidBanners:
   - width: 320
@@ -442,10 +442,26 @@ PlayerSettings:
   XboxOneAllowedProductIds: []
   XboxOnePersistentLocalStorageSize: 0
   intPropertyNames:
+  - Android::ScriptingBackend
   - Standalone::ScriptingBackend
+  - WebPlayer::ScriptingBackend
+  - iOS::Architecture
+  - iOS::EnableIncrementalBuildSupportForIl2cpp
+  - iOS::ScriptingBackend
+  Android::ScriptingBackend: 0
   Standalone::ScriptingBackend: 0
-  boolPropertyNames: []
-  stringPropertyNames: []
+  WebPlayer::ScriptingBackend: 0
+  iOS::Architecture: 2
+  iOS::EnableIncrementalBuildSupportForIl2cpp: 1
+  iOS::ScriptingBackend: 1
+  boolPropertyNames:
+  - XboxOne::enus
+  XboxOne::enus: 1
+  stringPropertyNames:
+  - Build_ServiceEnabled::Build_ServiceEnabled
+  - UNet_ServiceEnabled::UNet_ServiceEnabled
+  Build_ServiceEnabled::Build_ServiceEnabled: False
+  UNet_ServiceEnabled::UNet_ServiceEnabled: True
   cloudProjectId: 8d72a45a-4787-4ebc-9f8b-54b98e4b64ec
   projectName: LinkIt
   organizationId: whywool
