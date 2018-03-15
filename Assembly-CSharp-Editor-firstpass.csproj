@@ -50,29 +50,32 @@
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\SoundbanksInfo.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\PluginInfo.xml" />
      <None Include="Assets\Photon Unity Networking\link.xml" />
-     <None Include="Assets\Wwise\Readme.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\Main.txt" />
+     <None Include="Assets\Wwise\Readme.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\Init.txt" />
-     <None Include="Assets\Wwise\Deployment\Plugins\Mac\Debug\AkSoundEngine.bundle\Contents\Resources\readme.txt" />
+     <None Include="Assets\GooglePlayGames\Editor\template-GameInfo.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\PluginInfo.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\SoundbanksInfo.xml" />
      <None Include="Assets\Plugins\Photon3Unity3D.xml" />
+     <None Include="Assets\GooglePlayGames\Editor\template-AndroidManifest.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\Main.txt" />
      <None Include="Assets\Plugins\release_history.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\Init.txt" />
+     <None Include="Assets\Wwise\Version.txt" />
      <None Include="Assets\WwiseSettings.xml" />
+     <None Include="Assets\GooglePlayGames\Editor\m2repository\com\google\games\gpgs-plugin-support\maven-metadata.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\Init.txt" />
      <None Include="Assets\Takohi\Android-Vibration-Plugin-Read-Me.txt" />
      <None Include="Assets\Shaders\Link.shader" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\SoundbanksInfo.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\Main.txt" />
-     <None Include="Assets\Wwise\Deployment\Plugins\Mac\Release\AkSoundEngine.bundle\Contents\Resources\readme.txt" />
+     <None Include="Assets\GooglePlayGames\Editor\template-Constants.txt" />
+     <None Include="Assets\GooglePlayGames\Editor\GPGSDependencies.xml" />
      <None Include="Assets\Shaders\Link2.shader" />
      <None Include="Assets\Photon Unity Networking\readme.txt" />
      <None Include="Assets\StreamingAssets\desc.txt" />
-     <None Include="Assets\Wwise\Version.txt" />
-     <None Include="Assets\Wwise\Deployment\Plugins\Mac\Profile\AkSoundEngine.bundle\Contents\Resources\readme.txt" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+     <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver_v1.2.59.0.txt" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
@@ -104,46 +107,52 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>C:/Users/SolidRocker/Documents/GitHub/Linkit/Assets/Photon Unity Networking/Editor/PhotonNetwork/Newtonsoft.Json.dll</HintPath>
+ <HintPath>C:/Users/SolidRocker/Desktop/Linkit/Assets/Photon Unity Networking/Editor/PhotonNetwork/Newtonsoft.Json.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.IOSResolver_v1.2.59.0">
+ <HintPath>C:/Users/SolidRocker/Desktop/Linkit/Assets/PlayServicesResolver/Editor/Google.IOSResolver_v1.2.59.0.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.JarResolver_v1.2.59.0">
+ <HintPath>C:/Users/SolidRocker/Desktop/Linkit/Assets/PlayServicesResolver/Editor/Google.JarResolver_v1.2.59.0.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.VersionHandler">
+ <HintPath>C:/Users/SolidRocker/Desktop/Linkit/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.VersionHandlerImpl_v1.2.59.0">
+ <HintPath>C:/Users/SolidRocker/Desktop/Linkit/Assets/PlayServicesResolver/Editor/Google.VersionHandlerImpl_v1.2.59.0.dll</HintPath>
  </Reference>
  <Reference Include="AndroidVibrationPlugin">
- <HintPath>C:/Users/SolidRocker/Documents/GitHub/Linkit/Assets/Plugins/AndroidVibrationPlugin.dll</HintPath>
+ <HintPath>C:/Users/SolidRocker/Desktop/Linkit/Assets/Plugins/AndroidVibrationPlugin.dll</HintPath>
  </Reference>
  <Reference Include="Photon3Unity3D">
- <HintPath>C:/Users/SolidRocker/Documents/GitHub/Linkit/Assets/Plugins/Photon3Unity3D.dll</HintPath>
+ <HintPath>C:/Users/SolidRocker/Desktop/Linkit/Assets/Plugins/Photon3Unity3D.dll</HintPath>
  </Reference>
  <Reference Include="Common">
- <HintPath>C:/Users/SolidRocker/Documents/GitHub/Linkit/Assets/Plugins/UnityPurchasing/Bin/Common.dll</HintPath>
+ <HintPath>C:/Users/SolidRocker/Desktop/Linkit/Assets/Plugins/UnityPurchasing/Bin/Common.dll</HintPath>
  </Reference>
  <Reference Include="Editor">
- <HintPath>C:/Users/SolidRocker/Documents/GitHub/Linkit/Assets/Plugins/UnityPurchasing/Bin/Editor.dll</HintPath>
+ <HintPath>C:/Users/SolidRocker/Desktop/Linkit/Assets/Plugins/UnityPurchasing/Bin/Editor.dll</HintPath>
  </Reference>
  <Reference Include="Security">
- <HintPath>C:/Users/SolidRocker/Documents/GitHub/Linkit/Assets/Plugins/UnityPurchasing/Bin/Security.dll</HintPath>
+ <HintPath>C:/Users/SolidRocker/Desktop/Linkit/Assets/Plugins/UnityPurchasing/Bin/Security.dll</HintPath>
  </Reference>
  <Reference Include="Stores">
- <HintPath>C:/Users/SolidRocker/Documents/GitHub/Linkit/Assets/Plugins/UnityPurchasing/Bin/Stores.dll</HintPath>
+ <HintPath>C:/Users/SolidRocker/Desktop/Linkit/Assets/Plugins/UnityPurchasing/Bin/Stores.dll</HintPath>
  </Reference>
  <Reference Include="Apple">
- <HintPath>C:/Users/SolidRocker/Documents/GitHub/Linkit/Assets/Plugins/UnityPurchasing/Bin/Apple/Apple.dll</HintPath>
+ <HintPath>C:/Users/SolidRocker/Desktop/Linkit/Assets/Plugins/UnityPurchasing/Bin/Apple/Apple.dll</HintPath>
  </Reference>
  <Reference Include="Tizen">
- <HintPath>C:/Users/SolidRocker/Documents/GitHub/Linkit/Assets/Plugins/UnityPurchasing/Bin/Tizen/Tizen.dll</HintPath>
+ <HintPath>C:/Users/SolidRocker/Desktop/Linkit/Assets/Plugins/UnityPurchasing/Bin/Tizen/Tizen.dll</HintPath>
  </Reference>
  <Reference Include="winrt">
- <HintPath>C:/Users/SolidRocker/Documents/GitHub/Linkit/Assets/Plugins/UnityPurchasing/winrt/winrt.dll</HintPath>
+ <HintPath>C:/Users/SolidRocker/Desktop/Linkit/Assets/Plugins/UnityPurchasing/winrt/winrt.dll</HintPath>
  </Reference>
  <Reference Include="websocket-sharp">
- <HintPath>C:/Users/SolidRocker/Documents/GitHub/Linkit/Assets/Plugins/WebSocket/websocket-sharp.dll</HintPath>
+ <HintPath>C:/Users/SolidRocker/Desktop/Linkit/Assets/Plugins/WebSocket/websocket-sharp.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.Android.Extensions">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.iOS.Extensions">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>

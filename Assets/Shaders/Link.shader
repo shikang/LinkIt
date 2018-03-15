@@ -1,4 +1,6 @@
-﻿Shader "Trail/Link"
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Trail/Link"
 {
 	Properties
 	{
@@ -50,7 +52,7 @@
 			v2f vert (appdata v)
 			{
 				v2f o;
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.color = v.color;
 				o.uv = v.uv;
 				return o;
