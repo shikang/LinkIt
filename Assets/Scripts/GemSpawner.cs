@@ -63,7 +63,7 @@ public class GemSpawner : MonoBehaviour
 	public const int MAX_LEVEL = ( ( int )SpawnPattern.DifficultyLevel.Total - 1 ) * 3;
 
 	public const int HEALTH_LOST_PER_GEM = 10;
-	public const int HEALTH_GAIN_PER_LINK = 2;
+	public const int HEALTH_GAIN_PER_LINK = 1;
 	public const int MAX_HEALTH = 100;
 	public const int LOW_HEALTH = (int)( 0.3f * MAX_HEALTH );
 
@@ -360,7 +360,7 @@ public class GemSpawner : MonoBehaviour
 		m_nShowingPoints = 0;
 		m_nPrevPoints = 0;
 		m_fPointTimer = 0.0f;
-		m_nHealth = (int)Mathf.Round(MAX_HEALTH * BoosterManager.Instance.GetMoreHealthOnce());
+		m_nHealth = MAX_HEALTH;
 		m_nCurrentCombo = 0;
 		m_nMaxCombo = 0;
 		m_nShowingCombo = 0;
@@ -371,7 +371,7 @@ public class GemSpawner : MonoBehaviour
 		m_fShowMultiplierTimer = 0.0f;
 		m_ShowMultiplierPos = m_MultiplierText.transform.position;
 		m_fSpawnRate = BASE_SPAWN_RATE - m_nLevel * SPAWN_RATE_GROWTH;
-		m_fBaseGemDropSpeed = m_HalfDimension.y * BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.SlowerGems) * 2.0f / ( BASE_GEM_DROP_TIME - ( m_nLevel / 2 ) * GEM_DROP_TIME_GROWTH );
+		m_fBaseGemDropSpeed = m_HalfDimension.y * 2.0f / ( BASE_GEM_DROP_TIME - ( m_nLevel / 2 ) * GEM_DROP_TIME_GROWTH );
 		m_nHighComboMultiplierIndex = 0;
 
 		m_PlayerStats = GameObject.FindGameObjectWithTag( "Player Statistics" ).GetComponent<PlayerStatistics>();
@@ -414,8 +414,6 @@ public class GemSpawner : MonoBehaviour
 		// Transition Overlay
 		GameObject transition = GameObject.FindGameObjectWithTag( "Transition" );
 		transition.transform.position += 5.0f * FRONT_OFFSET;
-
-		AchievementManager.Instance.ResetVars();
 
 #if LINKIT_COOP
 		if ( NetworkManager.IsConnected() )
@@ -649,11 +647,11 @@ public class GemSpawner : MonoBehaviour
 		m_PlayerStats.m_nLeakCount += !m_bGameover ? m_GemsToBeRemoved.Count : 0;
 		m_GemsToBeRemoved.Clear();
 
-		int healthReduce = (int)Mathf.Round(m_GemsToBeDestroyed.Count * HEALTH_LOST_PER_GEM * BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.Shield));
+		int healthReduce = m_GemsToBeDestroyed.Count * HEALTH_LOST_PER_GEM;
 
 		if ( m_GemsToBeDestroyed.Count > 0 )
 			BreakCombo();
-		
+
 		m_nHealth -= healthReduce;
 		m_HealthText.GetComponent<Text>().text = m_nHealth.ToString();
 		m_LineLine.GetComponent<SpriteRenderer>().color = GetLifeLineColour();
@@ -662,19 +660,6 @@ public class GemSpawner : MonoBehaviour
 			DestroyGem( m_GemsToBeDestroyed[k].GetComponent<Gem>() );
 		}
 		m_GemsToBeDestroyed.Clear();
-
-		if(AchievementManager.Instance.IsRecoverToPerfectFromRedAchieved() == false)
-		{
-			if(AchievementManager.Instance.healthisRed == false && m_nHealth <= 30)
-			{
-				AchievementManager.Instance.healthisRed = true;
-			}
-
-			if(AchievementManager.Instance.healthisRed && m_nHealth == MAX_HEALTH)
-			{
-				AchievementManager.Instance.RecoverToPerfectFromRed();
-			}
-		}
 	}
 
 	void AnimateGems()
@@ -908,8 +893,7 @@ public class GemSpawner : MonoBehaviour
 	int GetPointsGain( int num, int multiplier )
 	{
 		int pointsGain = num * PER_GEM_POINTS + num * ( ( num - 3 ) * ( PER_GEM_POINTS / 10 ) );
-		float mult_once = BoosterManager.Instance.GetScoreMultOnce();
-		return (int)Mathf.Round(multiplier * pointsGain * BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.ScoreMult) * mult_once);
+		return multiplier * pointsGain;
 	}
 
 	void StartRollingPoints( int pointsGain )
@@ -993,7 +977,7 @@ public class GemSpawner : MonoBehaviour
 			{
 				//m_fSpawnRate -= SPAWN_RATE_GROWTH;
 				m_fSpawnRate = BASE_SPAWN_RATE - m_nLevel * SPAWN_RATE_GROWTH;
-				m_fBaseGemDropSpeed = m_HalfDimension.y * BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.SlowerGems) * 2.0f / ( BASE_GEM_DROP_TIME - ( m_nLevel / 2 ) * GEM_DROP_TIME_GROWTH );
+				m_fBaseGemDropSpeed = m_HalfDimension.y * 2.0f / ( BASE_GEM_DROP_TIME - ( m_nLevel / 2 ) * GEM_DROP_TIME_GROWTH );
 
 				Debug.Log( "Spawn rate: " + m_fSpawnRate );
 				Debug.Log( "Drop rate: " + m_fBaseGemDropSpeed );
@@ -1047,8 +1031,6 @@ public class GemSpawner : MonoBehaviour
 
 				AddGainPointsEffect( g.transform.position, g.GemType, eachGain );
 			}
-
-			AchievementManager.Instance.UpdateMaxLinkGemsInOneChain(m_LinkedGem.Count);
 		}
 
 #if LINKIT_COOP
@@ -1085,6 +1067,7 @@ public class GemSpawner : MonoBehaviour
 
 		m_LinkedGem.Clear();
 		m_Link.CheckForDestroy = false;
+
 		UnlinkGold( destroy );
 
 		return true;
@@ -1274,7 +1257,6 @@ public class GemSpawner : MonoBehaviour
 	void CreateGem( int lane, int gemType )
 	{
 		GameObject gem = ( GameObject )Instantiate( m_aGemList[gemType], new Vector3( GetGemX( lane ), m_HalfDimension.y ), Quaternion.identity );
-		gem.transform.localScale *= BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.BiggerGems);
 		gem.GetComponent<Gem>().Lane = lane;
 		gem.GetComponent<Gem>().GemType = gemType;
 		gem.GetComponent<Gem>().SequenceIndex = m_nSequenceIndexFromList;
