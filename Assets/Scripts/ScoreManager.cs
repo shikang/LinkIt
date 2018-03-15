@@ -51,16 +51,12 @@ public class ScoreManager : MonoBehaviour
 		m_PlayerStats = GameObject.FindGameObjectWithTag( "Player Statistics" ).GetComponent<PlayerStatistics>();
 		m_Score.GetComponent<Text>().text = m_PlayerStats.m_nScore.ToString();
 
-		/*int gemDestroyed = 0;
+		int gemDestroyed = 0;
 		for ( int i = 0; i < m_PlayerStats.m_aDestroyCount.Length; ++i )
 		{
 			m_Counters[i].GetComponent<Text>().text = m_PlayerStats.m_aDestroyCount[i].ToString();
 			gemDestroyed += m_PlayerStats.m_aDestroyCount[i];
-		}*/
-
-		// Find the score without boosters, to use for gold calc
-		int realScore = (int)Mathf.Round(m_PlayerStats.m_nScore / BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.ScoreMult) / BoosterManager.Instance.GetScoreMultOnce());
-		int goldEarned = (int)Mathf.Round(realScore / 100 * BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.GoldMult) * BoosterManager.Instance.GetGoldMultOnce());
+		}
 
 		m_LeakedCounter.GetComponent<Text>().text = m_PlayerStats.m_nLeakCount.ToString();
 		m_ComboCounter.GetComponent<Text>().text = m_PlayerStats.m_nMaxCombo.ToString();
@@ -84,21 +80,6 @@ public class ScoreManager : MonoBehaviour
 		m_bAnimating = false;
 		m_nAnimatingFrame = -1;
 
-		if(m_PlayerStats.m_nScore > 0)
-		{
-			AchievementManager.Instance.AddGamesPlayed();
-			AchievementManager.Instance.AddCoinsEarned(goldEarned);
-			AchievementManager.Instance.AddScoreEarned(m_PlayerStats.m_nScore);
-			AchievementManager.Instance.AddLinkedGems(1, m_PlayerStats.m_aDestroyCount[0]);
-			AchievementManager.Instance.AddLinkedGems(2, m_PlayerStats.m_aDestroyCount[1]);
-			AchievementManager.Instance.AddLinkedGems(3, m_PlayerStats.m_aDestroyCount[2]);
-			AchievementManager.Instance.AddLinkedGems(4, m_PlayerStats.m_aDestroyCount[3]);
-
-			AchievementManager.Instance.AddCombo(m_PlayerStats.m_nMaxCombo);
-			AchievementManager.Instance.AddCoinsEarned_PerGame(goldEarned);
-			AchievementManager.Instance.AddScoreEarned_PerGame(m_PlayerStats.m_nScore);
-		}
-
 #if LINKIT_COOP
 		if( NetworkManager.IsConnected() )
 		{
@@ -107,11 +88,11 @@ public class ScoreManager : MonoBehaviour
 #endif   // LINKIT_COOP
 
 		GameData.Instance.m_Coin += m_PlayerStats.m_nCoinsGain;
-		m_CurrentCoins = GameData.Instance.m_Coin + goldEarned;
+		m_CurrentCoins = GameData.Instance.m_Coin + gemDestroyed;
 		m_nShowingCoins = GameData.Instance.m_Coin;
 		m_nPrevCoins = GameData.Instance.m_Coin;
 		m_fCoinsTimer = 0.0f;
-		GameData.Instance.m_Coin += goldEarned;
+		GameData.Instance.m_Coin += gemDestroyed;
 
 		Text coinsText = m_Coins.GetComponent<Text>();
 		coinsText.text = m_nShowingCoins.ToString();// + " (+" + m_PlayerStats.m_nCoinsGain + ")";
@@ -152,7 +133,6 @@ public class ScoreManager : MonoBehaviour
 
 	public void GoHome()
 	{
-		BoosterManager.Instance.ResetBoosterOnce();
 		GameObject.FindGameObjectWithTag( "Transition" ).GetComponent<Transition>().StartFadeOut( GoToHome );
 	}
 
@@ -189,16 +169,10 @@ public class ScoreManager : MonoBehaviour
 
 				for ( int i = 0; i < m_DummyGems.Length; ++ i )
 				{
-					if(frame < m_DummyGems[i].GetComponent<GemSpriteContainer>().m_GlowSprites.Length)
-					{
-						m_DummyGems[i].GetComponent<SpriteRenderer>().sprite = m_DummyGems[i].GetComponent<GemSpriteContainer>().m_GlowSprites[frame];
-					}
+					m_DummyGems[i].GetComponent<SpriteRenderer>().sprite = m_DummyGems[i].GetComponent<GemSpriteContainer>().m_GlowSprites[frame];
 				}
 
-				if(frame < m_DummyGems[0].GetComponent<GemSpriteContainer>().m_StoneSprites.Length)
-				{
-					m_DummyLeaked.GetComponent<SpriteRenderer>().sprite = m_DummyGems[0].GetComponent<GemSpriteContainer>().m_StoneSprites[frame];
-				}
+				m_DummyLeaked.GetComponent<SpriteRenderer>().sprite = m_DummyGems[0].GetComponent<GemSpriteContainer>().m_StoneSprites[frame];
 
 				if ( m_nAnimatingFrame == m_nFrameNum )
 				{

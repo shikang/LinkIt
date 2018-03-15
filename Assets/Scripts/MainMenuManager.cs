@@ -187,9 +187,6 @@ public class MainMenuManager : MonoBehaviour
 
 			m_fScreenFrom = currentPos.x;
 		}
-
-		if(m_CurrentScreen == (int)eScreen.ACHIEVEMENTS)
-			GPManager.ShowAchievementsUI();
 	}
 
 #if LINKIT_COOP
@@ -213,7 +210,7 @@ public class MainMenuManager : MonoBehaviour
 		if ( screen == eScreen.MAIN_MENU )
 			return;
 
-		Transform t = m_Screens[(int)screen].transform.Find( "Back Button" );
+		Transform t = m_Screens[(int)screen].transform.FindChild( "Back Button" );
 		Button b = t.GetComponent<Button>();
 		b.enabled = enable;
 
