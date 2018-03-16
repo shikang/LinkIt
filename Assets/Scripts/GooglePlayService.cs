@@ -41,7 +41,7 @@ public class GooglePlayService : MonoBehaviour
 		m_bShowingAchievement = true;
 	}
 
-	static void Initialise()
+	void Initialise()
 	{
 		if ( !s_Initialised )
 		{
@@ -75,7 +75,7 @@ public class GooglePlayService : MonoBehaviour
 		}
 	}
 
-	static void Authenticate()
+	void Authenticate()
 	{
 		// authenticate user:
 		Social.localUser.Authenticate( ( bool success ) => 
