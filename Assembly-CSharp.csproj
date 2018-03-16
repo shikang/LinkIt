@@ -229,6 +229,13 @@
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\WwiseObjectIDext.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\_ArrayPoolDefault.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\_ArrayPoolLEngineDefault.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Mac\AkAudioAPI_Mac.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Mac\AkAudioOutputType_Mac.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Mac\AkMemPoolAttributes_Mac.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Mac\AkPlatformInitSettings_Mac.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Mac\AkSoundEnginePINVOKE_Mac.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Mac\AkSoundEngine_Mac.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Mac\AkThreadProperties_Mac.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkAudioAPI_Windows.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkAudioOutputType_Windows.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkMemPoolAttributes_Windows.cs" />
@@ -237,6 +244,17 @@
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkSoundEngine_Windows.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkSoundQuality_Windows.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkThreadProperties_Windows.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\iOS\AkAudioOutputType_iOS.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\iOS\AkAudioSessionCategoryOptions_iOS.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\iOS\AkAudioSessionCategory_iOS.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\iOS\AkAudioSessionMode_iOS.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\iOS\AkAudioSessionProperties_iOS.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\iOS\AkAudioSessionSetActiveOptions_iOS.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\iOS\AkMemPoolAttributes_iOS.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\iOS\AkPlatformInitSettings_iOS.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\iOS\AkSoundEnginePINVOKE_iOS.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\iOS\AkSoundEngine_iOS.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\iOS\AkThreadProperties_iOS.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkAutoObject.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkAuxSendArray.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkCallbackManager.cs" />
@@ -254,6 +272,7 @@
      <Compile Include="Assets\Wwise\Deployment\Components\AkEventCallbackData.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkGameObj.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkGameObjEnvironmentData.cs" />
+     <Compile Include="Assets\Wwise\Deployment\Components\AkGameObjPosOffsetData.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkGameObjPositionData.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkGameObjPositionOffsetData.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkInitializer.cs" />
@@ -278,25 +297,34 @@
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\SoundbanksInfo.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\PluginInfo.xml" />
      <None Include="Assets\Photon Unity Networking\link.xml" />
-     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\Main.txt" />
      <None Include="Assets\Wwise\Readme.txt" />
+     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\Main.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\Init.txt" />
+<<<<<<< HEAD
+=======
+     <None Include="Assets\Wwise\Deployment\Plugins\Mac\Debug\AkSoundEngine.bundle\Contents\Resources\readme.txt" />
+>>>>>>> parent of 8ad5f23... Updated Prefabs that were causing crash
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\PluginInfo.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\SoundbanksInfo.xml" />
      <None Include="Assets\Plugins\Photon3Unity3D.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\Main.txt" />
      <None Include="Assets\Plugins\release_history.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\Init.txt" />
-     <None Include="Assets\Wwise\Version.txt" />
      <None Include="Assets\WwiseSettings.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\Init.txt" />
      <None Include="Assets\Takohi\Android-Vibration-Plugin-Read-Me.txt" />
      <None Include="Assets\Shaders\Link.shader" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\SoundbanksInfo.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\Main.txt" />
+<<<<<<< HEAD
+=======
+     <None Include="Assets\Wwise\Deployment\Plugins\Mac\Release\AkSoundEngine.bundle\Contents\Resources\readme.txt" />
+>>>>>>> parent of 8ad5f23... Updated Prefabs that were causing crash
      <None Include="Assets\Shaders\Link2.shader" />
      <None Include="Assets\Photon Unity Networking\readme.txt" />
      <None Include="Assets\StreamingAssets\desc.txt" />
+     <None Include="Assets\Wwise\Version.txt" />
+     <None Include="Assets\Wwise\Deployment\Plugins\Mac\Profile\AkSoundEngine.bundle\Contents\Resources\readme.txt" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

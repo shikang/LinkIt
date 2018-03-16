@@ -5,6 +5,7 @@ labels:
 - PUN
 - Photon
 - Networking
+<<<<<<< HEAD
 PluginImporter:
   serializedVersion: 1
   iconMap: {}
@@ -25,3 +26,9 @@ PluginImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+=======
+MonoAssemblyImporter:
+  serializedVersion: 1
+  iconMap: {}
+  executionOrder: {}
+>>>>>>> parent of 8ad5f23... Updated Prefabs that were causing crash
