@@ -50,28 +50,25 @@
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\SoundbanksInfo.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\PluginInfo.xml" />
      <None Include="Assets\Photon Unity Networking\link.xml" />
-     <None Include="Assets\Wwise\Readme.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\Main.txt" />
+     <None Include="Assets\Wwise\Readme.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\Init.txt" />
-     <None Include="Assets\Wwise\Deployment\Plugins\Mac\Debug\AkSoundEngine.bundle\Contents\Resources\readme.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\PluginInfo.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\SoundbanksInfo.xml" />
      <None Include="Assets\Plugins\Photon3Unity3D.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\Main.txt" />
      <None Include="Assets\Plugins\release_history.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\Init.txt" />
+     <None Include="Assets\Wwise\Version.txt" />
      <None Include="Assets\WwiseSettings.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\Init.txt" />
      <None Include="Assets\Takohi\Android-Vibration-Plugin-Read-Me.txt" />
      <None Include="Assets\Shaders\Link.shader" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\SoundbanksInfo.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\Main.txt" />
-     <None Include="Assets\Wwise\Deployment\Plugins\Mac\Release\AkSoundEngine.bundle\Contents\Resources\readme.txt" />
      <None Include="Assets\Shaders\Link2.shader" />
      <None Include="Assets\Photon Unity Networking\readme.txt" />
      <None Include="Assets\StreamingAssets\desc.txt" />
-     <None Include="Assets\Wwise\Version.txt" />
-     <None Include="Assets\Wwise\Deployment\Plugins\Mac\Profile\AkSoundEngine.bundle\Contents\Resources\readme.txt" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
@@ -138,12 +135,6 @@
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.Android.Extensions">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.iOS.Extensions">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
