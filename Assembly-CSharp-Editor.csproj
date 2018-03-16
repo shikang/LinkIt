@@ -118,7 +118,6 @@
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\PluginInfo.xml" />
      <None Include="Assets\Photon Unity Networking\link.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\Main.txt" />
-     <None Include="Assets\Wwise\Readme.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\Init.txt" />
      <None Include="Assets\GooglePlayGames\Editor\template-GameInfo.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\PluginInfo.xml" />
@@ -143,6 +142,7 @@
      <None Include="Assets\PlayServicesResolver\proguard-unity.txt" />
      <None Include="Assets\Photon Unity Networking\readme.txt" />
      <None Include="Assets\StreamingAssets\desc.txt" />
+     <None Include="Assets\Wwise\Readme.txt" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
