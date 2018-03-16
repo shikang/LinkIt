@@ -285,7 +285,7 @@ public class ShopManager : MonoBehaviour
 
 		GameObject mainMenuManager = GameObject.FindGameObjectWithTag( "Main Menu Manager" );
 		MainMenuManager mmm = mainMenuManager.GetComponent<MainMenuManager>();
-		//mmm.EnableBackButton( MainMenuManager.eScreen.ITEM, enable );
+		mmm.EnableBackButton( MainMenuManager.eScreen.ITEM, enable );
 
 		GameObject itemIcon = GetCurrentItemIcon();
 		Button b = itemIcon.GetComponent<Button>();

@@ -160,8 +160,6 @@
      <Compile Include="Assets\Scripts\RepelAnimator.cs" />
      <Compile Include="Assets\Scripts\SaveLoad.cs" />
      <Compile Include="Assets\Scripts\ScoreManager.cs" />
-     <Compile Include="Assets\Scripts\ShopController.cs" />
-     <Compile Include="Assets\Scripts\ShopMainMenu.cs" />
      <Compile Include="Assets\Scripts\ShopManager.cs" />
      <Compile Include="Assets\Scripts\Singleton.cs" />
      <Compile Include="Assets\Scripts\SpawnIndicator.cs" />
