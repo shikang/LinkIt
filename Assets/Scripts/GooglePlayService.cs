@@ -6,39 +6,92 @@ using UnityEngine.SocialPlatforms;
 
 public class GooglePlayService : MonoBehaviour
 {
-	private static bool s_Initialised = false;
-	private static bool s_Auth = false;
+	private enum GooglePlayState
+	{
+		NONE,
+		START_AUTH,
+		AUTHENTICATING,
+		CHECK_AUTH,
+		FAIL_AUTH,
+		SHOWING_ACHIEVEMENT,
+	};
 
-	private bool m_bShowingAchievement = false;
+	private static bool s_Initialised = false;
+
+	GooglePlayState m_State;
+	GooglePlayState m_QueueState;
 
 	// Use this for initialization
 	void Start ()
 	{
 		Initialise();
-		
-		m_bShowingAchievement = false;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		if ( s_Auth )
+		switch ( m_State )
 		{
-			Debug.Log("Social.ShowAchievementsUI()");
-			// show achievements UI
-			Social.ShowAchievementsUI();
+			case GooglePlayState.START_AUTH:
+				Authenticate();
+				break;
+			case GooglePlayState.AUTHENTICATING:
+				// Nothing
+				break;
+			case GooglePlayState.CHECK_AUTH:
+				if ( IsAuthenticated() )
+				{
+					EnableLoadingOverlay( false );
+					ResumeState();
+				}
+				else
+				{
+					// Wait
+				}
+				break;
+			case GooglePlayState.FAIL_AUTH:
+				if ( m_QueueState != GooglePlayState.NONE )
+				{
+					// Show popup
+					Popup popup = Popup.GetPopup();
+					if ( popup )
+					{
+						popup.ShowPopup( "Fail to connect to Google Play." );
+					}
+
+					m_QueueState = GooglePlayState.NONE;
+				}
+
+				m_State = GooglePlayState.NONE;
+				break;
+			case GooglePlayState.SHOWING_ACHIEVEMENT:
+				ShowAchievementUI();
+				break;
+			default:
+				// Idle
+				break;
 		}
 	}
 
-	public void ShowAchievementUI()
+	public void StartShowAchievementUI()
 	{
-		if ( !s_Auth )
+		m_State = GooglePlayState.SHOWING_ACHIEVEMENT;
+	}
+
+	void ShowAchievementUI()
+	{
+		if ( !IsAuthenticated() )
 		{
-			Debug.Log( "Social.localUser.Authenticate" );
+			PauseState( GooglePlayState.START_AUTH );
 			Authenticate();
 		}
+		else
+		{
+			Debug.Log( "Social.ShowAchievementsUI()" );
+			Social.ShowAchievementsUI();
 
-		m_bShowingAchievement = true;
+			m_State = GooglePlayState.NONE;
+		}
 	}
 
 	void Initialise()
@@ -58,7 +111,7 @@ public class GooglePlayService : MonoBehaviour
 			//.RequestEmail()
 			// requests a server auth code be generated so it can be passed to an
 			//  associated back end server application and exchanged for an OAuth token.
-			.RequestServerAuthCode( false )
+			//.RequestServerAuthCode( false )
 			// requests an ID token be generated.  This OAuth token can be used to
 			//  identify the player to other services such as Firebase.
 			//.RequestIdToken()
@@ -72,11 +125,21 @@ public class GooglePlayService : MonoBehaviour
 			PlayGamesPlatform.Activate();
 
 			s_Initialised = true;
+			m_State = GooglePlayState.START_AUTH;
+			m_QueueState = GooglePlayState.NONE;
 		}
 	}
 
 	void Authenticate()
 	{
+		if ( IsAuthenticated() )
+			return;
+
+		Debug.Log( "Social.localUser.Authenticate" );
+
+		EnableLoadingOverlay( true );
+		m_State = GooglePlayState.AUTHENTICATING;
+
 		// authenticate user:
 		Social.localUser.Authenticate( ( bool success ) => 
 		{
@@ -84,13 +147,44 @@ public class GooglePlayService : MonoBehaviour
 			Debug.Log( "Social.localUser.Authenticate success - " + success );
 			if ( success )
 			{
-				SetAuthenticated();
+				m_State = GooglePlayState.CHECK_AUTH;
+			}
+			else
+			{
+				m_State = GooglePlayState.FAIL_AUTH;
+				EnableLoadingOverlay( false );
 			}
 		} );
 	}
 
-	static void SetAuthenticated()
+	GameObject GetLoadingOverlay()
 	{
-		s_Auth = true;
+		return GameObject.FindGameObjectWithTag( "Loading Overlay" );
+	}
+
+	void EnableLoadingOverlay( bool enable )
+	{
+		GameObject overlay = GetLoadingOverlay();
+		if ( overlay != null )
+		{
+			overlay.SetActive( enable );
+		}
+	}
+
+	bool IsAuthenticated()
+	{
+		return Social.localUser.authenticated;
+	}
+
+	void ResumeState()
+	{
+		m_State = m_QueueState;
+		m_QueueState = GooglePlayState.NONE;
+	}
+
+	void PauseState( GooglePlayState goState )
+	{
+		m_QueueState = m_State;
+		m_State = goState;
 	}
 }
