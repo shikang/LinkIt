@@ -6,6 +6,7 @@ using UnityEngine.SocialPlatforms;
 
 public class GooglePlayService : MonoBehaviour
 {
+#if UNITY_ANDROID
 	private enum GooglePlayState
 	{
 		NONE,
@@ -187,4 +188,5 @@ public class GooglePlayService : MonoBehaviour
 		m_QueueState = m_State;
 		m_State = goState;
 	}
+#endif
 }
