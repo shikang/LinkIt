@@ -50,6 +50,8 @@ public class MainMenuManager : MonoBehaviour
 	private float m_fScreenWidth = 0.0f;
 	private float m_fScreenFrom = 0.0f;
 
+	public GameObject m_uPlayerCoins;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -81,6 +83,7 @@ public class MainMenuManager : MonoBehaviour
 	{
 		AnimateGems();
 		AnimationScreen();
+		m_uPlayerCoins.GetComponent<Text>().text = GameData.Instance.m_Coin.ToString();
 	}
 
 	void AnimateGems()

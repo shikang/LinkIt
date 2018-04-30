@@ -21,6 +21,7 @@ public class ScoreManager : MonoBehaviour
 	public GameObject m_DummyLeaked;
 
 	public GameObject m_Coins;
+	public GameObject m_CoinsThisRound;
 
 	public GameObject m_ScoreCanvas;
 	public GameObject m_GachaCanvas;
@@ -58,6 +59,7 @@ public class ScoreManager : MonoBehaviour
 			gemDestroyed += m_PlayerStats.m_aDestroyCount[i];
 		}
 
+		m_CoinsThisRound.GetComponent<Text>().text = gemDestroyed.ToString();
 		m_LeakedCounter.GetComponent<Text>().text = m_PlayerStats.m_nLeakCount.ToString();
 		m_ComboCounter.GetComponent<Text>().text = m_PlayerStats.m_nMaxCombo.ToString();
 

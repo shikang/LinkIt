@@ -27,10 +27,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42f5cbb48ff7b59499701145ce4a57e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_GemLibrary: {fileID: 0}
   m_ItemContent: {fileID: 0}
   m_Equipped: {fileID: 0}
   m_ItemPrefab: {fileID: 0}
+  m_uPlayerCoins: {fileID: 0}
   m_HorizontalScrollSnap: {fileID: 0}
 --- !u!224 &22430334
 RectTransform:

@@ -17,14 +17,57 @@ public class BoosterEntry : MonoBehaviour
 	public GameObject m_Bar;
 	public GameObject m_BarFrame;
 	public GameObject m_BarText;
+	public GameObject m_Overlay;
+	public GameObject m_OverlayText;
+	public GameObject m_OverlayLock;
+
+	bool isDimming = true;
 
 	void Start ()
 	{
-	
 	}
 
 	void Update ()
 	{
+		if(m_Type == BOOSTERTYPE.ScoreMult_Once)
+		{
+			m_Overlay.SetActive(!GameData.Instance.m_bUnlock_Games);
+			m_OverlayText.SetActive(!GameData.Instance.m_bUnlock_Games);
+			m_OverlayLock.SetActive(!GameData.Instance.m_bUnlock_Games);
+			m_OverlayText.GetComponent<Text>().text = "PLAY 5 GAMES TO UNLOCK!";
+		}
+		else if(m_Type == BOOSTERTYPE.GoldMult_Once)
+		{
+			m_Overlay.SetActive(!GameData.Instance.m_bUnlock_EarnPoints);
+			m_OverlayText.SetActive(!GameData.Instance.m_bUnlock_EarnPoints);
+			m_OverlayLock.SetActive(!GameData.Instance.m_bUnlock_EarnPoints);
+			m_OverlayText.GetComponent<Text>().text = "GET 20,000 POINTS IN ONE GAME TO UNLOCK!";
+		}
+		else if(m_Type == BOOSTERTYPE.MoreHealth_Once)
+		{
+			m_Overlay.SetActive(!GameData.Instance.m_bUnlock_Share_FB);
+			m_OverlayText.SetActive(!GameData.Instance.m_bUnlock_Share_FB);
+			m_OverlayLock.SetActive(!GameData.Instance.m_bUnlock_Share_FB);
+			m_OverlayText.GetComponent<Text>().text = "SHARE LINKIT WITH 3 FACEBOOK FRIENDS TO UNLOCK!";
+		}
+
+		if(m_OverlayText.GetActive())
+		{
+			Color tmp = m_OverlayText.GetComponent<Image>().color;
+			if(isDimming)
+			{
+				tmp.a -= 0.01f;
+				if(tmp.a <= 0.5f)
+					isDimming = false;
+			}
+			else
+			{
+				tmp.a += 0.01f;
+				if(tmp.a >= 1.0f)
+					isDimming = true;
+			}
+			m_OverlayText.GetComponent<Image>().color = tmp;
+		}
 	}
 
 	public void SetEntry(BOOSTERTYPE type_, BOOSTERDATA tmp_, int cLevel_, bool isOnce_)
@@ -34,6 +77,8 @@ public class BoosterEntry : MonoBehaviour
 		m_Desc.GetComponent<Text>().text = tmp_.desc;
 		m_Cost.GetComponent<Text>().text = tmp_.cost.ToString();
 		SetButtonText();
+		m_Overlay.SetActive(false);
+		m_OverlayText.SetActive(false);
 
 		if(isOnce_)
 		{
@@ -46,7 +91,6 @@ public class BoosterEntry : MonoBehaviour
 			m_CurrLevel = cLevel_;
 			SetLevelInfo();
 		}
-
 	}
 
 	public void PressButton()
