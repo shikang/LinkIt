@@ -308,6 +308,7 @@
      <Compile Include="Assets\PhotonChatApi\ChatState.cs" />
      <Compile Include="Assets\PhotonChatApi\ChatUserStatus.cs" />
      <Compile Include="Assets\PhotonChatApi\IChatClientListener.cs" />
+     <Compile Include="Assets\Scripts\AchievementController.cs" />
      <Compile Include="Assets\Scripts\AchievementEntry.cs" />
      <Compile Include="Assets\Scripts\AchievementManager.cs" />
      <Compile Include="Assets\Scripts\AchievementViewer.cs" />
@@ -352,6 +353,7 @@
      <Compile Include="Assets\Scripts\NetworkManager.cs" />
      <Compile Include="Assets\Scripts\PlayerStatistics.cs" />
      <Compile Include="Assets\Scripts\PointsGain.cs" />
+     <Compile Include="Assets\Scripts\Popup.cs" />
      <Compile Include="Assets\Scripts\Pulsing.cs" />
      <Compile Include="Assets\Scripts\PulsingBehaviour.cs" />
      <Compile Include="Assets\Scripts\PulsingParticleEmitter.cs" />

@@ -47,7 +47,7 @@ public class BoosterManager : MonoBehaviour
 
 		// Initialize the static class variables
 		instance = this;
-		DontDestroyOnLoad(gameObject);
+		//DontDestroyOnLoad(gameObject);
 	}
 
 	void Start()
