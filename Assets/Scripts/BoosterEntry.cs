@@ -53,11 +53,11 @@ public class BoosterEntry : MonoBehaviour
 
 		if(m_OverlayText.GetActive())
 		{
-			Color tmp = m_OverlayText.GetComponent<Image>().color;
+			Color tmp = m_OverlayText.GetComponent<Text>().color;
 			if(isDimming)
 			{
 				tmp.a -= 0.01f;
-				if(tmp.a <= 0.5f)
+				if(tmp.a <= 0.4f)
 					isDimming = false;
 			}
 			else
@@ -66,7 +66,7 @@ public class BoosterEntry : MonoBehaviour
 				if(tmp.a >= 1.0f)
 					isDimming = true;
 			}
-			m_OverlayText.GetComponent<Image>().color = tmp;
+			m_OverlayText.GetComponent<Text>().color = tmp;
 		}
 	}
 
