@@ -73,6 +73,7 @@ public class GemSpawner : MonoBehaviour
 	public readonly string[] PRAISE_ARRAY = { "", "", "", "Good", "Great", "Incredible!", "Awesome!" };
 
 	bool m_bGameStart = false;
+	bool isPraiseUp = false;
 
 	// Link
 	public GameObject m_LinkPrefab;
@@ -1800,6 +1801,28 @@ public class GemSpawner : MonoBehaviour
 		Vector3 pos = m_PraiseText.transform.position;
 		pos.y = m_PraisePos.y + factor * PRAISE_MOVE_DISTANCE;
 		m_PraiseText.transform.position = pos;
+
+		Color tmp = m_PraiseText.GetComponent<Text>().color;
+		if(isPraiseUp)
+		{
+			tmp.g += 0.03f;
+			tmp.b -= 0.03f;
+		}
+		else
+		{
+			tmp.g -= 0.03f;
+			tmp.b += 0.03f;
+		}
+
+		if(isPraiseUp && tmp.b <= 0.0f)
+			isPraiseUp = !isPraiseUp;
+		if(!isPraiseUp && tmp.b >= 0.5f)
+			isPraiseUp = !isPraiseUp;
+		m_PraiseText.GetComponent<Text>().color = tmp;
+		
+			
+
+
 	}
 
 	void AnimateShowMultiplier()

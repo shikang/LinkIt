@@ -14,6 +14,7 @@ public class ShopManager : MonoBehaviour
 	public GameObject m_Equipped;
 
 	public GameObject m_ItemPrefab;
+	public GameObject m_uPlayerCoins;
 
 	public HorizontalScrollSnap m_HorizontalScrollSnap;
 
@@ -67,7 +68,7 @@ public class ShopManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-
+		m_uPlayerCoins.GetComponent<Text>().text = GameData.Instance.m_Coin.ToString();
 	}
 
 	void SetItemIconEnable( GameObject itemIcon, bool enable )
