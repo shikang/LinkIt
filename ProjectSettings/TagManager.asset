@@ -17,6 +17,7 @@ TagManager:
   - Tutorial Manager
   - Loading Overlay
   - Popup
+  - Button
   layers:
   - Default
   - TransparentFX

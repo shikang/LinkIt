@@ -89,10 +89,17 @@ public class GooglePlayService : MonoBehaviour
 		else
 		{
 			Debug.Log( "Social.ShowAchievementsUI()" );
-			Social.ShowAchievementsUI();
+			MainMenuManager.DisableButtons();
+			PlayGamesPlatform.Instance.ShowAchievementsUI( EnableButtons );
 
 			m_State = GooglePlayState.NONE;
 		}
+	}
+
+	static void EnableButtons( UIStatus status )
+	{
+		Debug.Log( "UIStatus: " + status );
+		MainMenuManager.EnableButtons();
 	}
 
 	void Initialise()

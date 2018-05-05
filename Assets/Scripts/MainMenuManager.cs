@@ -223,4 +223,24 @@ public class MainMenuManager : MonoBehaviour
 		else
 			bs.SetDisable();
 	}
+
+	private static void EnableButtonsImpl( bool enable )
+	{
+		GameObject[] objs = GameObject.FindGameObjectsWithTag( "Button" );
+
+		foreach ( GameObject button in objs )
+		{
+			button.GetComponent<Button>().interactable = enable;
+		}
+	}
+
+	public static void DisableButtons()
+	{
+		EnableButtonsImpl( false );
+	}
+
+	public static void EnableButtons()
+	{
+		EnableButtonsImpl( true );
+	}
 }
