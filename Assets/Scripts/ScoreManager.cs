@@ -99,6 +99,12 @@ public class ScoreManager : MonoBehaviour
 		Text coinsText = m_Coins.GetComponent<Text>();
 		coinsText.text = m_nShowingCoins.ToString();// + " (+" + m_PlayerStats.m_nCoinsGain + ")";
 
+		AchievementManager.Instance.AddGamesPlayed();
+		AchievementManager.Instance.AddScoreEarned_PerGame( m_PlayerStats.m_nScore );
+		AchievementManager.Instance.AddScoreEarned( m_PlayerStats.m_nScore );
+		AchievementManager.Instance.AddCombo( m_PlayerStats.m_nMaxCombo );
+		//AchievementManager.Instance.AddCoinsEarned_PerGame( m_PlayerStats.m_nCoinsGain );
+		//AchievementManager.Instance.AddCoinsEarned( m_PlayerStats.m_nCoinsGain );
 		// Save
 		SaveLoad.Save();
 

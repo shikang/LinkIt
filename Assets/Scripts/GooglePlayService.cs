@@ -81,19 +81,34 @@ public class GooglePlayService : MonoBehaviour
 
 	void ShowAchievementUI()
 	{
-		if ( !IsAuthenticated() )
+		if (!IsAuthenticated())
 		{
-			PauseState( GooglePlayState.START_AUTH );
+			PauseState(GooglePlayState.START_AUTH);
 			Authenticate();
 		}
 		else
 		{
-			Debug.Log( "Social.ShowAchievementsUI()" );
+			Debug.Log("Social.ShowAchievementsUI()");
 			MainMenuManager.DisableButtons();
-			PlayGamesPlatform.Instance.ShowAchievementsUI( EnableButtons );
+			PlayGamesPlatform.Instance.ShowAchievementsUI(EnableButtons);
 
 			m_State = GooglePlayState.NONE;
 		}
+	}
+
+	public static void UnlockAcheivement( string achievementID )
+	{
+		ProgressAcheivement( achievementID, 0.0f );
+	}
+
+	// 0.0f to 100.0f
+	public static void ProgressAcheivement( string achievementID, float progress )
+	{
+		Social.ReportProgress( achievementID, progress, ( bool success ) => 
+		{
+			// handle success or failure
+			Debug.Log( "Social.localUser.ReportProgress success - " + success );
+		} );
 	}
 
 	static void EnableButtons( UIStatus status )
