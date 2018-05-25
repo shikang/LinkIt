@@ -15,6 +15,7 @@ public class GooglePlayService : MonoBehaviour
 		CHECK_AUTH,
 		FAIL_AUTH,
 		SHOWING_ACHIEVEMENT,
+		SHOWING_LEADERBOARD,
 	};
 
 	private static bool s_Initialised = false;
@@ -68,6 +69,9 @@ public class GooglePlayService : MonoBehaviour
 			case GooglePlayState.SHOWING_ACHIEVEMENT:
 				ShowAchievementUI();
 				break;
+			case GooglePlayState.SHOWING_LEADERBOARD:
+				ShowLeaderboardUI();
+				break;
 			default:
 				// Idle
 				break;
@@ -109,6 +113,36 @@ public class GooglePlayService : MonoBehaviour
 			// handle success or failure
 			Debug.Log( "Social.localUser.ReportProgress success - " + success );
 		} );
+	}
+
+	public void StartShowLeaderboardUI()
+	{
+		m_State = GooglePlayState.SHOWING_LEADERBOARD;
+	}
+
+	void ShowLeaderboardUI()
+	{
+		if (!IsAuthenticated())
+		{
+			PauseState(GooglePlayState.START_AUTH);
+			Authenticate();
+		}
+		else
+		{
+			Debug.Log("Social.ShowLeaderboardUI()");
+			MainMenuManager.DisableButtons();
+			PlayGamesPlatform.Instance.ShowLeaderboardUI(GPGSIds.leaderboard_high_score, EnableButtons);
+
+			m_State = GooglePlayState.NONE;
+		}
+	}
+
+	public static void PostHighScore(int highscore)
+	{
+		Social.ReportScore(highscore, GPGSIds.leaderboard_high_score, (bool success) => {
+			// handle success or failure
+			Debug.Log("Social.localUser.ReportScore success - " + success);
+		});
 	}
 
 	static void EnableButtons( UIStatus status )

@@ -105,6 +105,11 @@ public class ScoreManager : MonoBehaviour
 		AchievementManager.Instance.AddCombo( m_PlayerStats.m_nMaxCombo );
 		//AchievementManager.Instance.AddCoinsEarned_PerGame( m_PlayerStats.m_nCoinsGain );
 		//AchievementManager.Instance.AddCoinsEarned( m_PlayerStats.m_nCoinsGain );
+#if UNITY_ANDROID
+		GooglePlayService.PostHighScore( m_PlayerStats.m_nScore );
+#else
+		// @todo IOS leaderboard logic
+#endif
 		// Save
 		SaveLoad.Save();
 
