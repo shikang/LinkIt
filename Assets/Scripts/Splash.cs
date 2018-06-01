@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class Splash : MonoBehaviour
@@ -43,7 +43,7 @@ public class Splash : MonoBehaviour
 	void Update ()
 	{
 		if(Input.anyKey)
-			EditorSceneManager.LoadScene ("MainMenu");
+			SceneManager.LoadScene ("MainMenu");
 		
 		if(currScreen < screens.Length)
 		{
@@ -92,7 +92,7 @@ public class Splash : MonoBehaviour
 		}
 		else
 		{
-			EditorSceneManager.LoadScene ("MainMenu");
+			SceneManager.LoadScene ("MainMenu");
 		}
 	}
 }

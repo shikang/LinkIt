@@ -268,6 +268,12 @@ public class ShopManager : MonoBehaviour
 		return true;
 	}
 
+	public void DisableAds()
+	{
+		GameData.Instance.m_bIsAdsRemoved = true;
+		SaveLoad.Save();
+	}
+
 	public void ChangeEquippedSprite( GemLibrary.GemSet gemType )
 	{
 		SpriteRenderer sr = m_Equipped.GetComponent<SpriteRenderer>();

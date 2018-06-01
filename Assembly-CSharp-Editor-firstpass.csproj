@@ -63,7 +63,6 @@
      <None Include="Assets\Plugins\release_history.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\Init.txt" />
      <None Include="Assets\Plugins\Android\MainLibProj\AndroidManifest.xml" />
-     <None Include="Assets\Plugins\Heatmaps\Shaders\Blend.shader" />
      <None Include="Assets\WwiseSettings.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\Init.txt" />
      <None Include="Assets\Takohi\Android-Vibration-Plugin-Read-Me.txt" />
@@ -110,9 +109,6 @@
  </Reference>
  <Reference Include="UnityEngine.Purchasing">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
- </Reference>
- <Reference Include="Ionic.Zlib">
- <HintPath>C:/Users/Solid/Documents/WhyWool/GitHub/Linkit/Assets/Editor/Heatmaps/Lib/Ionic.Zlib.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
  <HintPath>C:/Users/Solid/Documents/WhyWool/GitHub/Linkit/Assets/Photon Unity Networking/Editor/PhotonNetwork/Newtonsoft.Json.dll</HintPath>

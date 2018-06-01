@@ -501,7 +501,6 @@
      <None Include="Assets\Plugins\release_history.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\Init.txt" />
      <None Include="Assets\Plugins\Android\MainLibProj\AndroidManifest.xml" />
-     <None Include="Assets\Plugins\Heatmaps\Shaders\Blend.shader" />
      <None Include="Assets\WwiseSettings.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\Init.txt" />
      <None Include="Assets\Takohi\Android-Vibration-Plugin-Read-Me.txt" />

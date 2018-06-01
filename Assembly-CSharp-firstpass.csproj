@@ -45,18 +45,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Plugins\Heatmaps\HeatmapDataParser.cs" />
-     <Compile Include="Assets\Plugins\Heatmaps\HeatmapEvent.cs" />
-     <Compile Include="Assets\Plugins\Heatmaps\Lib\MiniJSON.cs" />
-     <Compile Include="Assets\Plugins\Heatmaps\Renderer\AggregationMethod.cs" />
-     <Compile Include="Assets\Plugins\Heatmaps\Renderer\GradientContainer.cs" />
-     <Compile Include="Assets\Plugins\Heatmaps\Renderer\HeatPoint.cs" />
-     <Compile Include="Assets\Plugins\Heatmaps\Renderer\HeatmapController.cs" />
-     <Compile Include="Assets\Plugins\Heatmaps\Renderer\HeatmapMeshRenderer.cs" />
-     <Compile Include="Assets\Plugins\Heatmaps\Renderer\HeatmapSubmap.cs" />
-     <Compile Include="Assets\Plugins\Heatmaps\Renderer\IHeatmapRenderer.cs" />
-     <Compile Include="Assets\Plugins\Heatmaps\Renderer\RenderDirection.cs" />
-     <Compile Include="Assets\Plugins\Heatmaps\Renderer\RenderShape.cs" />
      <Compile Include="Assets\Plugins\UnityPurchasing\script\ComboBox.cs" />
      <Compile Include="Assets\Plugins\UnityPurchasing\script\Demo\DemoInventory.cs" />
      <Compile Include="Assets\Plugins\UnityPurchasing\script\IAPButton.cs" />
@@ -81,7 +69,6 @@
      <None Include="Assets\Plugins\release_history.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\Init.txt" />
      <None Include="Assets\Plugins\Android\MainLibProj\AndroidManifest.xml" />
-     <None Include="Assets\Plugins\Heatmaps\Shaders\Blend.shader" />
      <None Include="Assets\WwiseSettings.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\Init.txt" />
      <None Include="Assets\Takohi\Android-Vibration-Plugin-Read-Me.txt" />
