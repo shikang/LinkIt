@@ -98,7 +98,7 @@ public class AchievementManager : MonoBehaviour
 
 	void Start()
 	{
-		SaveLoad.Load();
+		//SaveLoad.Load();
 		m_fdisplayTimer = 0.0f;
 		m_gDisplayCanvas.GetComponent<CanvasGroup>().alpha = 0.0f;
 		//LoadAchievements();
