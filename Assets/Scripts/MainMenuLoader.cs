@@ -7,6 +7,7 @@ public class MainMenuLoader : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		// @todo: Use google play save
 		SaveLoad.Load();
 
 		// For first time use

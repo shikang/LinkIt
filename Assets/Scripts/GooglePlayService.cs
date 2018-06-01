@@ -3,6 +3,8 @@ using System.Collections;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 using UnityEngine.SocialPlatforms;
+using GooglePlayGames.BasicApi.SavedGame;
+using System;
 
 public class GooglePlayService : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class GooglePlayService : MonoBehaviour
 		CHECK_AUTH,
 		FAIL_AUTH,
 		SHOWING_ACHIEVEMENT,
+		SHOWING_LEADERBOARD,
 	};
 
 	private static bool s_Initialised = false;
@@ -68,6 +71,9 @@ public class GooglePlayService : MonoBehaviour
 			case GooglePlayState.SHOWING_ACHIEVEMENT:
 				ShowAchievementUI();
 				break;
+			case GooglePlayState.SHOWING_LEADERBOARD:
+				ShowLeaderboardUI();
+				break;
 			default:
 				// Idle
 				break;
@@ -111,6 +117,137 @@ public class GooglePlayService : MonoBehaviour
 		} );
 	}
 
+	public void StartShowLeaderboardUI()
+	{
+		m_State = GooglePlayState.SHOWING_LEADERBOARD;
+	}
+
+	void ShowLeaderboardUI()
+	{
+		if (!IsAuthenticated())
+		{
+			PauseState(GooglePlayState.START_AUTH);
+			Authenticate();
+		}
+		else
+		{
+			Debug.Log("Social.ShowLeaderboardUI()");
+			MainMenuManager.DisableButtons();
+			PlayGamesPlatform.Instance.ShowLeaderboardUI(GPGSIds.leaderboard_high_score, EnableButtons);
+
+			m_State = GooglePlayState.NONE;
+		}
+	}
+
+	public static void PostHighScore( int highscore )
+	{
+		Social.ReportScore( highscore, GPGSIds.leaderboard_high_score, ( bool success ) => {
+			// handle success or failure
+			Debug.Log( "Social.localUser.ReportScore success - " + success );
+		} );
+	}
+
+	public static void SaveGame()
+	{
+		OpenSavedGame( "linkit.gd", SaveAfterOpen );
+
+		// Backup save
+		SaveLoad.Save();
+	}
+
+	public static void LoadGame()
+	{
+		OpenSavedGame( "linkit.gd", LoadAfterOpen );
+	}
+
+	public static void SaveAfterOpen( SavedGameRequestStatus status, ISavedGameMetadata game )
+	{
+		if ( status == SavedGameRequestStatus.Success )
+		{
+			// handle reading or writing of saved game.
+			Debug.Log( "Saving game after open file" );
+			SaveGame( game );
+		}
+		else
+		{
+			// handle error
+			Debug.Log( "Fail to open file" );
+		}
+	}
+
+	public static void LoadAfterOpen( SavedGameRequestStatus status, ISavedGameMetadata game )
+	{
+		if ( status == SavedGameRequestStatus.Success )
+		{
+			// handle reading or writing of saved game.
+			Debug.Log( "Load game after open file" );
+			LoadGameData( game );
+		}
+		else
+		{
+			// handle error
+			Debug.Log( "Fail to open file, loading from backup" );
+			SaveLoad.Load();
+		}
+	}
+
+	public static void OpenSavedGame( string filename, Action<SavedGameRequestStatus, ISavedGameMetadata> callback )
+	{
+		ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
+		savedGameClient.OpenWithAutomaticConflictResolution( filename, DataSource.ReadCacheOrNetwork,
+			ConflictResolutionStrategy.UseLongestPlaytime, callback );
+	}
+
+	static void LoadGameData( ISavedGameMetadata game )
+	{
+		ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
+		savedGameClient.ReadBinaryData( game, OnSavedGameDataRead );
+	}
+
+	public static void OnSavedGameDataRead( SavedGameRequestStatus status, byte[] data )
+	{
+		if ( status == SavedGameRequestStatus.Success )
+		{
+			// handle processing the byte array data
+			SaveLoad.LoadFromByteArray( data );
+			Debug.Log( "Game data loaded" );
+		}
+		else
+		{
+			// Fail to load, read from file instead
+			Debug.Log( "Fail to load game data, loading from backup" );
+			SaveLoad.Load();
+		}
+	}
+
+	static void SaveGame( ISavedGameMetadata game )
+	{
+		byte[] savedData = SaveLoad.ToByteArray();
+
+		ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
+
+		SavedGameMetadataUpdate.Builder builder = new SavedGameMetadataUpdate.Builder();
+		builder = builder
+			.WithUpdatedDescription( "Saved game at " + DateTime.Now );
+		
+		SavedGameMetadataUpdate updatedMetadata = builder.Build();
+		savedGameClient.CommitUpdate( game, updatedMetadata, savedData, OnSavedGameWritten );
+	}
+
+	public static void OnSavedGameWritten( SavedGameRequestStatus status, ISavedGameMetadata game )
+	{
+		if ( status == SavedGameRequestStatus.Success )
+		{
+			// handle reading or writing of saved game.
+			Debug.Log( "Game data saved!" );
+		}
+		else
+		{
+			// handle error
+			Debug.Log( "Failed to save game data" );
+		}
+	}
+
 	static void EnableButtons( UIStatus status )
 	{
 		Debug.Log( "UIStatus: " + status );
@@ -123,7 +260,7 @@ public class GooglePlayService : MonoBehaviour
 		{
 			PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
 			// enables saving game progress.
-			//.EnableSavedGames()
+			.EnableSavedGames()
 			// registers a callback to handle game invitations received while the game is not running.
 			//.WithInvitationDelegate(< callback method >)
 			// registers a callback for turn based match notifications received while the

@@ -132,6 +132,12 @@ public class ScoreManager : MonoBehaviour
 		Text coinsText = m_Coins.GetComponent<Text>();
 		coinsText.text = m_nShowingCoins.ToString();// + " (+" + m_PlayerStats.m_nCoinsGain + ")";
 
+#if UNITY_ANDROID
+		GooglePlayService.PostHighScore( m_PlayerStats.m_nScore );
+#else
+		// @todo IOS leaderboard logic
+#endif
+
 		AchievementManager.Instance.BoosterGamesPlayed ();
 		AchievementManager.Instance.BoosterPointsEarned (m_PlayerStats.m_nScore);
 		

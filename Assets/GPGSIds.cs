@@ -25,10 +25,10 @@
 public static class GPGSIds
 {
         public const string leaderboard_high_score = "CgkIt5qY8OwEEAIQBw"; // <GPGSID>
-        public const string achievement_get_10_points = "CgkIt5qY8OwEEAIQBQ"; // <GPGSID>
+        public const string achievement_get_5000_points = "CgkIt5qY8OwEEAIQBQ"; // <GPGSID>
+        public const string achievement_get_10000_points = "CgkIt5qY8OwEEAIQBg"; // <GPGSID>
         public const string achievement_play_5_games = "CgkIt5qY8OwEEAIQBA"; // <GPGSID>
-        public const string achievement_play_a_game = "CgkIt5qY8OwEEAIQAw"; // <GPGSID>
-        public const string achievement_get_20_points = "CgkIt5qY8OwEEAIQBg"; // <GPGSID>
+        public const string achievement_play_3_game = "CgkIt5qY8OwEEAIQAw"; // <GPGSID>
         public const string achievement_visit_credits_screen_more = "CgkIt5qY8OwEEAIQAg"; // <GPGSID>
         public const string achievement_visit_credits_screen = "CgkIt5qY8OwEEAIQAQ"; // <GPGSID>
 

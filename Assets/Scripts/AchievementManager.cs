@@ -103,7 +103,7 @@ public class AchievementManager : MonoBehaviour
 
 	void Start()
 	{
-		SaveLoad.Load();
+		//SaveLoad.Load();
 		m_fdisplayTimer = 0.0f;
 		m_gDisplayCanvas.GetComponent<CanvasGroup>().alpha = 0.0f;
 	}
@@ -343,8 +343,8 @@ public class AchievementManager : MonoBehaviour
 		m_array_TotalGamesPlayed[13].count = 300;	m_array_TotalGamesPlayed[13].title = "Link Master";
 
 #if UNITY_ANDROID
-		m_array_TotalGamesPlayed[0].achievementID = "CgkIt5qY8OwEEAIQAw";
-		m_array_TotalGamesPlayed[1].achievementID = "CgkIt5qY8OwEEAIQBA";
+		m_array_TotalGamesPlayed[0].achievementID = GPGSIds.achievement_play_3_game;
+		m_array_TotalGamesPlayed[1].achievementID = GPGSIds.achievement_play_5_games;
 		m_array_TotalGamesPlayed[2].achievementID = "";
 		m_array_TotalGamesPlayed[3].achievementID = "";
 		m_array_TotalGamesPlayed[4].achievementID = "";
@@ -405,8 +405,8 @@ public class AchievementManager : MonoBehaviour
 		m_array_TotalScoreEarned[9].count = 2000000;	m_array_TotalScoreEarned[9].title = "Top Scorer";
 
 #if UNITY_ANDROID
-		m_array_TotalScoreEarned[0].achievementID = "CgkIt5qY8OwEEAIQBQ";
-		m_array_TotalScoreEarned[1].achievementID = "CgkIt5qY8OwEEAIQBg";
+		m_array_TotalScoreEarned[0].achievementID = GPGSIds.achievement_get_5000_points;
+		m_array_TotalScoreEarned[1].achievementID = GPGSIds.achievement_get_10000_points;
 		m_array_TotalScoreEarned[2].achievementID = "";
 		m_array_TotalScoreEarned[3].achievementID = "";
 		m_array_TotalScoreEarned[4].achievementID = "";

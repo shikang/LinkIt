@@ -40,4 +40,32 @@ public static class SaveLoad
 			GameData.Instance = new GameData();
 		}
 	}
+
+	public static void LoadFromByteArray( byte[] bytes )
+	{
+		if ( bytes.Length > 0 )	// Save exist
+		{
+			using ( var memStream = new MemoryStream() )
+			{
+				BinaryFormatter bf = new BinaryFormatter();
+				memStream.Write( bytes, 0, bytes.Length );
+				memStream.Seek( 0, SeekOrigin.Begin );
+				GameData.Instance = ( GameData )bf.Deserialize( memStream );
+			}
+		}
+		else
+		{
+			GameData.Instance = new GameData();
+		}
+	}
+
+	public static byte[] ToByteArray()
+	{
+		BinaryFormatter bf = new BinaryFormatter();
+		using ( var ms = new MemoryStream() )
+		{
+			bf.Serialize( ms, GameData.Instance );
+			return ms.ToArray();
+		}
+	}
 }

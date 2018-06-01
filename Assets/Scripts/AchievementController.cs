@@ -41,4 +41,29 @@ public class AchievementController : MonoBehaviour
 		// @todo Show Apple achievement
 #endif
 	}
+
+	public void StartShowLeaderboardUI()
+	{
+#if UNITY_ANDROID
+		GameObject playServiceObj = GameObject.Find( "Google Play Service" );
+		if ( playServiceObj != null )
+		{
+			GooglePlayService service = playServiceObj.GetComponent<GooglePlayService>();
+			if ( service != null )
+			{
+				service.StartShowLeaderboardUI();
+			}
+			else
+			{
+				Debug.Log( "GooglePlayService component can't be found" );
+			}
+		}
+		else
+		{
+			Debug.Log("Google Play Service game object can't be found");
+		}
+#elif UNITY_IOS
+		// @todo Show Apple achievement
+#endif
+	}
 }
