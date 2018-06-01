@@ -20,6 +20,10 @@ using UnityEngine.UI;
  *
  * Recover To perfect health from eed health
  * Linked X gems in one chain
+ * 
+ * Unlocked Booster: Played X games
+ * Unlocked Booster: Earned X points
+ * Unlocked Booster: Shared with X FB friends
  *
  * NOT IMPLEMENTED
  * Use X powerups in total
@@ -42,6 +46,7 @@ public class AchievementManager : MonoBehaviour
 {
 	// Display
 	List<ACHIEVEMENTSET> m_lAchivements = new List<ACHIEVEMENTSET>();
+	public GameObject go;
 	public GameObject m_gDisplayCanvas;
 	public GameObject m_gDisplayTitle;
 	public GameObject m_gDisplayDesc;
@@ -70,29 +75,29 @@ public class AchievementManager : MonoBehaviour
 	public ACHIEVEMENTSET m_RecoverToPerfectFromRed;
 	public ACHIEVEMENTSET [] m_array_LinkGemsInOneChain;
 
+	public ACHIEVEMENTSET m_BoosterPlayedGames;
+	public ACHIEVEMENTSET m_BoosterEarnedPoints;
+	public ACHIEVEMENTSET m_BoosterSharedFB;
+
 	// Singleton pattern
 	static AchievementManager instance;
 	public static AchievementManager Instance
 	{
-		get
-		{
-			if ( instance == null )
-			{
-				instance = new AchievementManager();
-				instance.LoadAchievements();
-			}
-
-			return instance;
-		}
+		get { return instance; }
 	}
 
 	void Awake()
 	{
-		//if (instance != null)
-		//	throw new System.Exception("You have more than 1 AchievementManager in the scene.");
-
+		if (instance != null)
+		{
+			//Destroy (this);
+			throw new System.Exception("You have more than 1 AchievementManager in the scene.");
+		}
+		
+		LoadAchievements();
+		
+		instance = this;
 		// Initialize the static class variables
-		//instance = this;
 		DontDestroyOnLoad(gameObject);
 	}
 
@@ -101,13 +106,14 @@ public class AchievementManager : MonoBehaviour
 		SaveLoad.Load();
 		m_fdisplayTimer = 0.0f;
 		m_gDisplayCanvas.GetComponent<CanvasGroup>().alpha = 0.0f;
-		//LoadAchievements();
 	}
 
 	public void ResetVars ()
 	{
 		healthisRed = false;
 		maxGemsPerChain = 0;
+		if(m_lAchivements.Count <= 0)
+			m_gDisplayCanvas.GetComponent<CanvasGroup>().alpha = 0.0f;
 	}
 
 	void Update ()
@@ -141,13 +147,14 @@ public class AchievementManager : MonoBehaviour
 		else
 		{
 			m_gDisplayCanvas.SetActive(false);
+			m_gDisplayCanvas.GetComponent<CanvasGroup>().alpha = 0.0f;
 		}
 	}
 
 	public void PrintObtainedText(ACHIEVEMENTSET ach)
 	{
 		m_lAchivements.Add(ach);
-		//Debug.Log("ACHIEVEMENT UNLOCKED!\n" + ach.title + ": " + ach.desc);
+		Debug.Log("ACHIEVEMENT UNLOCKED!\n" + ach.title + ": " + ach.desc);
 	}
 
 	void CheckCounters(ACHIEVEMENTSET[] arr, int currCount, ref int nextIndex)
@@ -266,6 +273,51 @@ public class AchievementManager : MonoBehaviour
 		CheckCounters(m_array_LinkGemsInOneChain, GameData.Instance.m_curr_LinkGemsInOneChain, ref GameData.Instance.m_next_LinkGemsInOneChain);
 	}
 
+	// BOOSTER: GAME PLAYED
+	public void BoosterGamesPlayed()
+	{
+		if (GameData.Instance.m_bUnlock_Games)
+			return;
+		
+		GameData.Instance.m_uUnlock_GamesCount--;
+		if(GameData.Instance.m_uUnlock_GamesCount <= 0)
+		{
+			GameData.Instance.m_bUnlock_Games = true;
+			PrintObtainedText(m_BoosterPlayedGames);
+			SaveLoad.Save();
+		}
+	}
+
+	// BOOSTER: POINTS EARNED
+	public void BoosterPointsEarned(int score)
+	{
+		if (GameData.Instance.m_bUnlock_EarnPoints)
+			return;
+		
+		GameData.Instance.m_uUnlock_EarnPointsCount -= score;
+		if(GameData.Instance.m_uUnlock_EarnPointsCount <= 0)
+		{
+			GameData.Instance.m_bUnlock_EarnPoints = true;
+			PrintObtainedText(m_BoosterEarnedPoints);
+			SaveLoad.Save();
+		}
+	}
+
+	// BOOSTER: SHARED ON FB
+	public void BoosterSharedFB(int amt)
+	{
+		if (GameData.Instance.m_bUnlock_Share_FB)
+			return;
+
+		GameData.Instance.m_uUnlock_Share_FBCount -= amt;
+		if(GameData.Instance.m_uUnlock_Share_FBCount <= 0)
+		{
+			GameData.Instance.m_bUnlock_Share_FB = true;
+			PrintObtainedText(m_BoosterSharedFB);
+			SaveLoad.Save();
+		}
+	}
+
 	public void UpdateMaxLinkGemsInOneChain(int chain)
 	{
 		if(chain > maxGemsPerChain)
@@ -275,7 +327,7 @@ public class AchievementManager : MonoBehaviour
 	void LoadAchievements()
 	{
 		m_array_TotalGamesPlayed = new ACHIEVEMENTSET[14];
-		m_array_TotalGamesPlayed[0].count = 3;		m_array_TotalGamesPlayed[0].title = "First Steps";			
+		m_array_TotalGamesPlayed[0].count = 1;		m_array_TotalGamesPlayed[0].title = "First Steps";			
 		m_array_TotalGamesPlayed[1].count = 5;		m_array_TotalGamesPlayed[1].title = "Beginner";				
 		m_array_TotalGamesPlayed[2].count = 10;		m_array_TotalGamesPlayed[2].title = "Novice";				
 		m_array_TotalGamesPlayed[3].count = 20;		m_array_TotalGamesPlayed[3].title = "Freshman";				
@@ -552,5 +604,26 @@ public class AchievementManager : MonoBehaviour
 		{
 			m_array_LinkGemsInOneChain[i].desc = "Linked " + m_array_LinkGemsInOneChain[i].count + " Gems in a Single Chain";
 		}
+
+		m_BoosterPlayedGames.title = "Score Multiplier Booster";
+		m_BoosterPlayedGames.desc = "Unlocked a score multiplier booster for one-time use!";
+		m_BoosterPlayedGames.count = 1;
+#if UNITY_ANDROID
+		m_BoosterPlayedGames.achievementID = "";
+#endif
+
+		m_BoosterPlayedGames.title = "Gold Multiplier Booster";
+		m_BoosterPlayedGames.desc = "Unlocked a gold multiplier booster for one-time use!";
+		m_BoosterPlayedGames.count = 1;
+#if UNITY_ANDROID
+		m_BoosterPlayedGames.achievementID = "";
+#endif
+
+		m_BoosterSharedFB.title = "Extra Health Booster";
+		m_BoosterSharedFB.desc = "Unlocked an extra health booster for one-time use!";
+		m_BoosterSharedFB.count = 1;
+#if UNITY_ANDROID
+		m_BoosterSharedFB.achievementID = "";
+#endif
 	}
 }

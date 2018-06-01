@@ -203,6 +203,8 @@ public class GemSpawner : MonoBehaviour
 #endif	// LINKIT_COOP
 	public GameObject m_PointsGain;
 
+	public bool m_bIsPaused;
+
 #if LINKIT_COOP
 	// Network
 	public GameObject m_NetworkGameTimerPrefab;
@@ -217,6 +219,7 @@ public class GemSpawner : MonoBehaviour
 	void Start ()
 	{
 		m_bGameStart = false;
+		m_bIsPaused = false;
 
 		// Initialise link
 		CreateLink();
@@ -473,6 +476,9 @@ public class GemSpawner : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+		if (m_bIsPaused)
+			return;
+		
 		Spawn();
 
 		if ( Input.GetMouseButtonDown( 0 ) )
@@ -1977,6 +1983,21 @@ public class GemSpawner : MonoBehaviour
 				UnlinkGem( g, false );
 			}
 		}
+	}
+
+	public void SetGameOver()
+	{
+		m_nHealth = 0;
+	}
+
+	public void PauseGame()
+	{
+		m_bIsPaused = true;
+	}
+
+	public void UnpauseGame()
+	{
+		m_bIsPaused = false;
 	}
 
 	void UpdateGameover()
