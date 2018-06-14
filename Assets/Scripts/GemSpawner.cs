@@ -8,6 +8,7 @@ using System.Linq;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.Analytics;
 
 public class GemSpawner : MonoBehaviour
 {
@@ -172,7 +173,7 @@ public class GemSpawner : MonoBehaviour
 	private int m_nShowingPoints = 0;
 	private int m_nPrevPoints = 0;
 	private float m_fPointTimer = 0.0f;
-	private int m_nHealth = MAX_HEALTH;
+	private int m_nHealth = (int)(MAX_HEALTH * BoosterManager.Instance.GetMoreHealthOnce());
 	private PlayerStatistics m_PlayerStats;
 	private bool m_bGameover = false;
 	private int m_nCurrentCombo = 0;
@@ -221,6 +222,19 @@ public class GemSpawner : MonoBehaviour
 		m_bGameStart = false;
 		m_bIsPaused = false;
 
+		// Booster check for analytics
+		Analytics.CustomEvent("UsedBoostersLvl", new Dictionary<string, object>
+		{
+			{"ScoreMult_Once", GameData.Instance.m_Boost_ScoreMultOnce},
+			{"GoldMult_Once", GameData.Instance.m_Boost_GoldMultOnce},
+			{"MoreHealthOnce", GameData.Instance.m_Boost_MoreHealthOnce},
+			{"ScoreMult", GameData.Instance.m_Boost_ScoreMult},
+			{"GoldMult", GameData.Instance.m_Boost_GoldMult},
+			{"Shield", GameData.Instance.m_Boost_Shield},
+			{"SlowerGems", GameData.Instance.m_Boost_SlowerGems},
+			{"BiggerGems", GameData.Instance.m_Boost_BiggerGems}
+		});
+				
 		// Initialise link
 		CreateLink();
 		m_Link = m_LinkObject.GetComponent<Link>();
@@ -364,7 +378,7 @@ public class GemSpawner : MonoBehaviour
 		m_nShowingPoints = 0;
 		m_nPrevPoints = 0;
 		m_fPointTimer = 0.0f;
-		m_nHealth = MAX_HEALTH;
+		m_nHealth = (int)(MAX_HEALTH * BoosterManager.Instance.GetMoreHealthOnce());
 		m_nCurrentCombo = 0;
 		m_nMaxCombo = 0;
 		m_nShowingCombo = 0;
@@ -376,6 +390,8 @@ public class GemSpawner : MonoBehaviour
 		m_ShowMultiplierPos = m_MultiplierText.transform.position;
 		m_fSpawnRate = BASE_SPAWN_RATE - m_nLevel * SPAWN_RATE_GROWTH;
 		m_fBaseGemDropSpeed = m_HalfDimension.y * 2.0f / ( BASE_GEM_DROP_TIME - ( m_nLevel / 2 ) * GEM_DROP_TIME_GROWTH );
+		m_fBaseGemDropSpeed *= BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.SlowerGems);
+
 		m_nHighComboMultiplierIndex = 0;
 
 		m_PlayerStats = GameObject.FindGameObjectWithTag( "Player Statistics" ).GetComponent<PlayerStatistics>();
@@ -659,7 +675,7 @@ public class GemSpawner : MonoBehaviour
 		if ( m_GemsToBeDestroyed.Count > 0 )
 			BreakCombo();
 
-		m_nHealth -= healthReduce;
+		m_nHealth -= (int)(healthReduce * BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.Shield));
 		m_HealthText.GetComponent<Text>().text = m_nHealth.ToString();
 		m_LineLine.GetComponent<SpriteRenderer>().color = GetLifeLineColour();
 		for ( int k = 0; k < m_GemsToBeDestroyed.Count; ++k )
@@ -1012,6 +1028,8 @@ public class GemSpawner : MonoBehaviour
 		{
 			// Points
 			int pointsGain = GetPointsGain( m_LinkedGem.Count, multiplier );
+			pointsGain = (int)(pointsGain * BoosterManager.Instance.GetScoreMultOnce ());
+			pointsGain = (int)(BoosterManager.Instance.GetBoostValue (BOOSTERTYPE.ScoreMult));
 			int eachGain = pointsGain / m_LinkedGem.Count;
 			StartRollingPoints( pointsGain );
 			m_PlayerStats.m_nScore = m_nPoints;
@@ -1267,6 +1285,7 @@ public class GemSpawner : MonoBehaviour
 		gem.GetComponent<Gem>().Lane = lane;
 		gem.GetComponent<Gem>().GemType = gemType;
 		gem.GetComponent<Gem>().SequenceIndex = m_nSequenceIndexFromList;
+		gem.transform.localScale *= BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.BiggerGems);
 #if LINKIT_COOP
 		if ( NetworkManager.IsConnected() )
 		{
@@ -1988,6 +2007,10 @@ public class GemSpawner : MonoBehaviour
 	public void SetGameOver()
 	{
 		m_nHealth = 0;
+		Analytics.CustomEvent("ManualExitGame", new Dictionary<string, object>
+		{
+			{"Exit", 1}
+		});
 	}
 
 	public void PauseGame()

@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.Analytics;
+using System.Collections.Generic;
 
 public class BoosterEntry : MonoBehaviour
 {
 	public BOOSTERTYPE m_Type;
 	public int m_MaxLevel = 5;	// Assume 5 for now
 	public int m_CurrLevel;
+	int m_bCost;
 
 	public GameObject m_Image;
 	public GameObject m_Title;
@@ -68,6 +71,17 @@ public class BoosterEntry : MonoBehaviour
 			}
 			m_OverlayText.GetComponent<Text>().color = tmp;
 		}
+
+		if(GameData.Instance.m_Coin < m_bCost)
+		{
+			m_Cost.GetComponent<Text>().color = Color.red;
+			m_LevelButton.GetComponent<Image> ().color = new Color (0.6f, 0.6f, 0.6f);
+		}
+		else
+		{
+			m_Cost.GetComponent<Text>().color = Color.black;
+			m_LevelButton.GetComponent<Image> ().color = new Color (1.0f, 1.0f, 1.0f);
+		}
 	}
 
 	public void SetEntry(BOOSTERTYPE type_, BOOSTERDATA tmp_, int cLevel_, bool isOnce_)
@@ -79,6 +93,7 @@ public class BoosterEntry : MonoBehaviour
 		SetButtonText();
 		m_Overlay.SetActive(false);
 		m_OverlayText.SetActive(false);
+		m_bCost = tmp_.cost;
 
 		if(isOnce_)
 		{
@@ -100,73 +115,121 @@ public class BoosterEntry : MonoBehaviour
 		if(m_Type == BOOSTERTYPE.ScoreMult_Once)
 		{
 			if(GameData.Instance.m_Boost_ScoreMultOnce)
+			{
 				RefundMoney(boosterCost);
+			}
 			else
-				BuyBooster(boosterCost);
-			GameData.Instance.m_Boost_ScoreMultOnce = !GameData.Instance.m_Boost_ScoreMultOnce;
-			SaveLoad.Save();
+			{
+				if(BuyBooster(boosterCost))
+				{
+					GameData.Instance.m_Boost_ScoreMultOnce = !GameData.Instance.m_Boost_ScoreMultOnce;
+					SaveLoad.Save();
+				}
+			}
 		}
 		else if(m_Type == BOOSTERTYPE.GoldMult_Once)
 		{
 			if(GameData.Instance.m_Boost_GoldMultOnce)
+			{
 				RefundMoney(boosterCost);
+			}
 			else
-				BuyBooster(boosterCost);
-			GameData.Instance.m_Boost_GoldMultOnce = !GameData.Instance.m_Boost_GoldMultOnce;
-			SaveLoad.Save();
+			{
+				if(BuyBooster(boosterCost))
+				{
+					GameData.Instance.m_Boost_GoldMultOnce = !GameData.Instance.m_Boost_GoldMultOnce;
+					SaveLoad.Save();
+				}
+			}
 		}
 		else if(m_Type == BOOSTERTYPE.MoreHealth_Once)
 		{
 			if(GameData.Instance.m_Boost_MoreHealthOnce)
+			{
 				RefundMoney(boosterCost);
+			}
 			else
-				BuyBooster(boosterCost);
-			GameData.Instance.m_Boost_MoreHealthOnce = !GameData.Instance.m_Boost_MoreHealthOnce;
-			SaveLoad.Save();
+			{
+				if(BuyBooster(boosterCost))
+				{
+					GameData.Instance.m_Boost_MoreHealthOnce = !GameData.Instance.m_Boost_MoreHealthOnce;
+					SaveLoad.Save();
+				}
+			}
 		}
 		else if(m_Type == BOOSTERTYPE.ScoreMult)
 		{
 			if(GameData.Instance.m_Boost_ScoreMult < m_MaxLevel)
 			{
-				BuyBooster(boosterCost);
-				GameData.Instance.m_Boost_ScoreMult += 1;
-				SaveLoad.Save();
+				if(BuyBooster(boosterCost))
+				{
+					GameData.Instance.m_Boost_ScoreMult += 1;
+					SaveLoad.Save();
+					Analytics.CustomEvent("BuyBoosterLvl", new Dictionary<string, object>
+					{
+						{"ScoreMult", GameData.Instance.m_Boost_ScoreMult}
+					});
+				}
 			}
 		}
 		else if(m_Type == BOOSTERTYPE.GoldMult)
 		{
 			if(GameData.Instance.m_Boost_GoldMult < m_MaxLevel)
 			{
-				BuyBooster(boosterCost);
-				GameData.Instance.m_Boost_GoldMult += 1;
-				SaveLoad.Save();
+				if(BuyBooster(boosterCost))
+				{
+					GameData.Instance.m_Boost_GoldMult += 1;
+					SaveLoad.Save();
+					Analytics.CustomEvent("BuyBoosterLvl", new Dictionary<string, object>
+					{
+						{"GoldMult", GameData.Instance.m_Boost_GoldMult}
+					});
+				}
 			}
 		}
 		else if(m_Type == BOOSTERTYPE.Shield)
 		{
 			if(GameData.Instance.m_Boost_Shield < m_MaxLevel)
 			{
-				BuyBooster(boosterCost);
-				GameData.Instance.m_Boost_Shield += 1;
-				SaveLoad.Save();
+				if(BuyBooster(boosterCost))
+				{
+					GameData.Instance.m_Boost_Shield += 1;
+					SaveLoad.Save();
+					Analytics.CustomEvent("BuyBoosterLvl", new Dictionary<string, object>
+					{
+						{"Shield", GameData.Instance.m_Boost_Shield}
+					});
+				}
 			}
 		}
 		else if(m_Type == BOOSTERTYPE.SlowerGems)
 		{
 			if(GameData.Instance.m_Boost_SlowerGems < m_MaxLevel)
 			{
-				BuyBooster(boosterCost);
-				GameData.Instance.m_Boost_SlowerGems += 1;
-				SaveLoad.Save();
+				if(BuyBooster(boosterCost))
+				{
+					GameData.Instance.m_Boost_SlowerGems += 1;
+					SaveLoad.Save();
+					Analytics.CustomEvent("BuyBoosterLvl", new Dictionary<string, object>
+					{
+						{"SlowerGems", GameData.Instance.m_Boost_SlowerGems}
+					});
+				}
 			}
 		}
 		else if(m_Type == BOOSTERTYPE.BiggerGems)
 		{
 			if(GameData.Instance.m_Boost_BiggerGems < m_MaxLevel)
 			{
-				BuyBooster(boosterCost);
-				GameData.Instance.m_Boost_BiggerGems += 1;
-				SaveLoad.Save();
+				if(BuyBooster(boosterCost))
+				{
+					GameData.Instance.m_Boost_BiggerGems += 1;
+					SaveLoad.Save();
+					Analytics.CustomEvent("BuyBoosterLvl", new Dictionary<string, object>
+					{
+						{"BiggerGems", GameData.Instance.m_Boost_BiggerGems}
+					});
+				}
 			}
 		}
 
@@ -176,27 +239,43 @@ public class BoosterEntry : MonoBehaviour
 	void SetButtonText()
 	{
 		m_LevelText.GetComponent<Text>().text = "GET!";
+
+		m_LevelButton.GetComponent<Image> ().color = new Color (1.0f, 1.0f, 1.0f);
 		if(m_Type == BOOSTERTYPE.ScoreMult_Once)
 		{
 			if(GameData.Instance.m_Boost_ScoreMultOnce)
+			{
 				m_LevelText.GetComponent<Text>().text = "In Use";
+				m_LevelButton.GetComponent<Image> ().color = new Color (1.0f, 0.87f, 0.0f); // gold
+			}
 		}
 		else if(m_Type == BOOSTERTYPE.GoldMult_Once)
 		{
 			if(GameData.Instance.m_Boost_GoldMultOnce)
+			{
 				m_LevelText.GetComponent<Text>().text = "In Use";
+				m_LevelButton.GetComponent<Image> ().color = new Color (1.0f, 0.87f, 0.0f); // gold
+			}
 		}
 		else if(m_Type == BOOSTERTYPE.MoreHealth_Once)
 		{
 			if(GameData.Instance.m_Boost_MoreHealthOnce)
+			{
 				m_LevelText.GetComponent<Text>().text = "In Use";
+				m_LevelButton.GetComponent<Image> ().color = new Color (1.0f, 0.87f, 0.0f); // gold
+			}
 		}
 		else
 		{
 			if(m_CurrLevel < m_MaxLevel)
+			{
 				m_LevelText.GetComponent<Text>().text = "LEVEL UP";
+			}
 			else
-				m_LevelText.GetComponent<Text>().text = "MAX LEVEL";
+			{
+				m_LevelText.GetComponent<Text>().text = "MAXED!";
+				m_LevelButton.GetComponent<Image> ().color = new Color (1.0f, 0.87f, 0.0f); // gold
+			}
 		}
 	}
 

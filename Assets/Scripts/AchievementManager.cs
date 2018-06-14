@@ -50,6 +50,9 @@ public class AchievementManager : MonoBehaviour
 	public GameObject m_gDisplayCanvas;
 	public GameObject m_gDisplayTitle;
 	public GameObject m_gDisplayDesc;
+	public GameObject m_gPrefab;
+
+
 	const float CANVAS_ALPHASPEED = 3.0f;
 	float m_fdisplayTimer;
 	bool isFading = false;
@@ -90,8 +93,9 @@ public class AchievementManager : MonoBehaviour
 	{
 		if (instance != null)
 		{
-			//Destroy (this);
-			throw new System.Exception("You have more than 1 AchievementManager in the scene.");
+			Destroy (this.gameObject);
+			return;
+			//throw new System.Exception("You have more than 1 AchievementManager in the scene.");
 		}
 		
 		LoadAchievements();
@@ -154,7 +158,7 @@ public class AchievementManager : MonoBehaviour
 	public void PrintObtainedText(ACHIEVEMENTSET ach)
 	{
 		m_lAchivements.Add(ach);
-		Debug.Log("ACHIEVEMENT UNLOCKED!\n" + ach.title + ": " + ach.desc);
+		//Debug.Log("ACHIEVEMENT UNLOCKED!\n" + ach.title + ": " + ach.desc);
 	}
 
 	void CheckCounters(ACHIEVEMENTSET[] arr, int currCount, ref int nextIndex)
