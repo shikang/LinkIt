@@ -28,6 +28,7 @@ public class MainMenuManager : MonoBehaviour
 		OPTIONS,
 		CREDITS,
 		ACHIEVEMENTS,
+		BOOSTER,
 
 		TOTAL
 	}

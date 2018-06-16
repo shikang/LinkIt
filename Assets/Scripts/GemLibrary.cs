@@ -34,7 +34,7 @@ public class GemLibrary : MonoBehaviour
 	{
 		if ( m_Instance != null )
 		{
-			Destroy( this );
+			Destroy( this.gameObject );
 		}
 		else
 		{

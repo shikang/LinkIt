@@ -461,8 +461,12 @@ PlayerSettings:
   XboxOne::enus: 1
   stringPropertyNames:
   - Build_ServiceEnabled::Build_ServiceEnabled
+  - ErrorHub_ServiceEnabled::ErrorHub_ServiceEnabled
+  - Hub_ServiceEnabled::Hub_ServiceEnabled
   - UNet_ServiceEnabled::UNet_ServiceEnabled
   Build_ServiceEnabled::Build_ServiceEnabled: False
+  ErrorHub_ServiceEnabled::ErrorHub_ServiceEnabled: False
+  Hub_ServiceEnabled::Hub_ServiceEnabled: False
   UNet_ServiceEnabled::UNet_ServiceEnabled: True
   cloudProjectId: 8d72a45a-4787-4ebc-9f8b-54b98e4b64ec
   projectName: LinkIt

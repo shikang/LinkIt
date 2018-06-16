@@ -112,7 +112,7 @@ public class ScoreManager : MonoBehaviour
 			{ "YellowGem", m_PlayerStats.m_aDestroyCount[3] },
 			{ "GreyGem", m_PlayerStats.m_nLeakCount.ToString() },
 			{ "Combo", m_PlayerStats.m_nMaxCombo },
-			{ "Score", goldEarned }
+			{ "GoldEarned", goldEarned }
 		});
 
 #if LINKIT_COOP
