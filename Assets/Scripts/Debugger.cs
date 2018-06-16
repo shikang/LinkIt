@@ -11,7 +11,10 @@ public class Debugger : Singleton<Debugger>
 
 	public static void AddGold()
 	{
+#if ADD_GOLD_ENABLE
 		GameData.Instance.m_Coin += 100;
-		SaveLoad.Save();
+		//SaveLoad.Save();
+		SaveDataLoader.SaveGame();
+#endif
 	}
 }

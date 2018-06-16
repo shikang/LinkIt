@@ -22,7 +22,8 @@ public class Adverts : MonoBehaviour
 	public void RemoveAds()
 	{
 		//GameData.current.removeAds = true;
-		SaveLoad.Save();
+		//SaveLoad.Save();
+		SaveDataLoader.SaveGame();
 		Debug.Log("Removing Random Ads");
 	}
 

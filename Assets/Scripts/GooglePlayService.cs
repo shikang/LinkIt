@@ -21,6 +21,7 @@ public class GooglePlayService : MonoBehaviour
 	};
 
 	private static bool s_Initialised = false;
+	private static bool s_Loaded = false;
 
 	GooglePlayState m_State;
 	GooglePlayState m_QueueState;
@@ -189,6 +190,13 @@ public class GooglePlayService : MonoBehaviour
 			Debug.Log( "Fail to open file, loading from backup" );
 			SaveLoad.Load();
 		}
+
+		s_Loaded = true;
+	}
+
+	public static bool IsLoaded()
+	{
+		return s_Loaded;
 	}
 
 	public static void OpenSavedGame( string filename, Action<SavedGameRequestStatus, ISavedGameMetadata> callback )
@@ -260,7 +268,7 @@ public class GooglePlayService : MonoBehaviour
 		{
 			PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
 			// enables saving game progress.
-			.EnableSavedGames()
+			//.EnableSavedGames()
 			// registers a callback to handle game invitations received while the game is not running.
 			//.WithInvitationDelegate(< callback method >)
 			// registers a callback for turn based match notifications received while the
@@ -331,7 +339,7 @@ public class GooglePlayService : MonoBehaviour
 		}
 	}
 
-	bool IsAuthenticated()
+	public static bool IsAuthenticated()
 	{
 		return Social.localUser.authenticated;
 	}

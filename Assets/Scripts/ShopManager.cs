@@ -256,7 +256,8 @@ public class ShopManager : MonoBehaviour
 				Debug.Log( "You have: " + i.ToString() );
 			}
 
-			SaveLoad.Save();
+			//SaveLoad.Save();
+			SaveDataLoader.SaveGame();
 			return true;
 		}
 		else
@@ -271,7 +272,8 @@ public class ShopManager : MonoBehaviour
 	public void DisableAds()
 	{
 		GameData.Instance.m_bIsAdsRemoved = true;
-		SaveLoad.Save();
+		//SaveLoad.Save();
+		SaveDataLoader.SaveGame();
 	}
 
 	public void ChangeEquippedSprite( GemLibrary.GemSet gemType )

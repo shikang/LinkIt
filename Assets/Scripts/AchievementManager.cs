@@ -103,6 +103,7 @@ public class AchievementManager : MonoBehaviour
 
 	void Start()
 	{
+		// Called by someone else
 		//SaveLoad.Load();
 		m_fdisplayTimer = 0.0f;
 		m_gDisplayCanvas.GetComponent<CanvasGroup>().alpha = 0.0f;
@@ -182,7 +183,8 @@ public class AchievementManager : MonoBehaviour
 			GooglePlayService.ProgressAcheivement( arr[currentIndex].achievementID, (float)currCount / arr[currentIndex].count );
 		}
 #endif
-		SaveLoad.Save();
+		//SaveLoad.Save();
+		SaveDataLoader.SaveGame();
 	}
 
 	// PLAYED X GAMES
@@ -256,7 +258,8 @@ public class AchievementManager : MonoBehaviour
 	{
 		GameData.Instance.m_RecoverToPerfectFromRed = 1;
 		PrintObtainedText(m_RecoverToPerfectFromRed);
-		SaveLoad.Save();
+		//SaveLoad.Save();
+		SaveDataLoader.SaveGame();
 	}
 
 	public bool IsRecoverToPerfectFromRedAchieved()
@@ -284,7 +287,8 @@ public class AchievementManager : MonoBehaviour
 		{
 			GameData.Instance.m_bUnlock_Games = true;
 			PrintObtainedText(m_BoosterPlayedGames);
-			SaveLoad.Save();
+			//SaveLoad.Save();
+			SaveDataLoader.SaveGame();
 		}
 	}
 
@@ -299,7 +303,8 @@ public class AchievementManager : MonoBehaviour
 		{
 			GameData.Instance.m_bUnlock_EarnPoints = true;
 			PrintObtainedText(m_BoosterEarnedPoints);
-			SaveLoad.Save();
+			//SaveLoad.Save();
+			SaveDataLoader.SaveGame();
 		}
 	}
 
@@ -314,7 +319,8 @@ public class AchievementManager : MonoBehaviour
 		{
 			GameData.Instance.m_bUnlock_Share_FB = true;
 			PrintObtainedText(m_BoosterSharedFB);
-			SaveLoad.Save();
+			//SaveLoad.Save();
+			SaveDataLoader.SaveGame();
 		}
 	}
 

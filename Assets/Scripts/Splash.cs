@@ -15,6 +15,8 @@ public class Splash : MonoBehaviour
 	float fadeOutSpeed;
 	int stage;
 
+	bool canFadeOut = false;
+
 	void Start ()
 	{
 		currScreen = 0;
@@ -23,6 +25,8 @@ public class Splash : MonoBehaviour
 		fadeOutSpeed = 1.5f;
 		showScreenTime = 1.0f;
 		stage = 1;
+
+		canFadeOut = false;
 
 		Color tmp;
 		for(int i = 0; i < screens.Length; ++i)
@@ -39,10 +43,14 @@ public class Splash : MonoBehaviour
 			logo [i].SetActive (false);
 		}
 	}
+	public void CanFadeOut()
+	{
+		canFadeOut = true;
+	}
 
 	void Update ()
 	{
-		if(Input.anyKey)
+		if(canFadeOut && Input.anyKey)
 			SceneManager.LoadScene ("MainMenu");
 		
 		if(currScreen < screens.Length)
@@ -69,7 +77,7 @@ public class Splash : MonoBehaviour
 				if (currTime >= showScreenTime)
 					stage = 3;
 			}
-			else if(stage == 3)
+			else if(canFadeOut && stage == 3)
 			{
 				Color tmp = screens [currScreen].GetComponent<Image> ().color;
 				tmp.a -= fadeInSpeed * Time.deltaTime;

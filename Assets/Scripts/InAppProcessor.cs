@@ -79,7 +79,8 @@ public class InAppProcessor : Singleton<InAppProcessor>
 					return;
 			}
 
-			SaveLoad.Save();
+			//SaveLoad.Save();
+			SaveDataLoader.SaveGame();
 		}
 		else
 		{
@@ -113,7 +114,8 @@ public class InAppProcessor : Singleton<InAppProcessor>
 					return;
 			}
 
-			SaveLoad.Save();
+			//SaveLoad.Save();
+			SaveDataLoader.SaveGame();
 		}
 		else
 		{

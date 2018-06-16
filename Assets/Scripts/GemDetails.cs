@@ -69,7 +69,8 @@ public class GemDetails : MonoBehaviour
 		if ( GameData.Instance.m_Sets.Contains( gemSet ) )
 		{
 			GameData.Instance.m_EquippedGemSet = gemSet;
-			SaveLoad.Save();
+			//SaveLoad.Save();
+			SaveDataLoader.SaveGame();
 			return true;
 		}
 

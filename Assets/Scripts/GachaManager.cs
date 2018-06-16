@@ -65,7 +65,8 @@ public class GachaManager : MonoBehaviour
 		int itemReceived = Random.Range( (int)GemLibrary.GemSet.GEM, (int)GemLibrary.GemSet.TOTAL );
 		GemLibrary.GemSet gemType = (GemLibrary.GemSet)itemReceived;
 		GameData.Instance.UnlockGem( gemType );
-		SaveLoad.Save();
+		//SaveLoad.Save();
+		SaveDataLoader.SaveGame();
 
 		m_ReceiveText.GetComponent<Text>().text = "Received " + GemLibrary.Instance.GemsSetList[itemReceived].m_sGemContainerSetName + "!";
 

@@ -104,7 +104,8 @@ public class BoosterEntry : MonoBehaviour
 			else
 				BuyBooster(boosterCost);
 			GameData.Instance.m_Boost_ScoreMultOnce = !GameData.Instance.m_Boost_ScoreMultOnce;
-			SaveLoad.Save();
+			//SaveLoad.Save();
+			SaveDataLoader.SaveGame();
 		}
 		else if(m_Type == BOOSTERTYPE.GoldMult_Once)
 		{
@@ -113,7 +114,8 @@ public class BoosterEntry : MonoBehaviour
 			else
 				BuyBooster(boosterCost);
 			GameData.Instance.m_Boost_GoldMultOnce = !GameData.Instance.m_Boost_GoldMultOnce;
-			SaveLoad.Save();
+			//SaveLoad.Save();
+			SaveDataLoader.SaveGame();
 		}
 		else if(m_Type == BOOSTERTYPE.MoreHealth_Once)
 		{
@@ -122,7 +124,8 @@ public class BoosterEntry : MonoBehaviour
 			else
 				BuyBooster(boosterCost);
 			GameData.Instance.m_Boost_MoreHealthOnce = !GameData.Instance.m_Boost_MoreHealthOnce;
-			SaveLoad.Save();
+			//SaveLoad.Save();
+			SaveDataLoader.SaveGame();
 		}
 		else if(m_Type == BOOSTERTYPE.ScoreMult)
 		{
@@ -130,7 +133,8 @@ public class BoosterEntry : MonoBehaviour
 			{
 				BuyBooster(boosterCost);
 				GameData.Instance.m_Boost_ScoreMult += 1;
-				SaveLoad.Save();
+				//SaveLoad.Save();
+				SaveDataLoader.SaveGame();
 			}
 		}
 		else if(m_Type == BOOSTERTYPE.GoldMult)
@@ -139,7 +143,8 @@ public class BoosterEntry : MonoBehaviour
 			{
 				BuyBooster(boosterCost);
 				GameData.Instance.m_Boost_GoldMult += 1;
-				SaveLoad.Save();
+				//SaveLoad.Save();
+				SaveDataLoader.SaveGame();
 			}
 		}
 		else if(m_Type == BOOSTERTYPE.Shield)
@@ -148,7 +153,8 @@ public class BoosterEntry : MonoBehaviour
 			{
 				BuyBooster(boosterCost);
 				GameData.Instance.m_Boost_Shield += 1;
-				SaveLoad.Save();
+				//SaveLoad.Save();
+				SaveDataLoader.SaveGame();
 			}
 		}
 		else if(m_Type == BOOSTERTYPE.SlowerGems)
@@ -157,7 +163,8 @@ public class BoosterEntry : MonoBehaviour
 			{
 				BuyBooster(boosterCost);
 				GameData.Instance.m_Boost_SlowerGems += 1;
-				SaveLoad.Save();
+				//SaveLoad.Save();
+				SaveDataLoader.SaveGame();
 			}
 		}
 		else if(m_Type == BOOSTERTYPE.BiggerGems)
@@ -166,7 +173,8 @@ public class BoosterEntry : MonoBehaviour
 			{
 				BuyBooster(boosterCost);
 				GameData.Instance.m_Boost_BiggerGems += 1;
-				SaveLoad.Save();
+				//SaveLoad.Save();
+				SaveDataLoader.SaveGame();
 			}
 		}
 

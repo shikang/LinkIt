@@ -140,9 +140,10 @@ public class ScoreManager : MonoBehaviour
 
 		AchievementManager.Instance.BoosterGamesPlayed ();
 		AchievementManager.Instance.BoosterPointsEarned (m_PlayerStats.m_nScore);
-		
+
 		// Save
-		SaveLoad.Save();
+		//SaveLoad.Save();
+		SaveDataLoader.SaveGame();
 
 		if ( GameObject.FindGameObjectWithTag( "Gem Details" ) != null )
 			m_GemDetails = GameObject.FindGameObjectWithTag( "Gem Details" ).GetComponent<GemDetails>();

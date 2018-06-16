@@ -90,7 +90,8 @@ public class AudioManager : MonoBehaviour
 	public void ToggleSFX()
 	{
 		hasSFX = !hasSFX;
-		SaveLoad.Save();
+		//SaveLoad.Save();
+		SaveDataLoader.SaveGame();
 	}
 
 	public void SetMasterVol(float vol)
