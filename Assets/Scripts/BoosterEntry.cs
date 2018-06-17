@@ -11,6 +11,7 @@ public class BoosterEntry : MonoBehaviour
 	public int m_CurrLevel;
 	int m_bCost;
 
+	public GameObject m_goBtnFX;
 	public GameObject m_Image;
 	public GameObject m_Title;
 	public GameObject m_Desc;
@@ -117,6 +118,7 @@ public class BoosterEntry : MonoBehaviour
 			if(GameData.Instance.m_Boost_ScoreMultOnce)
 			{
 				RefundMoney(boosterCost);
+				StartBtnClickFX();
 			}
 			else
 			{
@@ -124,6 +126,7 @@ public class BoosterEntry : MonoBehaviour
 				{
 					GameData.Instance.m_Boost_ScoreMultOnce = !GameData.Instance.m_Boost_ScoreMultOnce;
 					//SaveLoad.Save();
+					StartBtnClickFX();
 					SaveDataLoader.SaveGame();
 				}
 			}
@@ -133,6 +136,7 @@ public class BoosterEntry : MonoBehaviour
 			if(GameData.Instance.m_Boost_GoldMultOnce)
 			{
 				RefundMoney(boosterCost);
+				StartBtnClickFX();
 			}
 			else
 			{
@@ -140,6 +144,7 @@ public class BoosterEntry : MonoBehaviour
 				{
 					GameData.Instance.m_Boost_GoldMultOnce = !GameData.Instance.m_Boost_GoldMultOnce;
 					//SaveLoad.Save();
+					StartBtnClickFX();
 					SaveDataLoader.SaveGame();
 				}
 			}
@@ -149,6 +154,7 @@ public class BoosterEntry : MonoBehaviour
 			if(GameData.Instance.m_Boost_MoreHealthOnce)
 			{
 				RefundMoney(boosterCost);
+				StartBtnClickFX();
 			}
 			else
 			{
@@ -156,6 +162,7 @@ public class BoosterEntry : MonoBehaviour
 				{
 					GameData.Instance.m_Boost_MoreHealthOnce = !GameData.Instance.m_Boost_MoreHealthOnce;
 					//SaveLoad.Save();
+					StartBtnClickFX();
 					SaveDataLoader.SaveGame();
 				}
 			}
@@ -168,6 +175,7 @@ public class BoosterEntry : MonoBehaviour
 				{
 					GameData.Instance.m_Boost_ScoreMult += 1;
 					//SaveLoad.Save();
+					StartBtnClickFX();
 					SaveDataLoader.SaveGame();
 					Analytics.CustomEvent("BuyBoosterLvl", new Dictionary<string, object>
 					{
@@ -184,6 +192,7 @@ public class BoosterEntry : MonoBehaviour
 				{
 					GameData.Instance.m_Boost_GoldMult += 1;
 					//SaveLoad.Save();
+					StartBtnClickFX();
 					SaveDataLoader.SaveGame();
 					Analytics.CustomEvent("BuyBoosterLvl", new Dictionary<string, object>
 					{
@@ -200,6 +209,7 @@ public class BoosterEntry : MonoBehaviour
 				{
 					GameData.Instance.m_Boost_Shield += 1;
 					//SaveLoad.Save();
+					StartBtnClickFX();
 					SaveDataLoader.SaveGame();
 					Analytics.CustomEvent("BuyBoosterLvl", new Dictionary<string, object>
 					{
@@ -216,6 +226,7 @@ public class BoosterEntry : MonoBehaviour
 				{
 					GameData.Instance.m_Boost_SlowerGems += 1;
 					//SaveLoad.Save();
+					StartBtnClickFX();
 					SaveDataLoader.SaveGame();
 					Analytics.CustomEvent("BuyBoosterLvl", new Dictionary<string, object>
 					{
@@ -232,6 +243,7 @@ public class BoosterEntry : MonoBehaviour
 				{
 					GameData.Instance.m_Boost_BiggerGems += 1;
 					//SaveLoad.Save();
+					StartBtnClickFX();
 					SaveDataLoader.SaveGame();
 					Analytics.CustomEvent("BuyBoosterLvl", new Dictionary<string, object>
 					{
@@ -306,6 +318,14 @@ public class BoosterEntry : MonoBehaviour
 	void RefundMoney(int cost_)
 	{
 		GameData.Instance.m_Coin += cost_;
+	}
+
+	void StartBtnClickFX()
+	{
+		GameObject go = (GameObject)GameObject.Instantiate(m_goBtnFX);
+		go.transform.parent = m_LevelButton.transform;
+		go.transform.localScale = new Vector3 (1.0f, 1.0f, 1.0f);
+		go.transform.localPosition = new Vector3 (0.0f, 0.0f, 0.0f);
 	}
 }
 

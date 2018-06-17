@@ -27,6 +27,7 @@ public class ScoreManager : MonoBehaviour
 
 	public GameObject m_ScoreCanvas;
 	public GameObject m_GachaCanvas;
+	public GameObject m_HighScoreText;
 
 	// Animation variables
 	private int m_nFrameNum;
@@ -47,31 +48,50 @@ public class ScoreManager : MonoBehaviour
 	private float m_fScreenWidth = 0.0f;
 	private float m_fScreenFrom = 0.0f;
 
+	// COunt up Stats
+	private float m_CountUp_Timer = 0.0f;
+	private int m_CountUp_Score;
+	private int m_CountUp_Gold;
+	private int [] m_CountUp_Gems;
+	private int m_CountUp_GemRed;
+	private int m_CountUp_GemBlue;
+	private int m_CountUp_GemGreen;
+	private int m_CountUp_GemYellow;
+	private int m_CountUp_GemGrey;
+	private int m_CountUp_Combo;
+	private int m_CountUp_Interval;
+
+	private int m_GoldEarned;
+
 	// Use this for initialization
 	void Start ()
 	{
 		// Getting stats
 		m_PlayerStats = GameObject.FindGameObjectWithTag( "Player Statistics" ).GetComponent<PlayerStatistics>();
-		m_Score.GetComponent<Text>().text = m_PlayerStats.m_nScore.ToString();
+		m_Score.GetComponent<Text> ().text = m_CountUp_Score.ToString ();
+
+		m_CountUp_Gems = new int[4];
 
 		int gemDestroyed = 0;
 		for ( int i = 0; i < m_PlayerStats.m_aDestroyCount.Length; ++i )
 		{
-			m_Counters[i].GetComponent<Text>().text = m_PlayerStats.m_aDestroyCount[i].ToString();
+			m_CountUp_Gems[i] = 0;
 			gemDestroyed += m_PlayerStats.m_aDestroyCount[i];
 		}
 
 		// Find the score without boosters, to use for gold calc
 		int realScore = (int)Mathf.Round(m_PlayerStats.m_nScore / BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.ScoreMult) / BoosterManager.Instance.GetScoreMultOnce());
-		int goldEarned = (int)Mathf.Round(realScore / 100 * BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.GoldMult) * BoosterManager.Instance.GetGoldMultOnce());
+		m_GoldEarned = (int)Mathf.Round(realScore / 100 * BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.GoldMult) * BoosterManager.Instance.GetGoldMultOnce());
 
-		//m_CoinsThisRound.GetComponent<Text>().text = gemDestroyed.ToString();
-		m_LeakedCounter.GetComponent<Text>().text = m_PlayerStats.m_nLeakCount.ToString();
-		m_ComboCounter.GetComponent<Text>().text = m_PlayerStats.m_nMaxCombo.ToString();
+		m_CoinsThisRound.GetComponent<Text>().text = m_CountUp_Gold.ToString();
+		m_LeakedCounter.GetComponent<Text>().text = m_CountUp_GemGrey.ToString();
+		m_ComboCounter.GetComponent<Text> ().text = m_CountUp_Combo.ToString ();
 
+		m_HighScoreText.SetActive(false);
 		if ( GameData.Instance.m_HighScore < m_PlayerStats.m_nScore )
 		{
 			GameData.Instance.m_HighScore = m_PlayerStats.m_nScore;
+			m_HighScoreText.SetActive(true);
 		}
 
 		m_BestScore.GetComponent<Text>().text = "Best " + GameData.Instance.m_HighScore.ToString();
@@ -91,7 +111,7 @@ public class ScoreManager : MonoBehaviour
 		if(m_PlayerStats.m_nScore > 0)
 		{
 			AchievementManager.Instance.AddGamesPlayed();
-			AchievementManager.Instance.AddCoinsEarned(goldEarned);
+			AchievementManager.Instance.AddCoinsEarned(m_GoldEarned);
 			AchievementManager.Instance.AddScoreEarned(m_PlayerStats.m_nScore);
 			AchievementManager.Instance.AddLinkedGems(1, m_PlayerStats.m_aDestroyCount[0]);
 			AchievementManager.Instance.AddLinkedGems(2, m_PlayerStats.m_aDestroyCount[1]);
@@ -99,7 +119,7 @@ public class ScoreManager : MonoBehaviour
 			AchievementManager.Instance.AddLinkedGems(4, m_PlayerStats.m_aDestroyCount[3]);
 
 			AchievementManager.Instance.AddCombo(m_PlayerStats.m_nMaxCombo);
-			AchievementManager.Instance.AddCoinsEarned_PerGame(goldEarned);
+			AchievementManager.Instance.AddCoinsEarned_PerGame(m_GoldEarned);
 			AchievementManager.Instance.AddScoreEarned_PerGame(m_PlayerStats.m_nScore);
 		}
 
@@ -112,7 +132,7 @@ public class ScoreManager : MonoBehaviour
 			{ "YellowGem", m_PlayerStats.m_aDestroyCount[3] },
 			{ "GreyGem", m_PlayerStats.m_nLeakCount.ToString() },
 			{ "Combo", m_PlayerStats.m_nMaxCombo },
-			{ "GoldEarned", goldEarned }
+			{ "GoldEarned", m_GoldEarned }
 		});
 
 #if LINKIT_COOP
@@ -123,11 +143,11 @@ public class ScoreManager : MonoBehaviour
 #endif   // LINKIT_COOP
 
 		GameData.Instance.m_Coin += m_PlayerStats.m_nCoinsGain;
-		m_CurrentCoins = GameData.Instance.m_Coin + goldEarned;
+		m_CurrentCoins = GameData.Instance.m_Coin;
 		m_nShowingCoins = GameData.Instance.m_Coin;
 		m_nPrevCoins = GameData.Instance.m_Coin;
 		m_fCoinsTimer = 0.0f;
-		GameData.Instance.m_Coin += goldEarned;
+		GameData.Instance.m_Coin += m_GoldEarned;
 
 		Text coinsText = m_Coins.GetComponent<Text>();
 		coinsText.text = m_nShowingCoins.ToString();// + " (+" + m_PlayerStats.m_nCoinsGain + ")";
@@ -161,6 +181,13 @@ public class ScoreManager : MonoBehaviour
 		AnimateGems();
 		AnimateCoins();
 		AnimationScreen();
+
+		m_CountUp_Interval++;
+		if( m_CountUp_Interval % 3 == 0)
+			CountUpStats();
+
+		if (Input.GetMouseButtonDown (0))
+			SkipCountUp ();
 	}
 
 	void OnDestroy()
@@ -334,5 +361,87 @@ public class ScoreManager : MonoBehaviour
 				previousScreen.SetActive( false );
 			}
 		}
+	}
+
+	void CountUpStats()
+	{
+		if(m_CountUp_Timer < 2.0f)
+			m_CountUp_Timer += Time.deltaTime;
+
+		if(m_CountUp_Timer > 0.2f && m_CountUp_Score < m_PlayerStats.m_nScore)
+		{
+			m_CountUp_Score += 200;
+
+			if (m_CountUp_Score > m_PlayerStats.m_nScore)
+				m_CountUp_Score = m_PlayerStats.m_nScore;
+
+			m_Score.GetComponent<Text>().text = m_CountUp_Score.ToString ();
+		}
+
+		if(m_CountUp_Timer > 0.4f && m_CountUp_Gems[0] < m_PlayerStats.m_aDestroyCount[0])
+		{
+			m_CountUp_Gems[0] += 1;
+			m_Counters[0].GetComponent<Text>().text = m_CountUp_Gems[0].ToString ();
+		}
+
+		if(m_CountUp_Timer > 0.6f && m_CountUp_Gems[1] < m_PlayerStats.m_aDestroyCount[1])
+		{
+			m_CountUp_Gems[1] += 1;
+			m_Counters[1].GetComponent<Text>().text = m_CountUp_Gems[1].ToString ();
+		}
+
+		if(m_CountUp_Timer > 0.8f && m_CountUp_Gems[2] < m_PlayerStats.m_aDestroyCount[2])
+		{
+			m_CountUp_Gems[2] += 1;
+			m_Counters[2].GetComponent<Text>().text = m_CountUp_Gems[2].ToString ();
+		}
+
+		if(m_CountUp_Timer > 1.0f && m_CountUp_Gems[3] < m_PlayerStats.m_aDestroyCount[3])
+		{
+			m_CountUp_Gems[3] += 1;
+			m_Counters[3].GetComponent<Text>().text = m_CountUp_Gems[3].ToString ();
+		}
+
+		if(m_CountUp_Timer > 1.2f && m_CountUp_GemGrey < m_PlayerStats.m_nLeakCount)
+		{
+			m_CountUp_GemGrey += 1;
+			m_LeakedCounter.GetComponent<Text>().text = m_CountUp_GemGrey.ToString ();
+		}
+
+		if(m_CountUp_Timer > 1.4f && m_CountUp_Combo < m_PlayerStats.m_nMaxCombo)
+		{
+			m_CountUp_Combo += 1;
+			m_ComboCounter.GetComponent<Text>().text = m_CountUp_Combo.ToString ();
+		}
+
+		if(m_CountUp_Timer > 1.6f && m_CountUp_Gold < m_GoldEarned)
+		{
+			m_CountUp_Gold += 20;
+			if (m_CountUp_Gold > m_GoldEarned)
+				m_CountUp_Gold = m_GoldEarned;
+
+			m_CoinsThisRound.GetComponent<Text>().text = m_CountUp_Gold.ToString ();
+		}
+	}
+
+	void SkipCountUp()
+	{
+		m_CountUp_Score = m_PlayerStats.m_nScore;
+		m_Score.GetComponent<Text>().text = m_CountUp_Score.ToString ();
+
+		for(int i = 0; i < 4; ++i)
+		{
+			m_CountUp_Gems [i] = m_PlayerStats.m_aDestroyCount [i];
+			m_Counters[i].GetComponent<Text>().text = m_CountUp_Gems[i].ToString ();
+		}
+
+		m_CountUp_GemGrey = m_PlayerStats.m_nLeakCount;
+		m_LeakedCounter.GetComponent<Text>().text = m_CountUp_GemGrey.ToString ();
+
+		m_CountUp_Combo = m_PlayerStats.m_nMaxCombo;
+		m_ComboCounter.GetComponent<Text>().text = m_CountUp_Combo.ToString ();
+
+		m_CountUp_Gold = m_GoldEarned;
+		m_CoinsThisRound.GetComponent<Text>().text = m_CountUp_Gold.ToString ();
 	}
 }

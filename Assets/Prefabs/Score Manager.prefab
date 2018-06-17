@@ -46,6 +46,7 @@ MonoBehaviour:
   m_CoinsThisRound: {fileID: 0}
   m_ScoreCanvas: {fileID: 0}
   m_GachaCanvas: {fileID: 0}
+  m_HighScoreText: {fileID: 0}
 --- !u!224 &22405976
 RectTransform:
   m_ObjectHideFlags: 1

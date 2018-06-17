@@ -343,6 +343,7 @@
      <Compile Include="Assets\Scripts\ItemController.cs" />
      <Compile Include="Assets\Scripts\ItemIcon.cs" />
      <Compile Include="Assets\Scripts\ItemMainMenu.cs" />
+     <Compile Include="Assets\Scripts\LevelButtonFX.cs" />
      <Compile Include="Assets\Scripts\LevelUpAnimation.cs" />
      <Compile Include="Assets\Scripts\Link.cs" />
      <Compile Include="Assets\Scripts\MainMenuLoader.cs" />
@@ -353,6 +354,7 @@
      <Compile Include="Assets\Scripts\NetworkGem.cs" />
      <Compile Include="Assets\Scripts\NetworkLink.cs" />
      <Compile Include="Assets\Scripts\NetworkManager.cs" />
+     <Compile Include="Assets\Scripts\NewHighScoreFX.cs" />
      <Compile Include="Assets\Scripts\PlayerStatistics.cs" />
      <Compile Include="Assets\Scripts\PointsGain.cs" />
      <Compile Include="Assets\Scripts\Popup.cs" />
@@ -361,6 +363,7 @@
      <Compile Include="Assets\Scripts\PulsingParticleEmitter.cs" />
      <Compile Include="Assets\Scripts\Repel.cs" />
      <Compile Include="Assets\Scripts\RepelAnimator.cs" />
+     <Compile Include="Assets\Scripts\SaveDataLoader.cs" />
      <Compile Include="Assets\Scripts\SaveLoad.cs" />
      <Compile Include="Assets\Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\ShopController.cs" />

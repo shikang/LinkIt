@@ -380,10 +380,10 @@ public class AchievementManager : MonoBehaviour
 		m_array_TotalCoinsEarned[2].count = 500;	m_array_TotalCoinsEarned[2].title = "Serious Work";			
 		m_array_TotalCoinsEarned[3].count = 1000;	m_array_TotalCoinsEarned[3].title = "Shopping Spree";		
 		m_array_TotalCoinsEarned[4].count = 2000;	m_array_TotalCoinsEarned[4].title = "Unstoppable";			
-		m_array_TotalCoinsEarned[5].count = 3000;	m_array_TotalCoinsEarned[5].title = "Powerup Loader";		
-		m_array_TotalCoinsEarned[6].count = 5000;	m_array_TotalCoinsEarned[6].title = "Leaderboard Chaser";	
-		m_array_TotalCoinsEarned[7].count = 10000;	m_array_TotalCoinsEarned[7].title = "Money Maker";			
-		m_array_TotalCoinsEarned[8].count = 20000;	m_array_TotalCoinsEarned[8].title = "Jackpot";
+		m_array_TotalCoinsEarned[5].count = 5000;	m_array_TotalCoinsEarned[5].title = "Powerup Loader";		
+		m_array_TotalCoinsEarned[6].count = 10000;	m_array_TotalCoinsEarned[6].title = "Leaderboard Chaser";	
+		m_array_TotalCoinsEarned[7].count = 20000;	m_array_TotalCoinsEarned[7].title = "Money Maker";			
+		m_array_TotalCoinsEarned[8].count = 50000;	m_array_TotalCoinsEarned[8].title = "Jackpot";
 
 #if UNITY_ANDROID
 		m_array_TotalCoinsEarned[0].achievementID = "";
@@ -403,16 +403,16 @@ public class AchievementManager : MonoBehaviour
 		}
 
 		m_array_TotalScoreEarned = new ACHIEVEMENTSET[10];
-		m_array_TotalScoreEarned[0].count = 5000;		m_array_TotalScoreEarned[0].title = "Peanuts";					
-		m_array_TotalScoreEarned[1].count = 10000;		m_array_TotalScoreEarned[1].title = "More Peanuts";				
-		m_array_TotalScoreEarned[2].count = 50000;		m_array_TotalScoreEarned[2].title = "Dedication";				
-		m_array_TotalScoreEarned[3].count = 100000;		m_array_TotalScoreEarned[3].title = "Seasoned";					
-		m_array_TotalScoreEarned[4].count = 200000;		m_array_TotalScoreEarned[4].title = "Achiever";					
-		m_array_TotalScoreEarned[5].count = 500000;		m_array_TotalScoreEarned[5].title = "Need.More.Points";			
-		m_array_TotalScoreEarned[6].count = 800000;		m_array_TotalScoreEarned[6].title = "Multiplier";				
-		m_array_TotalScoreEarned[7].count = 1000000;	m_array_TotalScoreEarned[7].title = "Million Dollar Question";	
-		m_array_TotalScoreEarned[8].count = 1500000;	m_array_TotalScoreEarned[8].title = "Massive Numbers";			
-		m_array_TotalScoreEarned[9].count = 2000000;	m_array_TotalScoreEarned[9].title = "Top Scorer";
+		m_array_TotalScoreEarned[0].count = 100000;		m_array_TotalScoreEarned[0].title = "Peanuts";					
+		m_array_TotalScoreEarned[1].count = 200000;		m_array_TotalScoreEarned[1].title = "More Peanuts";				
+		m_array_TotalScoreEarned[2].count = 500000;		m_array_TotalScoreEarned[2].title = "Dedication";				
+		m_array_TotalScoreEarned[3].count = 1000000;	m_array_TotalScoreEarned[3].title = "Seasoned";					
+		m_array_TotalScoreEarned[4].count = 2000000;	m_array_TotalScoreEarned[4].title = "Achiever";					
+		m_array_TotalScoreEarned[5].count = 5000000;	m_array_TotalScoreEarned[5].title = "Need.More.Points";			
+		m_array_TotalScoreEarned[6].count = 8000000;	m_array_TotalScoreEarned[6].title = "Multiplier";				
+		m_array_TotalScoreEarned[7].count = 10000000;	m_array_TotalScoreEarned[7].title = "Million Dollar Question";	
+		m_array_TotalScoreEarned[8].count = 15000000;	m_array_TotalScoreEarned[8].title = "Massive Numbers";			
+		m_array_TotalScoreEarned[9].count = 20000000;	m_array_TotalScoreEarned[9].title = "Top Scorer";
 
 #if UNITY_ANDROID
 		m_array_TotalScoreEarned[0].achievementID = GPGSIds.achievement_get_5000_points;
@@ -439,12 +439,12 @@ public class AchievementManager : MonoBehaviour
 		m_array_TotalLinkedGems_Y = new ACHIEVEMENTSET[linkedAch];
 
 		m_array_TotalLinkedGems_R[0].count = m_array_TotalLinkedGems_B[0].count = m_array_TotalLinkedGems_G[0].count = m_array_TotalLinkedGems_Y[0].count = 50;
-		m_array_TotalLinkedGems_R[1].count = m_array_TotalLinkedGems_B[1].count = m_array_TotalLinkedGems_G[1].count = m_array_TotalLinkedGems_Y[1].count = 100;
-		m_array_TotalLinkedGems_R[2].count = m_array_TotalLinkedGems_B[2].count = m_array_TotalLinkedGems_G[2].count = m_array_TotalLinkedGems_Y[2].count = 250;
-		m_array_TotalLinkedGems_R[3].count = m_array_TotalLinkedGems_B[3].count = m_array_TotalLinkedGems_G[3].count = m_array_TotalLinkedGems_Y[3].count = 500;
-		m_array_TotalLinkedGems_R[4].count = m_array_TotalLinkedGems_B[4].count = m_array_TotalLinkedGems_G[4].count = m_array_TotalLinkedGems_Y[4].count = 1000;
-		m_array_TotalLinkedGems_R[5].count = m_array_TotalLinkedGems_B[5].count = m_array_TotalLinkedGems_G[5].count = m_array_TotalLinkedGems_Y[5].count = 2000;
-		m_array_TotalLinkedGems_R[6].count = m_array_TotalLinkedGems_B[6].count = m_array_TotalLinkedGems_G[6].count = m_array_TotalLinkedGems_Y[6].count = 3000;
+		m_array_TotalLinkedGems_R[1].count = m_array_TotalLinkedGems_B[1].count = m_array_TotalLinkedGems_G[1].count = m_array_TotalLinkedGems_Y[1].count = 200;
+		m_array_TotalLinkedGems_R[2].count = m_array_TotalLinkedGems_B[2].count = m_array_TotalLinkedGems_G[2].count = m_array_TotalLinkedGems_Y[2].count = 500;
+		m_array_TotalLinkedGems_R[3].count = m_array_TotalLinkedGems_B[3].count = m_array_TotalLinkedGems_G[3].count = m_array_TotalLinkedGems_Y[3].count = 1000;
+		m_array_TotalLinkedGems_R[4].count = m_array_TotalLinkedGems_B[4].count = m_array_TotalLinkedGems_G[4].count = m_array_TotalLinkedGems_Y[4].count = 2000;
+		m_array_TotalLinkedGems_R[5].count = m_array_TotalLinkedGems_B[5].count = m_array_TotalLinkedGems_G[5].count = m_array_TotalLinkedGems_Y[5].count = 5000;
+		m_array_TotalLinkedGems_R[6].count = m_array_TotalLinkedGems_B[6].count = m_array_TotalLinkedGems_G[6].count = m_array_TotalLinkedGems_Y[6].count = 10000;
 
 		m_array_TotalLinkedGems_R[0].title = "Fire Learner";			
 		m_array_TotalLinkedGems_R[1].title = "Fire Wielder";			
@@ -521,15 +521,15 @@ public class AchievementManager : MonoBehaviour
 		}
 
 		m_array_MaxCombo = new ACHIEVEMENTSET[9];
-		m_array_MaxCombo[0].count = 10;		m_array_MaxCombo[0].title = "Drawing Circles";
-		m_array_MaxCombo[1].count = 20;		m_array_MaxCombo[1].title = "Webbing Along";
-		m_array_MaxCombo[2].count = 30;		m_array_MaxCombo[2].title = "C-c-c-combos";
-		m_array_MaxCombo[3].count = 50;		m_array_MaxCombo[3].title = "Going On and On";
-		m_array_MaxCombo[4].count = 75;		m_array_MaxCombo[4].title = "All Above The Line";
-		m_array_MaxCombo[5].count = 100;	m_array_MaxCombo[5].title = "Combo Maker";
-		m_array_MaxCombo[6].count = 125;	m_array_MaxCombo[6].title = "Artistic";
-		m_array_MaxCombo[7].count = 150;	m_array_MaxCombo[7].title = "Fast Fingers";
-		m_array_MaxCombo[8].count = 200;	m_array_MaxCombo[8].title = "Flow Master";
+		m_array_MaxCombo[0].count = 50;		m_array_MaxCombo[0].title = "Drawing Circles";
+		m_array_MaxCombo[1].count = 75;		m_array_MaxCombo[1].title = "Webbing Along";
+		m_array_MaxCombo[2].count = 100;	m_array_MaxCombo[2].title = "C-c-c-combos";
+		m_array_MaxCombo[3].count = 125;	m_array_MaxCombo[3].title = "Going On and On";
+		m_array_MaxCombo[4].count = 150;	m_array_MaxCombo[4].title = "All Above The Line";
+		m_array_MaxCombo[5].count = 180;	m_array_MaxCombo[5].title = "Combo Maker";
+		m_array_MaxCombo[6].count = 200;	m_array_MaxCombo[6].title = "Artistic";
+		m_array_MaxCombo[7].count = 250;	m_array_MaxCombo[7].title = "Fast Fingers";
+		m_array_MaxCombo[8].count = 300;	m_array_MaxCombo[8].title = "Flow Master";
 
 #if UNITY_ANDROID
 		m_array_MaxCombo[0].achievementID = "";
@@ -549,11 +549,11 @@ public class AchievementManager : MonoBehaviour
 		}
 
 		m_array_PerGameCoinsEarned = new ACHIEVEMENTSET[5];
-		m_array_PerGameCoinsEarned[0].count = 20;	m_array_PerGameCoinsEarned[0].title = "Coin Picker";
-		m_array_PerGameCoinsEarned[1].count = 40;	m_array_PerGameCoinsEarned[1].title = "Cash Cow";
-		m_array_PerGameCoinsEarned[2].count = 80;	m_array_PerGameCoinsEarned[2].title = "Money Face";
-		m_array_PerGameCoinsEarned[3].count = 120;	m_array_PerGameCoinsEarned[3].title = "Hauler";
-		m_array_PerGameCoinsEarned[4].count = 160;	m_array_PerGameCoinsEarned[4].title = "Money Machine";
+		m_array_PerGameCoinsEarned[0].count = 100;	m_array_PerGameCoinsEarned[0].title = "Coin Picker";
+		m_array_PerGameCoinsEarned[1].count = 250;	m_array_PerGameCoinsEarned[1].title = "Cash Cow";
+		m_array_PerGameCoinsEarned[2].count = 500;	m_array_PerGameCoinsEarned[2].title = "Money Face";
+		m_array_PerGameCoinsEarned[3].count = 1000;	m_array_PerGameCoinsEarned[3].title = "Hauler";
+		m_array_PerGameCoinsEarned[4].count = 2000;	m_array_PerGameCoinsEarned[4].title = "Money Machine";
 
 #if UNITY_ANDROID
 		m_array_PerGameCoinsEarned[0].achievementID = "";
@@ -569,11 +569,11 @@ public class AchievementManager : MonoBehaviour
 		}
 
 		m_array_PerGameScoreEarned = new ACHIEVEMENTSET[5];
-		m_array_PerGameScoreEarned[0].count = 5000;		m_array_PerGameScoreEarned[0].title = "Warming Up";
-		m_array_PerGameScoreEarned[1].count = 10000;	m_array_PerGameScoreEarned[1].title = "Competitive";
-		m_array_PerGameScoreEarned[2].count = 15000;	m_array_PerGameScoreEarned[2].title = "Top Dog";
-		m_array_PerGameScoreEarned[3].count = 20000;	m_array_PerGameScoreEarned[3].title = "Ace";
-		m_array_PerGameScoreEarned[4].count = 30000;	m_array_PerGameScoreEarned[4].title = "MVP";
+		m_array_PerGameScoreEarned[0].count = 20000;		m_array_PerGameScoreEarned[0].title = "Warming Up";
+		m_array_PerGameScoreEarned[1].count = 50000;	m_array_PerGameScoreEarned[1].title = "Competitive";
+		m_array_PerGameScoreEarned[2].count = 100000;	m_array_PerGameScoreEarned[2].title = "Top Dog";
+		m_array_PerGameScoreEarned[3].count = 200000;	m_array_PerGameScoreEarned[3].title = "Ace";
+		m_array_PerGameScoreEarned[4].count = 500000;	m_array_PerGameScoreEarned[4].title = "MVP";
 
 #if UNITY_ANDROID
 		m_array_PerGameScoreEarned[0].achievementID = "";
