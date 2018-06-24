@@ -18,6 +18,7 @@ TagManager:
   - Loading Overlay
   - Popup
   - Button
+  - Shop Controller
   layers:
   - Default
   - TransparentFX

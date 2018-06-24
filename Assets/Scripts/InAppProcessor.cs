@@ -23,7 +23,7 @@ public class InAppProcessor : Singleton<InAppProcessor>
 		m_ProductParamMap = new Dictionary<string, ProductParam>();
 	}
 
-	public void AddProductParam( string productIdentifier, InAppProductList.ProductType productType, int productParam)
+	public void AddProductParam( string productIdentifier, InAppProductList.ProductType productType, int productParam )
 	{
 		m_ProductParamMap.Add( productIdentifier, new ProductParam( productType, productParam ) );
 	}
@@ -37,12 +37,20 @@ public class InAppProcessor : Singleton<InAppProcessor>
 			switch ( productParam.m_ProductType )
 			{
 				case InAppProductList.ProductType.COIN:
+				{ 
 					GameData.Instance.m_Coin += productParam.m_nProductParam;
 					Debug.Log( string.Format( "InAppProcessor::ProcessPurchase: PASS. Product: '{0}'", productIdentifier ) );
 
 					// @todo Some feedback
-					break;
+
+					// Enable item screen controls
+					GameObject shopController = GameObject.FindGameObjectWithTag( "Shop Controller" );
+					ShopController sc = shopController.GetComponent<ShopController>();
+					sc.EnableAllButtons( true );
+
+				}	break;
 				case InAppProductList.ProductType.AVATAR:
+				{
 					GemLibrary.GemSet gemType = (GemLibrary.GemSet)productParam.m_nProductParam;
 
 					/*
@@ -73,7 +81,22 @@ public class InAppProcessor : Singleton<InAppProcessor>
 					ps.GetComponent<Renderer>().sortingOrder = LayerMask.NameToLayer( "UI Particles" );
 					Destroy( explosion, ps.duration + ps.startLifetime + Time.deltaTime );
 
-					break;
+				}	break;
+				case InAppProductList.ProductType.DISABLE_ADS:
+				{
+					GameObject shopManager = GameObject.FindGameObjectWithTag( "Shop Manager" );
+					ShopManager sm = shopManager.GetComponent<ShopManager>();
+					sm.DisableAds();
+
+					// @todo some feedback
+
+					// Enable item screen controls
+					GameObject shopController = GameObject.FindGameObjectWithTag( "Shop Controller" );
+					ShopController sc = shopController.GetComponent<ShopController>();
+					sc.EnableAllButtons( true );
+					sc.CheckDisableAds();
+
+				}	break;
 				default:
 					Debug.Log( string.Format( "InAppProcessor::ProcessPurchase: FAIL. Invalid product type: '{0}'", productParam.m_ProductType.ToString() ) );
 					return;
@@ -97,9 +120,15 @@ public class InAppProcessor : Singleton<InAppProcessor>
 			switch ( productParam.m_ProductType )
 			{
 				case InAppProductList.ProductType.COIN:
+				{ 
 					Debug.Log( string.Format( "InAppProcessor::ProcessPurchase: FAIL. Product: '{0}'", productIdentifier ) );
 
-					break;
+					// Enable item screen controls
+					GameObject shopController = GameObject.FindGameObjectWithTag( "Shop Controller" );
+					ShopController sc = shopController.GetComponent<ShopController>();
+					sc.EnableAllButtons( true );
+
+				}	break;
 				case InAppProductList.ProductType.AVATAR:
 					Debug.Log( string.Format( "InAppProcessor::ProcessPurchase: FAIL. Product: '{0}'", productIdentifier ) );
 
@@ -109,6 +138,16 @@ public class InAppProcessor : Singleton<InAppProcessor>
 					sm.EnableItemScreenControl( true );
 
 					break;
+				case InAppProductList.ProductType.DISABLE_ADS:
+				{
+					Debug.Log( string.Format( "InAppProcessor::ProcessPurchase: FAIL. Product: '{0}'", productIdentifier ) );
+
+					// Enable item screen controls
+					GameObject shopController = GameObject.FindGameObjectWithTag( "Shop Controller" );
+					ShopController sc = shopController.GetComponent<ShopController>();
+					sc.EnableAllButtons( true );
+
+				}	break;
 				default:
 					Debug.Log( string.Format( "InAppProcessor::ProcessPurchase: FAIL. Invalid product type: '{0}'", productParam.m_ProductType.ToString() ) );
 					return;
