@@ -55,6 +55,16 @@ public class GameData
 	public int m_curr_LinkGemsInOneChain;
 	public int m_next_LinkGemsInOneChain;
 
+	public bool m_bUnlock_Games;		// Play 5 Games
+	public bool m_bUnlock_Share_FB;		// Share with 3 friends on FB
+	public bool m_bUnlock_EarnPoints;	// Score 30000 points in a single game
+
+	public int m_uUnlock_GamesCount;
+	public int m_uUnlock_Share_FBCount;
+	public int m_uUnlock_EarnPointsCount;
+
+	public bool m_bIsAdsRemoved;
+
 	[System.NonSerialized]
 	public HashSet<GemLibrary.GemSet> m_Sets;
 
@@ -103,6 +113,15 @@ public class GameData
 		m_RecoverToPerfectFromRed = 0;
 		m_next_LinkGemsInOneChain = 0;
 
+		m_bUnlock_Games = false;
+		m_bUnlock_Share_FB = false;
+		m_bUnlock_EarnPoints = false;
+
+		m_uUnlock_GamesCount = 5;
+		m_uUnlock_Share_FBCount = 3;
+		m_uUnlock_EarnPointsCount = 20000;
+
+		m_bIsAdsRemoved = false;
 	}
 
 	public void UnlockGem( GemLibrary.GemSet gemType )

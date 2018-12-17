@@ -8,6 +8,7 @@ using System.Linq;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.Analytics;
 
 public class GemSpawner : MonoBehaviour
 {
@@ -63,7 +64,7 @@ public class GemSpawner : MonoBehaviour
 	public const int MAX_LEVEL = ( ( int )SpawnPattern.DifficultyLevel.Total - 1 ) * 3;
 
 	public const int HEALTH_LOST_PER_GEM = 10;
-	public const int HEALTH_GAIN_PER_LINK = 2;
+	public const int HEALTH_GAIN_PER_LINK = 1;
 	public const int MAX_HEALTH = 100;
 	public const int LOW_HEALTH = (int)( 0.3f * MAX_HEALTH );
 
@@ -73,6 +74,7 @@ public class GemSpawner : MonoBehaviour
 	public readonly string[] PRAISE_ARRAY = { "", "", "", "Good", "Great", "Incredible!", "Awesome!" };
 
 	bool m_bGameStart = false;
+	bool isPraiseUp = false;
 
 	// Link
 	public GameObject m_LinkPrefab;
@@ -171,7 +173,7 @@ public class GemSpawner : MonoBehaviour
 	private int m_nShowingPoints = 0;
 	private int m_nPrevPoints = 0;
 	private float m_fPointTimer = 0.0f;
-	private int m_nHealth = MAX_HEALTH;
+	private int m_nHealth = (int)(MAX_HEALTH * BoosterManager.Instance.GetMoreHealthOnce());
 	private PlayerStatistics m_PlayerStats;
 	private bool m_bGameover = false;
 	private int m_nCurrentCombo = 0;
@@ -185,6 +187,9 @@ public class GemSpawner : MonoBehaviour
 	private float m_fShowMultiplierTimer = 0.0f;
 	private Vector3 m_ShowMultiplierPos;
 	private int m_nHighComboMultiplierIndex = 0;
+
+	private bool m_bIsBreakingCombo;
+	private bool m_bIsStartingCombo;
 
 	// Gameover
 	private float m_fGameoverTimer = 0.0f;
@@ -202,6 +207,8 @@ public class GemSpawner : MonoBehaviour
 #endif	// LINKIT_COOP
 	public GameObject m_PointsGain;
 
+	public bool m_bIsPaused;
+
 #if LINKIT_COOP
 	// Network
 	public GameObject m_NetworkGameTimerPrefab;
@@ -216,7 +223,23 @@ public class GemSpawner : MonoBehaviour
 	void Start ()
 	{
 		m_bGameStart = false;
+		m_bIsPaused = false;
 
+		m_ComboText.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+
+		// Booster check for analytics
+		Analytics.CustomEvent("UsedBoostersLvl", new Dictionary<string, object>
+		{
+			{"ScoreMult_Once", GameData.Instance.m_Boost_ScoreMultOnce},
+			{"GoldMult_Once", GameData.Instance.m_Boost_GoldMultOnce},
+			{"MoreHealthOnce", GameData.Instance.m_Boost_MoreHealthOnce},
+			{"ScoreMult", GameData.Instance.m_Boost_ScoreMult},
+			{"GoldMult", GameData.Instance.m_Boost_GoldMult},
+			{"Shield", GameData.Instance.m_Boost_Shield},
+			{"SlowerGems", GameData.Instance.m_Boost_SlowerGems},
+			{"BiggerGems", GameData.Instance.m_Boost_BiggerGems}
+		});
+				
 		// Initialise link
 		CreateLink();
 		m_Link = m_LinkObject.GetComponent<Link>();
@@ -360,7 +383,7 @@ public class GemSpawner : MonoBehaviour
 		m_nShowingPoints = 0;
 		m_nPrevPoints = 0;
 		m_fPointTimer = 0.0f;
-		m_nHealth = (int)Mathf.Round(MAX_HEALTH * BoosterManager.Instance.GetMoreHealthOnce());
+		m_nHealth = (int)(MAX_HEALTH * BoosterManager.Instance.GetMoreHealthOnce());
 		m_nCurrentCombo = 0;
 		m_nMaxCombo = 0;
 		m_nShowingCombo = 0;
@@ -371,7 +394,9 @@ public class GemSpawner : MonoBehaviour
 		m_fShowMultiplierTimer = 0.0f;
 		m_ShowMultiplierPos = m_MultiplierText.transform.position;
 		m_fSpawnRate = BASE_SPAWN_RATE - m_nLevel * SPAWN_RATE_GROWTH;
-		m_fBaseGemDropSpeed = m_HalfDimension.y * BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.SlowerGems) * 2.0f / ( BASE_GEM_DROP_TIME - ( m_nLevel / 2 ) * GEM_DROP_TIME_GROWTH );
+		m_fBaseGemDropSpeed = m_HalfDimension.y * 2.0f / ( BASE_GEM_DROP_TIME - ( m_nLevel / 2 ) * GEM_DROP_TIME_GROWTH );
+		m_fBaseGemDropSpeed *= BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.SlowerGems);
+
 		m_nHighComboMultiplierIndex = 0;
 
 		m_PlayerStats = GameObject.FindGameObjectWithTag( "Player Statistics" ).GetComponent<PlayerStatistics>();
@@ -414,8 +439,6 @@ public class GemSpawner : MonoBehaviour
 		// Transition Overlay
 		GameObject transition = GameObject.FindGameObjectWithTag( "Transition" );
 		transition.transform.position += 5.0f * FRONT_OFFSET;
-
-		AchievementManager.Instance.ResetVars();
 
 #if LINKIT_COOP
 		if ( NetworkManager.IsConnected() )
@@ -474,6 +497,9 @@ public class GemSpawner : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+		if (m_bIsPaused)
+			return;
+		
 		Spawn();
 
 		if ( Input.GetMouseButtonDown( 0 ) )
@@ -494,6 +520,33 @@ public class GemSpawner : MonoBehaviour
 
 		CheckGameOver();
 		UpdateGameover();
+
+		if(m_bIsBreakingCombo)
+		{
+			Color c = m_ComboText.GetComponent<Text>().color;
+			c.a -= Time.deltaTime * 5.0f;
+			m_ComboText.GetComponent<Text>().color = c;
+
+			m_ComboText.transform.localScale *= 0.98f;
+
+			if (c.a <= 0.05f)
+				m_bIsBreakingCombo = false;
+		}
+
+		if(m_bIsStartingCombo)
+		{
+			Color c = m_ComboText.GetComponent<Text>().color;
+			c.a += Time.deltaTime * 5.0f;
+			m_ComboText.GetComponent<Text>().color = c;
+
+			m_ComboText.transform.localScale *= 1.02f;
+
+			if (c.a >= 1.0f)
+			{
+				m_bIsStartingCombo = false;
+				m_ComboText.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+			}
+		}
 	}
 
 	// -------------------------------- Updating functions --------------------------------------------
@@ -649,12 +702,12 @@ public class GemSpawner : MonoBehaviour
 		m_PlayerStats.m_nLeakCount += !m_bGameover ? m_GemsToBeRemoved.Count : 0;
 		m_GemsToBeRemoved.Clear();
 
-		int healthReduce = (int)Mathf.Round(m_GemsToBeDestroyed.Count * HEALTH_LOST_PER_GEM * BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.Shield));
+		int healthReduce = m_GemsToBeDestroyed.Count * HEALTH_LOST_PER_GEM;
 
 		if ( m_GemsToBeDestroyed.Count > 0 )
 			BreakCombo();
-		
-		m_nHealth -= healthReduce;
+
+		m_nHealth -= (int)(healthReduce * BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.Shield));
 		m_HealthText.GetComponent<Text>().text = m_nHealth.ToString();
 		m_LineLine.GetComponent<SpriteRenderer>().color = GetLifeLineColour();
 		for ( int k = 0; k < m_GemsToBeDestroyed.Count; ++k )
@@ -662,19 +715,6 @@ public class GemSpawner : MonoBehaviour
 			DestroyGem( m_GemsToBeDestroyed[k].GetComponent<Gem>() );
 		}
 		m_GemsToBeDestroyed.Clear();
-
-		if(AchievementManager.Instance.IsRecoverToPerfectFromRedAchieved() == false)
-		{
-			if(AchievementManager.Instance.healthisRed == false && m_nHealth <= 30)
-			{
-				AchievementManager.Instance.healthisRed = true;
-			}
-
-			if(AchievementManager.Instance.healthisRed && m_nHealth == MAX_HEALTH)
-			{
-				AchievementManager.Instance.RecoverToPerfectFromRed();
-			}
-		}
 	}
 
 	void AnimateGems()
@@ -908,8 +948,7 @@ public class GemSpawner : MonoBehaviour
 	int GetPointsGain( int num, int multiplier )
 	{
 		int pointsGain = num * PER_GEM_POINTS + num * ( ( num - 3 ) * ( PER_GEM_POINTS / 10 ) );
-		float mult_once = BoosterManager.Instance.GetScoreMultOnce();
-		return (int)Mathf.Round(multiplier * pointsGain * BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.ScoreMult) * mult_once);
+		return multiplier * pointsGain;
 	}
 
 	void StartRollingPoints( int pointsGain )
@@ -949,9 +988,9 @@ public class GemSpawner : MonoBehaviour
 		//	CreateComboSpecular();
 		//}
 
-		Color c = m_ComboText.GetComponent<Text>().color;
-		c.a = 1.0f;
-		m_ComboText.GetComponent<Text>().color = c;
+		m_bIsBreakingCombo = false;
+		m_bIsStartingCombo = true;
+		m_ComboText.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 		//m_nComboOpacity = 1.0f;
 	}
 
@@ -993,7 +1032,7 @@ public class GemSpawner : MonoBehaviour
 			{
 				//m_fSpawnRate -= SPAWN_RATE_GROWTH;
 				m_fSpawnRate = BASE_SPAWN_RATE - m_nLevel * SPAWN_RATE_GROWTH;
-				m_fBaseGemDropSpeed = m_HalfDimension.y * BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.SlowerGems) * 2.0f / ( BASE_GEM_DROP_TIME - ( m_nLevel / 2 ) * GEM_DROP_TIME_GROWTH );
+				m_fBaseGemDropSpeed = m_HalfDimension.y * 2.0f / ( BASE_GEM_DROP_TIME - ( m_nLevel / 2 ) * GEM_DROP_TIME_GROWTH );
 
 				Debug.Log( "Spawn rate: " + m_fSpawnRate );
 				Debug.Log( "Drop rate: " + m_fBaseGemDropSpeed );
@@ -1021,6 +1060,8 @@ public class GemSpawner : MonoBehaviour
 		{
 			// Points
 			int pointsGain = GetPointsGain( m_LinkedGem.Count, multiplier );
+			pointsGain = (int)(pointsGain * BoosterManager.Instance.GetScoreMultOnce ());
+			pointsGain *= (int)(BoosterManager.Instance.GetBoostValue (BOOSTERTYPE.ScoreMult));
 			int eachGain = pointsGain / m_LinkedGem.Count;
 			StartRollingPoints( pointsGain );
 			m_PlayerStats.m_nScore = m_nPoints;
@@ -1047,8 +1088,6 @@ public class GemSpawner : MonoBehaviour
 
 				AddGainPointsEffect( g.transform.position, g.GemType, eachGain );
 			}
-
-			AchievementManager.Instance.UpdateMaxLinkGemsInOneChain(m_LinkedGem.Count);
 		}
 
 #if LINKIT_COOP
@@ -1085,6 +1124,7 @@ public class GemSpawner : MonoBehaviour
 
 		m_LinkedGem.Clear();
 		m_Link.CheckForDestroy = false;
+
 		UnlinkGold( destroy );
 
 		return true;
@@ -1274,10 +1314,10 @@ public class GemSpawner : MonoBehaviour
 	void CreateGem( int lane, int gemType )
 	{
 		GameObject gem = ( GameObject )Instantiate( m_aGemList[gemType], new Vector3( GetGemX( lane ), m_HalfDimension.y ), Quaternion.identity );
-		gem.transform.localScale *= BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.BiggerGems);
 		gem.GetComponent<Gem>().Lane = lane;
 		gem.GetComponent<Gem>().GemType = gemType;
 		gem.GetComponent<Gem>().SequenceIndex = m_nSequenceIndexFromList;
+		gem.transform.localScale *= BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.BiggerGems);
 #if LINKIT_COOP
 		if ( NetworkManager.IsConnected() )
 		{
@@ -1779,7 +1819,6 @@ public class GemSpawner : MonoBehaviour
 	void AnimatePoints()
 	{
 		m_fPointTimer += Time.deltaTime;
-
 		if ( m_fPointTimer < TIME_TO_ACTUAL_POINTS + Time.deltaTime )
 		{
 			m_fPointTimer = m_fPointTimer > TIME_TO_ACTUAL_POINTS ? TIME_TO_ACTUAL_POINTS : m_fPointTimer;
@@ -1818,6 +1857,24 @@ public class GemSpawner : MonoBehaviour
 		Vector3 pos = m_PraiseText.transform.position;
 		pos.y = m_PraisePos.y + factor * PRAISE_MOVE_DISTANCE;
 		m_PraiseText.transform.position = pos;
+
+		Color tmp = m_PraiseText.GetComponent<Text>().color;
+		if(isPraiseUp)
+		{
+			tmp.g += 0.03f;
+			tmp.b -= 0.03f;
+		}
+		else
+		{
+			tmp.g -= 0.03f;
+			tmp.b += 0.03f;
+		}
+
+		if(isPraiseUp && tmp.b <= 0.0f)
+			isPraiseUp = !isPraiseUp;
+		if(!isPraiseUp && tmp.b >= 0.5f)
+			isPraiseUp = !isPraiseUp;
+		m_PraiseText.GetComponent<Text>().color = tmp;
 	}
 
 	void AnimateShowMultiplier()
@@ -1974,6 +2031,25 @@ public class GemSpawner : MonoBehaviour
 		}
 	}
 
+	public void SetGameOver()
+	{
+		m_nHealth = 0;
+		Analytics.CustomEvent("ManualExitGame", new Dictionary<string, object>
+		{
+			{"Exit", 1}
+		});
+	}
+
+	public void PauseGame()
+	{
+		m_bIsPaused = true;
+	}
+
+	public void UnpauseGame()
+	{
+		m_bIsPaused = false;
+	}
+
 	void UpdateGameover()
 	{
 		if ( !m_bGameover )
@@ -2039,10 +2115,9 @@ public class GemSpawner : MonoBehaviour
 
 		m_nCurrentCombo = 0;
 		m_ComboText.GetComponent<Text>().text = "Combo\n" + m_nCurrentCombo.ToString();
-
-		Color c = m_ComboText.GetComponent<Text>().color;
-		c.a = 0.0f;
-		m_ComboText.GetComponent<Text>().color = c;
+		m_bIsBreakingCombo = true;
+		m_bIsStartingCombo = false;
+		m_ComboText.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
 		//m_nComboOpacity = 0.0f;
 
 		m_nHighComboMultiplierIndex = 0;

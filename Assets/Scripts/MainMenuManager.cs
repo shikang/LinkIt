@@ -28,6 +28,7 @@ public class MainMenuManager : MonoBehaviour
 		OPTIONS,
 		CREDITS,
 		ACHIEVEMENTS,
+		BOOSTER,
 
 		TOTAL
 	}
@@ -49,6 +50,8 @@ public class MainMenuManager : MonoBehaviour
 	private float m_fScreenAnimateTimer = 0.0f;
 	private float m_fScreenWidth = 0.0f;
 	private float m_fScreenFrom = 0.0f;
+
+	public GameObject m_uPlayerCoins;
 
 	// Use this for initialization
 	void Start ()
@@ -81,6 +84,7 @@ public class MainMenuManager : MonoBehaviour
 	{
 		AnimateGems();
 		AnimationScreen();
+		m_uPlayerCoins.GetComponent<Text>().text = GameData.Instance.m_Coin.ToString();
 	}
 
 	void AnimateGems()
@@ -222,5 +226,25 @@ public class MainMenuManager : MonoBehaviour
 			bs.SetEnable();
 		else
 			bs.SetDisable();
+	}
+
+	private static void EnableButtonsImpl( bool enable )
+	{
+		GameObject[] objs = GameObject.FindGameObjectsWithTag( "Button" );
+
+		foreach ( GameObject button in objs )
+		{
+			button.GetComponent<Button>().interactable = enable;
+		}
+	}
+
+	public static void DisableButtons()
+	{
+		EnableButtonsImpl( false );
+	}
+
+	public static void EnableButtons()
+	{
+		EnableButtonsImpl( true );
 	}
 }

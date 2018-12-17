@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22430334}
   - 114: {fileID: 11465348}
+  - 114: {fileID: 11408726}
   m_Layer: 5
   m_Name: Shop Manager
   m_TagString: Shop Manager
@@ -16,6 +17,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &11408726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c31599b0007d9ac49adeb3a1310627a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11465348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27,10 +39,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42f5cbb48ff7b59499701145ce4a57e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_GemLibrary: {fileID: 0}
   m_ItemContent: {fileID: 0}
   m_Equipped: {fileID: 0}
   m_ItemPrefab: {fileID: 0}
+  m_uPlayerCoins: {fileID: 0}
   m_HorizontalScrollSnap: {fileID: 0}
 --- !u!224 &22430334
 RectTransform:

@@ -31,7 +31,7 @@ public class BoosterViewer : MonoBehaviour
 	{
 		int shiftEntry = 3;	// noof temp boosters
 		if(isOnce_)
-			shiftEntry = -5;	// no of perm boosters
+			shiftEntry = -5;	// no of perm boosterss
 		m_lViewer[(int)type_+shiftEntry].GetComponent<BoosterEntry>().SetEntry(type_, BoosterManager.Instance.GetBoostData(type_), currLevel_, isOnce_);
 	}
 

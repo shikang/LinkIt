@@ -15,6 +15,10 @@ TagManager:
   - Gem Library
   - Main Menu Manager
   - Tutorial Manager
+  - Loading Overlay
+  - Popup
+  - Button
+  - Shop Controller
   layers:
   - Default
   - TransparentFX

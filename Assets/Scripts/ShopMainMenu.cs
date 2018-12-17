@@ -7,7 +7,7 @@ public class ShopMainMenu : MonoBehaviour
 	string m_sName;
 	string m_sDesc;
 	uint m_uCoin;
-	float m_fCost;
+	string m_sCost;
 
 	public GameObject m_ItemName;
 	public GameObject m_Cost;
@@ -21,12 +21,15 @@ public class ShopMainMenu : MonoBehaviour
 	{
 	}
 
-	public void SetData(string name_, uint coin_, float cost_, string desc_)
+	public void SetData(string name_, uint coin_, string cost_, string desc_)
 	{
 		SetName(name_);
 		SetCoin(coin_);
 		SetCost(cost_);
 		SetDesc(desc_);
+
+		// Set in app purchase
+
 	}
 
 	public void SetName (string name_)
@@ -40,10 +43,12 @@ public class ShopMainMenu : MonoBehaviour
 		m_uCoin = coin_;
 	}
 
-	public void SetCost (float cost_)
+	public void SetCost (string cost_)
 	{
-		m_fCost = cost_;
-		m_Cost.GetComponent<Text>().text = "$" + m_fCost.ToString();
+		//m_fCost = cost_;
+		//m_Cost.GetComponent<Text>().text = "$" + m_fCost.ToString();
+		m_sCost = cost_;
+		m_Cost.GetComponent<Text>().text = cost_;
 	}
 
 	public void SetDesc (string desc_)
@@ -62,9 +67,9 @@ public class ShopMainMenu : MonoBehaviour
 		return m_uCoin;
 	}
 
-	public float GetCost()
+	public string GetCost()
 	{
-		return m_fCost;
+		return m_sCost;
 	}
 
 	public string GetDesc ()

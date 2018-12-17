@@ -15,12 +15,13 @@ public class InAppProductList : Singleton<InAppProductList>
 	{
 		COIN,
 		AVATAR,
+		DISABLE_ADS,
 	}
 
 	// Comsumables
 	Dictionary<ProductType, List<int>> m_ConsumableMap = new Dictionary<ProductType, List<int>>
 														{
-															{ ProductType.COIN, new List<int>{ 100, 200 } },
+															{ ProductType.COIN, new List<int>{ 100, 250, 500, 1000 } },
 														};
 
 	[Flags]
@@ -66,8 +67,9 @@ public class InAppProductList : Singleton<InAppProductList>
 				InAppProcessor.Instance.AddProductParam( productIdentifier, consumeInfo.Key, amount );
 			}
 		}
-		
+
 		// Non-consumables
+#if ENABLE_BUY_AVATAR
 		//GemLibrary gemLibrary = GameObject.Find( "Gem Library" ).GetComponent<GemLibrary>();
 		GemLibrary gemLibrary = GemLibrary.Instance;
 		for ( int i = 0; i < gemLibrary.GemsSetList.Count; ++i )
@@ -76,6 +78,13 @@ public class InAppProductList : Singleton<InAppProductList>
 			m_NonConsumableList.Add( productIdentifier, new ProductInfo( productIdentifier, Store.ALL ) );
 
 			InAppProcessor.Instance.AddProductParam( productIdentifier, ProductType.AVATAR, i );
+		}
+#endif
+		// Disable Ads
+		{
+			string productIdentifier = GetProductIdentifier( ProductType.DISABLE_ADS, 0 );
+			m_NonConsumableList.Add( productIdentifier, new ProductInfo( productIdentifier, Store.ALL ) );
+			InAppProcessor.Instance.AddProductParam( productIdentifier, ProductType.DISABLE_ADS, 0 );
 		}
 
 		// Subscriptions
@@ -93,6 +102,8 @@ public class InAppProductList : Singleton<InAppProductList>
 				GemLibrary gemLibrary = GemLibrary.Instance;
 				GemContainerSet gemSet = gemLibrary.GemsSetList[productParam];
 				return PRODUCT_PREFIX + ProductType.AVATAR.ToString().ToLower() + "." + gemSet.m_sGemContainerSetName.ToLower();
+			case InAppProductList.ProductType.DISABLE_ADS:
+				return PRODUCT_PREFIX + ProductType.DISABLE_ADS.ToString().ToLower();
 			default:
 				Debug.Log( string.Format( "InAppProcessor::GetProductIdentifier: FAIL. Invalid product type: '{0}'", productType.ToString() ) );
 				return "";

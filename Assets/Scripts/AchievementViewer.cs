@@ -21,7 +21,7 @@ public class AchievementViewer : MonoBehaviour
 			tmp = GameObject.Instantiate(m_pAchEntryPrefab);
 			tmp.transform.parent = m_gScrollRect.transform;
 			tmp.transform.localScale = new Vector3(1.0f ,1.0f, 1.0f);
-			tmp.GetComponent<RectTransform>().localPosition = new Vector3(m_fFirstPosX, m_fFirstPosY - i*m_fHorizontalGap, 0.0f);
+			tmp.GetComponent<Transform>().localPosition = new Vector3(m_fFirstPosX, m_fFirstPosY - i*m_fHorizontalGap, 0.0f);
 			m_lAchViewer.Add(tmp);
 		}
 	}

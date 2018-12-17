@@ -47,7 +47,7 @@ public class BoosterManager : MonoBehaviour
 
 		// Initialize the static class variables
 		instance = this;
-		DontDestroyOnLoad(gameObject);
+		//DontDestroyOnLoad(gameObject);
 	}
 
 	void Start()
@@ -60,7 +60,8 @@ public class BoosterManager : MonoBehaviour
 		GameData.Instance.m_Boost_ScoreMultOnce = false;
 		GameData.Instance.m_Boost_GoldMultOnce = false;
 		GameData.Instance.m_Boost_MoreHealthOnce = false;
-		SaveLoad.Save();
+		//SaveLoad.Save();
+		SaveDataLoader.SaveGame();
 	}
 
 	public float GetScoreMultOnce()

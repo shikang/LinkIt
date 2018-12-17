@@ -262,7 +262,8 @@ public class TutorialAnimator : MonoBehaviour
 		if ( m_fTimer >= HIDING_TIME )
 		{
 			GameData.Instance.m_SeenTutorial = true;
-			SaveLoad.Save();
+			//SaveLoad.Save();
+			SaveDataLoader.SaveGame();
 			DisableTutorial();
 		}
 		else

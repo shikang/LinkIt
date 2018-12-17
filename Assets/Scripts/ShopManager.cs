@@ -14,6 +14,7 @@ public class ShopManager : MonoBehaviour
 	public GameObject m_Equipped;
 
 	public GameObject m_ItemPrefab;
+	public GameObject m_uPlayerCoins;
 
 	public HorizontalScrollSnap m_HorizontalScrollSnap;
 
@@ -67,7 +68,7 @@ public class ShopManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-
+		m_uPlayerCoins.GetComponent<Text>().text = GameData.Instance.m_Coin.ToString();
 	}
 
 	void SetItemIconEnable( GameObject itemIcon, bool enable )
@@ -255,7 +256,8 @@ public class ShopManager : MonoBehaviour
 				Debug.Log( "You have: " + i.ToString() );
 			}
 
-			SaveLoad.Save();
+			//SaveLoad.Save();
+			SaveDataLoader.SaveGame();
 			return true;
 		}
 		else
@@ -265,6 +267,13 @@ public class ShopManager : MonoBehaviour
 		}
 		*/
 		return true;
+	}
+
+	public void DisableAds()
+	{
+		GameData.Instance.m_bIsAdsRemoved = true;
+		//SaveLoad.Save();
+		SaveDataLoader.SaveGame();
 	}
 
 	public void ChangeEquippedSprite( GemLibrary.GemSet gemType )
@@ -326,6 +335,8 @@ public class ShopManager : MonoBehaviour
 	// @debug
 	public void AddGold()
 	{
+#if ADD_GOLD_ENABLE
 		Debugger.AddGold();
+#endif
 	}
 }
