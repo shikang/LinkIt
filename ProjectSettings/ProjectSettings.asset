@@ -90,14 +90,14 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: com.WhyWool.LinkItTest
-  bundleVersion: 12.0
+  bundleVersion: 13.0
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0
   virtualRealitySupported: 0
   productGUID: a3ec95e67cd5705409cd0364ffbe5a0b
-  AndroidBundleVersionCode: 12
+  AndroidBundleVersionCode: 13
   AndroidMinSdkVersion: 15
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -158,7 +158,7 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/ShiKang.Me/Desktop/LinkIt/Keystore/App-Signing/App
+  AndroidKeystoreName: C:/Users/shikang.neoh/Desktop/Linkit/Keystore/App-Signing/App
     Signing/whywoolupload.jks
   AndroidKeyaliasName: upload
   AndroidTVCompatibility: 1
