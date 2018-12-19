@@ -19,6 +19,7 @@ TagManager:
   - Popup
   - Button
   - Shop Controller
+  - Achievement Canvas
   layers:
   - Default
   - TransparentFX
