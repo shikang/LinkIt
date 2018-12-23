@@ -46,9 +46,9 @@ public class AchievementManager : MonoBehaviour
 {
 	// Display
 	List<ACHIEVEMENTSET> m_lAchivements = new List<ACHIEVEMENTSET>();
-	public GameObject m_gDisplayCanvas;
-	public GameObject m_gDisplayTitle;
-	public GameObject m_gDisplayDesc;
+	//public GameObject m_gDisplayCanvas;
+	//public GameObject m_gDisplayTitle;
+	//public GameObject m_gDisplayDesc;
 	public GameObject m_gPrefab;
 
 
@@ -186,7 +186,16 @@ public class AchievementManager : MonoBehaviour
 		while(currCount >= arr[nextIndex].count)
 		{
 			PrintObtainedText(arr[nextIndex]);
-			if(arr.Length > nextIndex + 1)
+
+#if UNITY_ANDROID
+            // This will be multiple times as long as next index did not change
+            if ( arr[nextIndex].achievementID != "" )
+		    {
+			    GooglePlayService.ProgressAcheivement( arr[nextIndex].achievementID, 100.0f );
+		    }
+#endif
+
+            if(arr.Length > nextIndex + 1)
 				++nextIndex;
 			else
 				break;
@@ -195,10 +204,10 @@ public class AchievementManager : MonoBehaviour
 #if UNITY_ANDROID
 		int currentIndex = Math.Max( 0, nextIndex - 1 ); 
 		// This will be multiple times as long as next index did not change
-		if ( arr[currentIndex].achievementID != "" )
-		{
-			GooglePlayService.ProgressAcheivement( arr[currentIndex].achievementID, 100.0f );
-		}
+		//if ( arr[currentIndex].achievementID != "" )
+		//{
+		//	GooglePlayService.ProgressAcheivement( arr[currentIndex].achievementID, 100.0f );
+		//}
 
 		while ( arr.Length > currentIndex + 1 && arr[++currentIndex].achievementID == "" );
 		if ( arr[currentIndex].achievementID != "" )
