@@ -333,7 +333,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
 --- !u!1 &1179633557 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 146728, guid: 5277a13f5e6f0004a9cc04eb9f54540d, type: 2}
@@ -718,6 +718,10 @@ Prefab:
       propertyPath: m_HighScoreText
       value: 
       objectReference: {fileID: 309484364}
+    - target: {fileID: 11447868, guid: 1328ecb71c414284a95e4f4ebfbf057f, type: 2}
+      propertyPath: m_PrizeButton
+      value: 
+      objectReference: {fileID: 1940129750}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1328ecb71c414284a95e4f4ebfbf057f, type: 2}
   m_IsPrefabParent: 0
@@ -1162,6 +1166,14 @@ Prefab:
       value: 
       objectReference: {fileID: 12800000, guid: c2273aa73e4e5e14fa57d5482837bbba,
         type: 3}
+    - target: {fileID: 144746, guid: 5277a13f5e6f0004a9cc04eb9f54540d, type: 2}
+      propertyPath: m_TagString
+      value: Prize Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486924, guid: 5277a13f5e6f0004a9cc04eb9f54540d, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoDoubleCoin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5277a13f5e6f0004a9cc04eb9f54540d, type: 2}
   m_IsPrefabParent: 0
