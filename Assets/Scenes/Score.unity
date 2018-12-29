@@ -333,7 +333,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 8
 --- !u!1 &1179633557 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 146728, guid: 5277a13f5e6f0004a9cc04eb9f54540d, type: 2}
@@ -816,6 +816,10 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1431504568}
+    - target: {fileID: 110304, guid: 0bb4651add583fd49a2dd97973031e56, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0bb4651add583fd49a2dd97973031e56, type: 2}
   m_IsPrefabParent: 0
@@ -1094,6 +1098,70 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: 0.000002861023
       objectReference: {fileID: 0}
+    - target: {fileID: 11455174, guid: 5277a13f5e6f0004a9cc04eb9f54540d, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c2273aa73e4e5e14fa57d5482837bbba,
+        type: 3}
+    - target: {fileID: 11469460, guid: 5277a13f5e6f0004a9cc04eb9f54540d, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c2273aa73e4e5e14fa57d5482837bbba,
+        type: 3}
+    - target: {fileID: 11485304, guid: 5277a13f5e6f0004a9cc04eb9f54540d, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c2273aa73e4e5e14fa57d5482837bbba,
+        type: 3}
+    - target: {fileID: 11460868, guid: 5277a13f5e6f0004a9cc04eb9f54540d, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c2273aa73e4e5e14fa57d5482837bbba,
+        type: 3}
+    - target: {fileID: 11493862, guid: 5277a13f5e6f0004a9cc04eb9f54540d, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c2273aa73e4e5e14fa57d5482837bbba,
+        type: 3}
+    - target: {fileID: 11454342, guid: 5277a13f5e6f0004a9cc04eb9f54540d, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c2273aa73e4e5e14fa57d5482837bbba,
+        type: 3}
+    - target: {fileID: 11456272, guid: 5277a13f5e6f0004a9cc04eb9f54540d, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c2273aa73e4e5e14fa57d5482837bbba,
+        type: 3}
+    - target: {fileID: 11411082, guid: 5277a13f5e6f0004a9cc04eb9f54540d, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c2273aa73e4e5e14fa57d5482837bbba,
+        type: 3}
+    - target: {fileID: 11472122, guid: 5277a13f5e6f0004a9cc04eb9f54540d, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c2273aa73e4e5e14fa57d5482837bbba,
+        type: 3}
+    - target: {fileID: 11485412, guid: 5277a13f5e6f0004a9cc04eb9f54540d, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c2273aa73e4e5e14fa57d5482837bbba,
+        type: 3}
+    - target: {fileID: 11493374, guid: 5277a13f5e6f0004a9cc04eb9f54540d, type: 2}
+      propertyPath: m_Text
+      value: x2 Coins!
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427952, guid: 5277a13f5e6f0004a9cc04eb9f54540d, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 7915ea32b3aa05943b9bb3a80b56eff5,
+        type: 3}
+    - target: {fileID: 11419174, guid: 5277a13f5e6f0004a9cc04eb9f54540d, type: 2}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: c2273aa73e4e5e14fa57d5482837bbba,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5277a13f5e6f0004a9cc04eb9f54540d, type: 2}
   m_IsPrefabParent: 0
@@ -1159,7 +1227,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
 --- !u!1001 &2002384915
 Prefab:
   m_ObjectHideFlags: 0
@@ -1350,7 +1418,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!1 &2139991818 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 151036, guid: 5277a13f5e6f0004a9cc04eb9f54540d, type: 2}
