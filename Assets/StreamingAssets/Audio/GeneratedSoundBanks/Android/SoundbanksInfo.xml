@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SoundBanksInfo Platform="Android" BasePlatform="Android" SchemaVersion="11" SoundbankVersion="118">
+<SoundBanksInfo Platform="Android" BasePlatform="Android" SchemaVersion="11" SoundbankVersion="128">
 	<RootPaths>
-		<ProjectRoot>C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\.cache\Android\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\SolidRocker\Desktop\WhyWool\UltimateTic\trunk\Ultimate TicTacToe\TicTacToe4D\WwiseProject\GeneratedSoundBanks\Android\</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\GeneratedSoundBanks\Android</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -21,142 +21,12 @@
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<IncludedEvents>
-				<Event Id="1057362666" Name="AvatarSelect" ObjectPath="\Events\Default Work Unit\Menu\AvatarSelect"/>
-				<Event Id="1559875400" Name="Back" ObjectPath="\Events\Default Work Unit\Menu\Back"/>
-				<Event Id="1495286007" Name="BoughtIcon" ObjectPath="\Events\Default Work Unit\Gacha\BoughtIcon"/>
-				<Event Id="3162847632" Name="ChangeTurn" ObjectPath="\Events\Default Work Unit\Gameplay\ChangeTurn"/>
-				<Event Id="1584507803" Name="Click" ObjectPath="\Events\Default Work Unit\Menu\Click"/>
-				<Event Id="1505888634" Name="Countdown" ObjectPath="\Events\Default Work Unit\Gameplay\Countdown"/>
-				<Event Id="907660662" Name="GachaCount" ObjectPath="\Events\Default Work Unit\Gacha\GachaCount"/>
-				<Event Id="1412691440" Name="GachaEnd" ObjectPath="\Events\Default Work Unit\Gacha\GachaEnd"/>
-				<Event Id="35801126" Name="GetPoints" ObjectPath="\Events\Default Work Unit\Gameplay\GetPoints"/>
-				<Event Id="441443463" Name="Place_Confirm" ObjectPath="\Events\Default Work Unit\Gameplay\Place_Confirm"/>
-				<Event Id="3187750163" Name="Place_Highlight" ObjectPath="\Events\Default Work Unit\Gameplay\Place_Highlight"/>
-				<Event Id="3378095718" Name="Place_Invalid" ObjectPath="\Events\Default Work Unit\Gameplay\Place_Invalid"/>
-				<Event Id="2542411811" Name="PlayBGM" ObjectPath="\Events\Default Work Unit\Gameplay\PlayBGM"/>
-				<Event Id="1521187885" Name="StartGame" ObjectPath="\Events\Default Work Unit\Menu\StartGame"/>
-				<Event Id="2953646070" Name="StartGame_Flash" ObjectPath="\Events\Default Work Unit\Gameplay\StartGame_Flash"/>
-				<Event Id="1382992335" Name="StartGame_Scaling" ObjectPath="\Events\Default Work Unit\Gameplay\StartGame_Scaling"/>
-				<Event Id="3203837125" Name="StopBGM" ObjectPath="\Events\Default Work Unit\Gameplay\StopBGM"/>
-				<Event Id="2908016785" Name="WinBigGrid" ObjectPath="\Events\Default Work Unit\Gameplay\WinBigGrid"/>
-				<Event Id="3258849071" Name="WinGame" ObjectPath="\Events\Default Work Unit\Gameplay\WinGame"/>
+				<Event Id="3009997884" Name="TapButton" ObjectPath="\Events\Default Work Unit\InGame\TapButton"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
-				<File Id="40138861" Language="SFX">
-					<ShortName>Shred PP2.wav</ShortName>
-					<Path>SFX\Shred PP2_10D6E168.wem</Path>
-				</File>
-				<File Id="85938634" Language="SFX">
-					<ShortName>Gacha3.wav</ShortName>
-					<Path>SFX\Gacha3_7E3EC3EE.wem</Path>
-				</File>
-				<File Id="140801951" Language="SFX">
-					<ShortName>Gacha2.wav</ShortName>
-					<Path>SFX\Gacha2_061883EB.wem</Path>
-				</File>
-				<File Id="232910334" Language="SFX">
-					<ShortName>Backe2.wav</ShortName>
-					<Path>SFX\Backe2_7E3EC3EE.wem</Path>
-				</File>
-				<File Id="329215217" Language="SFX">
-					<ShortName>GetPoints.wav</ShortName>
-					<Path>SFX\GetPoints_7E3EC3EE.wem</Path>
-				</File>
-				<File Id="346329211" Language="SFX">
-					<ShortName>Scaling.wav</ShortName>
-					<Path>SFX\Scaling_7E3EC3EE.wem</Path>
-				</File>
-				<File Id="390641870" Language="SFX">
-					<ShortName>Placement.wav</ShortName>
-					<Path>SFX\Placement_7E3EC3EE.wem</Path>
-				</File>
-				<File Id="421854454" Language="SFX">
-					<ShortName>Countdown.wav</ShortName>
-					<Path>SFX\Countdown_CF540122.wem</Path>
-				</File>
-				<File Id="425723482" Language="SFX">
-					<ShortName>WinBigGrid2.wav</ShortName>
-					<Path>SFX\WinBigGrid2_609E6455.wem</Path>
-				</File>
-				<File Id="471297279" Language="SFX">
-					<ShortName>Shred PP1.wav</ShortName>
-					<Path>SFX\Shred PP1_10D6E168.wem</Path>
-				</File>
-				<File Id="484115436" Language="SFX">
-					<ShortName>Gacha1.wav</ShortName>
-					<Path>SFX\Gacha1_D7DB4B4C.wem</Path>
-				</File>
-				<File Id="488933611" Language="SFX">
-					<ShortName>Place_Highlight2.wav</ShortName>
-					<Path>SFX\Place_Highlight2_084CB489.wem</Path>
-				</File>
-				<File Id="501525472" Language="SFX">
-					<ShortName>GachaFinal.wav</ShortName>
-					<Path>SFX\GachaFinal_7E3EC3EE.wem</Path>
-				</File>
-				<File Id="591671644" Language="SFX">
-					<ShortName>AvatarSelect2.wav</ShortName>
-					<Path>SFX\AvatarSelect2_58327B83.wem</Path>
-				</File>
-				<File Id="674151597" Language="SFX">
-					<ShortName>AvatarSelect3.wav</ShortName>
-					<Path>SFX\AvatarSelect3_4C3C99A5.wem</Path>
-				</File>
-				<File Id="716354945" Language="SFX">
-					<ShortName>Backe1.wav</ShortName>
-					<Path>SFX\Backe1_7E3EC3EE.wem</Path>
-				</File>
-				<File Id="758821720" Language="SFX">
-					<ShortName>Clicke2.wav</ShortName>
-					<Path>SFX\Clicke2_7E3EC3EE.wem</Path>
-				</File>
-				<File Id="761950348" Language="SFX">
-					<ShortName>Clicke1.wav</ShortName>
-					<Path>SFX\Clicke1_7E3EC3EE.wem</Path>
-				</File>
-				<File Id="794968390" Language="SFX">
-					<ShortName>Clicke4.wav</ShortName>
-					<Path>SFX\Clicke4_7E3EC3EE.wem</Path>
-				</File>
-				<File Id="810067903" Language="SFX">
-					<ShortName>WinBigGrid1.wav</ShortName>
-					<Path>SFX\WinBigGrid1_5249110F.wem</Path>
-				</File>
-				<File Id="828134313" Language="SFX">
-					<ShortName>AvatarSelect1.wav</ShortName>
-					<Path>SFX\AvatarSelect1_7E3EC3EE.wem</Path>
-				</File>
-				<File Id="840343982" Language="SFX">
-					<ShortName>Place_Highlight1.wav</ShortName>
-					<Path>SFX\Place_Highlight1_100F5B59.wem</Path>
-				</File>
-				<File Id="850308048" Language="SFX">
-					<ShortName>Flash.wav</ShortName>
-					<Path>SFX\Flash_7E3EC3EE.wem</Path>
-				</File>
-				<File Id="915839140" Language="SFX">
-					<ShortName>StartGame.wav</ShortName>
-					<Path>SFX\StartGame_FACA0B23.wem</Path>
-				</File>
-				<File Id="921396232" Language="SFX">
-					<ShortName>ChangeTurn.wav</ShortName>
-					<Path>SFX\ChangeTurn_7E3EC3EE.wem</Path>
-				</File>
-				<File Id="954038039" Language="SFX">
-					<ShortName>WinGame.wav</ShortName>
-					<Path>SFX\WinGame_9B8F8ABC.wem</Path>
-				</File>
-				<File Id="975026500" Language="SFX">
-					<ShortName>BoughtIcon.wav</ShortName>
-					<Path>SFX\BoughtIcon_3297707D.wem</Path>
-				</File>
-				<File Id="1055088442" Language="SFX">
-					<ShortName>Place_Invalid.wav</ShortName>
-					<Path>SFX\Place_Invalid_76828BBB.wem</Path>
-				</File>
-				<File Id="1059125190" Language="SFX">
-					<ShortName>Clicke3.wav</ShortName>
-					<Path>SFX\Clicke3_7E3EC3EE.wem</Path>
+				<File Id="669931221" Language="SFX">
+					<ShortName>Copy of Clicks_07.wav</ShortName>
+					<Path>SFX\Copy of Clicks_07_53CEE377.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

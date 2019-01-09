@@ -214,7 +214,7 @@ public class MainMenuManager : MonoBehaviour
 		if ( screen == eScreen.MAIN_MENU )
 			return;
 
-		Transform t = m_Screens[(int)screen].transform.FindChild( "Back Button" );
+		Transform t = m_Screens[(int)screen].transform.Find( "Back Button" );
 		Button b = t.GetComponent<Button>();
 		b.enabled = enable;
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{9F564362-863D-4395-A6C7-57D32B5B0067}" SchemaVersion="72">
+<WwiseDocument Type="WorkUnit" ID="{9F564362-863D-4395-A6C7-57D32B5B0067}" SchemaVersion="85">
 	<DynamicDialogue>
 		<WorkUnit Name="Default Work Unit" ID="{9F564362-863D-4395-A6C7-57D32B5B0067}" PersistMode="Standalone"/>
 	</DynamicDialogue>

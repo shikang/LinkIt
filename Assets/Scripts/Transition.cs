@@ -22,7 +22,7 @@ public class Transition : MonoBehaviour
 		m_bFadeOut = false;
 		m_fTimer = 0.0f;
 
-		transform.FindChild( "Overlay" ).gameObject.SetActive( true );
+		transform.Find( "Overlay" ).gameObject.SetActive( true );
 		m_Overlay = GetComponentInChildren<SpriteRenderer>();
 	}
 	

@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" SchemaVersion="72">
+<WwiseDocument Type="WorkUnit" ID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" SchemaVersion="85">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="InGame" ID="{0E4277D6-DBEF-4BB2-BE6F-236FFD01BF14}" ShortID="119722885">
+					<ChildrenList>
+						<Event Name="TapButton" ID="{0BF66EFB-841B-41CE-BB3A-44CED98548B3}">
+							<ChildrenList>
+								<Action Name="" ID="{D78E83A1-DBD7-4470-BB79-31D001AC2CC6}" ShortID="532428115">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Copy of Clicks_07" ID="{36EF27DC-F72F-4909-97E3-A086FAFBE4B9}" WorkUnitID="{2823C543-2C51-4FF0-950F-04B865A675D6}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>
