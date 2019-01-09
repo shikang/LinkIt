@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_3_4;UNITY_5_3;UNITY_5;UNITY_ADS;UNITY_PURCHASING;UNITY_ANALYTICS;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;PLATFORM_SUPPORTS_ADS_ID;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_6;UNITY_5_6;UNITY_5;UNITY_PURCHASING;UNITY_ANALYTICS;UNITY_ADS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;UNITY_HAS_GOOGLEVR</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -36,6 +36,7 @@
     <Reference Include="System" />
     <Reference Include="System.XML" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
@@ -381,19 +382,19 @@
      <Compile Include="Assets\SimpleAndroidNotifications\NotificationManager.cs" />
      <Compile Include="Assets\SimpleAndroidNotifications\NotificationParams.cs" />
      <Compile Include="Assets\Takohi\Examples\AndroidVibrationPlugins\VibrationTest.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Android\AkAudioOutputType_Android.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Android\AkMemPoolAttributes_Android.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Android\AkPlatformInitSettings_Android.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Android\AkSoundEnginePINVOKE_Android.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Android\AkSoundEngine_Android.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Android\AkThreadProperties_Android.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AKRESULT.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\Ak3DSpatializationMode.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkActionOnEventType.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkAudioDeviceState.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkAudioFormat.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkAudioInterruptionCallbackInfo.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkAudioSettings.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkAudioSourceChangeCallbackInfo.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkAuxSendValue.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkBankCallbackInfo.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkBankContent.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkBusType.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkBusHierarchyFlags.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkCallbackInfo.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkCallbackSerializer.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkCallbackType.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkChannelConfig.cs" />
@@ -403,75 +404,124 @@
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkConnectionType.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkCurveInterpolation.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkDeviceSettings.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkDiffractionFlags.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkDurationCallbackInfo.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkDynamicSequenceItemCallbackInfo.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkDynamicSequenceType.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkEmitterSettings.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkEventCallbackInfo.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkExternalSourceInfo.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkGlobalCallbackLocation.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkGroupType.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkImageSourceParams.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkImageSourceSettings.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkInitSettings.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkIterator.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkMIDICcTypes.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkMIDIEvent.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkMIDIEventCallbackInfo.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkMIDIEventTypes.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkMIDIPost.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkMarkerCallbackInfo.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkMemSettings.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkMeteringFlags.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkMonitorErrorCode.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkMonitorErrorLevel.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkMonitoringCallbackInfo.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkMultiPositionType.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkMusicPlaylistCallbackInfo.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkMusicSettings.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkNodeType.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkMusicSyncCallbackInfo.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkObjectInfo.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkObstructionOcclusionValues.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkOutputSettings.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkPannerType.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkPanningRule.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkPlaylist.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkPlaylistArray.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkPlaylistItem.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkPluginType.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkPositionSourceType.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkPositioningInfo.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkPreparationType.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkPropagationPathInfo.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkPropagationPathInfoProxy.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkQueryRTPCValue.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkRamp.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkRoomParams.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkSegmentInfo.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkSerializedCallbackHeader.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkSoundPathInfo.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkSoundPathInfoProxy.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkSoundPropagationPathParams.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkSourceChannelOrdering.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkSourceSettings.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkSpatialAudioInitSettings.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkStreamMgrSettings.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkTransform.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkTriangle.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkTriangleProxy.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkVector.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\DynamicSequenceType.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\EnvelopePoint.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\ErrorCode.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\ErrorLevel.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\Iterator.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\MultiPositionType.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\Playlist.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\PlaylistItem.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\PreparationType.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\RTPCValue_type.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\WwiseObjectID.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\WwiseObjectIDext.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\_ArrayPoolDefault.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\_ArrayPoolLEngineDefault.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\_ArrayPoolSpatialAudio.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Mac\AkMemPoolAttributes_Mac.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Mac\AkPlatformInitSettings_Mac.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Mac\AkSoundEnginePINVOKE_Mac.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Mac\AkSoundEngine_Mac.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Generated\Mac\AkThreadProperties_Mac.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkAudioAPI_Windows.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkAudioOutputType_Windows.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkMemPoolAttributes_Windows.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkPlatformInitSettings_Windows.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkSoundEnginePINVOKE_Windows.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkSoundEngine_Windows.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkSoundQuality_Windows.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkThreadProperties_Windows.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkAutoObject.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkAudioInputManager.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkAuxSendArray.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkBankManager.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkBasePathGetter.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkCallbackManager.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkChannelEmitterArray.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkLogger.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkMIDIPostArray.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkPositionArray.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkPropagationPathInfoArray.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkSoundEngine.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkSoundPathInfoArray.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkTriangleArray.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkUtilities.cs" />
+     <Compile Include="Assets\Wwise\Deployment\API\Handwritten\WwiseTypes.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkAmbient.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkAudioListener.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkBank.cs" />
-     <Compile Include="Assets\Wwise\Deployment\Components\AkBankManager.cs" />
-     <Compile Include="Assets\Wwise\Deployment\Components\AkBasePathGetter.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkDragDropHelper.cs" />
+     <Compile Include="Assets\Wwise\Deployment\Components\AkEmitterObstructionOcclusion.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkEnvironment.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkEnvironmentPortal.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkEvent.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkEventCallbackData.cs" />
+     <Compile Include="Assets\Wwise\Deployment\Components\AkEventPlayable.cs" />
+     <Compile Include="Assets\Wwise\Deployment\Components\AkEventTrack.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkGameObj.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkGameObjEnvironmentData.cs" />
+     <Compile Include="Assets\Wwise\Deployment\Components\AkGameObjListenerList.cs" />
+     <Compile Include="Assets\Wwise\Deployment\Components\AkGameObjPosOffsetData.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkGameObjPositionData.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkGameObjPositionOffsetData.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkInitializer.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkMemBankLoader.cs" />
+     <Compile Include="Assets\Wwise\Deployment\Components\AkObstructionOcclusion.cs" />
+     <Compile Include="Assets\Wwise\Deployment\Components\AkRTPCPlayable.cs" />
+     <Compile Include="Assets\Wwise\Deployment\Components\AkRTPCTrack.cs" />
+     <Compile Include="Assets\Wwise\Deployment\Components\AkRoom.cs" />
+     <Compile Include="Assets\Wwise\Deployment\Components\AkRoomPortal.cs" />
+     <Compile Include="Assets\Wwise\Deployment\Components\AkRoomPortalObstruction.cs" />
+     <Compile Include="Assets\Wwise\Deployment\Components\AkSoundEngineController.cs" />
+     <Compile Include="Assets\Wwise\Deployment\Components\AkSpatialAudioBase.cs" />
+     <Compile Include="Assets\Wwise\Deployment\Components\AkSpatialAudioEmitter.cs" />
+     <Compile Include="Assets\Wwise\Deployment\Components\AkSpatialAudioListener.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkState.cs" />
+     <Compile Include="Assets\Wwise\Deployment\Components\AkSurfaceReflector.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkSwitch.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkTerminator.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerBase.cs" />
@@ -486,13 +536,13 @@
      <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerMouseExit.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkTriggerMouseUp.cs" />
      <Compile Include="Assets\Wwise\Deployment\Components\AkUnityEventHandler.cs" />
-     <Compile Include="Assets\Wwise\Deployment\Components\AkUtilities.cs" />
+     <Compile Include="Assets\Wwise\Extensions\AkSoundEngine.extensions.cs" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\PluginInfo.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\SoundbanksInfo.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\PluginInfo.xml" />
+     <None Include="Assets\Wwise\Deployment\Plugins\Mac\Release\AkSoundEngine.bundle\Contents\Resources\readme.txt" />
      <None Include="Assets\Photon Unity Networking\link.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\Main.txt" />
-     <None Include="Assets\Wwise\Readme.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\Init.txt" />
      <None Include="Assets\GooglePlayGames\Editor\template-GameInfo.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\PluginInfo.xml" />
@@ -507,11 +557,13 @@
      <None Include="Assets\WwiseSettings.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\Init.txt" />
      <None Include="Assets\Takohi\Android-Vibration-Plugin-Read-Me.txt" />
+     <None Include="Assets\Wwise\Deployment\Plugins\Mac\Debug\AkSoundEngine.bundle\Contents\Resources\readme.txt" />
      <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver.txt" />
      <None Include="Assets\Shaders\Link.shader" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\SoundbanksInfo.xml" />
      <None Include="Assets\PlayServicesResolver\proguard-messaging-workaround.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\Main.txt" />
+     <None Include="Assets\Wwise\Deployment\Plugins\Mac\Profile\AkSoundEngine.bundle\Contents\Resources\readme.txt" />
      <None Include="Assets\GooglePlayGames\Editor\template-Constants.txt" />
      <None Include="Assets\Shaders\Link2.shader" />
      <None Include="Assets\PlayServicesResolver\proguard-unity.txt" />
@@ -527,11 +579,23 @@
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEngine.TestRunner">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="nunit.framework">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.Analytics">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEngine.HoloLens">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.Purchasing">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.VR">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
  <Reference Include="AndroidVibrationPlugin">
  <HintPath>C:/Users/Solid/Documents/WhyWool/GitHub/Linkit/Assets/Plugins/AndroidVibrationPlugin.dll</HintPath>

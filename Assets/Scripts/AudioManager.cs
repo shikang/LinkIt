@@ -59,7 +59,7 @@ public class AudioManager : MonoBehaviour
 
 		case SOUNDID.GACHACOUNT:
 			SoundEventWrapper("GachaCount", go);
-			AkSoundEngine.SetSwitch("GachaCount", UpdateGachaSwitch(), go);
+			//AkSoundEngine.SetSwitch("GachaCount", UpdateGachaSwitch(), go);
 			break;
 
 		case SOUNDID.BGM:
@@ -80,7 +80,7 @@ public class AudioManager : MonoBehaviour
 
 	void SoundEventWrapper(string s, GameObject go)
 	{
-		AkSoundEngine.PostEvent(s, go);
+		//AkSoundEngine.PostEvent(s, go);
 	}
 
 	public void ToggleBGM()
@@ -96,17 +96,17 @@ public class AudioManager : MonoBehaviour
 
 	public void SetMasterVol(float vol)
 	{
-		AkSoundEngine.SetRTPCValue("MasterVol", vol);
+		//AkSoundEngine.SetRTPCValue("MasterVol", vol);
 	}
 
 	public void SetBGMVol(float vol)
 	{
-		AkSoundEngine.SetRTPCValue("BGMVol", vol);
+		//AkSoundEngine.SetRTPCValue("BGMVol", vol);
 	}
 
 	public void SetSFXVol(float vol)
 	{
-		AkSoundEngine.SetRTPCValue("SFXVol", vol);
+		//AkSoundEngine.SetRTPCValue("SFXVol", vol);
 	}
 
 	string UpdateGachaSwitch()
