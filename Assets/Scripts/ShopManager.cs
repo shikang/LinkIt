@@ -335,6 +335,8 @@ public class ShopManager : MonoBehaviour
 	// @debug
 	public void AddGold()
 	{
+#if ADD_GOLD_ENABLE
 		Debugger.AddGold();
+#endif
 	}
 }
