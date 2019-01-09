@@ -22,6 +22,7 @@ public class GooglePlayService : MonoBehaviour
 
 	private static bool s_Initialised = false;
 	private static bool s_Loaded = false;
+    private static int s_Retry = 0;
 
 	GooglePlayState m_State;
 	GooglePlayState m_QueueState;
@@ -199,6 +200,11 @@ public class GooglePlayService : MonoBehaviour
 		return s_Loaded;
 	}
 
+    public static int RetryNum()
+    {
+        return s_Retry;
+    }
+
 	public static void OpenSavedGame( string filename, Action<SavedGameRequestStatus, ISavedGameMetadata> callback )
 	{
 		ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
@@ -320,7 +326,8 @@ public class GooglePlayService : MonoBehaviour
 			else
 			{
 				m_State = GooglePlayState.FAIL_AUTH;
-				EnableLoadingOverlay( false );
+                ++s_Retry;
+                EnableLoadingOverlay( false );
 			}
 		} );
 	}

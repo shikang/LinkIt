@@ -19,6 +19,8 @@ TagManager:
   - Popup
   - Button
   - Shop Controller
+  - Achievement Canvas
+  - Prize Button
   layers:
   - Default
   - TransparentFX
@@ -29,7 +31,7 @@ TagManager:
   - 
   - 
   - UI Particles
-  - 
+  - Background Stuff
   - 
   - 
   - 

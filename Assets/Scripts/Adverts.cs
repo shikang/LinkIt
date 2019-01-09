@@ -120,6 +120,7 @@ public class Adverts : MonoBehaviour
 		if( GameData.Instance.m_bIsAdsRemoved)
 			return;
 
+        /*
 		int val = UnityEngine.Random.Range(1,101);
 		if(val < showChance)
 		{	//show  the skippable ad
@@ -128,7 +129,9 @@ public class Adverts : MonoBehaviour
 			return;
 		}
 		showChance += chanceIncrease;
-	}
+        */
+        ShowAd(AdVidType.video);
+    }
 
 	public void FreeGachaHandler(ShowResult result)
 	{

@@ -46,10 +46,9 @@ public class AchievementManager : MonoBehaviour
 {
 	// Display
 	List<ACHIEVEMENTSET> m_lAchivements = new List<ACHIEVEMENTSET>();
-	public GameObject go;
-	public GameObject m_gDisplayCanvas;
-	public GameObject m_gDisplayTitle;
-	public GameObject m_gDisplayDesc;
+	//public GameObject m_gDisplayCanvas;
+	//public GameObject m_gDisplayTitle;
+	//public GameObject m_gDisplayDesc;
 	public GameObject m_gPrefab;
 
 
@@ -93,7 +92,9 @@ public class AchievementManager : MonoBehaviour
 	{
 		if (instance != null)
 		{
-			Destroy (this.gameObject);
+            GetDisplayCanas().GetComponent<CanvasGroup>().alpha = 0.0f;
+
+            Destroy (this.gameObject);
 			return;
 			//throw new System.Exception("You have more than 1 AchievementManager in the scene.");
 		}
@@ -105,12 +106,27 @@ public class AchievementManager : MonoBehaviour
 		DontDestroyOnLoad(gameObject);
 	}
 
-	void Start()
+    static GameObject GetDisplayCanas()
+    {
+        return GameObject.FindGameObjectWithTag( "Achievement Canvas" );
+    }
+
+    static GameObject GetDisplayTitle()
+    {
+        return GetDisplayCanas().transform.GetChild( 0 ).GetChild( 1 ).gameObject;
+    }
+
+    static GameObject GetDisplayDesc()
+    {
+        return GetDisplayCanas().transform.GetChild( 0 ).GetChild( 2 ).gameObject;
+    }
+
+    void Start()
 	{
 		// Called by someone else
 		//SaveLoad.Load();
 		m_fdisplayTimer = 0.0f;
-		m_gDisplayCanvas.GetComponent<CanvasGroup>().alpha = 0.0f;
+        GetDisplayCanas().GetComponent<CanvasGroup>().alpha = 0.0f;
 	}
 
 	public void ResetVars ()
@@ -118,20 +134,23 @@ public class AchievementManager : MonoBehaviour
 		healthisRed = false;
 		maxGemsPerChain = 0;
 		if(m_lAchivements.Count <= 0)
-			m_gDisplayCanvas.GetComponent<CanvasGroup>().alpha = 0.0f;
+            GetDisplayCanas().GetComponent<CanvasGroup>().alpha = 0.0f;
 	}
 
 	void Update ()
 	{
+        if (GetDisplayCanas() == null)
+            return;
+
 		if(m_lAchivements.Count > 0)
 		{
-			m_gDisplayCanvas.SetActive(true);
-			m_gDisplayTitle.GetComponent<Text>().text = m_lAchivements[0].title;
-			m_gDisplayDesc.GetComponent<Text>().text = m_lAchivements[0].desc;
+            //GetDisplayCanas().SetActive(true);
+            GetDisplayTitle().GetComponent<Text>().text = m_lAchivements[0].title;
+            GetDisplayDesc().GetComponent<Text>().text = m_lAchivements[0].desc;
 
 			if(!isFading)
 			{
-				m_gDisplayCanvas.GetComponent<CanvasGroup>().alpha += Time.deltaTime * CANVAS_ALPHASPEED;
+                GetDisplayCanas().GetComponent<CanvasGroup>().alpha += Time.deltaTime * CANVAS_ALPHASPEED;
 				m_fdisplayTimer += Time.deltaTime;
 				if(m_fdisplayTimer >= 2.0f)
 				{
@@ -141,8 +160,8 @@ public class AchievementManager : MonoBehaviour
 			}
 			else
 			{
-				m_gDisplayCanvas.GetComponent<CanvasGroup>().alpha -= Time.deltaTime * CANVAS_ALPHASPEED;
-				if(m_gDisplayCanvas.GetComponent<CanvasGroup>().alpha <= 0.0f)
+                GetDisplayCanas().GetComponent<CanvasGroup>().alpha -= Time.deltaTime * CANVAS_ALPHASPEED;
+				if(GetDisplayCanas().GetComponent<CanvasGroup>().alpha <= 0.0f)
 				{
 					m_lAchivements.RemoveAt(0);
 					isFading = false;
@@ -151,8 +170,8 @@ public class AchievementManager : MonoBehaviour
 		}
 		else
 		{
-			m_gDisplayCanvas.SetActive(false);
-			m_gDisplayCanvas.GetComponent<CanvasGroup>().alpha = 0.0f;
+            //GetDisplayCanas().SetActive(false);
+            GetDisplayCanas().GetComponent<CanvasGroup>().alpha = 0.0f;
 		}
 	}
 
@@ -167,7 +186,16 @@ public class AchievementManager : MonoBehaviour
 		while(currCount >= arr[nextIndex].count)
 		{
 			PrintObtainedText(arr[nextIndex]);
-			if(arr.Length > nextIndex + 1)
+
+#if UNITY_ANDROID
+            // This will be multiple times as long as next index did not change
+            if ( arr[nextIndex].achievementID != "" )
+		    {
+			    GooglePlayService.ProgressAcheivement( arr[nextIndex].achievementID, 100.0f );
+		    }
+#endif
+
+            if(arr.Length > nextIndex + 1)
 				++nextIndex;
 			else
 				break;
@@ -176,10 +204,10 @@ public class AchievementManager : MonoBehaviour
 #if UNITY_ANDROID
 		int currentIndex = Math.Max( 0, nextIndex - 1 ); 
 		// This will be multiple times as long as next index did not change
-		if ( arr[currentIndex].achievementID != "" )
-		{
-			GooglePlayService.ProgressAcheivement( arr[currentIndex].achievementID, 100.0f );
-		}
+		//if ( arr[currentIndex].achievementID != "" )
+		//{
+		//	GooglePlayService.ProgressAcheivement( arr[currentIndex].achievementID, 100.0f );
+		//}
 
 		while ( arr.Length > currentIndex + 1 && arr[++currentIndex].achievementID == "" );
 		if ( arr[currentIndex].achievementID != "" )

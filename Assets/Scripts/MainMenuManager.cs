@@ -191,6 +191,9 @@ public class MainMenuManager : MonoBehaviour
 
 			m_fScreenFrom = currentPos.x;
 		}
+
+		//if(m_CurrentScreen == (int)eScreen.ACHIEVEMENTS)
+		//	GPManager.ShowAchievementsUI();
 	}
 
 #if LINKIT_COOP

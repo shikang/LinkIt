@@ -24,25 +24,28 @@ public class SaveDataLoader : MonoBehaviour
 		SaveLoad.Load();
 #elif UNITY_IOS
 		// @todo: IOS logic here
+        SaveLoad.Load();
 #endif
-	}
+    }
 
-	public static void SaveGame()
+    public static void SaveGame()
 	{
 #if UNITY_ANDROID
 		//GooglePlayService.SaveGame();
 		SaveLoad.Save();
 #elif UNITY_IOS
 		// @todo: IOS logic here
+        SaveLoad.Save();
 #endif
-	}
+    }
 
-	private static bool IsServiceAuthenticated()
+    private static bool IsServiceAuthenticated()
 	{
 #if UNITY_ANDROID
 		return GooglePlayService.IsAuthenticated();
 #elif UNITY_IOS
 		// @todo: IOS logic here
+        return true;
 #endif
 	}
 
@@ -53,12 +56,24 @@ public class SaveDataLoader : MonoBehaviour
 		return true;
 #elif UNITY_IOS
 		// @todo: IOS logic here
+        return true;
 #endif
 	}
 
-	void Update()
+    private static int ServiceNumRetryNum()
+    {
+#if UNITY_ANDROID
+        //return GooglePlayService.IsLoaded()
+        return GooglePlayService.RetryNum();
+#elif UNITY_IOS
+		// @todo: IOS logic here
+        return 1;
+#endif
+    }
+
+    void Update()
 	{
-		if ( !m_loaded && !m_startedLoading && IsServiceAuthenticated() )
+		if ( !m_loaded && !m_startedLoading && ( IsServiceAuthenticated() || ServiceNumRetryNum() > 0 ) )
 		{
 			LoadGame();
 

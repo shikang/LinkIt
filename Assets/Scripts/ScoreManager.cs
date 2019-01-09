@@ -28,9 +28,10 @@ public class ScoreManager : MonoBehaviour
 	public GameObject m_ScoreCanvas;
 	public GameObject m_GachaCanvas;
 	public GameObject m_HighScoreText;
+    public GameObject m_PrizeButton;
 
-	// Animation variables
-	private int m_nFrameNum;
+    // Animation variables
+    private int m_nFrameNum;
 	private float m_fAnimationIntervalTimer = 0.0f;
 	private float m_fAnimationTimer = 0.0f;
 	private bool m_bAnimating = false;
@@ -210,7 +211,24 @@ public class ScoreManager : MonoBehaviour
 		GameObject.FindGameObjectWithTag( "Transition" ).GetComponent<Transition>().StartFadeOut( GoToHome );
 	}
 
-	static void GoToHome()
+    public void GoDoubleCoin()
+    {
+        UnityEngine.Advertisements.ShowOptions so = new UnityEngine.Advertisements.ShowOptions();
+        so.resultCallback = ((result) => {
+            m_PrizeButton.SetActive( false );
+
+            if (result.Equals(UnityEngine.Advertisements.ShowResult.Finished))
+            {
+                GameData.Instance.m_Coin += m_GoldEarned;
+                SaveDataLoader.SaveGame();
+
+                m_CoinsThisRound.GetComponent<Text>().text = (m_GoldEarned * 2).ToString();
+            }
+        });
+        Adverts.Instance.ShowAd(AdVidType.video, so);
+    }
+
+    static void GoToHome()
 	{
 		SceneManager.LoadScene( "MainMenu" );
 	}
