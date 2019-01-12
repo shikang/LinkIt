@@ -172,6 +172,12 @@ namespace GooglePlayGames.IOS {
         {
             throw new NotImplementedException();
         }
+
+		// SK: Implement missing interface functions
+		public void FetchTokens(Action<int> callback)
+		{
+			throw new NotImplementedException();
+		}
     }
 }
 #endif
