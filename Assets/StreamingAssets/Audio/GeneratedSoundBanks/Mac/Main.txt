@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	3009997884	TapButton			\Default Work Unit\InGame\TapButton	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	669931221	Copy of Clicks_07	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Mac\SFX\Copy of Clicks_07_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\Copy of Clicks_07		46514
+
