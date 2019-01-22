@@ -341,17 +341,9 @@ Prefab:
       value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 11456430, guid: 501155faebc432747b1adb4f249965f8, type: 2}
-      propertyPath: m_gDisplayCanvas
+      propertyPath: m_PlatformSpecificAchievementButton
       value: 
-      objectReference: {fileID: 1954724278}
-    - target: {fileID: 11456430, guid: 501155faebc432747b1adb4f249965f8, type: 2}
-      propertyPath: m_gDisplayTitle
-      value: 
-      objectReference: {fileID: 2093978824}
-    - target: {fileID: 11456430, guid: 501155faebc432747b1adb4f249965f8, type: 2}
-      propertyPath: m_gDisplayDesc
-      value: 
-      objectReference: {fileID: 951321697}
+      objectReference: {fileID: 2013039805}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 501155faebc432747b1adb4f249965f8, type: 2}
   m_IsPrefabParent: 0
@@ -703,10 +695,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &951321697 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 146634, guid: 0bb4651add583fd49a2dd97973031e56, type: 2}
-  m_PrefabInternal: {fileID: 297941383}
 --- !u!1 &1042843304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1436,10 +1424,6 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 146014, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
   m_PrefabInternal: {fileID: 2013039804}
---- !u!1 &1954724278 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 110304, guid: 0bb4651add583fd49a2dd97973031e56, type: 2}
-  m_PrefabInternal: {fileID: 297941383}
 --- !u!1 &1984322556 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 195516, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
@@ -1635,9 +1619,17 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1717894127}
+    - target: {fileID: 109238, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+      propertyPath: m_TagString
+      value: Platform Specific Achievement Button
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2013039805 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 109238, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+  m_PrefabInternal: {fileID: 2013039804}
 --- !u!1001 &2031125392
 Prefab:
   m_ObjectHideFlags: 0
@@ -1688,10 +1680,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 520d7e1b2cf5dbb4daab3c2b2303ee1f, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2093978824 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 139840, guid: 0bb4651add583fd49a2dd97973031e56, type: 2}
-  m_PrefabInternal: {fileID: 297941383}
 --- !u!1 &2095265531 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 157224, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
