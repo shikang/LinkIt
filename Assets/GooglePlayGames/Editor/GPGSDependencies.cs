@@ -87,6 +87,7 @@ public class GPGSDependencies : AssetPostprocessor
             *   create a podfile and use cocoapods to set up the xcode project.
             *
             */
+			/*	// SK: Comment out
             Google.IOSResolver.Enabled = false;
             Type iosResolver = Google.VersionHandler.FindClass(
                 "Google.IOSResolver", "Google.IOSResolver");
@@ -100,6 +101,7 @@ public class GPGSDependencies : AssetPostprocessor
                     { "version", "5.1.2" },
                     { "bitcodeEnabled", false },
                 });
+			*/
 #endif  // UNITY_IOS
         }
 

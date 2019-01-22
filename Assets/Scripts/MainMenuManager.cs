@@ -192,8 +192,15 @@ public class MainMenuManager : MonoBehaviour
 			m_fScreenFrom = currentPos.x;
 		}
 
-		//if(m_CurrentScreen == (int)eScreen.ACHIEVEMENTS)
-		//	GPManager.ShowAchievementsUI();
+#if UNITY_IOS
+        if (m_CurrentScreen == (int)eScreen.ACHIEVEMENTS)
+        {
+            GameObject btn = GameObject.FindGameObjectWithTag( "Platform Specific Achievement Button" );
+            if ( btn != null )
+                btn.SetActive( false );
+            //	GPManager.ShowAchievementsUI();
+        }
+#endif
 	}
 
 #if LINKIT_COOP
@@ -210,7 +217,7 @@ public class MainMenuManager : MonoBehaviour
 	{
 		// Empty
 	}
-#endif	// LINKIT_COOP
+#endif  // LINKIT_COOP
 
 	public void EnableBackButton( eScreen screen, bool enable )
 	{

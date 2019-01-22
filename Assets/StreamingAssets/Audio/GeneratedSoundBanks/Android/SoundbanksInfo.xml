@@ -3,7 +3,7 @@
 	<RootPaths>
 		<ProjectRoot>C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\</ProjectRoot>
 		<SourceFilesRoot>C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\</SoundBanksRoot>
+		<SoundBanksRoot>C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\GeneratedSoundBanks\Android\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
 		<ExternalSourcesOutputRoot>C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\GeneratedSoundBanks\Android</ExternalSourcesOutputRoot>
 	</RootPaths>

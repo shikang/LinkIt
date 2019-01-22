@@ -73,6 +73,13 @@ namespace GooglePlayGames.IOS
             throw new InvalidOperationException(
                 "The native API should be called for iOS");
         }
+
+		// SK: Implement missing interface function
+		public void SetGravityForPopups(IntPtr apiClient, Gravity gravity)
+		{
+			throw new InvalidOperationException(
+				"The native API should be called for iOS");
+		}
     }
 }
 #endif
