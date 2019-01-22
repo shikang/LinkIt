@@ -335,7 +335,7 @@ public class GemSpawner : MonoBehaviour
 			}
 		}
 
-		m_DefaultGemScale = m_aGemList[0].transform.localScale;
+		m_DefaultGemScale = m_aGemList[0].transform.localScale * BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.BiggerGems); ;
 		m_LinkedGemScale = LINKED_SCALE_FACTOR * m_DefaultGemScale;
 
 		m_fAnimationIntervalTimer = 0.0f;
