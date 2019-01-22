@@ -22,8 +22,8 @@ public class BackgroundOverlay : MonoBehaviour
     {
         MoveOverlay( m_Overlay1 );
         MoveOverlay( m_Overlay2 );
-        Debug.Log( "Overlay 1: " + m_Overlay1.transform.position.y );
-        Debug.Log( "Overlay 2: " + m_Overlay2.transform.position.y );
+        //Debug.Log( "Overlay 1: " + m_Overlay1.transform.position.y );
+        //Debug.Log( "Overlay 2: " + m_Overlay2.transform.position.y );
 
         WrapOverlay( m_Overlay1, m_Overlay2 );
         WrapOverlay( m_Overlay2, m_Overlay1 );
