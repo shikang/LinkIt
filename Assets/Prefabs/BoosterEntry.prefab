@@ -5,11 +5,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 22400798}
-  - 222: {fileID: 22291018}
-  - 114: {fileID: 11436964}
+  - component: {fileID: 22400798}
+  - component: {fileID: 22291018}
+  - component: {fileID: 11436964}
   m_Layer: 0
   m_Name: Bar
   m_TagString: Untagged
@@ -22,11 +22,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 22409612}
-  - 222: {fileID: 22299542}
-  - 114: {fileID: 11408794}
+  - component: {fileID: 22409612}
+  - component: {fileID: 22299542}
+  - component: {fileID: 11408794}
   m_Layer: 0
   m_Name: Title
   m_TagString: Untagged
@@ -39,11 +39,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 22409194}
-  - 222: {fileID: 22264126}
-  - 114: {fileID: 11400190}
+  - component: {fileID: 22409194}
+  - component: {fileID: 22264126}
+  - component: {fileID: 11400190}
   m_Layer: 0
   m_Name: OverlayText
   m_TagString: Untagged
@@ -56,11 +56,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 22484492}
-  - 222: {fileID: 22244762}
-  - 114: {fileID: 11474120}
+  - component: {fileID: 22484492}
+  - component: {fileID: 22244762}
+  - component: {fileID: 11474120}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -73,11 +73,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 22492898}
-  - 222: {fileID: 22222454}
-  - 114: {fileID: 11430284}
+  - component: {fileID: 22492898}
+  - component: {fileID: 22222454}
+  - component: {fileID: 11430284}
   m_Layer: 0
   m_Name: BarText
   m_TagString: Untagged
@@ -90,11 +90,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 22410450}
-  - 222: {fileID: 22201784}
-  - 114: {fileID: 11430348}
+  - component: {fileID: 22410450}
+  - component: {fileID: 22201784}
+  - component: {fileID: 11430348}
   m_Layer: 0
   m_Name: Desc
   m_TagString: Untagged
@@ -107,11 +107,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 22474384}
-  - 222: {fileID: 22290574}
-  - 114: {fileID: 11459954}
+  - component: {fileID: 22474384}
+  - component: {fileID: 22290574}
+  - component: {fileID: 11459954}
   m_Layer: 0
   m_Name: BarFrame
   m_TagString: Untagged
@@ -124,11 +124,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 22483214}
-  - 222: {fileID: 22281586}
-  - 114: {fileID: 11483594}
+  - component: {fileID: 22483214}
+  - component: {fileID: 22281586}
+  - component: {fileID: 11483594}
   m_Layer: 0
   m_Name: BG
   m_TagString: Untagged
@@ -141,11 +141,11 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 22493362}
-  - 222: {fileID: 22285410}
-  - 114: {fileID: 11493984}
+  - component: {fileID: 22493362}
+  - component: {fileID: 22285410}
+  - component: {fileID: 11493984}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -158,11 +158,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 22407632}
-  - 222: {fileID: 22277646}
-  - 114: {fileID: 11489052}
+  - component: {fileID: 22407632}
+  - component: {fileID: 22277646}
+  - component: {fileID: 11489052}
   m_Layer: 0
   m_Name: Lock
   m_TagString: Untagged
@@ -175,11 +175,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 22496894}
-  - 222: {fileID: 22284544}
-  - 114: {fileID: 11437684}
+  - component: {fileID: 22496894}
+  - component: {fileID: 22284544}
+  - component: {fileID: 11437684}
   m_Layer: 0
   m_Name: Cost
   m_TagString: Untagged
@@ -192,10 +192,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 450754}
-  - 114: {fileID: 11443266}
+  - component: {fileID: 450754}
+  - component: {fileID: 11443266}
   m_Layer: 0
   m_Name: BoosterEntry
   m_TagString: Untagged
@@ -208,11 +208,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 22474916}
-  - 222: {fileID: 22202380}
-  - 114: {fileID: 11408910}
+  - component: {fileID: 22474916}
+  - component: {fileID: 22202380}
+  - component: {fileID: 11408910}
   m_Layer: 0
   m_Name: Overlay
   m_TagString: Untagged
@@ -225,12 +225,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 22426546}
-  - 222: {fileID: 22215562}
-  - 114: {fileID: 11446936}
-  - 114: {fileID: 11485630}
+  - component: {fileID: 22426546}
+  - component: {fileID: 22215562}
+  - component: {fileID: 11446936}
+  - component: {fileID: 11485630}
   m_Layer: 0
   m_Name: LevelButton
   m_TagString: Untagged
@@ -244,9 +244,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 184024}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -6550.4}
+  m_LocalScale: {x: 73.6, y: 73.6, z: 73.6}
   m_Children:
   - {fileID: 22483214}
   - {fileID: 22484492}
@@ -262,6 +262,7 @@ Transform:
   - {fileID: 22407632}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11400190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -307,7 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -400,7 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -433,7 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.034482718, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -460,7 +461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -527,8 +528,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: c4e03a6e2b455114095de2e435f0596a, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -554,7 +555,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 4f85e330f61a96142b86d74650f13382, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -574,7 +575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -601,14 +602,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6911765, g: 0.6911765, b: 0.6911765, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a6a3e42bf5cf502428f93bdf9e180feb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -820,9 +821,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 450754}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -107, y: -27}
+  m_AnchoredPosition: {x: -107.8, y: -22.8}
   m_SizeDelta: {x: 214, y: 16}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!224 &22407632
@@ -837,10 +839,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 450754}
   m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -151.00098, y: 0.0000009536743}
-  m_SizeDelta: {x: 70, y: 70}
+  m_AnchoredPosition: {x: -147.90002, y: -0.40000343}
+  m_SizeDelta: {x: 64.8, y: 64.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22409194
 RectTransform:
@@ -854,9 +857,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 450754}
   m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 38.5, y: 2.7}
+  m_AnchoredPosition: {x: 38.5, y: 2.6999998}
   m_SizeDelta: {x: 299.7, y: 73.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22409612
@@ -871,9 +875,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 450754}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5, y: 19}
+  m_AnchoredPosition: {x: -5, y: 16.3}
   m_SizeDelta: {x: 208, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22410450
@@ -888,9 +893,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 450754}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: -3.7}
+  m_AnchoredPosition: {x: 3.5, y: -2.6}
   m_SizeDelta: {x: 222, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22426546
@@ -906,10 +912,11 @@ RectTransform:
   - {fileID: 22493362}
   m_Father: {fileID: 450754}
   m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 155, y: -11.4}
-  m_SizeDelta: {x: 73.1, y: 50}
+  m_AnchoredPosition: {x: 153.7, y: -10.5}
+  m_SizeDelta: {x: 75.8, y: 51.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22474384
 RectTransform:
@@ -923,10 +930,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 450754}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -107.5, y: -27}
-  m_SizeDelta: {x: 214, y: 16}
+  m_AnchoredPosition: {x: -109.5, y: -22.81}
+  m_SizeDelta: {x: 217.9, y: 27.3}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!224 &22474916
 RectTransform:
@@ -940,10 +948,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 450754}
   m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 390, y: 80}
+  m_AnchoredPosition: {x: 1.7, y: 0}
+  m_SizeDelta: {x: 397, y: 83.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22483214
 RectTransform:
@@ -957,10 +966,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 450754}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 390, y: 80}
+  m_AnchoredPosition: {x: 1.0999999, y: 0}
+  m_SizeDelta: {x: 396.3, y: 81.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22484492
 RectTransform:
@@ -974,10 +984,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 450754}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -151, y: 0}
-  m_SizeDelta: {x: 70, y: 70}
+  m_AnchoredPosition: {x: -147.9, y: -0.39999998}
+  m_SizeDelta: {x: 64.8, y: 64.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22492898
 RectTransform:
@@ -991,9 +1002,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 450754}
   m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -48.6, y: -27.8}
+  m_AnchoredPosition: {x: -49.4, y: -23.599998}
   m_SizeDelta: {x: 106, y: 16.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22493362
@@ -1008,9 +1020,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22426546}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000011395663, y: 0.90999925}
+  m_AnchoredPosition: {x: 1.3499999, y: 0.00000011921}
   m_SizeDelta: {x: 73.1, y: 48.18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22496894
@@ -1025,6 +1038,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 450754}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 155, y: 26}

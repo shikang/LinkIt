@@ -11,7 +11,7 @@ public class AchievementViewer : MonoBehaviour
 	List<GameObject> m_lAchViewer = new List<GameObject>();
 	float m_fFirstPosX = 0.0f;
 	float m_fFirstPosY = 485.0f;
-	float m_fHorizontalGap = 85.0f;
+	float m_fHorizontalGap = 90.0f;
 
 	void Start ()
 	{

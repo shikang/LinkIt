@@ -5,14 +5,14 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 22432154}
-  - 223: {fileID: 22361524}
-  - 114: {fileID: 11469712}
-  - 114: {fileID: 11475132}
-  - 225: {fileID: 22582082}
-  m_Layer: 0
+  - component: {fileID: 22432154}
+  - component: {fileID: 22361524}
+  - component: {fileID: 11469712}
+  - component: {fileID: 11475132}
+  - component: {fileID: 22582082}
+  m_Layer: 5
   m_Name: Achievementt Canvas
   m_TagString: Achievement Canvas
   m_Icon: {fileID: 0}
@@ -24,12 +24,12 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 22457288}
-  - 222: {fileID: 22249580}
-  - 114: {fileID: 11448954}
-  m_Layer: 0
+  - component: {fileID: 22457288}
+  - component: {fileID: 22249580}
+  - component: {fileID: 11448954}
+  m_Layer: 5
   m_Name: Achievement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,12 +41,12 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 22418368}
-  - 222: {fileID: 22232212}
-  - 114: {fileID: 11439990}
-  m_Layer: 0
+  - component: {fileID: 22418368}
+  - component: {fileID: 22232212}
+  - component: {fileID: 11439990}
+  m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,12 +58,12 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 22436948}
-  - 222: {fileID: 22258406}
-  - 114: {fileID: 11413020}
-  m_Layer: 0
+  - component: {fileID: 22436948}
+  - component: {fileID: 22258406}
+  - component: {fileID: 11413020}
+  m_Layer: 5
   m_Name: Desc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,12 +75,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 224: {fileID: 22495466}
-  - 222: {fileID: 22278450}
-  - 114: {fileID: 11463148}
-  m_Layer: 0
+  - component: {fileID: 22495466}
+  - component: {fileID: 22278450}
+  - component: {fileID: 11463148}
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -205,7 +205,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1512f7cc902b0ba409d3ceb09bf5693f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -281,7 +281,7 @@ Canvas:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110304}
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
@@ -290,6 +290,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -305,9 +306,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22495466}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 3}
+  m_AnchoredPosition: {x: 0, y: -0.9999783}
   m_SizeDelta: {x: 602, y: 57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22432154
@@ -323,6 +325,7 @@ RectTransform:
   - {fileID: 22495466}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -340,9 +343,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22495466}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -58}
+  m_AnchoredPosition: {x: 0, y: -61.999977}
   m_SizeDelta: {x: 602, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22457288
@@ -357,9 +361,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22495466}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 65}
+  m_AnchoredPosition: {x: 0, y: 61}
   m_SizeDelta: {x: 602, y: 67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22495466
@@ -377,10 +382,11 @@ RectTransform:
   - {fileID: 22436948}
   m_Father: {fileID: 22432154}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000091553, y: 543}
-  m_SizeDelta: {x: 800, y: 196}
+  m_AnchoredPosition: {x: -1, y: 543}
+  m_SizeDelta: {x: 819, y: 208}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &22582082
 CanvasGroup:

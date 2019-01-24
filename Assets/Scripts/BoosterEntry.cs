@@ -289,7 +289,7 @@ public class BoosterEntry : MonoBehaviour
 		{
 			if(m_CurrLevel < m_MaxLevel)
 			{
-				m_LevelText.GetComponent<Text>().text = "LEVEL UP";
+				m_LevelText.GetComponent<Text>().text = "LEVEL\nUP";
 			}
 			else
 			{
