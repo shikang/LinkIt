@@ -21,6 +21,7 @@ TagManager:
   - Shop Controller
   - Achievement Canvas
   - Prize Button
+  - Platform Specific Achievement Button
   layers:
   - Default
   - TransparentFX
