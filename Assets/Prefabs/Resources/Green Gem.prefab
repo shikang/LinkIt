@@ -5,11 +5,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 422802}
-  - 58: {fileID: 5895776}
-  - 61: {fileID: 6197758}
+  - component: {fileID: 422802}
+  - component: {fileID: 5895776}
+  - component: {fileID: 6197758}
   m_Layer: 0
   m_Name: Gem
   m_TagString: Untagged
@@ -22,13 +22,13 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 493806}
-  - 212: {fileID: 21236122}
-  - 114: {fileID: 11440174}
-  - 114: {fileID: 11463828}
-  - 114: {fileID: 11438568}
+  - component: {fileID: 493806}
+  - component: {fileID: 21236122}
+  - component: {fileID: 11440174}
+  - component: {fileID: 11463828}
+  - component: {fileID: 11438568}
   m_Layer: 0
   m_Name: Green Gem
   m_TagString: Untagged
@@ -48,6 +48,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 493806}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &493806
 Transform:
   m_ObjectHideFlags: 1
@@ -56,11 +57,12 @@ Transform:
   m_GameObject: {fileID: 178098}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children:
   - {fileID: 422802}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &5895776
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -72,9 +74,10 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.12924503
+  m_Radius: 0.55
 --- !u!61 &6197758
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -86,9 +89,20 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.005418429, y: 0.012515027}
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0118332505, y: -0.02087295}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.59958017, y: 0.5891957}
+  m_Size: {x: 1.5563682, y: 1.5063314}
+  m_EdgeRadius: 0
 --- !u!114 &11438568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,27 +169,38 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cebe2b9528672d748948da2f2647eed1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
