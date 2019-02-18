@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SocialPlatforms;
+#if UNITY_ANDROID
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
-using UnityEngine.SocialPlatforms;
 using GooglePlayGames.BasicApi.SavedGame;
+#endif
 using System;
 
 public class GooglePlayService : MonoBehaviour
