@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 11469712}
   - component: {fileID: 11475132}
   - component: {fileID: 22582082}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Achievementt Canvas
   m_TagString: Achievement Canvas
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 22457288}
   - component: {fileID: 22249580}
   - component: {fileID: 11448954}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Achievement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 22418368}
   - component: {fileID: 22232212}
   - component: {fileID: 11439990}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 22436948}
   - component: {fileID: 22258406}
   - component: {fileID: 11413020}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Desc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 22495466}
   - component: {fileID: 22278450}
   - component: {fileID: 11463148}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
