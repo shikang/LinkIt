@@ -257,7 +257,7 @@ public class ScoreManager : MonoBehaviour
 				m_fAnimationTimer -= GemSpawner.ANIMATION_RATE;
 				m_nAnimatingFrame = ( m_nAnimatingFrame + 1 ) % ( m_nFrameNum + 1 );
 
-				int frame = m_nAnimatingFrame % m_nFrameNum;
+				int frame = (m_nAnimatingFrame + GemSpawner.ANIMATION_FRAME_OFFSET) % m_nFrameNum;
 
 				for ( int i = 0; i < m_DummyGems.Length; ++ i )
 				{

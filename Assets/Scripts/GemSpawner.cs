@@ -37,8 +37,9 @@ public class GemSpawner : MonoBehaviour
 	// Animation constants
 	public const float ANIMATION_INTERVAL = 2.0f;		//!< In seconds
 	public const float ANIMATION_RATE = 0.125f;         //!< In seconds
+    public const int ANIMATION_FRAME_OFFSET = 0;        //!< In seconds
 
-	public const float TIME_TO_ACTUAL_POINTS = 0.5f;    //!< In seconds
+    public const float TIME_TO_ACTUAL_POINTS = 0.5f;    //!< In seconds
 	public const float TIME_TO_ACTUAL_COMBO = 0.25f;    //!< In seconds
 	public const float TIME_TO_COMBO_FADE = 2.0f;       //!< In seconds
 	public const float TIME_TO_PRAISE_FADE = 2.0f;      //!< In seconds
@@ -741,7 +742,7 @@ public class GemSpawner : MonoBehaviour
 				m_fAnimationTimer -= ANIMATION_RATE;
 				m_nAnimatingFrame = ( m_nAnimatingFrame + 1 ) % ( m_nFrameNum + 1 );
 
-				int frame = m_nAnimatingFrame % m_nFrameNum;
+				int frame = ( m_nAnimatingFrame + ANIMATION_FRAME_OFFSET ) % m_nFrameNum;
 
 				for ( int i = 0; i < LANE_NUM; ++ i )
 				{ 

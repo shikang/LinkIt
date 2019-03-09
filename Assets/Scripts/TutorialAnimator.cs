@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class TutorialAnimator : MonoBehaviour
 {
 	const float START_SHOWING_DELAY = 2.0f;
-	public const float TAP_DURATION = 1.5f;
-	readonly float[] LINK_DURATION = { 1.0f, 1.0f };
+	public const float TAP_DURATION = 1.0f;
+	readonly float[] LINK_DURATION = { 0.7f, 0.7f };
 	public const float LINK_PAUSE = 0.25f;
 	public const float UNLINK_WAIT = 0.5f;
 
@@ -26,7 +26,7 @@ public class TutorialAnimator : MonoBehaviour
 		TUTORIAL_PHASE_END,
 	}
 
-	public int m_nLoopTimes = 4;
+	public int m_nLoopTimes = 2;
 	public GameObject m_TutorialText1;
 	public GameObject m_TutorialText2;
 	public Sprite m_InitialImage;
