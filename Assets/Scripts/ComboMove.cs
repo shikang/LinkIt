@@ -96,8 +96,11 @@ public class ComboMove : MonoBehaviour
 
 	void CorrectWidth()
 	{
-		Vector3 localScale = transform.localScale;
-		localScale.x = ( ( (float)Screen.width / (float)Screen.height ) / ( 9.0f / 16.0f ) ) * localScale.x;
-		transform.localScale = localScale;
+        if ( ( (float)Screen.width / (float)Screen.height ) > ( 9.0f / 16.0f ) )
+        {
+		    Vector3 localScale = transform.localScale;
+		    localScale.x = ( ( (float)Screen.width / (float)Screen.height ) / ( 9.0f / 16.0f ) ) * localScale.x;
+		    transform.localScale = localScale;
+        }
 	}
 }

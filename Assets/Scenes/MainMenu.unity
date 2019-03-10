@@ -1312,7 +1312,7 @@ Prefab:
       objectReference: {fileID: 1092414831}
     - target: {fileID: 178750, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 190330, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
       propertyPath: m_IsActive
@@ -1377,6 +1377,42 @@ Prefab:
     - target: {fileID: 22485654, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 22408290, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0000047684
+      objectReference: {fileID: 0}
+    - target: {fileID: 22408290, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 173
+      objectReference: {fileID: 0}
+    - target: {fileID: 11483268, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+      propertyPath: m_Text
+      value: Handful of Coins
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496348, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+      propertyPath: m_Text
+      value: Bag of Coins
+      objectReference: {fileID: 0}
+    - target: {fileID: 11401898, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+      propertyPath: m_Text
+      value: Bucket of Coins
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477940, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+      propertyPath: m_Text
+      value: Room of Coins
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400042, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -16.900003
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400042, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 33.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400042, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
