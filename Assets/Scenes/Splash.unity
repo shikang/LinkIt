@@ -135,7 +135,7 @@ RectTransform:
   m_GameObject: {fileID: 111745319}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_Children:
   - {fileID: 1870996889}
   m_Father: {fileID: 204514876}
@@ -237,7 +237,7 @@ RectTransform:
   m_GameObject: {fileID: 183281773}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_Children: []
   m_Father: {fileID: 204514876}
   m_RootOrder: 0
@@ -466,7 +466,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 403044, guid: d73d8d06e12ee3647b842f1c05598f7c, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 174224, guid: d73d8d06e12ee3647b842f1c05598f7c, type: 2}
       propertyPath: m_IsActive
@@ -503,14 +503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b43a4506955ad834c8072de0eb493b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePath: 417564696f5c47656e657261746564536f756e6442616e6b73
-  language: 456e676c69736828555329
-  defaultPoolSize: 4096
-  lowerPoolSize: 2048
-  streamingPoolSize: 1024
-  preparePoolSize: 0
-  memoryCutoffThreshold: 0.95
-  engineLogging: 1
 --- !u!114 &1077764571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -631,7 +623,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -682,7 +674,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf35f501c0c14d43aae8dd76fa2560d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listenerId: 0
 --- !u!114 &1356202713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -804,7 +795,7 @@ RectTransform:
   m_GameObject: {fileID: 1605274892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_Children:
   - {fileID: 365762262}
   m_Father: {fileID: 204514876}
@@ -980,5 +971,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
