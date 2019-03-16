@@ -26,10 +26,12 @@ public class AchievementEntry : MonoBehaviour
 
 	public void SetEntry(string title_, string desc_, float currPoints_, float maxPoints_)
 	{
-		m_Title.GetComponent<Text>().text = title_;
+        float currPoints = currPoints_ > maxPoints_ ? maxPoints_ : currPoints_;
+
+        m_Title.GetComponent<Text>().text = title_;
 		m_Desc.GetComponent<Text>().text = desc_;
-		m_Points.GetComponent<Text>().text = currPoints_ + " / " + maxPoints_; 
-		m_Bar.GetComponent<RectTransform>().localScale = new Vector3(currPoints_/maxPoints_, m_Bar.GetComponent<RectTransform>().localScale.y, 1.0f);
+		m_Points.GetComponent<Text>().text = currPoints + " / " + maxPoints_; 
+		m_Bar.GetComponent<RectTransform>().localScale = new Vector3(currPoints / maxPoints_, m_Bar.GetComponent<RectTransform>().localScale.y, 1.0f);
 	}
 }
 
