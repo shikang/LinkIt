@@ -388,7 +388,7 @@ public class ScoreManager : MonoBehaviour
 
 		if(m_CountUp_Timer > 0.2f && m_CountUp_Score < m_PlayerStats.m_nScore)
 		{
-			m_CountUp_Score += 200;
+			m_CountUp_Score += System.Math.Max((int)(m_PlayerStats.m_nScore * Time.deltaTime), 200);
 
 			if (m_CountUp_Score > m_PlayerStats.m_nScore)
 				m_CountUp_Score = m_PlayerStats.m_nScore;
@@ -398,43 +398,68 @@ public class ScoreManager : MonoBehaviour
 
 		if(m_CountUp_Timer > 0.4f && m_CountUp_Gems[0] < m_PlayerStats.m_aDestroyCount[0])
 		{
-			m_CountUp_Gems[0] += 1;
-			m_Counters[0].GetComponent<Text>().text = m_CountUp_Gems[0].ToString ();
+			m_CountUp_Gems[0] += System.Math.Max((int)(m_PlayerStats.m_aDestroyCount[0] * Time.deltaTime), 1);
+
+            if (m_CountUp_Gems[0] > m_PlayerStats.m_aDestroyCount[0])
+                m_CountUp_Gems[0] = m_PlayerStats.m_aDestroyCount[0];
+
+            m_Counters[0].GetComponent<Text>().text = m_CountUp_Gems[0].ToString ();
 		}
 
 		if(m_CountUp_Timer > 0.6f && m_CountUp_Gems[1] < m_PlayerStats.m_aDestroyCount[1])
 		{
-			m_CountUp_Gems[1] += 1;
-			m_Counters[1].GetComponent<Text>().text = m_CountUp_Gems[1].ToString ();
+            m_CountUp_Gems[1] += System.Math.Max((int)(m_PlayerStats.m_aDestroyCount[1] * Time.deltaTime), 1);
+
+            if (m_CountUp_Gems[1] > m_PlayerStats.m_aDestroyCount[1])
+                m_CountUp_Gems[1] = m_PlayerStats.m_aDestroyCount[1];
+
+            m_Counters[1].GetComponent<Text>().text = m_CountUp_Gems[1].ToString ();
 		}
 
 		if(m_CountUp_Timer > 0.8f && m_CountUp_Gems[2] < m_PlayerStats.m_aDestroyCount[2])
 		{
-			m_CountUp_Gems[2] += 1;
-			m_Counters[2].GetComponent<Text>().text = m_CountUp_Gems[2].ToString ();
+            m_CountUp_Gems[2] += System.Math.Max((int)(m_PlayerStats.m_aDestroyCount[2] * Time.deltaTime), 1);
+
+            if (m_CountUp_Gems[2] > m_PlayerStats.m_aDestroyCount[2])
+                m_CountUp_Gems[2] = m_PlayerStats.m_aDestroyCount[2];
+
+            m_Counters[2].GetComponent<Text>().text = m_CountUp_Gems[2].ToString ();
 		}
 
 		if(m_CountUp_Timer > 1.0f && m_CountUp_Gems[3] < m_PlayerStats.m_aDestroyCount[3])
 		{
-			m_CountUp_Gems[3] += 1;
-			m_Counters[3].GetComponent<Text>().text = m_CountUp_Gems[3].ToString ();
+            m_CountUp_Gems[3] += System.Math.Max((int)(m_PlayerStats.m_aDestroyCount[3] * Time.deltaTime), 1);
+
+            if (m_CountUp_Gems[3] > m_PlayerStats.m_aDestroyCount[3])
+                m_CountUp_Gems[3] = m_PlayerStats.m_aDestroyCount[3];
+
+            m_Counters[3].GetComponent<Text>().text = m_CountUp_Gems[3].ToString ();
 		}
 
 		if(m_CountUp_Timer > 1.2f && m_CountUp_GemGrey < m_PlayerStats.m_nLeakCount)
 		{
-			m_CountUp_GemGrey += 1;
+            m_CountUp_GemGrey += System.Math.Max((int)(m_PlayerStats.m_nLeakCount * Time.deltaTime), 1);
+
+            if (m_CountUp_GemGrey > m_PlayerStats.m_nLeakCount)
+                m_CountUp_GemGrey = m_PlayerStats.m_nLeakCount;
+            
 			m_LeakedCounter.GetComponent<Text>().text = m_CountUp_GemGrey.ToString ();
 		}
 
 		if(m_CountUp_Timer > 1.4f && m_CountUp_Combo < m_PlayerStats.m_nMaxCombo)
 		{
-			m_CountUp_Combo += 1;
+            m_CountUp_Combo += System.Math.Max((int)(m_PlayerStats.m_nMaxCombo * Time.deltaTime), 1);
+
+            if (m_CountUp_Combo > m_PlayerStats.m_nMaxCombo)
+                m_CountUp_Combo = m_PlayerStats.m_nMaxCombo;
+
 			m_ComboCounter.GetComponent<Text>().text = m_CountUp_Combo.ToString ();
 		}
 
 		if(m_CountUp_Timer > 1.6f && m_CountUp_Gold < m_GoldEarned)
 		{
-			m_CountUp_Gold += 20;
+            m_CountUp_Gold += System.Math.Max((int)(m_GoldEarned * Time.deltaTime), 20);
+
 			if (m_CountUp_Gold > m_GoldEarned)
 				m_CountUp_Gold = m_GoldEarned;
 
