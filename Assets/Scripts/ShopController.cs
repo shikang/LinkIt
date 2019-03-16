@@ -25,6 +25,8 @@ public class ShopController : MonoBehaviour
 	public GameObject m_AdsCostText;
 
 	public GameObject m_BackButton;
+
+    public GameObject m_ScreenOverlay;
 	//float m_fAdsCost;
 
 	void Start()
@@ -47,14 +49,19 @@ public class ShopController : MonoBehaviour
 
 	public void EnableAllButtons( bool enable )
 	{
-		m_BackButton.GetComponent<Button>().enabled = enable;
-		if ( !GameData.Instance.m_bIsAdsRemoved ) m_AdsNotDisabled.GetComponentInParent<Button>().enabled = enable;
+		m_BackButton.GetComponent<Button>().interactable = enable;
+		if ( !GameData.Instance.m_bIsAdsRemoved ) m_AdsNotDisabled.GetComponentInParent<Button>().interactable = enable;
 
 		for ( int i = 0; i < m_ShopSlots.Length; ++i )
 		{
-			m_ShopSlots[i].GetComponent<Button>().enabled = enable;
+			m_ShopSlots[i].GetComponent<Button>().interactable = enable;
 		}
-	}
+
+        if (enable)
+            m_ScreenOverlay.GetComponent<ShopProcessing>().StopBlocking();
+        else
+            m_ScreenOverlay.GetComponent<ShopProcessing>().StartBlocking();
+    }
 
 	public void SetItems ()
 	{
