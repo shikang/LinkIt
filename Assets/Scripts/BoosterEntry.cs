@@ -80,7 +80,7 @@ public class BoosterEntry : MonoBehaviour
 		}
 		else
 		{
-			m_Cost.GetComponent<Text>().color = Color.black;
+			m_Cost.GetComponent<Text>().color = Color.white;
 			m_LevelButton.GetComponent<Image> ().color = new Color (1.0f, 1.0f, 1.0f);
 		}
 	}
