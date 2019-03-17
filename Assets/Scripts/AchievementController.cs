@@ -63,7 +63,23 @@ public class AchievementController : MonoBehaviour
 			Debug.Log("Google Play Service game object can't be found");
 		}
 #elif UNITY_IOS
-		// @todo Show Apple achievement
+		GameObject centerServiceObj = GameObject.Find( "Game Center Service" );
+		if ( centerServiceObj != null )
+		{
+			GameCenterService service = centerServiceObj.GetComponent<GameCenterService>();
+			if ( service != null )
+			{
+				service.StartShowLeaderboardUI();
+			}
+			else
+			{
+				Debug.Log( "GameCenterService component can't be found" );
+			}
+		}
+		else
+		{
+			Debug.Log("Game Center Service game object can't be found");
+		}
 #endif
-	}
+    }
 }
