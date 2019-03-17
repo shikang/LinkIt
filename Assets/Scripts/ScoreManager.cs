@@ -155,11 +155,11 @@ public class ScoreManager : MonoBehaviour
 
 #if UNITY_ANDROID
 		GooglePlayService.PostHighScore( m_PlayerStats.m_nScore );
-#else
-		// @todo IOS leaderboard logic
+#elif UNITY_IOS
+		GameCenterService.PostHighScore( m_PlayerStats.m_nScore );
 #endif
 
-		AchievementManager.Instance.BoosterGamesPlayed ();
+        AchievementManager.Instance.BoosterGamesPlayed ();
 		AchievementManager.Instance.BoosterPointsEarned (m_PlayerStats.m_nScore);
 
 		// Save
