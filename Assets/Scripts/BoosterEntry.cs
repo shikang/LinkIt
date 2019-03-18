@@ -88,12 +88,14 @@ public class BoosterEntry : MonoBehaviour
 	public void SetEntry(BOOSTERTYPE type_, BOOSTERDATA tmp_, int cLevel_, bool isOnce_)
 	{
 		m_Type = type_;
+		m_Image.GetComponent<Image>().sprite = BoosterManager.Instance.m_AllImages[(int)m_Type];
 		m_Title.GetComponent<Text>().text = tmp_.title;
 		m_Desc.GetComponent<Text>().text = tmp_.desc;
 		m_Cost.GetComponent<Text>().text = tmp_.cost.ToString();
 		SetButtonText();
 		m_Overlay.SetActive(false);
 		m_OverlayText.SetActive(false);
+		m_OverlayLock.SetActive(false);
 		m_bCost = tmp_.cost;
 
 		if(isOnce_)

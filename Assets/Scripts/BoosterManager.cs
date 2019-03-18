@@ -32,6 +32,7 @@ public class BoosterManager : MonoBehaviour
 {
 	BOOSTERDATA [,] m_uBoosters = new BOOSTERDATA[5, 6];	// 5 types of perma boosters
 	BOOSTERDATA [] m_uBoostersOnce = new BOOSTERDATA[3];
+	public Sprite [] m_AllImages;
 
 	// Singleton pattern
 	static BoosterManager instance;

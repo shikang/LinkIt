@@ -5,10 +5,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 454410}
-  - 114: {fileID: 11418806}
+  - component: {fileID: 454410}
+  - component: {fileID: 11418806}
+  - component: {fileID: 114391071454125336}
   m_Layer: 0
   m_Name: Main Menu Manager
   m_TagString: Main Menu Manager
@@ -28,6 +29,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11418806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -48,6 +50,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   m_uPlayerCoins: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
@@ -60,3 +63,23 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 114132}
   m_IsPrefabParent: 1
+--- !u!114 &114391071454125336
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c30d4643c2ff947418f99fb815345ac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllImages:
+  - {fileID: 21300000, guid: bb4d87252e883d04f8d785bfe5ea7854, type: 3}
+  - {fileID: 21300000, guid: 15f042709809cb2448e47024d4b9fc9f, type: 3}
+  - {fileID: 21300000, guid: c197f1bcdc9ea154094b4dd8a76ec7ad, type: 3}
+  - {fileID: 21300000, guid: 619710872e859e249b8e5744d57aab66, type: 3}
+  - {fileID: 21300000, guid: cdf44511a174e344d9a5241448f34823, type: 3}
+  - {fileID: 21300000, guid: bb4d87252e883d04f8d785bfe5ea7854, type: 3}
+  - {fileID: 21300000, guid: 15f042709809cb2448e47024d4b9fc9f, type: 3}
+  - {fileID: 21300000, guid: c197f1bcdc9ea154094b4dd8a76ec7ad, type: 3}
