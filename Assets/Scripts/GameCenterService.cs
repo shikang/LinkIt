@@ -94,7 +94,7 @@ public class GameCenterService : MonoBehaviour
 		else
 		{
 			Debug.Log("Social.ShowLeaderboardUI()");
-			MainMenuManager.DisableButtons();
+			//MainMenuManager.DisableButtons();
             Social.ShowLeaderboardUI();
 
 			m_State = GameCenterState.NONE;
