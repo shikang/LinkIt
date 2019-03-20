@@ -315,7 +315,6 @@
      <Compile Include="Assets\Scripts\AchievementViewer.cs" />
      <Compile Include="Assets\Scripts\Adverts.cs" />
      <Compile Include="Assets\Scripts\AudioManager.cs" />
-     <Compile Include="Assets\Scripts\BackgroundOverlay.cs" />
      <Compile Include="Assets\Scripts\BoosterEntry.cs" />
      <Compile Include="Assets\Scripts\BoosterManager.cs" />
      <Compile Include="Assets\Scripts\BoosterViewer.cs" />
@@ -324,11 +323,9 @@
      <Compile Include="Assets\Scripts\Debugger.cs" />
      <Compile Include="Assets\Scripts\ExitGame.cs" />
      <Compile Include="Assets\Scripts\FlashingText.cs" />
-     <Compile Include="Assets\Scripts\GPManager.cs" />
      <Compile Include="Assets\Scripts\GachaAnimator.cs" />
      <Compile Include="Assets\Scripts\GachaLightBurst.cs" />
      <Compile Include="Assets\Scripts\GachaManager.cs" />
-     <Compile Include="Assets\Scripts\GameCenterService.cs" />
      <Compile Include="Assets\Scripts\GameData.cs" />
      <Compile Include="Assets\Scripts\Gem.cs" />
      <Compile Include="Assets\Scripts\GemContainerSet.cs" />
@@ -373,7 +370,6 @@
      <Compile Include="Assets\Scripts\ShopController.cs" />
      <Compile Include="Assets\Scripts\ShopMainMenu.cs" />
      <Compile Include="Assets\Scripts\ShopManager.cs" />
-     <Compile Include="Assets\Scripts\ShopProcessing.cs" />
      <Compile Include="Assets\Scripts\Singleton.cs" />
      <Compile Include="Assets\Scripts\SpawnIndicator.cs" />
      <Compile Include="Assets\Scripts\SpawnPattern.cs" />
@@ -386,11 +382,6 @@
      <Compile Include="Assets\SimpleAndroidNotifications\NotificationManager.cs" />
      <Compile Include="Assets\SimpleAndroidNotifications\NotificationParams.cs" />
      <Compile Include="Assets\Takohi\Examples\AndroidVibrationPlugins\VibrationTest.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Android\AkMemPoolAttributes_Android.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Android\AkPlatformInitSettings_Android.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Android\AkSoundEnginePINVOKE_Android.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Android\AkSoundEngine_Android.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\Android\AkThreadProperties_Android.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AKRESULT.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\Ak3DSpatializationMode.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Common\AkActionOnEventType.cs" />
@@ -485,16 +476,6 @@
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkSoundEnginePINVOKE_Windows.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkSoundEngine_Windows.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Generated\Windows\AkThreadProperties_Windows.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\iOS\AkAudioSessionCategoryOptions_iOS.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\iOS\AkAudioSessionCategory_iOS.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\iOS\AkAudioSessionMode_iOS.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\iOS\AkAudioSessionProperties_iOS.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\iOS\AkAudioSessionSetActiveOptions_iOS.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\iOS\AkMemPoolAttributes_iOS.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\iOS\AkPlatformInitSettings_iOS.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\iOS\AkSoundEnginePINVOKE_iOS.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\iOS\AkSoundEngine_iOS.cs" />
-     <Compile Include="Assets\Wwise\Deployment\API\Generated\iOS\AkThreadProperties_iOS.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkAudioInputManager.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkAuxSendArray.cs" />
      <Compile Include="Assets\Wwise\Deployment\API\Handwritten\AkBankManager.cs" />
@@ -560,7 +541,6 @@
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\SoundbanksInfo.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\PluginInfo.xml" />
      <None Include="Assets\Wwise\Deployment\Plugins\Mac\Release\AkSoundEngine.bundle\Contents\Resources\readme.txt" />
-     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Mac\SoundbanksInfo.xml" />
      <None Include="Assets\Photon Unity Networking\link.xml" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\Main.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\Init.txt" />
@@ -575,7 +555,6 @@
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\Init.txt" />
      <None Include="Assets\Plugins\Android\MainLibProj\AndroidManifest.xml" />
      <None Include="Assets\WwiseSettings.xml" />
-     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Mac\Main.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Android\Init.txt" />
      <None Include="Assets\Takohi\Android-Vibration-Plugin-Read-Me.txt" />
      <None Include="Assets\Wwise\Deployment\Plugins\Mac\Debug\AkSoundEngine.bundle\Contents\Resources\readme.txt" />
@@ -585,8 +564,6 @@
      <None Include="Assets\PlayServicesResolver\proguard-messaging-workaround.txt" />
      <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\Main.txt" />
      <None Include="Assets\Wwise\Deployment\Plugins\Mac\Profile\AkSoundEngine.bundle\Contents\Resources\readme.txt" />
-     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Mac\PluginInfo.xml" />
-     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Mac\Init.txt" />
      <None Include="Assets\GooglePlayGames\Editor\template-Constants.txt" />
      <None Include="Assets\Shaders\Link2.shader" />
      <None Include="Assets\PlayServicesResolver\proguard-unity.txt" />
