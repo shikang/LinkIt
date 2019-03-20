@@ -118,21 +118,6 @@ GameObject:
 GameObject:
   m_PrefabParentObject: {fileID: 138890, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
   m_PrefabInternal: {fileID: 1614869518}
---- !u!1 &142578945 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 114132, guid: a6a6b18b54434ea449f6d820f3512217, type: 2}
-  m_PrefabInternal: {fileID: 1362886609}
---- !u!114 &142578947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 142578945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c30d4643c2ff947418f99fb815345ac3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &169869508 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 133696, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
@@ -942,10 +927,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11418806, guid: a6a6b18b54434ea449f6d820f3512217, type: 2}
-      propertyPath: m_Screens.Array.size
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 454410, guid: a6a6b18b54434ea449f6d820f3512217, type: 2}
       propertyPath: m_LocalPosition.x
       value: -0.08911165
@@ -1011,13 +992,13 @@ Prefab:
       value: 
       objectReference: {fileID: 169869508}
     - target: {fileID: 11418806, guid: a6a6b18b54434ea449f6d820f3512217, type: 2}
-      propertyPath: m_uPlayerCoins
-      value: 
-      objectReference: {fileID: 1697206243}
-    - target: {fileID: 11418806, guid: a6a6b18b54434ea449f6d820f3512217, type: 2}
       propertyPath: m_Screens.Array.data[7]
       value: 
       objectReference: {fileID: 2007935548}
+    - target: {fileID: 11418806, guid: a6a6b18b54434ea449f6d820f3512217, type: 2}
+      propertyPath: m_uPlayerCoins
+      value: 
+      objectReference: {fileID: 1697206243}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6a6b18b54434ea449f6d820f3512217, type: 2}
   m_IsPrefabParent: 0
