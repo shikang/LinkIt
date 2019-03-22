@@ -51,7 +51,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   m_uPlayerCoins: {fileID: 0}
+  m_ScoreText: {fileID: 0}
+  m_ComboText: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

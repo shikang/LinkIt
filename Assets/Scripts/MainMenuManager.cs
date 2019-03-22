@@ -29,6 +29,7 @@ public class MainMenuManager : MonoBehaviour
 		CREDITS,
 		ACHIEVEMENTS,
 		BOOSTER,
+        HIGHSCORE,
 
 		TOTAL
 	}
@@ -52,9 +53,11 @@ public class MainMenuManager : MonoBehaviour
 	private float m_fScreenFrom = 0.0f;
 
 	public GameObject m_uPlayerCoins;
+    public GameObject m_ScoreText;
+    public GameObject m_ComboText;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
 	{
 		// Initialising animation timer
 		m_nFrameNum = m_Logo.GetComponent<GemSpriteContainer>().m_Sprites.Length;
@@ -254,4 +257,13 @@ public class MainMenuManager : MonoBehaviour
 	{
 		EnableButtonsImpl( true );
 	}
+
+    public void RefreshHighScore()
+    {
+        if ( m_ScoreText != null )
+            m_ScoreText.GetComponent<Text>().text = GameData.Instance.m_HighScore.ToString();
+
+        if ( m_ComboText != null )
+            m_ComboText.GetComponent<Text>().text = GameData.Instance.m_HighestCombo.ToString();
+    }
 }

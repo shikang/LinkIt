@@ -95,6 +95,11 @@ public class ScoreManager : MonoBehaviour
 			m_HighScoreText.SetActive(true);
 		}
 
+        if ( GameData.Instance.m_HighestCombo < m_PlayerStats.m_nMaxCombo )
+		{
+			GameData.Instance.m_HighestCombo = m_PlayerStats.m_nMaxCombo;
+		}
+
 		m_BestScore.GetComponent<Text>().text = "Best " + GameData.Instance.m_HighScore.ToString();
 
 		// Initialising animation timer
