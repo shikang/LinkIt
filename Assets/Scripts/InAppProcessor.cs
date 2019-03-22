@@ -38,7 +38,7 @@ public class InAppProcessor : Singleton<InAppProcessor>
 			{
 				case InAppProductList.ProductType.COIN:
 				{ 
-					GameData.Instance.m_Coin += productParam.m_nProductParam * 10;
+					GameData.Instance.m_Coin += productParam.m_nProductParam * 50;
 					Debug.Log( string.Format( "InAppProcessor::ProcessPurchase: PASS. Product: '{0}'", productIdentifier ) );
 
 					// @todo Some feedback

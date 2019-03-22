@@ -1668,6 +1668,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1717894127}
+    - target: {fileID: 114820935679157370, guid: 9c10be4cda6be7b489fcb8c808cfae1b,
+        type: 2}
+      propertyPath: m_Text
+      value: "Contact Us: \twhywoolsg@gmail.com"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c10be4cda6be7b489fcb8c808cfae1b, type: 2}
   m_IsPrefabParent: 0

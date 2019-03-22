@@ -21,7 +21,7 @@ public class GemSpawner : MonoBehaviour
 	public const float BASE_SPAWN_RATE = 1.0f;			//!< In seconds
 	public const float BASE_GEM_DROP_TIME = 5.0f;       //!< In seconds
 	public const float SPAWN_RATE_GROWTH = 0.06f;       //!< In seconds
-	public const float GEM_DROP_TIME_GROWTH = 0.1f;     //!< In seconds
+	public const float GEM_DROP_TIME_GROWTH = 0.15f;     //!< In seconds
 	public const int GEM_LOOKBACK_NUM = 1;
 	public const float SPAWN_DANGER_AREA = 0.6f;        //!< Percentage from bottom
 

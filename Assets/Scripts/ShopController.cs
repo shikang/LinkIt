@@ -72,7 +72,7 @@ public class ShopController : MonoBehaviour
 		int i = 0;
 		foreach ( KeyValuePair<string, InAppProductList.ProductInfo> p in InAppProductList.Instance.ConsumableList )
 		{
-			m_ShopSlots[i].GetComponent<ShopMainMenu>().SetData( productTitle[i], (uint)InAppProcessor.Instance.ProductParamMap[p.Key].m_nProductParam * 10, p.Value.m_sPrice, "Contains %d coins" );
+			m_ShopSlots[i].GetComponent<ShopMainMenu>().SetData( productTitle[i], (uint)InAppProcessor.Instance.ProductParamMap[p.Key].m_nProductParam * 50, p.Value.m_sPrice, "Contains %d coins" );
 			++i;
 		}
 

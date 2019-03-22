@@ -230,7 +230,7 @@ public class BoosterManager : MonoBehaviour
 
 		m_uBoostersOnce[1].title = "2x Gold (Single Use)";
 		m_uBoostersOnce[1].desc = "Get 2x gold for your next run!";
-		m_uBoostersOnce[1].cost = 250;
+		m_uBoostersOnce[1].cost = 500;
 
 		m_uBoostersOnce[2].title = "1.5x HP (Single Use)";
 		m_uBoostersOnce[2].desc = "Get 1.5x more health for your next run!";

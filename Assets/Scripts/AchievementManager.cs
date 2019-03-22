@@ -625,7 +625,7 @@ public class AchievementManager : MonoBehaviour
 		}
 
 		m_RecoverToPerfectFromRed.title = "Second Chance";
-		m_RecoverToPerfectFromRed.desc = "Recovered to Full Health From Red Health";
+		m_RecoverToPerfectFromRed.desc = "Fully Recover from Critcal Health";
 		m_RecoverToPerfectFromRed.count = 1;
 #if UNITY_ANDROID
 		m_RecoverToPerfectFromRed.achievementID = "";
