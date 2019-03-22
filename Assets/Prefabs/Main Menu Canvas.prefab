@@ -4831,7 +4831,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Leaderboards
+  m_Text: Stats
 --- !u!114 &11405666
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15337,7 +15337,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -86.06369}
-  m_SizeDelta: {x: 373, y: 685}
+  m_SizeDelta: {x: 373, y: 730}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22408968
 RectTransform:
@@ -19011,7 +19011,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -281.35455}
-  m_SizeDelta: {x: 373, y: 1056}
+  m_SizeDelta: {x: 373, y: 1086}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22499758
 RectTransform:

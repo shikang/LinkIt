@@ -402,16 +402,17 @@ public class AchievementManager : MonoBehaviour
 			m_array_TotalGamesPlayed[i].desc = "Played " + m_array_TotalGamesPlayed[i].count + " Games";
 		}
 
-		m_array_TotalCoinsEarned = new ACHIEVEMENTSET[9];
+		m_array_TotalCoinsEarned = new ACHIEVEMENTSET[10];
 		m_array_TotalCoinsEarned[0].count = 50;		m_array_TotalCoinsEarned[0].title = "Pocket Money";			
 		m_array_TotalCoinsEarned[1].count = 200;	m_array_TotalCoinsEarned[1].title = "Part Timer";			
 		m_array_TotalCoinsEarned[2].count = 500;	m_array_TotalCoinsEarned[2].title = "Serious Work";			
 		m_array_TotalCoinsEarned[3].count = 1000;	m_array_TotalCoinsEarned[3].title = "Shopping Spree";		
-		m_array_TotalCoinsEarned[4].count = 2000;	m_array_TotalCoinsEarned[4].title = "Unstoppable";			
-		m_array_TotalCoinsEarned[5].count = 5000;	m_array_TotalCoinsEarned[5].title = "Powerup Loader";		
-		m_array_TotalCoinsEarned[6].count = 10000;	m_array_TotalCoinsEarned[6].title = "Leaderboard Chaser";	
-		m_array_TotalCoinsEarned[7].count = 20000;	m_array_TotalCoinsEarned[7].title = "Money Maker";			
-		m_array_TotalCoinsEarned[8].count = 50000;	m_array_TotalCoinsEarned[8].title = "Jackpot";
+		m_array_TotalCoinsEarned[4].count = 5000;	m_array_TotalCoinsEarned[4].title = "Unstoppable";			
+		m_array_TotalCoinsEarned[5].count = 10000;	m_array_TotalCoinsEarned[5].title = "Powerup Loader";		
+		m_array_TotalCoinsEarned[6].count = 50000;	m_array_TotalCoinsEarned[6].title = "Leaderboard Chaser";	
+		m_array_TotalCoinsEarned[7].count = 100000;	m_array_TotalCoinsEarned[7].title = "Money Maker";			
+		m_array_TotalCoinsEarned[8].count = 500000;	m_array_TotalCoinsEarned[8].title = "Jackpot";
+        m_array_TotalCoinsEarned[9].count = 1000000;m_array_TotalCoinsEarned[9].title = "Millionaire";
 
 #if UNITY_ANDROID
 		m_array_TotalCoinsEarned[0].achievementID = "";
@@ -423,9 +424,10 @@ public class AchievementManager : MonoBehaviour
 		m_array_TotalCoinsEarned[6].achievementID = "";
 		m_array_TotalCoinsEarned[7].achievementID = "";
 		m_array_TotalCoinsEarned[8].achievementID = "";
+        m_array_TotalCoinsEarned[9].achievementID = "";
 #endif
 
-		for (int i = 0; i < m_array_TotalCoinsEarned.Length; ++i)
+        for (int i = 0; i < m_array_TotalCoinsEarned.Length; ++i)
 		{
 			m_array_TotalCoinsEarned[i].desc = "Earned " + m_array_TotalCoinsEarned[i].count + " Coins in Total";
 		}
@@ -548,7 +550,7 @@ public class AchievementManager : MonoBehaviour
 			m_array_TotalLinkedGems_Y[i].desc = "Linked " + m_array_TotalLinkedGems_Y[i].count + " Yellow Gems in Total";
 		}
 
-		m_array_MaxCombo = new ACHIEVEMENTSET[9];
+		m_array_MaxCombo = new ACHIEVEMENTSET[11];
 		m_array_MaxCombo[0].count = 50;		m_array_MaxCombo[0].title = "Drawing Circles";
 		m_array_MaxCombo[1].count = 75;		m_array_MaxCombo[1].title = "Webbing Along";
 		m_array_MaxCombo[2].count = 100;	m_array_MaxCombo[2].title = "C-c-c-combos";
@@ -558,6 +560,8 @@ public class AchievementManager : MonoBehaviour
 		m_array_MaxCombo[6].count = 200;	m_array_MaxCombo[6].title = "Artistic";
 		m_array_MaxCombo[7].count = 250;	m_array_MaxCombo[7].title = "Fast Fingers";
 		m_array_MaxCombo[8].count = 300;	m_array_MaxCombo[8].title = "Flow Master";
+        m_array_MaxCombo[9].count = 500;	m_array_MaxCombo[9].title = "Sensei";
+        m_array_MaxCombo[10].count = 1000;	m_array_MaxCombo[10].title = "Demi God!";
 
 #if UNITY_ANDROID
 		m_array_MaxCombo[0].achievementID = "";
@@ -569,9 +573,11 @@ public class AchievementManager : MonoBehaviour
 		m_array_MaxCombo[6].achievementID = "";
 		m_array_MaxCombo[7].achievementID = "";
 		m_array_MaxCombo[8].achievementID = "";
+        m_array_MaxCombo[9].achievementID = "";
+        m_array_MaxCombo[10].achievementID = "";
 #endif
 
-		for (int i = 0; i < m_array_MaxCombo.Length; ++i)
+        for (int i = 0; i < m_array_MaxCombo.Length; ++i)
 		{
 			m_array_MaxCombo[i].desc = "Reached " + m_array_MaxCombo[i].count + " Combo";
 		}
@@ -596,12 +602,13 @@ public class AchievementManager : MonoBehaviour
 			m_array_PerGameCoinsEarned[i].desc = "Earned " + m_array_PerGameCoinsEarned[i].count + " Coins in 1 Game";
 		}
 
-		m_array_PerGameScoreEarned = new ACHIEVEMENTSET[5];
+		m_array_PerGameScoreEarned = new ACHIEVEMENTSET[6];
 		m_array_PerGameScoreEarned[0].count = 20000;		m_array_PerGameScoreEarned[0].title = "Warming Up";
 		m_array_PerGameScoreEarned[1].count = 50000;	m_array_PerGameScoreEarned[1].title = "Competitive";
 		m_array_PerGameScoreEarned[2].count = 100000;	m_array_PerGameScoreEarned[2].title = "Top Dog";
 		m_array_PerGameScoreEarned[3].count = 200000;	m_array_PerGameScoreEarned[3].title = "Ace";
 		m_array_PerGameScoreEarned[4].count = 500000;	m_array_PerGameScoreEarned[4].title = "MVP";
+        m_array_PerGameScoreEarned[5].count = 999999;	m_array_PerGameScoreEarned[5].title = "Grand Master";
 
 #if UNITY_ANDROID
 		m_array_PerGameScoreEarned[0].achievementID = "";
@@ -609,9 +616,10 @@ public class AchievementManager : MonoBehaviour
 		m_array_PerGameScoreEarned[2].achievementID = "";
 		m_array_PerGameScoreEarned[3].achievementID = "";
 		m_array_PerGameScoreEarned[4].achievementID = "";
+        m_array_PerGameScoreEarned[5].achievementID = "";
 #endif
 
-		for (int i = 0; i < m_array_PerGameScoreEarned.Length; ++i)
+        for (int i = 0; i < m_array_PerGameScoreEarned.Length; ++i)
 		{
 			m_array_PerGameScoreEarned[i].desc = "Earned " + m_array_PerGameScoreEarned[i].count + " Points in 1 Game";
 		}
@@ -624,11 +632,11 @@ public class AchievementManager : MonoBehaviour
 #endif
 
 		m_array_LinkGemsInOneChain = new ACHIEVEMENTSET[5];
-		m_array_LinkGemsInOneChain[0].count = 6;		m_array_LinkGemsInOneChain[0].title = "Caterpillar";
-		m_array_LinkGemsInOneChain[1].count = 8;		m_array_LinkGemsInOneChain[1].title = "Earthworm";
-		m_array_LinkGemsInOneChain[2].count = 10;		m_array_LinkGemsInOneChain[2].title = "Centipede";
-		m_array_LinkGemsInOneChain[3].count = 15;		m_array_LinkGemsInOneChain[3].title = "Snake";
-		m_array_LinkGemsInOneChain[4].count = 20;		m_array_LinkGemsInOneChain[4].title = "Python";
+		m_array_LinkGemsInOneChain[0].count = 5;		m_array_LinkGemsInOneChain[0].title = "Caterpillar";
+		m_array_LinkGemsInOneChain[1].count = 7;		m_array_LinkGemsInOneChain[1].title = "Earthworm";
+		m_array_LinkGemsInOneChain[2].count = 9;		m_array_LinkGemsInOneChain[2].title = "Centipede";
+		m_array_LinkGemsInOneChain[3].count = 12;		m_array_LinkGemsInOneChain[3].title = "Snake";
+		m_array_LinkGemsInOneChain[4].count = 15;		m_array_LinkGemsInOneChain[4].title = "Python";
 
 #if UNITY_ANDROID
 		m_array_LinkGemsInOneChain[0].achievementID = "";

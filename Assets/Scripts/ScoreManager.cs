@@ -82,7 +82,7 @@ public class ScoreManager : MonoBehaviour
 
 		// Find the score without boosters, to use for gold calc
 		int realScore = (int)Mathf.Round(m_PlayerStats.m_nScore / BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.ScoreMult) / BoosterManager.Instance.GetScoreMultOnce());
-		m_GoldEarned = (int)Mathf.Round(realScore / 100 * BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.GoldMult) * BoosterManager.Instance.GetGoldMultOnce());
+		m_GoldEarned = (int)Mathf.Round(realScore / 500 * BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.GoldMult) * BoosterManager.Instance.GetGoldMultOnce());
 
 		m_CoinsThisRound.GetComponent<Text>().text = m_CountUp_Gold.ToString();
 		m_LeakedCounter.GetComponent<Text>().text = m_CountUp_GemGrey.ToString();

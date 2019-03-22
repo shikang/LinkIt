@@ -395,7 +395,8 @@ public class GemSpawner : MonoBehaviour
 		m_fShowMultiplierTimer = 0.0f;
 		m_ShowMultiplierPos = m_MultiplierText.transform.position;
 		m_fSpawnRate = BASE_SPAWN_RATE - m_nLevel * SPAWN_RATE_GROWTH;
-		m_fBaseGemDropSpeed = m_HalfDimension.y * 2.0f / ( BASE_GEM_DROP_TIME - ( m_nLevel / 2 ) * GEM_DROP_TIME_GROWTH );
+        m_fSpawnRate *= 1.0f / BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.SlowerGems);
+        m_fBaseGemDropSpeed = m_HalfDimension.y * 2.0f / ( BASE_GEM_DROP_TIME - ( m_nLevel / 2 ) * GEM_DROP_TIME_GROWTH );
 		m_fBaseGemDropSpeed *= BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.SlowerGems);
 
 		m_nHighComboMultiplierIndex = 0;
@@ -1033,9 +1034,11 @@ public class GemSpawner : MonoBehaviour
 			{
 				//m_fSpawnRate -= SPAWN_RATE_GROWTH;
 				m_fSpawnRate = BASE_SPAWN_RATE - m_nLevel * SPAWN_RATE_GROWTH;
-				m_fBaseGemDropSpeed = m_HalfDimension.y * 2.0f / ( BASE_GEM_DROP_TIME - ( m_nLevel / 2 ) * GEM_DROP_TIME_GROWTH );
+                m_fSpawnRate *= 1.0f / BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.SlowerGems);
+                m_fBaseGemDropSpeed = m_HalfDimension.y * 2.0f / ( BASE_GEM_DROP_TIME - ( m_nLevel / 2 ) * GEM_DROP_TIME_GROWTH );
+                m_fBaseGemDropSpeed *= BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.SlowerGems);
 
-				Debug.Log( "Spawn rate: " + m_fSpawnRate );
+                Debug.Log( "Spawn rate: " + m_fSpawnRate );
 				Debug.Log( "Drop rate: " + m_fBaseGemDropSpeed );
 			}
 
@@ -1133,7 +1136,8 @@ public class GemSpawner : MonoBehaviour
 
 	int GetLevelUpRequiredPoints( int nLevel )
 	{
-		//return ( nLevel + 1 ) * 2000 + ( nLevel * nLevel * 1000 );
+        //return ( nLevel + 1 ) * 2000 + ( nLevel * nLevel * 1000 );
+        Debug.Log( "Level " + nLevel + " requirements: " + ( ( nLevel + 1 ) * 200 + ( nLevel * nLevel * Math.Max( (int)( 0.5f * nLevel ), 1 ) * 100 ) ) );
 		return ( nLevel + 1 ) * 200 + ( nLevel * nLevel * Math.Max( (int)( 0.5f * nLevel ), 1 ) * 100 );
 	}
 

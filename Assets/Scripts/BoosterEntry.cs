@@ -7,7 +7,7 @@ using System.Collections.Generic;
 public class BoosterEntry : MonoBehaviour
 {
 	public BOOSTERTYPE m_Type;
-	public int m_MaxLevel = 5;	// Assume 5 for now
+	public int m_MaxLevel = 10;	// Assume 5 for now
 	public int m_CurrLevel;
 	int m_bCost;
 
@@ -91,7 +91,7 @@ public class BoosterEntry : MonoBehaviour
 		m_Image.GetComponent<Image>().sprite = BoosterManager.Instance.m_AllImages[(int)m_Type];
 		m_Title.GetComponent<Text>().text = tmp_.title;
 		m_Desc.GetComponent<Text>().text = tmp_.desc;
-		m_Cost.GetComponent<Text>().text = tmp_.cost.ToString();
+		m_Cost.GetComponent<Text>().text = (tmp_.cost != 0) ? tmp_.cost.ToString() : "";
 		SetButtonText();
 		m_Overlay.SetActive(false);
 		m_OverlayText.SetActive(false);

@@ -15,8 +15,11 @@ public class SpawnPattern : MonoBehaviour
 		Expert,
 		Hardcore,
 		Godly,
-		
-		Total
+        EliteGod,
+        QueenOfGods,
+        KingOfGods,
+
+        Total
 	}
 
 	List<int> m_lDifficultyMarker;
@@ -188,6 +191,18 @@ public class SpawnPattern : MonoBehaviour
 
 		// DifficultyLevel.Godly
 		m_lDifficultyMarker.Add( m_lSpawnSequenceList.Count );
+		m_lTotalWeight.Add( totalWeight );
+
+        // DifficultyLevel.EliteGod
+        m_lDifficultyMarker.Add( m_lSpawnSequenceList.Count );
+		m_lTotalWeight.Add( totalWeight );
+
+        // DifficultyLevel.QueenOfGods
+        m_lDifficultyMarker.Add( m_lSpawnSequenceList.Count );
+		m_lTotalWeight.Add( totalWeight );
+
+        // DifficultyLevel.KingOfGods
+        m_lDifficultyMarker.Add( m_lSpawnSequenceList.Count );
 		m_lTotalWeight.Add( totalWeight );
 
 		GetComponent<GemSpawner>().PrepareFailList();
