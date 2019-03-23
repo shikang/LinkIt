@@ -6,38 +6,58 @@ using UnityEngine.UI;
 public class BoosterViewer : MonoBehaviour
 {
 	public GameObject m_pEntry;
-	public GameObject m_gScrollRect;
+    public GameObject m_pSkinEntry;
+    public GameObject m_gScrollRect;
 	public GameObject m_uPlayerCoins;
 
 	List<GameObject> m_lViewer = new List<GameObject>();
 	float m_fFirstPosX = 0.0f;
-	float m_fFirstPosY = 300.0f;
+	float m_fFirstPosY = 392.0f;
 	float m_fHorizontalGap = 90.0f;
 
 	void Start ()
 	{
 		GameObject tmp;
-		for(int i = 0; i < (int)BOOSTERTYPE.Count; ++i)
+        for (int i = 0; i < (int)GemLibrary.GemSet.TOTAL; ++i)
+        {
+            tmp = GameObject.Instantiate(m_pSkinEntry);
+            tmp.transform.parent = m_gScrollRect.transform;
+            tmp.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            tmp.GetComponent<Transform>().localPosition = new Vector3(m_fFirstPosX, m_fFirstPosY - i * m_fHorizontalGap, 0.0f);
+            m_lViewer.Add(tmp);
+        }
+
+        for (int i = 0; i < (int)BOOSTERTYPE.Count; ++i)
 		{
 			tmp = GameObject.Instantiate(m_pEntry);
 			tmp.transform.parent = m_gScrollRect.transform;
 			tmp.transform.localScale = new Vector3(1.0f ,1.0f, 1.0f);
-			tmp.GetComponent<Transform>().localPosition = new Vector3(m_fFirstPosX, m_fFirstPosY - i*m_fHorizontalGap, 0.0f);
+			tmp.GetComponent<Transform>().localPosition = new Vector3(m_fFirstPosX, m_fFirstPosY - (i + (int)GemLibrary.GemSet.TOTAL )* m_fHorizontalGap, 0.0f);
 			m_lViewer.Add(tmp);
 		}
 	}
 
-	public void UpdateEntryBar(BOOSTERTYPE type_, int currLevel_, bool isOnce_)
+    public void UpdateEntryBar(GemLibrary.GemSet type_)
+    {
+        m_lViewer[(int)type_].GetComponent<SkinEntry>().SetEntry(type_);
+    }
+
+    public void UpdateEntryBar(BOOSTERTYPE type_, int currLevel_, bool isOnce_)
 	{
 		int shiftEntry = 3;	// noof temp boosters
 		if(isOnce_)
 			shiftEntry = -5;	// no of perm boosterss
-		m_lViewer[(int)type_+shiftEntry].GetComponent<BoosterEntry>().SetEntry(type_, BoosterManager.Instance.GetBoostData(type_), currLevel_, isOnce_);
+		m_lViewer[(int)GemLibrary.GemSet.TOTAL + (int)type_+shiftEntry].GetComponent<BoosterEntry>().SetEntry(type_, BoosterManager.Instance.GetBoostData(type_), currLevel_, isOnce_);
 	}
 
 	void Update ()
 	{
-		UpdateEntryBar(BOOSTERTYPE.ScoreMult_Once, 0, true);
+        for (int i = 0; i < (int)GemLibrary.GemSet.TOTAL; ++i)
+        {
+            UpdateEntryBar((GemLibrary.GemSet)i);
+        }
+
+        UpdateEntryBar(BOOSTERTYPE.ScoreMult_Once, 0, true);
 		UpdateEntryBar(BOOSTERTYPE.GoldMult_Once, 0, true);
 		UpdateEntryBar(BOOSTERTYPE.MoreHealth_Once, 0, true);
 

@@ -33,6 +33,8 @@ public class GemContainerSet : MonoBehaviour
 	// Explosion
 	public GameObject m_Explosion;
 
+    public string m_Desc;
+
 	// @todo Sound effect
 
 	public Sprite[] GetGemContainer( int index )

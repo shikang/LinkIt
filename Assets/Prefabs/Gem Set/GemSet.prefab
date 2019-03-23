@@ -126,6 +126,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 021df16892beded4eacc0610721a5f1e, type: 3}
   - {fileID: 21300000, guid: 021df16892beded4eacc0610721a5f1e, type: 3}
   m_Explosion: {fileID: 194224, guid: 75bd6bc8c365fc049b5c339375208996, type: 2}
+  m_Desc: It's pretty basic. Really...
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

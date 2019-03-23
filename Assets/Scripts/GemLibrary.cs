@@ -8,9 +8,8 @@ public class GemLibrary : MonoBehaviour
 	public enum GemSet
 	{
 		GEM = 0,		//!< Default
-		BELL,
-		//FRUITS,		// Apple, Blueberry, WaterMelon, Banana
-		//VEGGIE,		// Tomato, Eggplant, Veggie, Potato
+		SUITS,          //!< Heart, Spade, Clover, Diamond
+        // ELEMENTS,    //!< Fire, Water Droplet, Wind, Lightning Bolt
 
 		TOTAL
 	}

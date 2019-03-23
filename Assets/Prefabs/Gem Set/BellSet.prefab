@@ -5,10 +5,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 491778}
-  - 114: {fileID: 11423140}
+  - component: {fileID: 491778}
+  - component: {fileID: 11423140}
   m_Layer: 0
   m_Name: BellSet
   m_TagString: Untagged
@@ -28,6 +28,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11423140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -39,68 +40,93 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81cbe1e3717d97f4487c6828c501ca61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_sGemContainerSetName: Bell
+  m_sGemContainerSetName: Suits
   m_RedGemSpritesSet:
-  - {fileID: 21300000, guid: 0c8b7f95792ef0c4a8843834cba760cf, type: 3}
-  - {fileID: 21300000, guid: cf6dad993912efb4586f9d57f4190579, type: 3}
-  - {fileID: 21300000, guid: c4d2d7b1541662d4caa4ddde85861ef7, type: 3}
-  - {fileID: 21300000, guid: 53a9fba250d6ab34d981fe4050b867ed, type: 3}
+  - {fileID: 21300000, guid: 12ff23be1b82aa243ba533bdae04614d, type: 3}
+  - {fileID: 21300000, guid: a8de31586d78bd142ba828275e0a644f, type: 3}
+  - {fileID: 21300000, guid: 71aeb0c41e0e0014680fa51365fde454, type: 3}
+  - {fileID: 21300000, guid: 167f0bd171bfc304cae0106a46a0a986, type: 3}
+  - {fileID: 21300000, guid: 2e885360ed257584786400dc826d6d71, type: 3}
+  - {fileID: 21300000, guid: 586c3e47065260d42a20b1f59cb71c7a, type: 3}
   m_RedGlowGemSpritesSet:
-  - {fileID: 21300000, guid: 0c8b7f95792ef0c4a8843834cba760cf, type: 3}
-  - {fileID: 21300000, guid: cf6dad993912efb4586f9d57f4190579, type: 3}
-  - {fileID: 21300000, guid: c4d2d7b1541662d4caa4ddde85861ef7, type: 3}
-  - {fileID: 21300000, guid: 53a9fba250d6ab34d981fe4050b867ed, type: 3}
+  - {fileID: 21300000, guid: 789e001df3dfca64184e81c54973556a, type: 3}
+  - {fileID: 21300000, guid: 7ad982fefa3df464fba698ce55813553, type: 3}
+  - {fileID: 21300000, guid: 36ee11d153c02734f9760f85bb49b18f, type: 3}
+  - {fileID: 21300000, guid: ec30407e8410abb43bf751152ffbd530, type: 3}
+  - {fileID: 21300000, guid: 7be010ab33fc4e04690cc85b85b04974, type: 3}
+  - {fileID: 21300000, guid: 16f8cd2ec66cb8d4a8a087137de81213, type: 3}
   m_RedStoneGemSpritesSet:
-  - {fileID: 21300000, guid: 789aaca4ca8e9874bae76ccc2db553b6, type: 3}
-  - {fileID: 21300000, guid: 3c790febc9e9613468a8bac0bc6f98e7, type: 3}
-  - {fileID: 21300000, guid: 44ec3eac024a7bf4f9153646518964b1, type: 3}
-  - {fileID: 21300000, guid: f1e6b5b6bb6641f4a9df756d42e7fb58, type: 3}
+  - {fileID: 21300000, guid: 2d4fe1a5526e0bc4aa5a5f5533056e9b, type: 3}
+  - {fileID: 21300000, guid: 2d4fe1a5526e0bc4aa5a5f5533056e9b, type: 3}
+  - {fileID: 21300000, guid: 2d4fe1a5526e0bc4aa5a5f5533056e9b, type: 3}
+  - {fileID: 21300000, guid: 2d4fe1a5526e0bc4aa5a5f5533056e9b, type: 3}
+  - {fileID: 21300000, guid: 2d4fe1a5526e0bc4aa5a5f5533056e9b, type: 3}
+  - {fileID: 21300000, guid: 2d4fe1a5526e0bc4aa5a5f5533056e9b, type: 3}
   m_BlueGemSpritesSet:
-  - {fileID: 21300000, guid: 4737eb7e4d4f6794d9f1226ed0d4e05f, type: 3}
-  - {fileID: 21300000, guid: 93e0dae860ffd5a44b29124ca6eee927, type: 3}
-  - {fileID: 21300000, guid: d275a283b3fce0d4394bf81943f5cd6f, type: 3}
-  - {fileID: 21300000, guid: 774018b64a66e834d8cb7acc5b097b8e, type: 3}
+  - {fileID: 21300000, guid: aab61dd000ed39842a39b119ea7f2678, type: 3}
+  - {fileID: 21300000, guid: 9809b0b1f41075142b58ddc3fabd8425, type: 3}
+  - {fileID: 21300000, guid: bbeeca84239b31d498a772dcc2f48359, type: 3}
+  - {fileID: 21300000, guid: cebd705235d341c4280be244420e2f88, type: 3}
+  - {fileID: 21300000, guid: 2d6f99993fb2f3648bfadf82b5a7a1e6, type: 3}
+  - {fileID: 21300000, guid: 2700127e521b17b48be1e0c027b41360, type: 3}
   m_BlueGlowGemSpritesSet:
-  - {fileID: 21300000, guid: 4737eb7e4d4f6794d9f1226ed0d4e05f, type: 3}
-  - {fileID: 21300000, guid: 93e0dae860ffd5a44b29124ca6eee927, type: 3}
-  - {fileID: 21300000, guid: d275a283b3fce0d4394bf81943f5cd6f, type: 3}
-  - {fileID: 21300000, guid: 774018b64a66e834d8cb7acc5b097b8e, type: 3}
+  - {fileID: 21300000, guid: 4c2744bf11189594dbf47631b96f46e9, type: 3}
+  - {fileID: 21300000, guid: 7a3ba1ab6d073bb4793684eccfaefd78, type: 3}
+  - {fileID: 21300000, guid: 6fcefc55c5c370e4e8b0bb2bb4df0962, type: 3}
+  - {fileID: 21300000, guid: 63c4b73c35d61f941b62b6c8ed59b6fe, type: 3}
+  - {fileID: 21300000, guid: 7d33d90591f608843aaf7100987b9d31, type: 3}
+  - {fileID: 21300000, guid: 79b55394dd7c81048b416a07b296f8be, type: 3}
   m_BlueStoneGemSpritesSet:
-  - {fileID: 21300000, guid: 789aaca4ca8e9874bae76ccc2db553b6, type: 3}
-  - {fileID: 21300000, guid: 3c790febc9e9613468a8bac0bc6f98e7, type: 3}
-  - {fileID: 21300000, guid: 44ec3eac024a7bf4f9153646518964b1, type: 3}
-  - {fileID: 21300000, guid: f1e6b5b6bb6641f4a9df756d42e7fb58, type: 3}
+  - {fileID: 21300000, guid: b2cea3bcbf24f95418219405aaa73fdb, type: 3}
+  - {fileID: 21300000, guid: b2cea3bcbf24f95418219405aaa73fdb, type: 3}
+  - {fileID: 21300000, guid: b2cea3bcbf24f95418219405aaa73fdb, type: 3}
+  - {fileID: 21300000, guid: b2cea3bcbf24f95418219405aaa73fdb, type: 3}
+  - {fileID: 21300000, guid: b2cea3bcbf24f95418219405aaa73fdb, type: 3}
+  - {fileID: 21300000, guid: b2cea3bcbf24f95418219405aaa73fdb, type: 3}
   m_GreenGemSpritesSet:
-  - {fileID: 21300000, guid: aed76a926187b604690ada457d0fa7dd, type: 3}
-  - {fileID: 21300000, guid: 7245c308cbec54848a3d411a7c1ac335, type: 3}
-  - {fileID: 21300000, guid: b5a745c039b8a634d812c0c0b45288e7, type: 3}
-  - {fileID: 21300000, guid: 5868c45e9b0686644bfe26c8e57665c5, type: 3}
+  - {fileID: 21300000, guid: 96cebb61876f7a648ac93fff8ff78ad1, type: 3}
+  - {fileID: 21300000, guid: f46c9abd20c33f74885dc3a5ddec7bba, type: 3}
+  - {fileID: 21300000, guid: b0bfbc05f424e4e43914b42e6c58d708, type: 3}
+  - {fileID: 21300000, guid: f8ddb4b67d40ad347bcc61ea0abe222c, type: 3}
+  - {fileID: 21300000, guid: 689a43e0f8ce5a64d86e16732ec37a97, type: 3}
+  - {fileID: 21300000, guid: 2f65f2584e667fe45828c2913ec1f5cb, type: 3}
   m_GreenGlowGemSpritesSet:
-  - {fileID: 21300000, guid: aed76a926187b604690ada457d0fa7dd, type: 3}
-  - {fileID: 21300000, guid: 7245c308cbec54848a3d411a7c1ac335, type: 3}
-  - {fileID: 21300000, guid: b5a745c039b8a634d812c0c0b45288e7, type: 3}
-  - {fileID: 21300000, guid: 5868c45e9b0686644bfe26c8e57665c5, type: 3}
+  - {fileID: 21300000, guid: 9e3b30ea7765cec44a7b3f566707799a, type: 3}
+  - {fileID: 21300000, guid: 7b6e463ab81bb3c448078b01ac31d6f6, type: 3}
+  - {fileID: 21300000, guid: 63cdb85fec3d67e45b6de73141dacbbb, type: 3}
+  - {fileID: 21300000, guid: fff3821c54cb23b41881dec878711868, type: 3}
+  - {fileID: 21300000, guid: 4585408baf9d7bc4b928e3e205072cbd, type: 3}
+  - {fileID: 21300000, guid: 6f12875d684e6aa4e980d1e0e74062d8, type: 3}
   m_GreenStoneGemSpritesSet:
-  - {fileID: 21300000, guid: 789aaca4ca8e9874bae76ccc2db553b6, type: 3}
-  - {fileID: 21300000, guid: 3c790febc9e9613468a8bac0bc6f98e7, type: 3}
-  - {fileID: 21300000, guid: 44ec3eac024a7bf4f9153646518964b1, type: 3}
-  - {fileID: 21300000, guid: f1e6b5b6bb6641f4a9df756d42e7fb58, type: 3}
+  - {fileID: 21300000, guid: 5190fb3edafef194282ea697d27f43c7, type: 3}
+  - {fileID: 21300000, guid: 5190fb3edafef194282ea697d27f43c7, type: 3}
+  - {fileID: 21300000, guid: 5190fb3edafef194282ea697d27f43c7, type: 3}
+  - {fileID: 21300000, guid: 5190fb3edafef194282ea697d27f43c7, type: 3}
+  - {fileID: 21300000, guid: 5190fb3edafef194282ea697d27f43c7, type: 3}
+  - {fileID: 21300000, guid: 5190fb3edafef194282ea697d27f43c7, type: 3}
   m_YellowGemSpritesSet:
-  - {fileID: 21300000, guid: 3cb7dbef38a8da44f90cd62df98ba8be, type: 3}
-  - {fileID: 21300000, guid: 374ffa528ec301f49942e8307dd5e738, type: 3}
-  - {fileID: 21300000, guid: f9b4214df17dee24fbe08ec5275ee977, type: 3}
-  - {fileID: 21300000, guid: 82a715cdd82313041ae19caff77184e7, type: 3}
+  - {fileID: 21300000, guid: aef4d3fbb2b3c864f84a59bb9617828a, type: 3}
+  - {fileID: 21300000, guid: 27ab0d66204f71c4e94e2faabbf51bde, type: 3}
+  - {fileID: 21300000, guid: 275a24dacaef32243ba27b82a3cfbcdf, type: 3}
+  - {fileID: 21300000, guid: 286aea32014e2f74298bccae6a781755, type: 3}
+  - {fileID: 21300000, guid: a028159e49ca7ba4b85553930043f4ca, type: 3}
+  - {fileID: 21300000, guid: dbd411f7894521846913e7419e79e16b, type: 3}
   m_YellowGlowGemSpritesSet:
-  - {fileID: 21300000, guid: 3cb7dbef38a8da44f90cd62df98ba8be, type: 3}
-  - {fileID: 21300000, guid: 374ffa528ec301f49942e8307dd5e738, type: 3}
-  - {fileID: 21300000, guid: f9b4214df17dee24fbe08ec5275ee977, type: 3}
-  - {fileID: 21300000, guid: 82a715cdd82313041ae19caff77184e7, type: 3}
+  - {fileID: 21300000, guid: 0576bfe8ea9e49d48ad863e0451264ce, type: 3}
+  - {fileID: 21300000, guid: 8643566813540ee479fbd30ed89da2a8, type: 3}
+  - {fileID: 21300000, guid: 6d72465f272346447904cb9dcb2a6d98, type: 3}
+  - {fileID: 21300000, guid: 24da641ff733ca341a448c7ac2701db8, type: 3}
+  - {fileID: 21300000, guid: 14bd4032cec2a114688d48c29eaeb1d8, type: 3}
+  - {fileID: 21300000, guid: 088d69bfdbecdfb4d86b972802e62e38, type: 3}
   m_YellowStoneGemSpritesSet:
-  - {fileID: 21300000, guid: 789aaca4ca8e9874bae76ccc2db553b6, type: 3}
-  - {fileID: 21300000, guid: 3c790febc9e9613468a8bac0bc6f98e7, type: 3}
-  - {fileID: 21300000, guid: 44ec3eac024a7bf4f9153646518964b1, type: 3}
-  - {fileID: 21300000, guid: f1e6b5b6bb6641f4a9df756d42e7fb58, type: 3}
+  - {fileID: 21300000, guid: 021df16892beded4eacc0610721a5f1e, type: 3}
+  - {fileID: 21300000, guid: 021df16892beded4eacc0610721a5f1e, type: 3}
+  - {fileID: 21300000, guid: 021df16892beded4eacc0610721a5f1e, type: 3}
+  - {fileID: 21300000, guid: 021df16892beded4eacc0610721a5f1e, type: 3}
+  - {fileID: 21300000, guid: 021df16892beded4eacc0610721a5f1e, type: 3}
+  - {fileID: 21300000, guid: 021df16892beded4eacc0610721a5f1e, type: 3}
   m_Explosion: {fileID: 194224, guid: 75bd6bc8c365fc049b5c339375208996, type: 2}
+  m_Desc: Poker Suits. Might boost your luck!
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

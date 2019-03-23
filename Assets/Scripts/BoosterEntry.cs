@@ -52,7 +52,7 @@ public class BoosterEntry : MonoBehaviour
 			m_Overlay.SetActive(!GameData.Instance.m_bUnlock_Share_FB);
 			m_OverlayText.SetActive(!GameData.Instance.m_bUnlock_Share_FB);
 			m_OverlayLock.SetActive(!GameData.Instance.m_bUnlock_Share_FB);
-			m_OverlayText.GetComponent<Text>().text = "SHARE LINKIT WITH 3 FACEBOOK FRIENDS TO UNLOCK!";
+			m_OverlayText.GetComponent<Text>().text = "LIKE LINKIT FACEBOOK PAGE TO UNLOCK!";
 		}
 
 		if(m_OverlayText.GetActive())
@@ -319,15 +319,18 @@ public class BoosterEntry : MonoBehaviour
 
 	void RefundMoney(int cost_)
 	{
-		GameData.Instance.m_Coin += cost_;
+		//GameData.Instance.m_Coin += cost_;
 	}
 
 	void StartBtnClickFX()
 	{
-		GameObject go = (GameObject)GameObject.Instantiate(m_goBtnFX);
-		go.transform.parent = m_LevelButton.transform;
-		go.transform.localScale = new Vector3 (1.0f, 1.0f, 1.0f);
-		go.transform.localPosition = new Vector3 (0.0f, 0.0f, 0.0f);
+        if (m_goBtnFX != null)
+        {
+            GameObject go = (GameObject)GameObject.Instantiate(m_goBtnFX);
+            go.transform.parent = m_LevelButton.transform;
+            go.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            go.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
+        }
 	}
 }
 
