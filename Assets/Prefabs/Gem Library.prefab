@@ -5,13 +5,13 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 463742}
-  - 114: {fileID: 11409832}
+  - component: {fileID: 463742}
+  - component: {fileID: 11409832}
   m_Layer: 0
   m_Name: Gem Library
-  m_TagString: Untagged
+  m_TagString: Gem Library
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,6 +28,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11409832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -42,6 +43,7 @@ MonoBehaviour:
   m_GemsSetList:
   - {fileID: 11423140, guid: e57c0bb8f97259045a325d88891c9a6b, type: 2}
   - {fileID: 11423140, guid: 7ab95070285ef6e4e85b175f16307a2d, type: 2}
+  - {fileID: 11423140, guid: c53ffdcc501c7b3468ad449bf627706a, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

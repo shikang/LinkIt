@@ -9,7 +9,7 @@ public class GemLibrary : MonoBehaviour
 	{
 		GEM = 0,		//!< Default
 		SUITS,          //!< Heart, Spade, Clover, Diamond
-        // ELEMENTS,    //!< Fire, Water Droplet, Wind, Lightning Bolt
+        ELEMENTS,       //!< Fire, Water Droplet, Wind, Lightning Bolt
 
 		TOTAL
 	}

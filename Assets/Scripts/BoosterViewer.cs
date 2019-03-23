@@ -12,7 +12,7 @@ public class BoosterViewer : MonoBehaviour
 
 	List<GameObject> m_lViewer = new List<GameObject>();
 	float m_fFirstPosX = 0.0f;
-	float m_fFirstPosY = 392.0f;
+	float m_fFirstPosY = 438.0f;
 	float m_fHorizontalGap = 90.0f;
 
 	void Start ()
