@@ -85,9 +85,9 @@ public class GameData
 		m_Boost_MoreHealthOnce = false;
 
 		m_Boost_ScoreMult = 0;
-		m_Boost_GoldMult = 2;
-		m_Boost_Shield = 1;
-		m_Boost_SlowerGems = 3;
+		m_Boost_GoldMult = 0;
+		m_Boost_Shield = 0;
+		m_Boost_SlowerGems = 0;
 		m_Boost_BiggerGems = 0;
 
 		m_curr_TotalGamesPlayed = 0;
@@ -118,7 +118,7 @@ public class GameData
 		m_bUnlock_EarnPoints = false;
 
 		m_uUnlock_GamesCount = 5;
-		m_uUnlock_Share_FBCount = 3;
+		m_uUnlock_Share_FBCount = 1;
 		m_uUnlock_EarnPointsCount = 20000;
 
 		m_bIsAdsRemoved = false;

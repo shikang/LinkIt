@@ -42,6 +42,7 @@ public class TutorialAnimator : MonoBehaviour
 	private TutorialAnimationPhase m_eCurrentAnimationPhase = TutorialAnimationPhase.TUTORIAL_PHASE_START;
 	private float m_fTimer = 0.0f;
 	private List<Vector3> m_CopyLinkPos;
+    private Vector3 m_DefaultScale;
 
 	// Use this for initialization
 	void Start ()
@@ -73,7 +74,25 @@ public class TutorialAnimator : MonoBehaviour
 		m_bStartHiding = false;
 
 		StartAnimation();
-	}
+
+        for ( int i = 0; i < m_LinkedGems.Length; ++i )
+		{
+            if ( ( (float)Screen.width / (float)Screen.height ) < ( 9.0f / 16.0f ) )
+            {
+                m_LinkedGems[i].transform.localScale *= ( (float)Screen.width / (float)Screen.height ) / ( 9.0f / 16.0f );
+            }
+		}
+
+        for ( int i = 0; i < m_OtherGems.Length; ++i )
+        {
+            if ( ( (float)Screen.width / (float)Screen.height ) < ( 9.0f / 16.0f ) )
+            {
+                m_OtherGems[i].transform.localScale *= ( (float)Screen.width / (float)Screen.height ) / ( 9.0f / 16.0f );
+            }
+        }
+
+        m_DefaultScale = m_LinkedGems[0].transform.localScale;
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -203,12 +222,15 @@ public class TutorialAnimator : MonoBehaviour
 			TrailRenderer trailRenderer = GetComponentInChildren<TrailRenderer>();
 			Material trail = trailRenderer.material;
 			trail.SetColor( "_Color", GameObject.FindGameObjectWithTag( "Gem Spawner" ).GetComponent<GemSpawner>().m_LinkColours[0] );
-		}
+
+            m_LinkedGems[0].transform.localScale = m_DefaultScale * GemSpawner.LINKED_SCALE_FACTOR;
+        }
 
 		if ( m_fTimer >= LINK_DURATION[index - 1] - LINK_PAUSE )
 		{
 			m_LinkedGems[index].GetComponent<SpriteRenderer>().sprite = m_LinkedGems[index].GetComponent<GemSpriteContainer>().m_GlowSprites[0];
-		}
+            m_LinkedGems[index].transform.localScale = m_DefaultScale * GemSpawner.LINKED_SCALE_FACTOR;
+        }
 
 		// End timer
 		if ( m_fTimer >= LINK_DURATION[index - 1] )
@@ -235,7 +257,10 @@ public class TutorialAnimator : MonoBehaviour
 			ParticleSystem ps = explosion.GetComponent<ParticleSystem>();
 			ps.startColor = GameObject.FindGameObjectWithTag( "Gem Spawner" ).GetComponent<GemSpawner>().m_LinkColours[0];
 			Destroy( explosion, ps.duration + ps.startLifetime + Time.deltaTime );
-		}
+
+            m_LinkedGems[i].transform.localScale = m_DefaultScale;
+
+        }
 
 		GoNextPhase();
 	}

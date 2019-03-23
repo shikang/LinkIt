@@ -27,8 +27,8 @@ public class GemSpawner : MonoBehaviour
 
 	// Spawning gold contants
 	public const float GOLD_SPAWN_INTERVAL = 30.0f;		//!< In seconds
-	public const float GOLD_SPAWN_CHANCE = 0.0f;        //!< Percentage (Over 1.0f)
-	public const int GOLD_DROP_AMOUNT = 100;
+	public const float GOLD_SPAWN_CHANCE = 0.05f;       //!< Percentage (Over 1.0f)
+	public const int GOLD_DROP_AMOUNT = 1000;
 
 	// Type constants
 	public const int INVALID_LANE = -1;
@@ -99,9 +99,11 @@ public class GemSpawner : MonoBehaviour
 	private float m_fBaseGemDropSpeed;
 	private Vector3 m_DefaultGemScale;
 	private Vector3 m_LinkedGemScale;
+    private Vector3 m_DefaultGoldScale;
+    private Vector3 m_LinkedGoldScale;
 
-	// Spawning gold info
-	public GameObject m_GoldPrefab;
+    // Spawning gold info
+    public GameObject m_GoldPrefab;
 	private float m_GoldIntervalTimer;
 	private GameObject m_GoldObject;
 
@@ -336,10 +338,21 @@ public class GemSpawner : MonoBehaviour
 			}
 		}
 
-		m_DefaultGemScale = m_aGemList[0].transform.localScale * BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.BiggerGems); ;
+		m_DefaultGemScale = m_aGemList[0].transform.localScale * BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.BiggerGems);
+        if ( ( (float)Screen.width / (float)Screen.height ) < ( 9.0f / 16.0f ) )
+        {
+            m_DefaultGemScale *= ( (float)Screen.width / (float)Screen.height ) / ( 9.0f / 16.0f );
+        }
 		m_LinkedGemScale = LINKED_SCALE_FACTOR * m_DefaultGemScale;
 
-		m_fAnimationIntervalTimer = 0.0f;
+        m_DefaultGoldScale = m_GoldPrefab.transform.localScale * BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.BiggerGems);
+        if ( ( (float)Screen.width / (float)Screen.height ) < ( 9.0f / 16.0f ) )
+        {
+            m_DefaultGoldScale *= ( (float)Screen.width / (float)Screen.height ) / ( 9.0f / 16.0f );
+        }
+        m_LinkedGoldScale = LINKED_SCALE_FACTOR * m_DefaultGoldScale;
+
+        m_fAnimationIntervalTimer = 0.0f;
 		m_fAnimationTimer = 0.0f;
 		m_bAnimating = false;
 		m_nAnimatingFrame = -1;
@@ -1323,6 +1336,10 @@ public class GemSpawner : MonoBehaviour
 		gem.GetComponent<Gem>().GemType = gemType;
 		gem.GetComponent<Gem>().SequenceIndex = m_nSequenceIndexFromList;
 		gem.transform.localScale *= BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.BiggerGems);
+        if ( ( (float)Screen.width / (float)Screen.height ) < ( 9.0f / 16.0f ) )
+        {
+            gem.transform.localScale *= ( (float)Screen.width / (float)Screen.height ) / ( 9.0f / 16.0f );
+        }
 #if LINKIT_COOP
 		if ( NetworkManager.IsConnected() )
 		{
@@ -1361,6 +1378,11 @@ public class GemSpawner : MonoBehaviour
 	void CreateGoldDrop( int lane )
 	{
 		m_GoldObject = ( GameObject )Instantiate( m_GoldPrefab, new Vector3( GetGemX( lane ), m_HalfDimension.y ), Quaternion.identity );
+        m_GoldObject.transform.localScale *= BoosterManager.Instance.GetBoostValue(BOOSTERTYPE.BiggerGems);
+        if ( ( (float)Screen.width / (float)Screen.height ) < ( 9.0f / 16.0f ) )
+        {
+            m_GoldObject.transform.localScale *= ( (float)Screen.width / (float)Screen.height ) / ( 9.0f / 16.0f );
+        }
 #if LINKIT_COOP
 		if ( NetworkManager.IsConnected() && NetworkManager.IsPlayerOne() )
 		{
@@ -1803,8 +1825,9 @@ public class GemSpawner : MonoBehaviour
 		else
 		{
 			gd.LinkGold( false );
-			UnscaleLinkEffect( m_GoldObject.transform );
-		}
+			//UnscaleLinkEffect( m_GoldObject.transform );
+            m_GoldObject.transform.localScale = m_DefaultGoldScale;
+        }
 	}
 
 	public bool IsGemStoned( Gem gem )
@@ -1817,7 +1840,7 @@ public class GemSpawner : MonoBehaviour
 	{
 		Renderer r = t.GetComponent<SpriteRenderer>();
 		BoxCollider2D c = t.GetComponentInChildren<BoxCollider2D>();
-		return ( t.position.y + c.size.y <= m_LineLine.transform.position.y ) ||
+		return ( t.position.y + ( c.size.y * 0.5f ) <= m_LineLine.transform.position.y ) ||
 			   ( t.position.y <= ( ( m_fGameoverTimer / GAMEOVER_ANIMATION ) * m_HalfDimension.y * 2.0f ) + -m_HalfDimension.y );
 	}
 
@@ -2182,8 +2205,10 @@ public class GemSpawner : MonoBehaviour
 			if ( !gd.GetLink() && !m_bGameover && m_Link.Linking && CheckLinkLinked( m_GoldObject.GetComponentInChildren<BoxCollider2D>() ) )
 			{
 				gd.LinkGold( true );
-				ScaleLinkEffect( m_GoldObject.transform );
-			}
+                //ScaleLinkEffect( m_GoldObject.transform );
+                m_GoldObject.transform.localScale = m_DefaultGoldScale;
+
+            }
 
 			// Move gem
 			// Linked gems don't move
