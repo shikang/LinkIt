@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class SkinEntry : MonoBehaviour
 {
-    public const int COST = 50000;
+    public const int COST = 20000;
 
 	public GemLibrary.GemSet m_Type;
 	int m_bCost;
