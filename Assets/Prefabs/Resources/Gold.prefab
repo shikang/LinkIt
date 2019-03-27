@@ -113,21 +113,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Sprites:
-  - {fileID: 21300000, guid: 6be4bac1bc7a57947a09458630ad3a98, type: 3}
-  - {fileID: 21300000, guid: 6be4bac1bc7a57947a09458630ad3a98, type: 3}
-  - {fileID: 21300000, guid: 6be4bac1bc7a57947a09458630ad3a98, type: 3}
-  - {fileID: 21300000, guid: 6be4bac1bc7a57947a09458630ad3a98, type: 3}
-  - {fileID: 21300000, guid: 6be4bac1bc7a57947a09458630ad3a98, type: 3}
-  - {fileID: 21300000, guid: 6be4bac1bc7a57947a09458630ad3a98, type: 3}
+  - {fileID: 21300000, guid: 5cef3b5a817d66f43ac60c74f615b9c4, type: 3}
+  - {fileID: 21300000, guid: 5cef3b5a817d66f43ac60c74f615b9c4, type: 3}
+  - {fileID: 21300000, guid: 5cef3b5a817d66f43ac60c74f615b9c4, type: 3}
+  - {fileID: 21300000, guid: 5cef3b5a817d66f43ac60c74f615b9c4, type: 3}
+  - {fileID: 21300000, guid: 5cef3b5a817d66f43ac60c74f615b9c4, type: 3}
+  - {fileID: 21300000, guid: 5cef3b5a817d66f43ac60c74f615b9c4, type: 3}
   m_LinkedSprites:
-  - {fileID: 21300000, guid: 6be4bac1bc7a57947a09458630ad3a98, type: 3}
-  - {fileID: 21300000, guid: 6be4bac1bc7a57947a09458630ad3a98, type: 3}
-  - {fileID: 21300000, guid: 6be4bac1bc7a57947a09458630ad3a98, type: 3}
-  - {fileID: 21300000, guid: 6be4bac1bc7a57947a09458630ad3a98, type: 3}
-  - {fileID: 21300000, guid: 6be4bac1bc7a57947a09458630ad3a98, type: 3}
-  - {fileID: 21300000, guid: 6be4bac1bc7a57947a09458630ad3a98, type: 3}
+  - {fileID: 21300000, guid: 5cef3b5a817d66f43ac60c74f615b9c4, type: 3}
+  - {fileID: 21300000, guid: 5cef3b5a817d66f43ac60c74f615b9c4, type: 3}
+  - {fileID: 21300000, guid: 5cef3b5a817d66f43ac60c74f615b9c4, type: 3}
+  - {fileID: 21300000, guid: 5cef3b5a817d66f43ac60c74f615b9c4, type: 3}
+  - {fileID: 21300000, guid: 5cef3b5a817d66f43ac60c74f615b9c4, type: 3}
+  - {fileID: 21300000, guid: 5cef3b5a817d66f43ac60c74f615b9c4, type: 3}
   m_StonedSprites:
-  - {fileID: 21300000, guid: 6be4bac1bc7a57947a09458630ad3a98, type: 3}
+  - {fileID: 21300000, guid: 5cef3b5a817d66f43ac60c74f615b9c4, type: 3}
+  m_Colors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0.59999996, b: 0, a: 1}
+  - {r: 1, g: 1, b: 0, a: 1}
+  - {r: 0.24137926, g: 1, b: 0, a: 1}
+  - {r: 0, g: 0.95862055, b: 1, a: 1}
+  - {r: 0, g: 0.503448, b: 1, a: 1}
+  - {r: 0, g: 0.006896496, b: 1, a: 1}
+  - {r: 0.6965513, g: 0, b: 1, a: 1}
+  - {r: 1, g: 0, b: 0.8068962, a: 1}
 --- !u!212 &21202716
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -160,7 +170,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6be4bac1bc7a57947a09458630ad3a98, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5cef3b5a817d66f43ac60c74f615b9c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
