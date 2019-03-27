@@ -330,7 +330,9 @@ public class AchievementManager : MonoBehaviour
 		if (GameData.Instance.m_bUnlock_EarnPoints)
 			return;
 		
-		GameData.Instance.m_uUnlock_EarnPointsCount -= score;
+        if (GameData.Instance.m_uUnlock_EarnPointsCount <= score)
+		    GameData.Instance.m_uUnlock_EarnPointsCount -= score;
+
 		if(GameData.Instance.m_uUnlock_EarnPointsCount <= 0)
 		{
 			GameData.Instance.m_bUnlock_EarnPoints = true;
