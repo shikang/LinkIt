@@ -381,20 +381,20 @@ public class AchievementManager : MonoBehaviour
 		m_array_TotalGamesPlayed[13].count = 300;	m_array_TotalGamesPlayed[13].title = "Link Master";
 
 #if UNITY_ANDROID
-		m_array_TotalGamesPlayed[0].achievementID = GPGSIds.achievement_play_3_game;
+		m_array_TotalGamesPlayed[0].achievementID = GPGSIds.achievement_play_1_game;
 		m_array_TotalGamesPlayed[1].achievementID = GPGSIds.achievement_play_5_games;
 		m_array_TotalGamesPlayed[2].achievementID = "";
 		m_array_TotalGamesPlayed[3].achievementID = "";
-		m_array_TotalGamesPlayed[4].achievementID = "";
+		m_array_TotalGamesPlayed[4].achievementID = GPGSIds.achievement_play_30_games;
 		m_array_TotalGamesPlayed[5].achievementID = "";
-		m_array_TotalGamesPlayed[6].achievementID = "";
+		m_array_TotalGamesPlayed[6].achievementID = GPGSIds.achievement_play_50_games;
 		m_array_TotalGamesPlayed[7].achievementID = "";
-		m_array_TotalGamesPlayed[8].achievementID = "";
+		m_array_TotalGamesPlayed[8].achievementID = GPGSIds.achievement_play_100_games;
 		m_array_TotalGamesPlayed[9].achievementID = "";
 		m_array_TotalGamesPlayed[10].achievementID = "";
 		m_array_TotalGamesPlayed[11].achievementID = "";
 		m_array_TotalGamesPlayed[12].achievementID = "";
-		m_array_TotalGamesPlayed[13].achievementID = "";
+		m_array_TotalGamesPlayed[13].achievementID = GPGSIds.achievement_play_300_games;
 #endif
 
 		for (int i = 0; i < m_array_TotalGamesPlayed.Length; ++i)

@@ -56,6 +56,8 @@ public class MainMenuManager : MonoBehaviour
     public GameObject m_ScoreText;
     public GameObject m_ComboText;
 
+    private int m_CreditVisitNum = 0;
+
     // Use this for initialization
     void Start ()
 	{
@@ -71,8 +73,10 @@ public class MainMenuManager : MonoBehaviour
 		m_fScreenAnimateTimer = 0.0f;
 		m_fScreenWidth = m_Screens[(int)eScreen.MAIN_MENU].GetComponent<RectTransform>().sizeDelta.x;
 
+        m_CreditVisitNum = 0;
+
 #if !LINKIT_COOP
-		Transform coopBtn = m_Screens[(int)eScreen.MAIN_MENU].transform.Find( "Co-op Button" );
+        Transform coopBtn = m_Screens[(int)eScreen.MAIN_MENU].transform.Find( "Co-op Button" );
 		if ( coopBtn != null )
 		{
 			coopBtn.gameObject.SetActive( false );
@@ -204,7 +208,24 @@ public class MainMenuManager : MonoBehaviour
             //	GPManager.ShowAchievementsUI();
         }
 #endif
-	}
+
+#if UNITY_ANDROID
+        if ( m_CurrentScreen == (int)eScreen.CREDITS )
+        {
+            ++m_CreditVisitNum;
+
+            if ( m_CreditVisitNum == 1 )
+            {
+                GooglePlayService.ProgressAcheivement( GPGSIds.achievement_visit_credits_screen, 1.0f );
+            }
+
+            if ( m_CreditVisitNum <= 5 )
+            {
+                GooglePlayService.ProgressAcheivement( GPGSIds.achievement_visit_credits_screen_more, (float)m_CreditVisitNum/ 5.0f );
+            }
+        }
+#endif
+    }
 
 #if LINKIT_COOP
 	public void ChangeOnlineButtonText( string password )
@@ -216,7 +237,7 @@ public class MainMenuManager : MonoBehaviour
 			t.text = PLAY_WITH_FRIEND_TEXT;
 	}
 #else  // !LINKIT_COOP
-	public void ChangeOnlineButtonText(string password)
+    public void ChangeOnlineButtonText(string password)
 	{
 		// Empty
 	}
