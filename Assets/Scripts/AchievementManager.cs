@@ -330,7 +330,9 @@ public class AchievementManager : MonoBehaviour
 		if (GameData.Instance.m_bUnlock_EarnPoints)
 			return;
 		
-		GameData.Instance.m_uUnlock_EarnPointsCount -= score;
+        if (GameData.Instance.m_uUnlock_EarnPointsCount <= score)
+		    GameData.Instance.m_uUnlock_EarnPointsCount -= score;
+
 		if(GameData.Instance.m_uUnlock_EarnPointsCount <= 0)
 		{
 			GameData.Instance.m_bUnlock_EarnPoints = true;
@@ -381,20 +383,20 @@ public class AchievementManager : MonoBehaviour
 		m_array_TotalGamesPlayed[13].count = 300;	m_array_TotalGamesPlayed[13].title = "Link Master";
 
 #if UNITY_ANDROID
-		m_array_TotalGamesPlayed[0].achievementID = GPGSIds.achievement_play_3_game;
+		m_array_TotalGamesPlayed[0].achievementID = GPGSIds.achievement_play_1_game;
 		m_array_TotalGamesPlayed[1].achievementID = GPGSIds.achievement_play_5_games;
 		m_array_TotalGamesPlayed[2].achievementID = "";
 		m_array_TotalGamesPlayed[3].achievementID = "";
-		m_array_TotalGamesPlayed[4].achievementID = "";
+		m_array_TotalGamesPlayed[4].achievementID = GPGSIds.achievement_play_30_games;
 		m_array_TotalGamesPlayed[5].achievementID = "";
-		m_array_TotalGamesPlayed[6].achievementID = "";
+		m_array_TotalGamesPlayed[6].achievementID = GPGSIds.achievement_play_50_games;
 		m_array_TotalGamesPlayed[7].achievementID = "";
-		m_array_TotalGamesPlayed[8].achievementID = "";
+		m_array_TotalGamesPlayed[8].achievementID = GPGSIds.achievement_play_100_games;
 		m_array_TotalGamesPlayed[9].achievementID = "";
 		m_array_TotalGamesPlayed[10].achievementID = "";
 		m_array_TotalGamesPlayed[11].achievementID = "";
 		m_array_TotalGamesPlayed[12].achievementID = "";
-		m_array_TotalGamesPlayed[13].achievementID = "";
+		m_array_TotalGamesPlayed[13].achievementID = GPGSIds.achievement_play_300_games;
 #endif
 
 		for (int i = 0; i < m_array_TotalGamesPlayed.Length; ++i)
@@ -445,8 +447,8 @@ public class AchievementManager : MonoBehaviour
 		m_array_TotalScoreEarned[9].count = 20000000;	m_array_TotalScoreEarned[9].title = "Top Scorer";
 
 #if UNITY_ANDROID
-		m_array_TotalScoreEarned[0].achievementID = GPGSIds.achievement_get_5000_points;
-		m_array_TotalScoreEarned[1].achievementID = GPGSIds.achievement_get_10000_points;
+		m_array_TotalScoreEarned[0].achievementID = "";
+		m_array_TotalScoreEarned[1].achievementID = "";
 		m_array_TotalScoreEarned[2].achievementID = "";
 		m_array_TotalScoreEarned[3].achievementID = "";
 		m_array_TotalScoreEarned[4].achievementID = "";
@@ -611,9 +613,9 @@ public class AchievementManager : MonoBehaviour
         m_array_PerGameScoreEarned[5].count = 999999;	m_array_PerGameScoreEarned[5].title = "Grand Master";
 
 #if UNITY_ANDROID
-		m_array_PerGameScoreEarned[0].achievementID = "";
-		m_array_PerGameScoreEarned[1].achievementID = "";
-		m_array_PerGameScoreEarned[2].achievementID = "";
+		m_array_PerGameScoreEarned[0].achievementID = GPGSIds.achievement_get_20000_points;
+		m_array_PerGameScoreEarned[1].achievementID = GPGSIds.achievement_get_50000_points;
+        m_array_PerGameScoreEarned[2].achievementID = "";
 		m_array_PerGameScoreEarned[3].achievementID = "";
 		m_array_PerGameScoreEarned[4].achievementID = "";
         m_array_PerGameScoreEarned[5].achievementID = "";

@@ -6,8 +6,9 @@ public class GoldDrop : MonoBehaviour
 	// Animation constants
 	public const float ANIMATION_INTERVAL = 0.5f;       //!< In seconds
 	public const float ANIMATION_RATE = 0.125f;         //!< In seconds
+    public const float COLOR_RATE = 0.15f;             //!< In seconds
 
-	private bool m_bLinked = false;
+    private bool m_bLinked = false;
 	private bool m_bPetrified = false;
 	//private Animator m_Animator = null;
 	private SpriteRenderer m_SpriteRenderer = null;
@@ -15,12 +16,16 @@ public class GoldDrop : MonoBehaviour
 	public Sprite[] m_Sprites;
 	public Sprite[] m_LinkedSprites;
 	public Sprite[] m_StonedSprites;
+    public Color[] m_Colors;
 
 	// Animation variables
 	private float m_fAnimationIntervalTimer = 0.0f;
 	private float m_fAnimationTimer = 0.0f;
 	private bool m_bAnimating = false;
 	private int m_nAnimatingFrame = -1;
+    private int m_ColorIndex = 0;
+    private int m_ColorNums;
+    private float m_ColorTimer = 0.0f;
 
 	// Use this for initialization
 	void Start ()
@@ -35,13 +40,20 @@ public class GoldDrop : MonoBehaviour
 		m_fAnimationTimer = 0.0f;
 		m_bAnimating = false;
 		m_nAnimatingFrame = -1;
-	}
+
+        m_ColorIndex = 0;
+        m_ColorNums = m_Colors.Length;
+        m_ColorTimer = 0.0f;
+
+        m_SpriteRenderer.color = m_Colors[m_ColorIndex];
+    }
 	
 	// Update is called once per frame
 	void Update ()
 	{
 		Animate();
-	}
+        AnimateColors();
+    }
 
 	public void LinkGold( bool link )
 	{
@@ -118,4 +130,18 @@ public class GoldDrop : MonoBehaviour
 			}
 		}
 	}
+
+    void AnimateColors()
+    {
+        m_ColorTimer += Time.deltaTime;
+
+        if ( m_ColorTimer >= COLOR_RATE )
+        {
+            m_ColorTimer -= COLOR_RATE;
+            m_ColorIndex = ( m_ColorIndex + 1 ) % m_ColorNums;
+        }
+
+        int nextColorIndex = ( m_ColorIndex + 1 ) % m_ColorNums;
+        m_SpriteRenderer.color = Color.Lerp( m_Colors[m_ColorIndex], m_Colors[nextColorIndex], m_ColorTimer / COLOR_RATE );
+    }
 }

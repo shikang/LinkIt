@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class SkinEntry : MonoBehaviour
 {
-    public const int COST = 50000;
+    public const int COST = 20000;
 
 	public GemLibrary.GemSet m_Type;
 	int m_bCost;
@@ -21,6 +21,7 @@ public class SkinEntry : MonoBehaviour
 	public GameObject m_Overlay;
 	public GameObject m_OverlayText;
 	public GameObject m_OverlayLock;
+    public Sprite[] m_Icons;
 
 	bool isDimming = true;
 
@@ -87,7 +88,7 @@ public class SkinEntry : MonoBehaviour
 	public void SetEntry(GemLibrary.GemSet type_)
 	{
 		m_Type = type_;
-		m_Image.GetComponent<Image>().sprite = BoosterManager.Instance.m_AllImages[(int)m_Type];
+		m_Image.GetComponent<Image>().sprite = m_Icons[(int)m_Type];
 		m_Title.GetComponent<Text>().text = GemLibrary.Instance.GemsSetList[(int)m_Type].m_sGemContainerSetName;
 		m_Desc.GetComponent<Text>().text = GemLibrary.Instance.GemsSetList[(int)m_Type].m_Desc;
 		m_Cost.GetComponent<Text>().text = (COST != 0) ? COST.ToString() : "";

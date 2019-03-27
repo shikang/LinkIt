@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &192474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 491778}
+  - component: {fileID: 11423140}
+  m_Layer: 0
+  m_Name: ElementSet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &491778
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192474}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &11423140
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81cbe1e3717d97f4487c6828c501ca61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_sGemContainerSetName: Elements
+  m_RedGemSpritesSet:
+  - {fileID: 21300000, guid: 64b2847e505104f4a8f39fbfe677f01b, type: 3}
+  - {fileID: 21300000, guid: 170818fc46f81b94cbf8d14b889fea9b, type: 3}
+  - {fileID: 21300000, guid: 0d19393baab1e724ab4b976d7b133765, type: 3}
+  - {fileID: 21300000, guid: 0cb1b5eecf23412449c3312e70aa7bcf, type: 3}
+  - {fileID: 21300000, guid: d201c84bd1c7d3e468beee3127d0ae1e, type: 3}
+  - {fileID: 21300000, guid: b3d36c8fe9e1cc849aef5c8e35048fa0, type: 3}
+  m_RedGlowGemSpritesSet:
+  - {fileID: 21300000, guid: 343816169b7326247a663a300985feea, type: 3}
+  - {fileID: 21300000, guid: fc1068a80a8e4bb449a3212ba85d3d7b, type: 3}
+  - {fileID: 21300000, guid: 256d8781189621e4485891ad7684f3b7, type: 3}
+  - {fileID: 21300000, guid: 3ac367bbb5852444489e78d0014ded26, type: 3}
+  - {fileID: 21300000, guid: 03a7818682ff598499c015b211aec547, type: 3}
+  - {fileID: 21300000, guid: 96108aa5c42c23a4886065bb0fcdf64c, type: 3}
+  m_RedStoneGemSpritesSet:
+  - {fileID: 21300000, guid: 1c97906731213e64ea249b9bb8772def, type: 3}
+  - {fileID: 21300000, guid: 1c97906731213e64ea249b9bb8772def, type: 3}
+  - {fileID: 21300000, guid: 1c97906731213e64ea249b9bb8772def, type: 3}
+  - {fileID: 21300000, guid: 1c97906731213e64ea249b9bb8772def, type: 3}
+  - {fileID: 21300000, guid: 1c97906731213e64ea249b9bb8772def, type: 3}
+  - {fileID: 21300000, guid: 1c97906731213e64ea249b9bb8772def, type: 3}
+  m_BlueGemSpritesSet:
+  - {fileID: 21300000, guid: 95aad7429db903d4ea309bcadbbc43a4, type: 3}
+  - {fileID: 21300000, guid: b3800ed7f4a3ba34589b328ec2e5f70e, type: 3}
+  - {fileID: 21300000, guid: 437633c3113d3ec468f9ce9029352ce7, type: 3}
+  - {fileID: 21300000, guid: 9e68e74e7e929ca45ac610f918897d69, type: 3}
+  - {fileID: 21300000, guid: b8b4f20c1c410e64384e738fc549831d, type: 3}
+  - {fileID: 21300000, guid: 2a9e89a6e1cac05408838d7f33f5ad07, type: 3}
+  m_BlueGlowGemSpritesSet:
+  - {fileID: 21300000, guid: 7bb115244977f514b9e2bb794f935105, type: 3}
+  - {fileID: 21300000, guid: 902d69c37f6783e428ffd48f8fe842a4, type: 3}
+  - {fileID: 21300000, guid: 0b5dc199740609e4aa189615d081535e, type: 3}
+  - {fileID: 21300000, guid: 6d88753ac91ccff418a5cfdbfd84a71f, type: 3}
+  - {fileID: 21300000, guid: ab1f3031bc6e95a4fb969dedb3c60fd5, type: 3}
+  - {fileID: 21300000, guid: 3b2e0439f3606414b85007910f91434e, type: 3}
+  m_BlueStoneGemSpritesSet:
+  - {fileID: 21300000, guid: f7a529687e02a92488d701c072d23233, type: 3}
+  - {fileID: 21300000, guid: f7a529687e02a92488d701c072d23233, type: 3}
+  - {fileID: 21300000, guid: f7a529687e02a92488d701c072d23233, type: 3}
+  - {fileID: 21300000, guid: f7a529687e02a92488d701c072d23233, type: 3}
+  - {fileID: 21300000, guid: f7a529687e02a92488d701c072d23233, type: 3}
+  - {fileID: 21300000, guid: f7a529687e02a92488d701c072d23233, type: 3}
+  m_GreenGemSpritesSet:
+  - {fileID: 21300000, guid: c5185f4bd96704a45ada6f739e5d7009, type: 3}
+  - {fileID: 21300000, guid: bd15ed195da79e94bb10ac4b0187371e, type: 3}
+  - {fileID: 21300000, guid: e723e8b38e0a65e4cbe2d893223aa442, type: 3}
+  - {fileID: 21300000, guid: 4fa7d81e7ae83014a9b5b24615183654, type: 3}
+  - {fileID: 21300000, guid: 68045004d577dda45a7e526895294a2d, type: 3}
+  - {fileID: 21300000, guid: 755bc3d57ab3c8f498753abd81935446, type: 3}
+  m_GreenGlowGemSpritesSet:
+  - {fileID: 21300000, guid: cf341f0c6dc94e446a55259ce4bff476, type: 3}
+  - {fileID: 21300000, guid: ad0e11d791a34b34882b467f138ca2e7, type: 3}
+  - {fileID: 21300000, guid: 24a6b269713d28e42b228c04095f1cd0, type: 3}
+  - {fileID: 21300000, guid: 63452a9814aa5764f8896682acc6d99c, type: 3}
+  - {fileID: 21300000, guid: 286c481a91097174c89ec0ae0a8e3a3b, type: 3}
+  - {fileID: 21300000, guid: 35609a21f69518e48b17df8b83c54106, type: 3}
+  m_GreenStoneGemSpritesSet:
+  - {fileID: 21300000, guid: 4e772117575ed554bae70b992f3c3cb7, type: 3}
+  - {fileID: 21300000, guid: 4e772117575ed554bae70b992f3c3cb7, type: 3}
+  - {fileID: 21300000, guid: 4e772117575ed554bae70b992f3c3cb7, type: 3}
+  - {fileID: 21300000, guid: 4e772117575ed554bae70b992f3c3cb7, type: 3}
+  - {fileID: 21300000, guid: 4e772117575ed554bae70b992f3c3cb7, type: 3}
+  - {fileID: 21300000, guid: 4e772117575ed554bae70b992f3c3cb7, type: 3}
+  m_YellowGemSpritesSet:
+  - {fileID: 21300000, guid: 5c6c3912778729345bc1662b181bd249, type: 3}
+  - {fileID: 21300000, guid: d1ffbc3807210cd489677f013e499a3a, type: 3}
+  - {fileID: 21300000, guid: 03e45d1f476a8534f87f466e5a73f11a, type: 3}
+  - {fileID: 21300000, guid: 1815d8b4c48968444b485a5b1b96c759, type: 3}
+  - {fileID: 21300000, guid: 91eb606299eeceb4cb167e2b22217e71, type: 3}
+  - {fileID: 21300000, guid: 898dc4cdd3b0ca346a2bc502768851c4, type: 3}
+  m_YellowGlowGemSpritesSet:
+  - {fileID: 21300000, guid: fccb5077845f9f0459a5b58f4afa8f46, type: 3}
+  - {fileID: 21300000, guid: 92cff28e6e2cacb4bbbcba7a567cbc58, type: 3}
+  - {fileID: 21300000, guid: 42d375da64392ae4a9448b93929cdebe, type: 3}
+  - {fileID: 21300000, guid: f75ace4184784ed46b1f91afebbdbad9, type: 3}
+  - {fileID: 21300000, guid: 912327449b3cecd4cb1004325fcc237f, type: 3}
+  - {fileID: 21300000, guid: cef728ce724da484c8dc5b8b8d1804a4, type: 3}
+  m_YellowStoneGemSpritesSet:
+  - {fileID: 21300000, guid: 81eeea675df1d2042bf0df164d4a08e1, type: 3}
+  - {fileID: 21300000, guid: 81eeea675df1d2042bf0df164d4a08e1, type: 3}
+  - {fileID: 21300000, guid: 81eeea675df1d2042bf0df164d4a08e1, type: 3}
+  - {fileID: 21300000, guid: 81eeea675df1d2042bf0df164d4a08e1, type: 3}
+  - {fileID: 21300000, guid: 81eeea675df1d2042bf0df164d4a08e1, type: 3}
+  - {fileID: 21300000, guid: 81eeea675df1d2042bf0df164d4a08e1, type: 3}
+  m_Explosion: {fileID: 194224, guid: 75bd6bc8c365fc049b5c339375208996, type: 2}
+  m_Desc: He who controls the elements control the game!
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 192474}
+  m_IsPrefabParent: 1

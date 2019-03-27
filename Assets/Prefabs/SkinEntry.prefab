@@ -302,6 +302,10 @@ MonoBehaviour:
   m_Overlay: {fileID: 1719276943241008}
   m_OverlayText: {fileID: 1181091240996022}
   m_OverlayLock: {fileID: 1495036703870884}
+  m_Icons:
+  - {fileID: 21300000, guid: 3e1ca0565a9d120448339c2a23acca88, type: 3}
+  - {fileID: 21300000, guid: 12dbe7ca80e3aaf41a51fc5c75470bb5, type: 3}
+  - {fileID: 21300000, guid: e77e02f952d5da84bb8834092e07789a, type: 3}
 --- !u!114 &114190661486801654
 MonoBehaviour:
   m_ObjectHideFlags: 1

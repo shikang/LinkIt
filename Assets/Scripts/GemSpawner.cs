@@ -21,7 +21,7 @@ public class GemSpawner : MonoBehaviour
 	public const float BASE_SPAWN_RATE = 1.0f;			//!< In seconds
 	public const float BASE_GEM_DROP_TIME = 5.0f;       //!< In seconds
 	public const float SPAWN_RATE_GROWTH = 0.06f;       //!< In seconds
-	public const float GEM_DROP_TIME_GROWTH = 0.15f;     //!< In seconds
+	public const float GEM_DROP_TIME_GROWTH = 0.125f;   //!< In seconds
 	public const int GEM_LOOKBACK_NUM = 1;
 	public const float SPAWN_DANGER_AREA = 0.6f;        //!< Percentage from bottom
 
@@ -1067,8 +1067,15 @@ public class GemSpawner : MonoBehaviour
 		if ( m_bGameover || !m_Link.CheckForDestroy )
 			return false;
 
+        int minLinkCount = 3;
+        if ( m_GoldObject != null )
+        {
+            GoldDrop gd = m_GoldObject.GetComponent<GoldDrop>();
+            minLinkCount = gd.GetLink() ? minLinkCount - 1 : minLinkCount;
+        }
+
 		int multiplier = m_nHighComboMultiplierIndex + 1;
-		bool destroy = m_LinkedGem.Count >= 3;
+		bool destroy = m_LinkedGem.Count >= minLinkCount;
 		if ( destroy
 #if LINKIT_COOP
 			&& ( !NetworkManager.IsConnected() || NetworkManager.IsPlayerOne() ) 
@@ -1092,7 +1099,7 @@ public class GemSpawner : MonoBehaviour
 			StartPraising( m_LinkedGem.Count );
 
 			// Health
-			m_nHealth += HEALTH_GAIN_PER_LINK + ( m_LinkedGem.Count - 3 ) * HEALTH_GAIN_PER_LINK;
+			m_nHealth += HEALTH_GAIN_PER_LINK + ( m_LinkedGem.Count - minLinkCount ) * HEALTH_GAIN_PER_LINK;
 			m_HealthText.GetComponent<Text>().text = m_nHealth.ToString();
 			m_LineLine.GetComponent<SpriteRenderer>().color = GetLifeLineColour();
 
@@ -1839,8 +1846,11 @@ public class GemSpawner : MonoBehaviour
 	public bool IsInUnlinkableZone( Transform t )
 	{
 		Renderer r = t.GetComponent<SpriteRenderer>();
-		BoxCollider2D c = t.GetComponentInChildren<BoxCollider2D>();
-		return ( t.position.y + ( c.size.y * 0.5f ) <= m_LineLine.transform.position.y ) ||
+        //BoxCollider2D c = t.GetComponentInChildren<BoxCollider2D>();
+        //return ( t.position.y + ( c.size.y * 0.5f ) <= m_LineLine.transform.position.y ) ||
+		//	   ( t.position.y <= ( ( m_fGameoverTimer / GAMEOVER_ANIMATION ) * m_HalfDimension.y * 2.0f ) + -m_HalfDimension.y );
+        CircleCollider2D c = t.GetComponentInChildren<CircleCollider2D>();
+        return ( t.position.y + ( c.radius * 0.5f ) <= m_LineLine.transform.position.y ) ||
 			   ( t.position.y <= ( ( m_fGameoverTimer / GAMEOVER_ANIMATION ) * m_HalfDimension.y * 2.0f ) + -m_HalfDimension.y );
 	}
 

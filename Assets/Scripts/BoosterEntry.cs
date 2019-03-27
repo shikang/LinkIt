@@ -52,7 +52,7 @@ public class BoosterEntry : MonoBehaviour
 			m_Overlay.SetActive(!GameData.Instance.m_bUnlock_Share_FB);
 			m_OverlayText.SetActive(!GameData.Instance.m_bUnlock_Share_FB);
 			m_OverlayLock.SetActive(!GameData.Instance.m_bUnlock_Share_FB);
-			m_OverlayText.GetComponent<Text>().text = "LIKE LINKIT FACEBOOK PAGE TO UNLOCK!";
+			m_OverlayText.GetComponent<Text>().text = "LIKE OUR FACEBOOK PAGE TO UNLOCK!";
 		}
 
 		if(m_OverlayText.GetActive())
