@@ -27,14 +27,14 @@ public static class GPGSIds
         public const string achievement_play_30_games = "CgkIt5qY8OwEEAIQCA"; // <GPGSID>
         public const string achievement_play_5_games = "CgkIt5qY8OwEEAIQBA"; // <GPGSID>
         public const string achievement_visit_credits_screen = "CgkIt5qY8OwEEAIQAQ"; // <GPGSID>
-        public const string achievement_get_5000_points = "CgkIt5qY8OwEEAIQBQ"; // <GPGSID>
         public const string leaderboard_high_score = "CgkIt5qY8OwEEAIQBw"; // <GPGSID>
-        public const string achievement_get_10000_points = "CgkIt5qY8OwEEAIQBg"; // <GPGSID>
         public const string achievement_play_300_games = "CgkIt5qY8OwEEAIQCw"; // <GPGSID>
         public const string achievement_play_100_games = "CgkIt5qY8OwEEAIQCg"; // <GPGSID>
         public const string achievement_visit_credits_screen_more = "CgkIt5qY8OwEEAIQAg"; // <GPGSID>
         public const string achievement_play_1_game = "CgkIt5qY8OwEEAIQAw"; // <GPGSID>
+        public const string achievement_get_20000_points = "CgkIt5qY8OwEEAIQBQ"; // <GPGSID>
         public const string achievement_play_50_games = "CgkIt5qY8OwEEAIQCQ"; // <GPGSID>
+        public const string achievement_get_50000_points = "CgkIt5qY8OwEEAIQBg"; // <GPGSID>
 
 }
 

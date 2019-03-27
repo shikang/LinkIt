@@ -447,8 +447,8 @@ public class AchievementManager : MonoBehaviour
 		m_array_TotalScoreEarned[9].count = 20000000;	m_array_TotalScoreEarned[9].title = "Top Scorer";
 
 #if UNITY_ANDROID
-		m_array_TotalScoreEarned[0].achievementID = GPGSIds.achievement_get_5000_points;
-		m_array_TotalScoreEarned[1].achievementID = GPGSIds.achievement_get_10000_points;
+		m_array_TotalScoreEarned[0].achievementID = "";
+		m_array_TotalScoreEarned[1].achievementID = "";
 		m_array_TotalScoreEarned[2].achievementID = "";
 		m_array_TotalScoreEarned[3].achievementID = "";
 		m_array_TotalScoreEarned[4].achievementID = "";
@@ -613,9 +613,9 @@ public class AchievementManager : MonoBehaviour
         m_array_PerGameScoreEarned[5].count = 999999;	m_array_PerGameScoreEarned[5].title = "Grand Master";
 
 #if UNITY_ANDROID
-		m_array_PerGameScoreEarned[0].achievementID = "";
-		m_array_PerGameScoreEarned[1].achievementID = "";
-		m_array_PerGameScoreEarned[2].achievementID = "";
+		m_array_PerGameScoreEarned[0].achievementID = GPGSIds.achievement_get_20000_points;
+		m_array_PerGameScoreEarned[1].achievementID = GPGSIds.achievement_get_50000_points;
+        m_array_PerGameScoreEarned[2].achievementID = "";
 		m_array_PerGameScoreEarned[3].achievementID = "";
 		m_array_PerGameScoreEarned[4].achievementID = "";
         m_array_PerGameScoreEarned[5].achievementID = "";

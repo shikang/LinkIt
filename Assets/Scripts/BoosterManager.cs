@@ -75,14 +75,14 @@ public class BoosterManager : MonoBehaviour
 	public float GetGoldMultOnce()
 	{
 		if(GameData.Instance.m_Boost_GoldMultOnce)
-			return 1.2f;
+			return 2.0f;
 		return 1.0f;
 	}
 
 	public float GetMoreHealthOnce()
 	{
 		if(GameData.Instance.m_Boost_MoreHealthOnce)
-			return 1.25f;
+			return 1.5f;
 		return 1.0f;
 	}
 
@@ -224,8 +224,8 @@ public class BoosterManager : MonoBehaviour
 			m_uBoosters[(int)BOOSTERTYPE.BiggerGems, i].desc = "Gems become " + m_uBoosters[(int)BOOSTERTYPE.BiggerGems, i].value.ToString("G") + "x bigger!";
 		}
 
-		m_uBoostersOnce[0].title = "2x Score (Single Use)";
-		m_uBoostersOnce[0].desc = "Get 2x score for your next run!";
+		m_uBoostersOnce[0].title = "1.5x Score (Single Use)";
+		m_uBoostersOnce[0].desc = "Get 1.5x score for your next run!";
 		m_uBoostersOnce[0].cost = 1000;
 
 		m_uBoostersOnce[1].title = "2x Gold (Single Use)";
