@@ -6,7 +6,7 @@ public class GoldDrop : MonoBehaviour
 	// Animation constants
 	public const float ANIMATION_INTERVAL = 0.5f;       //!< In seconds
 	public const float ANIMATION_RATE = 0.125f;         //!< In seconds
-    public const float COLOR_RATE = 0.15f;             //!< In seconds
+    public const float COLOR_RATE = 0.125f;             //!< In seconds
 
     private bool m_bLinked = false;
 	private bool m_bPetrified = false;
