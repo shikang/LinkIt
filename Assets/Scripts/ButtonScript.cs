@@ -39,10 +39,13 @@ public class ButtonScript : MonoBehaviour
 		if ( m_bDisable )
 			return;
 
-		foreach ( Text t in m_Text )
-		{
-			t.color = m_TextPressColor;
-		}
+        if ( m_Text != null )
+        {
+		    foreach ( Text t in m_Text )
+		    {
+			    t.color = m_TextPressColor;
+		    }
+        }
 		m_bClickInside = true;
 	}
 
@@ -53,17 +56,23 @@ public class ButtonScript : MonoBehaviour
 
 		if ( m_bClickInside )
 		{
-			foreach ( Text t in m_Text )
-			{
-				t.color = m_TextPressColor;
-			}
+            if ( m_Text != null )
+            {
+			    foreach ( Text t in m_Text )
+			    {
+				    t.color = m_TextPressColor;
+			    }
+            }
 		}
 		else
 		{
-			foreach ( Text t in m_Text )
-			{
-				t.color = m_TextHighlightColor;
-			}
+            if ( m_Text != null )
+            {
+			    foreach ( Text t in m_Text )
+			    {
+				    t.color = m_TextHighlightColor;
+			    }
+            }
 		}
 	}
 
@@ -72,10 +81,13 @@ public class ButtonScript : MonoBehaviour
 		if ( m_bDisable )
 			return;
 
-		foreach ( Text t in m_Text )
-		{
-			t.color = m_TextColor;
-		}
+        if ( m_Text != null )
+        {
+		    foreach ( Text t in m_Text )
+		    {
+			    t.color = m_TextColor;
+		    }
+        }
 	}
 
 	void OnMouseUp()
@@ -83,28 +95,39 @@ public class ButtonScript : MonoBehaviour
 		if ( m_bDisable )
 			return;
 
-		foreach ( Text t in m_Text )
-		{
-			t.color = m_TextColor;
-		}
+        if ( m_Text != null )
+        {
+		    foreach ( Text t in m_Text )
+		    {
+			    t.color = m_TextColor;
+		    }
+        }
 	}
 
 	public void SetDisable()
 	{
 		m_bDisable = true;
-		foreach ( Text t in m_Text )
-		{
-			t.color = m_DisableColor;
-		}
+
+        if ( m_Text != null )
+        {
+		    foreach ( Text t in m_Text )
+		    {
+			    t.color = m_DisableColor;
+		    }
+        }
 	}
 
 	public void SetEnable()
 	{
 		m_bDisable = false;
-		foreach ( Text t in m_Text )
-		{
-			t.color = m_TextColor;
-		}
+
+        if ( m_Text != null )
+        {
+		    foreach ( Text t in m_Text )
+		    {
+			    t.color = m_TextColor;
+		    }
+        }
 	}
 
 	public void OnClick()
