@@ -25,6 +25,7 @@ GameObject:
   m_Component:
   - component: {fileID: 430028}
   - component: {fileID: 11424548}
+  - component: {fileID: 114867277154469350}
   m_Layer: 9
   m_Name: Background Overlay
   m_TagString: Untagged
@@ -196,3 +197,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 168598}
   m_IsPrefabParent: 1
+--- !u!114 &114867277154469350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb23a05144866d4da03f8c0b382716a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ScaleWidthOnly: 1
