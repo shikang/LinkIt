@@ -2827,18 +2827,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 21
       objectReference: {fileID: 0}
-    - target: {fileID: 19873880, guid: cff19c0f56b7f1c42887a5c8ed8c70e2, type: 2}
-      propertyPath: InitialModule.startSizeY.minMaxState
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19873880, guid: cff19c0f56b7f1c42887a5c8ed8c70e2, type: 2}
-      propertyPath: InitialModule.startSizeZ.minMaxState
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19873880, guid: cff19c0f56b7f1c42887a5c8ed8c70e2, type: 2}
-      propertyPath: randomSeed
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cff19c0f56b7f1c42887a5c8ed8c70e2, type: 2}
   m_IsPrefabParent: 0
