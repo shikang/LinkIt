@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class PointsGain : MonoBehaviour
 {
-	public const float LIFETIME = 1.0f;
+	public const float LIFETIME = 2.0f;
 	const float Y_SPEED = 1.0f;
 
 	Text m_Text;
@@ -24,7 +24,7 @@ public class PointsGain : MonoBehaviour
 
 		// Colour
 		Color c = m_Text.color;
-		c.a = c.a - LIFETIME * Time.deltaTime;
+		c.a = c.a - (1.0f / LIFETIME) * Time.deltaTime;
 		m_Text.color = c;
 	}
 }

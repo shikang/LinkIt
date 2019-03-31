@@ -240,13 +240,13 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 2
           time: 0
-          value: 0.09955334
+          value: 0.07562756
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         - serializedVersion: 2
           time: 1
-          value: 0.25043395
+          value: 0.20578673
           inSlope: 0.3363011
           outSlope: 0.3363011
           tangentMode: 0
