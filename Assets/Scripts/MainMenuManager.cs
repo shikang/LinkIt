@@ -161,6 +161,7 @@ public class MainMenuManager : MonoBehaviour
 
 	public void GoPlayAlone()
 	{
+		AudioManager.Instance.PlaySoundEvent(SOUNDID.MENU_START);
 		GameObject.FindGameObjectWithTag( "Transition" ).GetComponent<Transition>().StartFadeOut( GoToGame );
 	}
 
@@ -176,6 +177,7 @@ public class MainMenuManager : MonoBehaviour
 			s.SetActive( false );
 		}
 
+		AudioManager.Instance.PlaySoundEvent(SOUNDID.MENU_CLICK);
 		m_PreviousScreen = m_CurrentScreen;
 		m_CurrentScreen = screen;
 
@@ -287,4 +289,16 @@ public class MainMenuManager : MonoBehaviour
         if ( m_ComboText != null )
             m_ComboText.GetComponent<Text>().text = GameData.Instance.m_HighestCombo.ToString();
     }
+
+	public void SetBGMVol(Slider slider)
+	{
+		GameData.Instance.m_vol_BGM = (int)(slider.value * 100.0f);
+		AudioManager.Instance.SetBGMVol(slider.value * 100.0f);
+	}
+
+	public void SetSFXVol(Slider slider)
+	{
+		GameData.Instance.m_vol_SFX = (int)(slider.value * 100.0f);
+		AudioManager.Instance.SetSFXVol(slider.value * 100.0f);
+	}
 }

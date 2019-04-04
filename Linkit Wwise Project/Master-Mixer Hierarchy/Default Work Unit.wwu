@@ -16,6 +16,85 @@
 							<ObjectRef Name="System" ID="{796BB533-4AB0-4FA4-B9B0-45A6D171C097}" WorkUnitID="{9D7D956B-C544-42DE-8715-EC4A9A8329D4}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Bus Name="BGM_Bus" ID="{7136249A-DDD8-4732-A96C-09FD9A45BEE8}">
+							<PropertyList>
+								<Property Name="BusVolume" Type="Real64">
+									<ValueList>
+										<Value>2</Value>
+									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{72C26CF6-6B08-4F66-99DC-955D5B3CF70E}" ShortID="273585681">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="BGM_Vol" ID="{6CBA3AFB-ADD6-4F7C-9934-60F43A370F29}" WorkUnitID="{EE0A9CB3-064A-490F-AA30-A1C8B7315CC8}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{45C65278-AB08-46AA-BC86-03B573BB93EA}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+								<Property Name="DivergenceCenter" Type="int32">
+									<ValueList>
+										<Value>100</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+						</Bus>
+						<Bus Name="SFX_Bus" ID="{ECCC8F49-0568-4F52-851D-01B3A8BB64A1}">
+							<PropertyList>
+								<Property Name="BusVolume" Type="Real64">
+									<RTPCList>
+										<RTPC Name="" ID="{9AE3179B-4AE7-4310-AEEA-D0A9C4104D25}" ShortID="547250371">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="SFX_Vol" ID="{36ED9E53-4804-415B-ACCD-CB28D2263050}" WorkUnitID="{EE0A9CB3-064A-490F-AA30-A1C8B7315CC8}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{93990A95-CB30-4F29-87E5-F4114AE89C4E}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+								<Property Name="DivergenceCenter" Type="int32">
+									<ValueList>
+										<Value>100</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+						</Bus>
+					</ChildrenList>
 				</Bus>
 				<Bus Name="Master Secondary Bus" ID="{D2E0BC7E-7B3F-4FFE-A670-FAE02761B631}">
 					<PropertyList>

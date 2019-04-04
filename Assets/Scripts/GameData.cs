@@ -27,6 +27,10 @@ public class GameData
 	public int m_Boost_MoreGems;
 	public int m_Boost_BiggerGems;
 
+	// Audio
+	public int m_vol_SFX;
+	public int m_vol_BGM;
+
 	// Achievements. _curr_ is current count, _next_ is next (target) index
 	public int m_curr_TotalGamesPlayed;
 	public int m_next_TotalGamesPlayed;
@@ -89,6 +93,9 @@ public class GameData
 		m_Boost_Shield = 0;
 		m_Boost_SlowerGems = 0;
 		m_Boost_BiggerGems = 0;
+
+		m_vol_SFX = 50;
+		m_vol_BGM = 50;
 
 		m_curr_TotalGamesPlayed = 0;
 		m_next_TotalGamesPlayed = 0;

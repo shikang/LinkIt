@@ -1,5 +1,31 @@
+Switch Group	ID	Name			Wwise Object Path	Notes
+	642576873	GemLink_Switch			\Default Work Unit\GemLink_Switch	
+
+Switch	ID	Name	Switch Group			Notes
+	1819160128	Link3	GemLink_Switch			
+	1819160129	Link2	GemLink_Switch			
+	1819160130	Link1	GemLink_Switch			
+	1819160132	Link7	GemLink_Switch			
+	1819160133	Link6	GemLink_Switch			
+	1819160134	Link5	GemLink_Switch			
+	1819160135	Link4	GemLink_Switch			
+
+State Group	ID	Name			Wwise Object Path	Notes
+	3086301423	BGM_State			\Default Work Unit\BGM_State	
+
+State	ID	Name	State Group			Notes
+	0	None	BGM_State			
+	984691642	InGame	BGM_State			
+	2607556080	Menu	BGM_State			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	42448320	SFX_Vol			\Default Work Unit\SFX_Vol	
+	1622127507	BGM_Vol			\Default Work Unit\BGM_Vol	
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	213475909	SFX_Bus			\Default Work Unit\Master Audio Bus\SFX_Bus	
 	805203703	Master Secondary Bus			\Default Work Unit\Master Secondary Bus	
+	2060214130	BGM_Bus			\Default Work Unit\Master Audio Bus\BGM_Bus	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 
 Audio Devices	ID	Name	Type				Notes

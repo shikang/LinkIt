@@ -61,6 +61,7 @@ public class ScoreManager : MonoBehaviour
 	private int m_CountUp_GemGrey;
 	private int m_CountUp_Combo;
 	private int m_CountUp_Interval;
+	private int m_CountUp_Progress;
 
 	private int m_GoldEarned;
 
@@ -70,6 +71,7 @@ public class ScoreManager : MonoBehaviour
 		// Getting stats
 		m_PlayerStats = GameObject.FindGameObjectWithTag( "Player Statistics" ).GetComponent<PlayerStatistics>();
 		m_Score.GetComponent<Text> ().text = m_CountUp_Score.ToString ();
+		m_CountUp_Progress = 0;
 
 		m_CountUp_Gems = new int[4];
 
@@ -200,6 +202,17 @@ public class ScoreManager : MonoBehaviour
 		AnimateCoins();
 		AnimationScreen();
 
+		if(m_CountUp_Progress == 0)
+		{
+			m_CountUp_Progress = 1;
+			AudioManager.Instance.PlaySoundEvent(SOUNDID.SCORE_TICK);
+		}
+		else if(m_CountUp_Progress == 2)
+		{
+			m_CountUp_Progress = 3;
+			AudioManager.Instance.PlaySoundEvent(SOUNDID.SCORE_TICK_STOP);
+		}
+
 		m_CountUp_Interval++;
 		if( m_CountUp_Interval % 3 == 0)
 			CountUpStats();
@@ -223,6 +236,9 @@ public class ScoreManager : MonoBehaviour
 
 	public void GoHome()
 	{
+		AudioManager.Instance.PlaySoundEvent(SOUNDID.MENU_CLICK);
+		AudioManager.Instance.PlaySoundEvent(SOUNDID.BGM_STOP);
+		AudioManager.Instance.UpdateBGM("Menu");
 		BoosterManager.Instance.ResetBoosterOnce();
 		Adverts.Instance.RandomShowAd();
 		GameObject.FindGameObjectWithTag( "Transition" ).GetComponent<Transition>().StartFadeOut( GoToHome );
@@ -482,6 +498,13 @@ public class ScoreManager : MonoBehaviour
 
 			m_CoinsThisRound.GetComponent<Text>().text = m_CountUp_Gold.ToString ();
 		}
+
+		if(m_CountUp_Gold >= m_GoldEarned &&
+			m_CountUp_Combo >= m_PlayerStats.m_nMaxCombo &&
+			m_CountUp_GemGrey >= m_PlayerStats.m_nLeakCount)
+		{
+			m_CountUp_Progress = 2;
+		}
 	}
 
 	void SkipCountUp()
@@ -503,5 +526,7 @@ public class ScoreManager : MonoBehaviour
 
 		m_CountUp_Gold = m_GoldEarned;
 		m_CoinsThisRound.GetComponent<Text>().text = m_CountUp_Gold.ToString ();
+
+		m_CountUp_Progress = 2;
 	}
 }

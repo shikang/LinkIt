@@ -51,13 +51,13 @@ public class AchievementManager : MonoBehaviour
 	//public GameObject m_gDisplayDesc;
 	public GameObject m_gPrefab;
 
-
 	const float CANVAS_ALPHASPEED = 3.0f;
 	float m_fdisplayTimer;
 	bool isFading = false;
 
 	public bool healthisRed;
 	public int maxGemsPerChain;
+	bool hasSounded;
 
 	// Achievement Arrays
 	public int m_noofAchTypes = 12;
@@ -127,6 +127,7 @@ public class AchievementManager : MonoBehaviour
 		//SaveLoad.Load();
 		m_fdisplayTimer = 0.0f;
         GetDisplayCanas().GetComponent<CanvasGroup>().alpha = 0.0f;
+		hasSounded = false;
 	}
 
 	public void ResetVars ()
@@ -144,6 +145,12 @@ public class AchievementManager : MonoBehaviour
 
 		if(m_lAchivements.Count > 0)
 		{
+			if(!hasSounded)
+			{
+				AudioManager.Instance.PlaySoundEvent(SOUNDID.ACHIEVEMENT_GOT);
+				hasSounded = true;
+			}
+
             //GetDisplayCanas().SetActive(true);
             GetDisplayTitle().GetComponent<Text>().text = m_lAchivements[0].title;
             GetDisplayDesc().GetComponent<Text>().text = m_lAchivements[0].desc;
@@ -164,6 +171,7 @@ public class AchievementManager : MonoBehaviour
 				if(GetDisplayCanas().GetComponent<CanvasGroup>().alpha <= 0.0f)
 				{
 					m_lAchivements.RemoveAt(0);
+					hasSounded = false;
 					isFading = false;
 				}
 			}

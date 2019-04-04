@@ -5,7 +5,25 @@
 			<ChildrenList>
 				<SoundBank Name="Main" ID="{EF03FD59-1C9E-4876-8DBA-5815B1045011}">
 					<ObjectInclusionList>
-						<ObjectRef Name="TapButton" ID="{0BF66EFB-841B-41CE-BB3A-44CED98548B3}" WorkUnitID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Gem_Link_Succeed" ID="{F86864B5-24FE-4025-99D6-812B772B3833}" WorkUnitID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Achievement_Got" ID="{3369D89E-25A3-4123-A556-F35D168FB488}" WorkUnitID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Fever_Sustain_Stop" ID="{93D8DC88-F14B-413C-99D2-89D63B7970D9}" WorkUnitID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Menu_Start" ID="{0A67B850-B2C0-4185-9CCF-C8F2EDC51943}" WorkUnitID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Combo_Lost" ID="{2740954F-FCD7-43B6-9470-C71DF6D5F19B}" WorkUnitID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="BGM_Stop" ID="{163D2CA3-7DDD-4420-BD43-0D482BF994E3}" WorkUnitID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Score_Tick_Stop" ID="{2311AE1A-3766-4530-A39C-F6CFC2C89961}" WorkUnitID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Fever_Exit" ID="{C246C169-EB8B-4762-8474-0DCD52498B5B}" WorkUnitID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Gem_Dropped" ID="{AFF3BADB-E5E5-4809-9E76-581F0D0FCCDF}" WorkUnitID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Combo_Tick_Stop" ID="{5088E42B-DEE9-480A-A8B4-532EBC40B724}" WorkUnitID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Menu_Click" ID="{E5A4FA5B-EB9B-490C-956F-3FE34AAB1AAD}" WorkUnitID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Fever_Enter" ID="{E36A07EC-BFBE-491F-A0F0-170239D508BF}" WorkUnitID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Gem_Link_Fail" ID="{D6BD52F2-FA72-499F-B4EF-DCDC7F4FD432}" WorkUnitID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Fever_Sustain" ID="{C98ED5BD-E8E8-4AC3-B945-F093F3948261}" WorkUnitID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Gem_Link" ID="{BB706806-6E44-4ACC-B2F1-D03ED574EA89}" WorkUnitID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Gem_Touched" ID="{65937372-E484-4C02-B37E-C93E577EE796}" WorkUnitID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Combo_Tick" ID="{9EAE6E1B-98E1-4EBC-9B16-8499052DF496}" WorkUnitID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="BGM" ID="{936623FD-9559-4F57-9DA3-CA2794FE8302}" WorkUnitID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Score_Tick" ID="{E1462143-5850-4FD3-B79F-8E7BD507E10C}" WorkUnitID="{962CDFFE-672C-4E1C-8E5C-6CBA5FEC451C}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

@@ -4,6 +4,8 @@
 		<Project Name="Linkit Wwise Project" ID="{59F73A76-A1F3-42B6-AC6F-3C519032E1ED}">
 			<Platforms>
 				<Platform Name="Android" ReferencePlatform="Android" ID="{3979F88A-F836-4D99-A21B-B59613D803E3}"/>
+				<Platform Name="iOS" ReferencePlatform="iOS" ID="{3E9FB236-63F3-40D0-9F41-A6F33CCCA118}"/>
+				<Platform Name="Mac" ReferencePlatform="Mac" ID="{1CB0ABB5-4CE8-495F-AB21-E7167FCE33B3}"/>
 				<Platform Name="Windows" ReferencePlatform="Windows" ID="{575135EF-35DD-42E4-A943-FE708DCF3FF5}"/>
 			</Platforms>
 			<LanguageList>
@@ -15,13 +17,17 @@
 			<PropertyList>
 				<Property Name="ExternalSourcesInputPath" Type="string">
 					<ValueList>
+						<Value Platform="iOS"></Value>
 						<Value Platform="Windows"></Value>
+						<Value Platform="Mac"></Value>
 						<Value Platform="Android"></Value>
 					</ValueList>
 				</Property>
 				<Property Name="ExternalSourcesOutputPath" Type="string">
 					<ValueList>
+						<Value Platform="iOS">GeneratedSoundBanks\iOS\</Value>
 						<Value Platform="Windows">GeneratedSoundBanks\Windows\</Value>
+						<Value Platform="Mac">GeneratedSoundBanks\Mac\</Value>
 						<Value Platform="Android">GeneratedSoundBanks\Android\</Value>
 					</ValueList>
 				</Property>
@@ -30,31 +36,41 @@
 				<Property Name="SoundBankHeaderFilePath" Type="string" Value="C:\Users\ShiKang.Me\Desktop\LinkIt\Assets\StreamingAssets\Audio\GeneratedSoundBanks"/>
 				<Property Name="SoundBankPaths" Type="string">
 					<ValueList>
+						<Value Platform="iOS">GeneratedSoundBanks\iOS\</Value>
 						<Value Platform="Windows">GeneratedSoundBanks\Windows\</Value>
+						<Value Platform="Mac">GeneratedSoundBanks\Mac\</Value>
 						<Value Platform="Android">GeneratedSoundBanks\Android\</Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPostGenerateCustomCmdDescription" Type="string">
 					<ValueList>
+						<Value Platform="iOS">Copy Streamed Files</Value>
 						<Value Platform="Windows">Copy Streamed Files</Value>
+						<Value Platform="Mac">Copy Streamed Files</Value>
 						<Value Platform="Android">Copy Streamed Files</Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPostGenerateCustomCmdLines" Type="string">
 					<ValueList>
+						<Value Platform="iOS">"$(WwiseExePath)\CopyStreamedFiles.exe" -info "$(InfoFilePath)" -outputpath "$(SoundBankPath)" -banks "$(SoundBankListAsTextFile)" -languages "$(LanguageList)"</Value>
 						<Value Platform="Windows">"$(WwiseExePath)\CopyStreamedFiles.exe" -info "$(InfoFilePath)" -outputpath "$(SoundBankPath)" -banks "$(SoundBankListAsTextFile)" -languages "$(LanguageList)"</Value>
+						<Value Platform="Mac">"$(WwiseExePath)\CopyStreamedFiles.exe" -info "$(InfoFilePath)" -outputpath "$(SoundBankPath)" -banks "$(SoundBankListAsTextFile)" -languages "$(LanguageList)"</Value>
 						<Value Platform="Android">"$(WwiseExePath)\CopyStreamedFiles.exe" -info "$(InfoFilePath)" -outputpath "$(SoundBankPath)" -banks "$(SoundBankListAsTextFile)" -languages "$(LanguageList)"</Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPreGenerateCustomCmdDescription" Type="string">
 					<ValueList>
+						<Value Platform="iOS"></Value>
 						<Value Platform="Windows"></Value>
+						<Value Platform="Mac"></Value>
 						<Value Platform="Android"></Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPreGenerateCustomCmdLines" Type="string">
 					<ValueList>
+						<Value Platform="iOS"></Value>
 						<Value Platform="Windows"></Value>
+						<Value Platform="Mac"></Value>
 						<Value Platform="Android"></Value>
 					</ValueList>
 				</Property>

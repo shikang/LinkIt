@@ -41,6 +41,8 @@ public class HighComboColor : MonoBehaviour
 		{
 			m_SpriteRenderer.color = m_ComboColor[index];
 			m_bInterpolate = false;
+			AudioManager.Instance.UpdateHighComboIndex(index);
+			AudioManager.Instance.PlaySoundEvent(SOUNDID.FEVER_ENTER);
 		}
 		else
 		{
@@ -48,6 +50,7 @@ public class HighComboColor : MonoBehaviour
 			m_bInterpolate = true;
 			m_Timer = 0.0f;
 			nIndex = index;
+			AudioManager.Instance.PlaySoundEvent(SOUNDID.FEVER_SUSTAIN);
 		}
 	}
 }

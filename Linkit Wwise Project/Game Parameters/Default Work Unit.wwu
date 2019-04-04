@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{EE0A9CB3-064A-490F-AA30-A1C8B7315CC8}" SchemaVersion="85">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{EE0A9CB3-064A-490F-AA30-A1C8B7315CC8}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{EE0A9CB3-064A-490F-AA30-A1C8B7315CC8}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="LinkCount" ID="{7CD9ABCA-FC02-44EF-A1E7-41AB8943BADE}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+						<Property Name="Max" Type="Real64" Value="50"/>
+						<Property Name="Min" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="BGM_Vol" ID="{6CBA3AFB-ADD6-4F7C-9934-60F43A370F29}"/>
+				<GameParameter Name="SFX_Vol" ID="{36ED9E53-4804-415B-ACCD-CB28D2263050}"/>
+				<GameParameter Name="HighComboIndex" ID="{F4868E12-E845-4AE0-AF4C-4E61DEBE6C3C}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="2"/>
+						<Property Name="Max" Type="Real64" Value="2"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>

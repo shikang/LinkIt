@@ -18,16 +18,19 @@ public class ExitGame : MonoBehaviour
 	public void ExitYes()
 	{
 		m_gPopup.SetActive(false);
+		AudioManager.Instance.PlaySoundEvent(SOUNDID.MENU_CLICK);
 	}
 
 	public void ExitNo()
 	{
 		m_gPopup.SetActive(false);
+		AudioManager.Instance.PlaySoundEvent(SOUNDID.MENU_CLICK);
 	}
 
 	public void ClickToExit()
 	{
 		m_gPopup.SetActive(true);
+		AudioManager.Instance.PlaySoundEvent(SOUNDID.MENU_CLICK);
 	}
 }
 
