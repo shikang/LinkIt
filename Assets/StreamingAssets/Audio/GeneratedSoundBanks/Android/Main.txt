@@ -1,6 +1,69 @@
 Event	ID	Name			Wwise Object Path	Notes
-	3009997884	TapButton			\Default Work Unit\InGame\TapButton	
+	412724365	BGM			\Default Work Unit\BGM\BGM	
+	515876060	Fever_Exit			\Default Work Unit\InGame\Fever_Exit	
+	760777789	Menu_Click			\Default Work Unit\Menu\Menu_Click	
+	865053637	Gem_Dropped			\Default Work Unit\InGame\Gem_Dropped	
+	931870426	Fever_Sustain_Stop			\Default Work Unit\InGame\Fever_Sustain_Stop	
+	1099372665	Gem_Touched			\Default Work Unit\InGame\Gem_Touched	
+	1537667210	Combo_Lost			\Default Work Unit\InGame\Combo_Lost	
+	2058410279	Combo_Tick			\Default Work Unit\InGame\Combo_Tick	
+	2090192256	BGM_Stop			\Default Work Unit\BGM\BGM_Stop	
+	2157605860	Gem_Link_Fail			\Default Work Unit\InGame\Gem_Link_Fail	
+	2376035311	Fever_Sustain			\Default Work Unit\InGame\Fever_Sustain	
+	2494296290	Combo_Tick_Stop			\Default Work Unit\InGame\Combo_Tick_Stop	
+	2568054828	Gem_Link_Succeed			\Default Work Unit\InGame\Gem_Link_Succeed	
+	3617657745	Achievement_Got			\Default Work Unit\InGame\Achievement_Got	
+	3671835971	Score_Tick			\Default Work Unit\InGame\Score_Tick	
+	3717465430	Fever_Enter			\Default Work Unit\InGame\Fever_Enter	
+	3840965213	Gem_Link			\Default Work Unit\InGame\Gem_Link	
+	3908297853	Menu_Start			\Default Work Unit\Menu\Menu_Start	
+	4249226670	Score_Tick_Stop			\Default Work Unit\InGame\Score_Tick_Stop	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	642576873	GemLink_Switch			\Default Work Unit\GemLink_Switch	
+
+Switch	ID	Name	Switch Group			Notes
+	1819160128	Link3	GemLink_Switch			
+	1819160129	Link2	GemLink_Switch			
+	1819160130	Link1	GemLink_Switch			
+	1819160132	Link7	GemLink_Switch			
+	1819160133	Link6	GemLink_Switch			
+	1819160134	Link5	GemLink_Switch			
+	1819160135	Link4	GemLink_Switch			
+
+State Group	ID	Name			Wwise Object Path	Notes
+	3086301423	BGM_State			\Default Work Unit\BGM_State	
+
+State	ID	Name	State Group			Notes
+	0	None	BGM_State			
+	984691642	InGame	BGM_State			
+	2607556080	Menu	BGM_State			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1221228806	LinkCount			\Default Work Unit\LinkCount	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	669931221	Copy of Clicks_07	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Copy of Clicks_07_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\Copy of Clicks_07		46514
+	15367088	Linkit InGame Pt1	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Linkit InGame Pt1_9452F465.wem		\Interactive Music Hierarchy\Default Work Unit\BGM\BGMInGame\Linkit InGame Pt1\Linkit InGame Pt1		6594712
+	57634427	FeverEnter	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Fever Enter_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\FeverEnter		485164
+	326219271	LinkSucceed	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Link Succeed_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\LinkSucceed		336328
+	353793066	MenuClick	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Menu Click_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\MenuClick		159928
+	437126555	Link 7	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Link 7_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\GemLink\Link 7		270176
+	487388422	Link 6	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Link 6_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\GemLink\Link 6		270176
+	487691977	ComboTick	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Combo Tick_E673D296.wem		\Actor-Mixer Hierarchy\Default Work Unit\ComboTick		17104
+	550659144	Link 3	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Link 3_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\GemLink\Link 3		270176
+	568118914	AchievementGot	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Achievement_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\AchievementGot		595412
+	589535595	ScoreTick	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Score Tick_9452F465.wem		\Actor-Mixer Hierarchy\Default Work Unit\ScoreTick		165440
+	717230578	Link 1	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Link 1_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\GemLink\Link 1		270176
+	769015300	FeverExit	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Fever Exit_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\FeverExit		402476
+	851567863	LinkFail	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Link Fail_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\LinkFail		496188
+	882751023	ComboLost	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Combo Lost_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\ComboLost		452088
+	905503471	Link 5	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Link 5_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\GemLink\Link 5		270176
+	914882265	Linkit InGame Pt2	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Linkit InGame Pt2_9452F465.wem		\Interactive Music Hierarchy\Default Work Unit\BGM\BGMInGame\Linkit InGame Pt2\Linkit InGame Pt2		24750344
+	924236786	MenuStart	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Menu Start_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\MenuStart		292228
+	944581853	GemTouched	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Gem Touched_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\GemTouched		369404
+	968413263	Linkit Menu	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Linkit Menu_9452F465.wem		\Interactive Music Hierarchy\Default Work Unit\BGM\BGMMenu\Linkit Menu		10584064
+	1008641464	FeverSustain	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Fever Sustain_5EA8B49C.wem		\Actor-Mixer Hierarchy\Default Work Unit\FeverSustain		352864
+	1034895203	Link 4	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Link 4_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\GemLink\Link 4		270176
+	1036662880	Link 2	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Link 2_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\GemLink\Link 2		270176
+	1067612667	GemDropped	C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\Android\SFX\Gem Dropped_53CEE377.wem		\Actor-Mixer Hierarchy\Default Work Unit\GemDropped		292228
 

@@ -1,28 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <IncrementalBankBuild Version="6" Flags="240381544">
-	<Platform GUID="{575135EF-35DD-42E4-A943-FE708DCF3FF5}">
+	<Platform GUID="{3E9FB236-63F3-40D0-9F41-A6F33CCCA118}">
 		<Banks>
 			<Language ID="393239870">
-				<File Name="Init" Hash="2725897582" Timestamp="1546958502"/>
-				<File Name="Main" Hash="2399261974" Timestamp="1546958502"/>
+				<File Name="Init" Hash="2166609387" Timestamp="1554407352"/>
+				<File Name="Main" Hash="1649787458" Timestamp="1554407352"/>
 			</Language>
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="288221535" Timestamp="1546958502"/>
+				<File Name="" Hash="1486126399" Timestamp="1554407352"/>
+			</Language>
+		</XMLInfo>
+	</Platform>
+	<Platform GUID="{575135EF-35DD-42E4-A943-FE708DCF3FF5}">
+		<Banks>
+			<Language ID="393239870">
+				<File Name="Init" Hash="3522552313" Timestamp="1554407352"/>
+				<File Name="Main" Hash="1649787458" Timestamp="1554407352"/>
+			</Language>
+		</Banks>
+		<XMLInfo>
+			<Language ID="-1">
+				<File Name="" Hash="973178183" Timestamp="1554407352"/>
+			</Language>
+		</XMLInfo>
+	</Platform>
+	<Platform GUID="{1CB0ABB5-4CE8-495F-AB21-E7167FCE33B3}">
+		<Banks>
+			<Language ID="393239870">
+				<File Name="Init" Hash="3654770591" Timestamp="1554407352"/>
+				<File Name="Main" Hash="1649787458" Timestamp="1554407352"/>
+			</Language>
+		</Banks>
+		<XMLInfo>
+			<Language ID="-1">
+				<File Name="" Hash="3125741789" Timestamp="1554407352"/>
 			</Language>
 		</XMLInfo>
 	</Platform>
 	<Platform GUID="{3979F88A-F836-4D99-A21B-B59613D803E3}">
 		<Banks>
 			<Language ID="393239870">
-				<File Name="Init" Hash="3944046222" Timestamp="1546958502"/>
-				<File Name="Main" Hash="2399261974" Timestamp="1546958502"/>
+				<File Name="Init" Hash="3295532737" Timestamp="1554407352"/>
+				<File Name="Main" Hash="1649787458" Timestamp="1554407352"/>
 			</Language>
 		</Banks>
 		<XMLInfo>
 			<Language ID="-1">
-				<File Name="" Hash="1998492457" Timestamp="1546958502"/>
+				<File Name="" Hash="703189553" Timestamp="1554407352"/>
 			</Language>
 		</XMLInfo>
 	</Platform>

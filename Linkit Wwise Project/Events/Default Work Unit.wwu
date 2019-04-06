@@ -5,15 +5,275 @@
 			<ChildrenList>
 				<Folder Name="InGame" ID="{0E4277D6-DBEF-4BB2-BE6F-236FFD01BF14}" ShortID="119722885">
 					<ChildrenList>
-						<Event Name="TapButton" ID="{0BF66EFB-841B-41CE-BB3A-44CED98548B3}">
+						<Event Name="Gem_Link" ID="{BB706806-6E44-4ACC-B2F1-D03ED574EA89}">
 							<ChildrenList>
-								<Action Name="" ID="{D78E83A1-DBD7-4470-BB79-31D001AC2CC6}" ShortID="532428115">
+								<Action Name="" ID="{D667051A-1158-4F03-8989-88476CE9129A}" ShortID="911930395">
 									<PropertyList>
 										<Property Name="ActionType" Type="int16" Value="1"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Copy of Clicks_07" ID="{36EF27DC-F72F-4909-97E3-A086FAFBE4B9}" WorkUnitID="{2823C543-2C51-4FF0-950F-04B865A675D6}"/>
+											<ObjectRef Name="GemLink" ID="{A5653553-431F-4A09-AC5D-2A73978FC63A}" WorkUnitID="{2823C543-2C51-4FF0-950F-04B865A675D6}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Fever_Enter" ID="{E36A07EC-BFBE-491F-A0F0-170239D508BF}">
+							<ChildrenList>
+								<Action Name="" ID="{57A6F26B-6B28-4EB9-90A3-8CB1CE985E90}" ShortID="43696530">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FeverEnter" ID="{33F7DD23-A7E1-4DB7-B28E-A41D60F4D153}" WorkUnitID="{2823C543-2C51-4FF0-950F-04B865A675D6}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Fever_Exit" ID="{C246C169-EB8B-4762-8474-0DCD52498B5B}">
+							<ChildrenList>
+								<Action Name="" ID="{95631B07-6F62-419F-8EB6-36C9FEA3C925}" ShortID="290719315">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FeverExit" ID="{0C7DA8D9-3BD9-4B19-BBF2-6553B00E432F}" WorkUnitID="{2823C543-2C51-4FF0-950F-04B865A675D6}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Fever_Sustain" ID="{C98ED5BD-E8E8-4AC3-B945-F093F3948261}">
+							<ChildrenList>
+								<Action Name="" ID="{610C7DA2-9474-4C33-85F5-4D375E4B6D20}" ShortID="1064251043">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FeverSustain" ID="{EF43A446-8475-46C7-A912-87275314DC76}" WorkUnitID="{2823C543-2C51-4FF0-950F-04B865A675D6}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Gem_Dropped" ID="{AFF3BADB-E5E5-4809-9E76-581F0D0FCCDF}">
+							<ChildrenList>
+								<Action Name="" ID="{BB168BD9-8F2F-4FCB-9022-FF0BB66E4B28}" ShortID="943084905">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="GemDropped" ID="{CE72581A-D609-4682-8AD2-1D016B24FA43}" WorkUnitID="{2823C543-2C51-4FF0-950F-04B865A675D6}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Gem_Touched" ID="{65937372-E484-4C02-B37E-C93E577EE796}">
+							<ChildrenList>
+								<Action Name="" ID="{9C3D9E6E-3A73-41A5-B27A-6C9D0D91F544}" ShortID="559362340">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="GemTouched" ID="{993FC00D-B0C9-4BBF-AEE0-1019D0896896}" WorkUnitID="{2823C543-2C51-4FF0-950F-04B865A675D6}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Gem_Link_Fail" ID="{D6BD52F2-FA72-499F-B4EF-DCDC7F4FD432}">
+							<ChildrenList>
+								<Action Name="" ID="{FE645BD1-B64A-4243-98A1-A3973DFEC942}" ShortID="924353403">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="LinkFail" ID="{E32FA3EA-5E40-4195-B6D9-C7394FB7A210}" WorkUnitID="{2823C543-2C51-4FF0-950F-04B865A675D6}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Gem_Link_Succeed" ID="{F86864B5-24FE-4025-99D6-812B772B3833}">
+							<ChildrenList>
+								<Action Name="" ID="{AB1D9B08-5217-4B03-8E60-C36059635D81}" ShortID="927251766">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="LinkSucceed" ID="{AF2C4113-E703-468B-8E33-68395D216276}" WorkUnitID="{2823C543-2C51-4FF0-950F-04B865A675D6}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Fever_Sustain_Stop" ID="{93D8DC88-F14B-413C-99D2-89D63B7970D9}">
+							<ChildrenList>
+								<Action Name="" ID="{6F5865C6-9482-4513-8B6C-C55D487481E9}" ShortID="646069988">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FeverSustain" ID="{EF43A446-8475-46C7-A912-87275314DC76}" WorkUnitID="{2823C543-2C51-4FF0-950F-04B865A675D6}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Achievement_Got" ID="{3369D89E-25A3-4123-A556-F35D168FB488}">
+							<ChildrenList>
+								<Action Name="" ID="{4604145F-37C7-4A36-BB80-6FCB9637E0FE}" ShortID="605668513">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="AchievementGot" ID="{9DFEA924-664E-461D-8ABA-916DD31B433C}" WorkUnitID="{2823C543-2C51-4FF0-950F-04B865A675D6}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Combo_Lost" ID="{2740954F-FCD7-43B6-9470-C71DF6D5F19B}">
+							<ChildrenList>
+								<Action Name="" ID="{A1394DA7-7E79-4E26-8A9E-3FF5BAB0CC6A}" ShortID="1069437069">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ComboLost" ID="{5C19A183-201C-4F45-9411-1BA80BA55B4E}" WorkUnitID="{2823C543-2C51-4FF0-950F-04B865A675D6}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Combo_Tick" ID="{9EAE6E1B-98E1-4EBC-9B16-8499052DF496}">
+							<ChildrenList>
+								<Action Name="" ID="{A78C339C-A279-46C5-904B-C716ED592A2C}" ShortID="402584062">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ComboTick" ID="{089DFDE9-B763-48C2-A06D-80E4447EFF73}" WorkUnitID="{2823C543-2C51-4FF0-950F-04B865A675D6}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Score_Tick" ID="{E1462143-5850-4FD3-B79F-8E7BD507E10C}">
+							<ChildrenList>
+								<Action Name="" ID="{3DD9CFA6-E3BA-4990-B0E1-B95BE0A0CA66}" ShortID="787878024">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ScoreTick" ID="{B165AC44-6145-4F5F-B2FB-0E2E7084866D}" WorkUnitID="{2823C543-2C51-4FF0-950F-04B865A675D6}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Score_Tick_Stop" ID="{2311AE1A-3766-4530-A39C-F6CFC2C89961}">
+							<ChildrenList>
+								<Action Name="" ID="{6A5E72D9-282E-465D-B4EC-287D82AD38A2}" ShortID="108129267">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ScoreTick" ID="{B165AC44-6145-4F5F-B2FB-0E2E7084866D}" WorkUnitID="{2823C543-2C51-4FF0-950F-04B865A675D6}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Combo_Tick_Stop" ID="{5088E42B-DEE9-480A-A8B4-532EBC40B724}">
+							<ChildrenList>
+								<Action Name="" ID="{85A53FD1-48FE-4745-8915-73EFCC2D287C}" ShortID="1043639047">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ComboTick" ID="{089DFDE9-B763-48C2-A06D-80E4447EFF73}" WorkUnitID="{2823C543-2C51-4FF0-950F-04B865A675D6}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="BGM" ID="{1009E6D1-0AE9-4B38-ADB1-43EA848BC29D}" ShortID="572746377">
+					<ChildrenList>
+						<Event Name="BGM" ID="{936623FD-9559-4F57-9DA3-CA2794FE8302}">
+							<ChildrenList>
+								<Action Name="" ID="{10CBA0D4-2889-4A3C-916F-02138942EBB6}" ShortID="288886090">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BGM" ID="{58A74147-1962-4209-8CB0-C26A90DB3EBD}" WorkUnitID="{DDF30B72-600B-42D5-A082-8C3B8AFB11BE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="BGM_Stop" ID="{163D2CA3-7DDD-4420-BD43-0D482BF994E3}">
+							<ChildrenList>
+								<Action Name="" ID="{FF89A58E-EAFD-4DF6-BE8B-1A015CC4B3FB}" ShortID="1002654891">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BGM" ID="{58A74147-1962-4209-8CB0-C26A90DB3EBD}" WorkUnitID="{DDF30B72-600B-42D5-A082-8C3B8AFB11BE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Menu" ID="{F609E6AC-08A0-4E5B-880C-7140EC6EBF0E}" ShortID="283218008">
+					<ChildrenList>
+						<Event Name="Menu_Click" ID="{E5A4FA5B-EB9B-490C-956F-3FE34AAB1AAD}">
+							<ChildrenList>
+								<Action Name="" ID="{13904AEF-0AD9-4580-9637-989D4A6C812F}" ShortID="153963318">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MenuClick" ID="{24A2E7E4-65BC-4E0B-B145-9741BB36D855}" WorkUnitID="{2823C543-2C51-4FF0-950F-04B865A675D6}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Menu_Start" ID="{0A67B850-B2C0-4185-9CCF-C8F2EDC51943}">
+							<ChildrenList>
+								<Action Name="" ID="{90963C1E-E74C-4783-9446-DCDD4A5B8F7F}" ShortID="45586255">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MenuStart" ID="{E908743D-16CB-4673-A51E-B8A249D7C42D}" WorkUnitID="{2823C543-2C51-4FF0-950F-04B865A675D6}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

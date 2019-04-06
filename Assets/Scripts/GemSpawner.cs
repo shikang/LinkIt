@@ -26,8 +26,8 @@ public class GemSpawner : MonoBehaviour
 	public const float SPAWN_DANGER_AREA = 0.6f;        //!< Percentage from bottom
 
 	// Spawning gold contants
-	public const float GOLD_SPAWN_INTERVAL = 30.0f;		//!< In seconds
-	public const float GOLD_SPAWN_CHANCE = 0.05f;       //!< Percentage (Over 1.0f)
+	public const float GOLD_SPAWN_INTERVAL = 20.0f;		//!< In seconds
+	public const float GOLD_SPAWN_CHANCE = 1.0f;       //!< Percentage (Over 1.0f)
 	public const int GOLD_DROP_AMOUNT = 1000;
 
 	// Type constants
@@ -193,6 +193,8 @@ public class GemSpawner : MonoBehaviour
 
 	private bool m_bIsBreakingCombo;
 	private bool m_bIsStartingCombo;
+	private bool m_bScoreText_IsAnim = true;
+	private bool m_bComboText_IsAnim = true;
 
 	// Gameover
 	private float m_fGameoverTimer = 0.0f;
@@ -649,6 +651,7 @@ public class GemSpawner : MonoBehaviour
 				// Check for linking
 				if ( !m_bGameover && m_Link.Linking && LinkGem( m_Gems[i][j] ) )
 				{
+					AudioManager.Instance.PlaySoundEvent(SOUNDID.GEM_LINK);
 					linkedGemList[i].Add( g );
 					continue;
 				}
@@ -685,6 +688,7 @@ public class GemSpawner : MonoBehaviour
 				{
 					if( DidGemCollide( linkedGemList[i][j], unLinkedGemList[i][k] ) )
 					{
+						AudioManager.Instance.PlaySoundEvent(SOUNDID.GEM_TOUCHED);
 						Debug.Log( "Lane " + i + " occur a link breaking" );
 						m_LinkedGem.Remove( linkedGemList[i][j] );
 						UnlinkGem( linkedGemList[i][j], true );
@@ -982,6 +986,8 @@ public class GemSpawner : MonoBehaviour
 		if ( m_nCurrentCombo >= HIGH_COMBO && m_CurrentHighComboStrip == null )
 		{
 			CreateComboStrip();
+			AudioManager.Instance.PlaySoundEvent(SOUNDID.FEVER_ENTER);
+			AudioManager.Instance.PlaySoundEvent(SOUNDID.FEVER_SUSTAIN);
 			m_HighComboZone.GetComponent<HighComboColor>().SetComboColor( 0 );
 		}
 
@@ -1076,6 +1082,11 @@ public class GemSpawner : MonoBehaviour
 
 		int multiplier = m_nHighComboMultiplierIndex + 1;
 		bool destroy = m_LinkedGem.Count >= minLinkCount;
+
+		if (!destroy)
+		{
+			AudioManager.Instance.PlaySoundEvent(SOUNDID.GEM_LINK_FAIL);
+		}
 		if ( destroy
 #if LINKIT_COOP
 			&& ( !NetworkManager.IsConnected() || NetworkManager.IsPlayerOne() ) 
@@ -1112,6 +1123,8 @@ public class GemSpawner : MonoBehaviour
 
 				AddGainPointsEffect( g.transform.position, g.GemType, eachGain );
 			}
+
+			AudioManager.Instance.PlaySoundEvent(SOUNDID.GEM_LINK_SUCCEED);
 		}
 
 #if LINKIT_COOP
@@ -1744,6 +1757,7 @@ public class GemSpawner : MonoBehaviour
 
 	public void PetrifyGem( Gem gem )
 	{
+		AudioManager.Instance.PlaySoundEvent(SOUNDID.GEM_DROPPED);
 		m_aGemCount[gem.GemType]--;
 		m_nTotalGemCount--;
 		m_Gems[gem.Lane].Remove( gem.gameObject );
@@ -1859,9 +1873,23 @@ public class GemSpawner : MonoBehaviour
 		m_fPointTimer += Time.deltaTime;
 		if ( m_fPointTimer < TIME_TO_ACTUAL_POINTS + Time.deltaTime )
 		{
+			if(!m_bScoreText_IsAnim)
+			{
+				m_bScoreText_IsAnim = true;
+				AudioManager.Instance.PlaySoundEvent(SOUNDID.SCORE_TICK);
+			}
+
 			m_fPointTimer = m_fPointTimer > TIME_TO_ACTUAL_POINTS ? TIME_TO_ACTUAL_POINTS : m_fPointTimer;
 			m_nShowingPoints = ( int )( ( m_fPointTimer / TIME_TO_ACTUAL_POINTS ) * ( m_nPoints - m_nPrevPoints ) ) + m_nPrevPoints;
 			m_ScoreText.GetComponent<Text>().text = m_nShowingPoints.ToString();
+		}
+		else
+		{
+			if(m_bScoreText_IsAnim)
+			{
+				m_bScoreText_IsAnim = false;
+				AudioManager.Instance.PlaySoundEvent(SOUNDID.SCORE_TICK_STOP);
+			}
 		}
 	}
 
@@ -1871,9 +1899,22 @@ public class GemSpawner : MonoBehaviour
 
 		if ( m_fComboTimer < TIME_TO_ACTUAL_COMBO + Time.deltaTime )
 		{
+			if(!m_bComboText_IsAnim)
+			{
+				m_bComboText_IsAnim = true;
+				AudioManager.Instance.PlaySoundEvent(SOUNDID.COMBO_TICK);
+			}
 			m_fComboTimer = m_fComboTimer > TIME_TO_ACTUAL_COMBO ? TIME_TO_ACTUAL_COMBO : m_fComboTimer;
 			m_nShowingCombo = ( int )( ( m_fComboTimer / TIME_TO_ACTUAL_COMBO ) * ( m_nCurrentCombo - m_nPrevCombo ) ) + m_nPrevCombo;
 			m_ComboText.GetComponent<Text>().text = "Combo\n" + m_nShowingCombo.ToString();
+		}
+		else
+		{
+			if(m_bComboText_IsAnim)
+			{
+				m_bComboText_IsAnim = false;
+				AudioManager.Instance.PlaySoundEvent(SOUNDID.COMBO_TICK_STOP);
+			}
 		}
 
 		//m_nComboOpacity -= COMBO_FADE_TIME_RECIPROCAL * Time.deltaTime;
@@ -2081,11 +2122,13 @@ public class GemSpawner : MonoBehaviour
 	public void PauseGame()
 	{
 		m_bIsPaused = true;
+		AudioManager.Instance.PlaySoundEvent(SOUNDID.MENU_CLICK);
 	}
 
 	public void UnpauseGame()
 	{
 		m_bIsPaused = false;
+		AudioManager.Instance.PlaySoundEvent(SOUNDID.MENU_CLICK);
 	}
 
 	void UpdateGameover()
@@ -2142,6 +2185,8 @@ public class GemSpawner : MonoBehaviour
 
 		if ( m_CurrentHighComboStrip != null )
 		{
+			AudioManager.Instance.PlaySoundEvent(SOUNDID.FEVER_EXIT);
+			AudioManager.Instance.PlaySoundEvent(SOUNDID.FEVER_SUSTAIN_STOP);
 			DestroyComboStrip();
 		}
 
@@ -2150,6 +2195,9 @@ public class GemSpawner : MonoBehaviour
 			pulsing.StopPulsing();
 			m_HighComboZoneTimer = ( m_HighComboZone.GetComponent<SpriteRenderer>().color.a / pulsing.m_fMaxAlpha ) * HIGH_COMBO_OVERLAY_FADE_TIME;
 		}
+
+		if(m_nCurrentCombo > 0)
+			AudioManager.Instance.PlaySoundEvent(SOUNDID.COMBO_LOST);
 
 		m_nCurrentCombo = 0;
 		m_ComboText.GetComponent<Text>().text = "Combo\n" + m_nCurrentCombo.ToString();
@@ -2217,7 +2265,7 @@ public class GemSpawner : MonoBehaviour
 				gd.LinkGold( true );
                 //ScaleLinkEffect( m_GoldObject.transform );
                 m_GoldObject.transform.localScale = m_DefaultGoldScale;
-
+                AudioManager.Instance.PlaySoundEvent(SOUNDID.GEM_LINK);
             }
 
 			// Move gem
@@ -2232,7 +2280,8 @@ public class GemSpawner : MonoBehaviour
 				if ( !gd.GetPetrify() && IsInUnlinkableZone( m_GoldObject.transform ) )
 				{
 					gd.PetrifyGold();
-				}
+                    AudioManager.Instance.PlaySoundEvent(SOUNDID.GEM_DROPPED);
+                }
 
 				// Check out of screen
 				if( pos.y < -m_HalfDimension.y )

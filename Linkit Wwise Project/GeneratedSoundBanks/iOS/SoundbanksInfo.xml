@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="iOS" BasePlatform="iOS" SchemaVersion="11" SoundbankVersion="128">
+	<RootPaths>
+		<ProjectRoot>C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\.cache\iOS\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\GeneratedSoundBanks\iOS\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\GeneratedSoundBanks\iOS</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3161908922" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
+			<ShortName>Main</ShortName>
+			<Path>Main.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3617657745" Name="Achievement_Got" ObjectPath="\Events\Default Work Unit\InGame\Achievement_Got"/>
+				<Event Id="412724365" Name="BGM" ObjectPath="\Events\Default Work Unit\BGM\BGM"/>
+				<Event Id="2090192256" Name="BGM_Stop" ObjectPath="\Events\Default Work Unit\BGM\BGM_Stop"/>
+				<Event Id="1537667210" Name="Combo_Lost" ObjectPath="\Events\Default Work Unit\InGame\Combo_Lost"/>
+				<Event Id="2058410279" Name="Combo_Tick" ObjectPath="\Events\Default Work Unit\InGame\Combo_Tick"/>
+				<Event Id="2494296290" Name="Combo_Tick_Stop" ObjectPath="\Events\Default Work Unit\InGame\Combo_Tick_Stop"/>
+				<Event Id="3717465430" Name="Fever_Enter" ObjectPath="\Events\Default Work Unit\InGame\Fever_Enter"/>
+				<Event Id="515876060" Name="Fever_Exit" ObjectPath="\Events\Default Work Unit\InGame\Fever_Exit"/>
+				<Event Id="2376035311" Name="Fever_Sustain" ObjectPath="\Events\Default Work Unit\InGame\Fever_Sustain"/>
+				<Event Id="931870426" Name="Fever_Sustain_Stop" ObjectPath="\Events\Default Work Unit\InGame\Fever_Sustain_Stop"/>
+				<Event Id="865053637" Name="Gem_Dropped" ObjectPath="\Events\Default Work Unit\InGame\Gem_Dropped"/>
+				<Event Id="3840965213" Name="Gem_Link" ObjectPath="\Events\Default Work Unit\InGame\Gem_Link"/>
+				<Event Id="2157605860" Name="Gem_Link_Fail" ObjectPath="\Events\Default Work Unit\InGame\Gem_Link_Fail"/>
+				<Event Id="2568054828" Name="Gem_Link_Succeed" ObjectPath="\Events\Default Work Unit\InGame\Gem_Link_Succeed"/>
+				<Event Id="1099372665" Name="Gem_Touched" ObjectPath="\Events\Default Work Unit\InGame\Gem_Touched"/>
+				<Event Id="760777789" Name="Menu_Click" ObjectPath="\Events\Default Work Unit\Menu\Menu_Click"/>
+				<Event Id="3908297853" Name="Menu_Start" ObjectPath="\Events\Default Work Unit\Menu\Menu_Start"/>
+				<Event Id="3671835971" Name="Score_Tick" ObjectPath="\Events\Default Work Unit\InGame\Score_Tick"/>
+				<Event Id="4249226670" Name="Score_Tick_Stop" ObjectPath="\Events\Default Work Unit\InGame\Score_Tick_Stop"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="15367088" Language="SFX">
+					<ShortName>Linkit InGame Pt1.wav</ShortName>
+					<Path>SFX\Linkit InGame Pt1_9452F465.wem</Path>
+				</File>
+				<File Id="57634427" Language="SFX">
+					<ShortName>Fever Enter.wav</ShortName>
+					<Path>SFX\Fever Enter_53CEE377.wem</Path>
+				</File>
+				<File Id="326219271" Language="SFX">
+					<ShortName>Link Succeed.wav</ShortName>
+					<Path>SFX\Link Succeed_53CEE377.wem</Path>
+				</File>
+				<File Id="353793066" Language="SFX">
+					<ShortName>Menu Click.wav</ShortName>
+					<Path>SFX\Menu Click_53CEE377.wem</Path>
+				</File>
+				<File Id="437126555" Language="SFX">
+					<ShortName>Link 7.wav</ShortName>
+					<Path>SFX\Link 7_53CEE377.wem</Path>
+				</File>
+				<File Id="487388422" Language="SFX">
+					<ShortName>Link 6.wav</ShortName>
+					<Path>SFX\Link 6_53CEE377.wem</Path>
+				</File>
+				<File Id="487691977" Language="SFX">
+					<ShortName>Combo Tick.wav</ShortName>
+					<Path>SFX\Combo Tick_E673D296.wem</Path>
+				</File>
+				<File Id="550659144" Language="SFX">
+					<ShortName>Link 3.wav</ShortName>
+					<Path>SFX\Link 3_53CEE377.wem</Path>
+				</File>
+				<File Id="568118914" Language="SFX">
+					<ShortName>Achievement.wav</ShortName>
+					<Path>SFX\Achievement_53CEE377.wem</Path>
+				</File>
+				<File Id="589535595" Language="SFX">
+					<ShortName>Score Tick.wav</ShortName>
+					<Path>SFX\Score Tick_9452F465.wem</Path>
+				</File>
+				<File Id="717230578" Language="SFX">
+					<ShortName>Link 1.wav</ShortName>
+					<Path>SFX\Link 1_53CEE377.wem</Path>
+				</File>
+				<File Id="769015300" Language="SFX">
+					<ShortName>Fever Exit.wav</ShortName>
+					<Path>SFX\Fever Exit_53CEE377.wem</Path>
+				</File>
+				<File Id="851567863" Language="SFX">
+					<ShortName>Link Fail.wav</ShortName>
+					<Path>SFX\Link Fail_53CEE377.wem</Path>
+				</File>
+				<File Id="882751023" Language="SFX">
+					<ShortName>Combo Lost.wav</ShortName>
+					<Path>SFX\Combo Lost_53CEE377.wem</Path>
+				</File>
+				<File Id="905503471" Language="SFX">
+					<ShortName>Link 5.wav</ShortName>
+					<Path>SFX\Link 5_53CEE377.wem</Path>
+				</File>
+				<File Id="914882265" Language="SFX">
+					<ShortName>Linkit InGame Pt2.wav</ShortName>
+					<Path>SFX\Linkit InGame Pt2_9452F465.wem</Path>
+				</File>
+				<File Id="924236786" Language="SFX">
+					<ShortName>Menu Start.wav</ShortName>
+					<Path>SFX\Menu Start_53CEE377.wem</Path>
+				</File>
+				<File Id="944581853" Language="SFX">
+					<ShortName>Gem Touched.wav</ShortName>
+					<Path>SFX\Gem Touched_53CEE377.wem</Path>
+				</File>
+				<File Id="968413263" Language="SFX">
+					<ShortName>Linkit Menu.wav</ShortName>
+					<Path>SFX\Linkit Menu_9452F465.wem</Path>
+				</File>
+				<File Id="1008641464" Language="SFX">
+					<ShortName>Fever Sustain.wav</ShortName>
+					<Path>SFX\Fever Sustain_5EA8B49C.wem</Path>
+				</File>
+				<File Id="1034895203" Language="SFX">
+					<ShortName>Link 4.wav</ShortName>
+					<Path>SFX\Link 4_53CEE377.wem</Path>
+				</File>
+				<File Id="1036662880" Language="SFX">
+					<ShortName>Link 2.wav</ShortName>
+					<Path>SFX\Link 2_53CEE377.wem</Path>
+				</File>
+				<File Id="1067612667" Language="SFX">
+					<ShortName>Gem Dropped.wav</ShortName>
+					<Path>SFX\Gem Dropped_53CEE377.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
