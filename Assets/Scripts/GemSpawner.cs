@@ -26,8 +26,8 @@ public class GemSpawner : MonoBehaviour
 	public const float SPAWN_DANGER_AREA = 0.6f;        //!< Percentage from bottom
 
 	// Spawning gold contants
-	public const float GOLD_SPAWN_INTERVAL = 30.0f;		//!< In seconds
-	public const float GOLD_SPAWN_CHANCE = 0.05f;       //!< Percentage (Over 1.0f)
+	public const float GOLD_SPAWN_INTERVAL = 20.0f;		//!< In seconds
+	public const float GOLD_SPAWN_CHANCE = 1.0f;       //!< Percentage (Over 1.0f)
 	public const int GOLD_DROP_AMOUNT = 1000;
 
 	// Type constants
@@ -2265,7 +2265,7 @@ public class GemSpawner : MonoBehaviour
 				gd.LinkGold( true );
                 //ScaleLinkEffect( m_GoldObject.transform );
                 m_GoldObject.transform.localScale = m_DefaultGoldScale;
-
+                AudioManager.Instance.PlaySoundEvent(SOUNDID.GEM_LINK);
             }
 
 			// Move gem
@@ -2280,7 +2280,8 @@ public class GemSpawner : MonoBehaviour
 				if ( !gd.GetPetrify() && IsInUnlinkableZone( m_GoldObject.transform ) )
 				{
 					gd.PetrifyGold();
-				}
+                    AudioManager.Instance.PlaySoundEvent(SOUNDID.GEM_DROPPED);
+                }
 
 				// Check out of screen
 				if( pos.y < -m_HalfDimension.y )
