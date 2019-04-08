@@ -15,6 +15,7 @@
 						<Switch Name="Link5" ID="{923F64FF-0297-4AE7-8847-E1E9EA13346D}"/>
 						<Switch Name="Link6" ID="{8DF6758D-8179-4A69-8E7B-087C5F91D8BD}"/>
 						<Switch Name="Link7" ID="{5F7FCCB4-B739-4D59-AD80-3A6180EEA2ED}"/>
+						<Switch Name="Link8" ID="{0F611BB1-6D8B-4F00-9589-D75997F94B54}"/>
 					</ChildrenList>
 					<SwitchOnRTPC>
 						<GameParameterRef Name="LinkCount" ID="{7CD9ABCA-FC02-44EF-A1E7-41AB8943BADE}"/>
@@ -59,8 +60,18 @@
 									<Flags>0</Flags>
 								</Point>
 								<Point>
-									<XPos>50</XPos>
-									<YPos>7</YPos>
+									<XPos>8</XPos>
+									<YPos>8</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>99.999</XPos>
+									<YPos>8</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>100</XPos>
+									<YPos>8</YPos>
 									<Flags>37</Flags>
 								</Point>
 							</PointList>

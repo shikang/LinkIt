@@ -94,7 +94,7 @@ public class GameData
 		m_Boost_SlowerGems = 0;
 		m_Boost_BiggerGems = 0;
 
-		m_vol_SFX = 50;
+		m_vol_SFX = 40;
 		m_vol_BGM = 50;
 
 		m_curr_TotalGamesPlayed = 0;

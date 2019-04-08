@@ -1,0 +1,37 @@
+
+volume control?
+
+facebook advertisement material (video?)
+make facebook campaign
+
+
+Icons made by Vectors Market from www.flaticon.com
+
+
+Music
+ - Main Menu (Post Game)
+ - In Game
+
+SFX
+ - Connect (higher pitch)
+ - Linked
+    - 3 (normal)
+    - 4 (good)
+    - 5 (great) 
+    - 6 (incredible)
+    - 7 (awesome)
+ - Comboed
+ - Fail link (less than 3)
+ - Gem spawned
+ - Broken link
+ - Fevers started
+ - Gem escaped
+
+Menu
+ - Tap on button
+ - Back
+ - Start game
+ - Level up!
+ - Bought something?
+ - Achievemet gotten
+

@@ -54,9 +54,6 @@ public class AudioManager : MonoBehaviour
 	{
 		linkCount = 1;
 		AkSoundEngine.SetRTPCValue("LinkCount", linkCount);
-
-		UpdateBGM("Menu");
-		PlaySoundEvent(SOUNDID.BGM);
 	}
 
 	void Update()

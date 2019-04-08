@@ -64,6 +64,7 @@ namespace AK
                 static const AkUniqueID LINK5 = 1819160134U;
                 static const AkUniqueID LINK6 = 1819160133U;
                 static const AkUniqueID LINK7 = 1819160132U;
+                static const AkUniqueID LINK8 = 1819160139U;
             } // namespace SWITCH
         } // namespace GEMLINK_SWITCH
 

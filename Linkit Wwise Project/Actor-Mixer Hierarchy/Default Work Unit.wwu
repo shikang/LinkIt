@@ -29,32 +29,6 @@
 						<ActiveSource Name="Fever Enter" ID="{6F061678-9F8F-4E7F-8C40-759009490390}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
-				<Sound Name="FeverExit" ID="{0C7DA8D9-3BD9-4B19-BBF2-6553B00E432F}" ShortID="692085453">
-					<PropertyList>
-						<Property Name="Volume" Type="Real64">
-							<ValueList>
-								<Value>3</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C565C3CC-8CBA-4A55-AA6D-DEDAD4B05C16}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="SFX_Bus" ID="{ECCC8F49-0568-4F52-851D-01B3A8BB64A1}" WorkUnitID="{36669096-5A5F-47F1-BBD2-DFE431BCF12C}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Fever Exit" ID="{F546F859-B05C-4AEB-9DE3-6F9A507605AF}" ShortID="769015300">
-							<Language>SFX</Language>
-							<AudioFile>Fever Exit.wav</AudioFile>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Fever Exit" ID="{F546F859-B05C-4AEB-9DE3-6F9A507605AF}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
 				<Sound Name="GemDropped" ID="{CE72581A-D609-4682-8AD2-1D016B24FA43}" ShortID="18807052">
 					<PropertyList>
 						<Property Name="Volume" Type="Real64">
@@ -142,7 +116,7 @@
 					<PropertyList>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-3</Value>
+								<Value>-5</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -291,6 +265,25 @@
 								<ActiveSource Name="Link 6" ID="{28BEF7D4-DD11-40A0-81D6-692EDAC7AF49}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="Link 8" ID="{39B8A323-3ACD-4F15-B20E-DB62DF5B3914}" ShortID="614864481">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C565C3CC-8CBA-4A55-AA6D-DEDAD4B05C16}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{36669096-5A5F-47F1-BBD2-DFE431BCF12C}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Link 8" ID="{E153B746-E722-477F-AC39-BCD1EA5E8CA5}" ShortID="693894440">
+									<Language>SFX</Language>
+									<AudioFile>Link 8.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Link 8" ID="{E153B746-E722-477F-AC39-BCD1EA5E8CA5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 					<GroupingInfo>
 						<GroupingBehaviorList>
@@ -299,6 +292,9 @@
 							</GroupingBehavior>
 							<GroupingBehavior>
 								<ItemRef Name="Link 2" ID="{D78D5C23-BC47-4A01-9805-2E3708D8FE1A}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="Link 8" ID="{39B8A323-3ACD-4F15-B20E-DB62DF5B3914}"/>
 							</GroupingBehavior>
 							<GroupingBehavior>
 								<ItemRef Name="Link 3" ID="{17FA8C53-062D-433E-A78C-7247438904D2}"/>
@@ -342,6 +338,12 @@
 								</ItemList>
 							</Grouping>
 							<Grouping>
+								<SwitchRef Name="Link8" ID="{0F611BB1-6D8B-4F00-9589-D75997F94B54}"/>
+								<ItemList>
+									<ItemRef Name="Link 8" ID="{39B8A323-3ACD-4F15-B20E-DB62DF5B3914}"/>
+								</ItemList>
+							</Grouping>
+							<Grouping>
 								<SwitchRef Name="Link7" ID="{5F7FCCB4-B739-4D59-AD80-3A6180EEA2ED}"/>
 								<ItemList>
 									<ItemRef Name="Link 7" ID="{8188C0BD-9A8B-463E-A034-BC8A2B588536}"/>
@@ -367,7 +369,7 @@
 						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-4</Value>
+								<Value>-7</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -515,7 +517,7 @@
 					<PropertyList>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-1</Value>
+								<Value>-3</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -565,6 +567,32 @@
 					</PositioningInfo>
 					<ActiveSourceList>
 						<ActiveSource Name="Score Tick" ID="{65D68EC2-7A4C-4206-9F31-2B06E874BB3E}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="FeverExit" ID="{3BA1C03D-CB37-4BD0-AACE-3EB8C5E435DE}" ShortID="888794818">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-1</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C565C3CC-8CBA-4A55-AA6D-DEDAD4B05C16}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFX_Bus" ID="{ECCC8F49-0568-4F52-851D-01B3A8BB64A1}" WorkUnitID="{36669096-5A5F-47F1-BBD2-DFE431BCF12C}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Fever Exit" ID="{9850F7C0-B192-4C63-A418-3B0542D17613}" ShortID="788568569">
+							<Language>SFX</Language>
+							<AudioFile>Fever Exit.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Fever Exit" ID="{9850F7C0-B192-4C63-A418-3B0542D17613}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>

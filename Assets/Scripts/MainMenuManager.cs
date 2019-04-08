@@ -75,6 +75,9 @@ public class MainMenuManager : MonoBehaviour
 
         m_CreditVisitNum = 0;
 
+		AudioManager.Instance.UpdateBGM("Menu");
+		AudioManager.Instance.PlaySoundEvent(SOUNDID.BGM);
+
 #if !LINKIT_COOP
         Transform coopBtn = m_Screens[(int)eScreen.MAIN_MENU].transform.Find( "Co-op Button" );
 		if ( coopBtn != null )

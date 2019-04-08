@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ValidationCache Version="1" SchemaVersion="85">
-	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1554398899" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1554725869" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects.wwu" DateLow="1548161906" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Actor-Mixer Hierarchy\Factory Synth One.wwu" DateLow="1548161906" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Attenuations\Default Work Unit.wwu" DateLow="1548161907" DateHigh="0"/>
@@ -20,11 +20,11 @@
 	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Effects\Factory iZotope Multiband Distortion.wwu" DateLow="1548161907" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Effects\Factory iZotope Singleband Distortion.wwu" DateLow="1548161907" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Effects\Factory McDSP Effects.wwu" DateLow="1548161907" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Events\Default Work Unit.wwu" DateLow="1554398747" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Game Parameters\Default Work Unit.wwu" DateLow="1554395162" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Events\Default Work Unit.wwu" DateLow="1554725869" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Game Parameters\Default Work Unit.wwu" DateLow="1554725586" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Game Parameters\Factory SoundSeed Air Game Syncs.wwu" DateLow="1548161907" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1554397140" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Linkit Wwise Project.Solid.wsettings" DateLow="1554398900" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1554725586" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Linkit Wwise Project.Solid.wsettings" DateLow="1554725870" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Linkit Wwise Project.wproj" DateLow="1548161906" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1554398899" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Mixing Sessions\Default Work Unit.wwu" DateLow="1548161906" DateHigh="0"/>
@@ -32,10 +32,10 @@
 	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Presets\Default Work Unit.wwu" DateLow="1548161907" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Queries\Default Work Unit.wwu" DateLow="1548161907" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Queries\Factory Queries.wwu" DateLow="1548161907" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\SoundBanks\Default Work Unit.wwu" DateLow="1554398747" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\SoundBanks\Default Work Unit.wwu" DateLow="1554407339" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1548161907" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\States\Default Work Unit.wwu" DateLow="1554390575" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Switches\Default Work Unit.wwu" DateLow="1554389250" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Switches\Default Work Unit.wwu" DateLow="1554725586" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Triggers\Default Work Unit.wwu" DateLow="1548161907" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Solid\Documents\WhyWool\GitHub\Linkit\Linkit Wwise Project\Virtual Acoustics\Default Work Unit.wwu" DateLow="1548161907" DateHigh="0"/>
 </ValidationCache>

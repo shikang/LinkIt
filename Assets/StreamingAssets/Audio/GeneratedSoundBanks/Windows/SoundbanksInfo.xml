@@ -68,7 +68,7 @@
 				</File>
 				<File Id="487691977" Language="SFX">
 					<ShortName>Combo Tick.wav</ShortName>
-					<Path>SFX\Combo Tick_E673D296.wem</Path>
+					<Path>SFX\Combo Tick_0862637C.wem</Path>
 				</File>
 				<File Id="550659144" Language="SFX">
 					<ShortName>Link 3.wav</ShortName>
@@ -82,11 +82,19 @@
 					<ShortName>Score Tick.wav</ShortName>
 					<Path>SFX\Score Tick_9452F465.wem</Path>
 				</File>
+				<File Id="610316525" Language="SFX">
+					<ShortName>Linkit Menu.wav</ShortName>
+					<Path>SFX\Linkit Menu_9452F465.wem</Path>
+				</File>
+				<File Id="693894440" Language="SFX">
+					<ShortName>Link 8.wav</ShortName>
+					<Path>SFX\Link 8_53CEE377.wem</Path>
+				</File>
 				<File Id="717230578" Language="SFX">
 					<ShortName>Link 1.wav</ShortName>
 					<Path>SFX\Link 1_53CEE377.wem</Path>
 				</File>
-				<File Id="769015300" Language="SFX">
+				<File Id="788568569" Language="SFX">
 					<ShortName>Fever Exit.wav</ShortName>
 					<Path>SFX\Fever Exit_53CEE377.wem</Path>
 				</File>
@@ -114,13 +122,9 @@
 					<ShortName>Gem Touched.wav</ShortName>
 					<Path>SFX\Gem Touched_53CEE377.wem</Path>
 				</File>
-				<File Id="968413263" Language="SFX">
-					<ShortName>Linkit Menu.wav</ShortName>
-					<Path>SFX\Linkit Menu_9452F465.wem</Path>
-				</File>
 				<File Id="1008641464" Language="SFX">
 					<ShortName>Fever Sustain.wav</ShortName>
-					<Path>SFX\Fever Sustain_5EA8B49C.wem</Path>
+					<Path>SFX\Fever Sustain_5D72A8F4.wem</Path>
 				</File>
 				<File Id="1034895203" Language="SFX">
 					<ShortName>Link 4.wav</ShortName>

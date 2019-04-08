@@ -6,7 +6,6 @@
 				<GameParameter Name="LinkCount" ID="{7CD9ABCA-FC02-44EF-A1E7-41AB8943BADE}">
 					<PropertyList>
 						<Property Name="InitialValue" Type="Real64" Value="1"/>
-						<Property Name="Max" Type="Real64" Value="50"/>
 						<Property Name="Min" Type="Real64" Value="1"/>
 					</PropertyList>
 				</GameParameter>
