@@ -304,4 +304,9 @@ public class MainMenuManager : MonoBehaviour
 		GameData.Instance.m_vol_SFX = (int)(slider.value * 100.0f);
 		AudioManager.Instance.SetSFXVol(slider.value * 100.0f);
 	}
+
+	public void SetVibration(Toggle toggle)
+	{
+		GameData.Instance.m_VibrationDisable = toggle.isOn;
+	}
 }

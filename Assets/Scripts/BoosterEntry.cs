@@ -12,6 +12,7 @@ public class BoosterEntry : MonoBehaviour
 	int m_bCost;
 
 	public GameObject m_goBtnFX;
+	public GameObject m_BG;
 	public GameObject m_Image;
 	public GameObject m_Title;
 	public GameObject m_Desc;
@@ -24,6 +25,13 @@ public class BoosterEntry : MonoBehaviour
 	public GameObject m_Overlay;
 	public GameObject m_OverlayText;
 	public GameObject m_OverlayLock;
+
+	public Sprite LevelUpBtn;
+	public Sprite LevelUpDisabledBtn;
+	public Sprite InUseBtn;
+	public Sprite MaxedBtn;
+	public Sprite BuyBtn;
+	public Sprite BuyDisabledBtn;
 
 	bool isDimming = true;
 
@@ -39,6 +47,7 @@ public class BoosterEntry : MonoBehaviour
 			m_OverlayText.SetActive(!GameData.Instance.m_bUnlock_Games);
 			m_OverlayLock.SetActive(!GameData.Instance.m_bUnlock_Games);
 			m_OverlayText.GetComponent<Text>().text = "PLAY 5 GAMES TO UNLOCK!";
+			m_BG.GetComponent<Image>().color = new Color(1.0f, 1.0f, 0.0f, 0.1f);
 		}
 		else if(m_Type == BOOSTERTYPE.GoldMult_Once)
 		{
@@ -46,6 +55,7 @@ public class BoosterEntry : MonoBehaviour
 			m_OverlayText.SetActive(!GameData.Instance.m_bUnlock_EarnPoints);
 			m_OverlayLock.SetActive(!GameData.Instance.m_bUnlock_EarnPoints);
 			m_OverlayText.GetComponent<Text>().text = "GET 20,000 POINTS IN ONE GAME TO UNLOCK!";
+			m_BG.GetComponent<Image>().color = new Color(1.0f, 1.0f, 0.0f, 0.1f);
 		}
 		else if(m_Type == BOOSTERTYPE.MoreHealth_Once)
 		{
@@ -53,6 +63,7 @@ public class BoosterEntry : MonoBehaviour
 			m_OverlayText.SetActive(!GameData.Instance.m_bUnlock_Share_FB);
 			m_OverlayLock.SetActive(!GameData.Instance.m_bUnlock_Share_FB);
 			m_OverlayText.GetComponent<Text>().text = "LIKE OUR FACEBOOK PAGE TO UNLOCK!";
+			m_BG.GetComponent<Image>().color = new Color(1.0f, 1.0f, 0.0f, 0.1f);
 		}
 
 		if(m_OverlayText.GetActive())
@@ -73,15 +84,75 @@ public class BoosterEntry : MonoBehaviour
 			m_OverlayText.GetComponent<Text>().color = tmp;
 		}
 
-		if(GameData.Instance.m_Coin < m_bCost)
+		if(m_CurrLevel < m_MaxLevel)
 		{
-			m_Cost.GetComponent<Text>().color = Color.red;
-			m_LevelButton.GetComponent<Image> ().color = new Color (0.6f, 0.6f, 0.6f);
+			if(GameData.Instance.m_Coin < m_bCost)
+			{
+				m_Cost.GetComponent<Text>().color = Color.red;
+
+				if(m_Type == BOOSTERTYPE.ScoreMult_Once)
+				{
+					if(GameData.Instance.m_Boost_ScoreMultOnce)
+						m_LevelButton.GetComponent<Image> ().sprite = InUseBtn;
+					else
+						m_LevelButton.GetComponent<Image> ().sprite = BuyDisabledBtn;
+				}
+				else if(m_Type == BOOSTERTYPE.GoldMult_Once)
+				{
+					if(GameData.Instance.m_Boost_GoldMultOnce)
+						m_LevelButton.GetComponent<Image> ().sprite = InUseBtn;
+					else
+						m_LevelButton.GetComponent<Image> ().sprite = BuyDisabledBtn;
+				}
+				else if(m_Type == BOOSTERTYPE.MoreHealth_Once)
+				{
+					if(GameData.Instance.m_Boost_MoreHealthOnce)
+						m_LevelButton.GetComponent<Image> ().sprite = InUseBtn;
+					else
+						m_LevelButton.GetComponent<Image> ().sprite = BuyDisabledBtn;
+				}
+				else
+				{
+					m_LevelButton.GetComponent<Image> ().sprite = LevelUpDisabledBtn;
+				}
+			}
+			else
+			{
+				m_Cost.GetComponent<Text>().color = Color.white;
+
+				if(m_Type == BOOSTERTYPE.ScoreMult_Once)
+				{
+					if(GameData.Instance.m_Boost_ScoreMultOnce)
+						m_LevelButton.GetComponent<Image> ().sprite = InUseBtn;
+					else
+						m_LevelButton.GetComponent<Image> ().sprite = BuyBtn;
+				}
+				else if(m_Type == BOOSTERTYPE.GoldMult_Once)
+				{
+					if(GameData.Instance.m_Boost_GoldMultOnce)
+						m_LevelButton.GetComponent<Image> ().sprite = InUseBtn;
+					else
+						m_LevelButton.GetComponent<Image> ().sprite = BuyBtn;
+				}
+				else if(m_Type == BOOSTERTYPE.MoreHealth_Once)
+				{
+					if(GameData.Instance.m_Boost_MoreHealthOnce)
+						m_LevelButton.GetComponent<Image> ().sprite = InUseBtn;
+					else
+						m_LevelButton.GetComponent<Image> ().sprite = BuyBtn;
+				}
+				else
+				{
+					m_LevelButton.GetComponent<Image> ().sprite = LevelUpBtn;
+				}
+			}
 		}
 		else
 		{
-			m_Cost.GetComponent<Text>().color = Color.white;
-			m_LevelButton.GetComponent<Image> ().color = new Color (1.0f, 1.0f, 1.0f);
+			if(m_Type != BOOSTERTYPE.ScoreMult_Once &&
+				m_Type != BOOSTERTYPE.GoldMult_Once &&
+				m_Type != BOOSTERTYPE.MoreHealth_Once)
+				m_LevelButton.GetComponent<Image> ().sprite = MaxedBtn;
 		}
 	}
 
@@ -92,7 +163,6 @@ public class BoosterEntry : MonoBehaviour
 		m_Title.GetComponent<Text>().text = tmp_.title;
 		m_Desc.GetComponent<Text>().text = tmp_.desc;
 		m_Cost.GetComponent<Text>().text = (tmp_.cost != 0) ? tmp_.cost.ToString() : "";
-		SetButtonText();
 		m_Overlay.SetActive(false);
 		m_OverlayText.SetActive(false);
 		m_OverlayLock.SetActive(false);
@@ -252,51 +322,6 @@ public class BoosterEntry : MonoBehaviour
 						{"BiggerGems", GameData.Instance.m_Boost_BiggerGems}
 					});
 				}
-			}
-		}
-
-		SetButtonText();
-	}
-
-	void SetButtonText()
-	{
-		m_LevelText.GetComponent<Text>().text = "GET!";
-
-		m_LevelButton.GetComponent<Image> ().color = new Color (1.0f, 1.0f, 1.0f);
-		if(m_Type == BOOSTERTYPE.ScoreMult_Once)
-		{
-			if(GameData.Instance.m_Boost_ScoreMultOnce)
-			{
-				m_LevelText.GetComponent<Text>().text = "In Use";
-				m_LevelButton.GetComponent<Image> ().color = new Color (1.0f, 0.87f, 0.0f); // gold
-			}
-		}
-		else if(m_Type == BOOSTERTYPE.GoldMult_Once)
-		{
-			if(GameData.Instance.m_Boost_GoldMultOnce)
-			{
-				m_LevelText.GetComponent<Text>().text = "In Use";
-				m_LevelButton.GetComponent<Image> ().color = new Color (1.0f, 0.87f, 0.0f); // gold
-			}
-		}
-		else if(m_Type == BOOSTERTYPE.MoreHealth_Once)
-		{
-			if(GameData.Instance.m_Boost_MoreHealthOnce)
-			{
-				m_LevelText.GetComponent<Text>().text = "In Use";
-				m_LevelButton.GetComponent<Image> ().color = new Color (1.0f, 0.87f, 0.0f); // gold
-			}
-		}
-		else
-		{
-			if(m_CurrLevel < m_MaxLevel)
-			{
-				m_LevelText.GetComponent<Text>().text = "LEVEL\nUP";
-			}
-			else
-			{
-				m_LevelText.GetComponent<Text>().text = "MAXED!";
-				m_LevelButton.GetComponent<Image> ().color = new Color (1.0f, 0.87f, 0.0f); // gold
 			}
 		}
 	}

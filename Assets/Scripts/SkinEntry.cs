@@ -23,6 +23,10 @@ public class SkinEntry : MonoBehaviour
 	public GameObject m_OverlayLock;
     public Sprite[] m_Icons;
 
+	public Sprite InUseBtn;
+	public Sprite BuyBtn;
+	public Sprite BuyDisabledBtn;
+
 	bool isDimming = true;
 
 	void Start ()
@@ -76,12 +80,16 @@ public class SkinEntry : MonoBehaviour
 		if(GameData.Instance.m_Coin < m_bCost)
 		{
 			m_Cost.GetComponent<Text>().color = Color.red;
-			m_EquipButton.GetComponent<Image> ().color = new Color (0.6f, 0.6f, 0.6f);
+			if (!GameData.Instance.m_Sets.Contains (m_Type)) {
+				m_EquipButton.GetComponent<Image> ().sprite = BuyDisabledBtn;
+			}
 		}
 		else
 		{
 			m_Cost.GetComponent<Text>().color = Color.white;
-			m_EquipButton.GetComponent<Image> ().color = new Color (1.0f, 1.0f, 1.0f);
+			if (!GameData.Instance.m_Sets.Contains (m_Type)) {
+				m_EquipButton.GetComponent<Image> ().sprite = BuyBtn;
+			}
 		}
 	}
 
@@ -126,16 +134,14 @@ public class SkinEntry : MonoBehaviour
 	void SetButtonText()
 	{
 		m_EquipText.GetComponent<Text>().text = "BUY!";
-
-		m_EquipButton.GetComponent<Image> ().color = new Color (1.0f, 1.0f, 1.0f);
         if ( GameData.Instance.m_Sets.Contains( m_Type ) )
         {
             m_Cost.GetComponent<Text>().text = "";
+			m_EquipButton.GetComponent<Image> ().sprite = InUseBtn;
 
             if ( m_Type == GameData.Instance.m_EquippedGemSet )
 		    {
-			    m_EquipText.GetComponent<Text>().text = "In Use";
-			    m_EquipButton.GetComponent<Image> ().color = new Color (1.0f, 0.87f, 0.0f); // gold
+				m_EquipButton.GetComponent<Image> ().sprite = InUseBtn;
 		    }
             else
             {

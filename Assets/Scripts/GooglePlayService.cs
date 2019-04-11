@@ -64,7 +64,7 @@ public class GooglePlayService : MonoBehaviour
 					Popup popup = Popup.GetPopup();
 					if ( popup )
 					{
-						popup.ShowPopup( "Fail to connect to Google Play." );
+						popup.ShowPopup( "Failed to connect to Google Play." );
 					}
 
 					m_QueueState = GooglePlayState.NONE;

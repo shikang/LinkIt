@@ -30,6 +30,7 @@ public class GameData
 	// Audio
 	public int m_vol_SFX;
 	public int m_vol_BGM;
+	public bool m_VibrationDisable;
 
 	// Achievements. _curr_ is current count, _next_ is next (target) index
 	public int m_curr_TotalGamesPlayed;
@@ -78,7 +79,7 @@ public class GameData
 		m_HighestCombo = 0;
 		m_MultiplayerHighScore = 0;
 		m_MultiplayerHighestCombo = 0;
-		m_Coin = 0;
+		m_Coin = 100000;
 		m_EquippedGemSet = GemLibrary.GemSet.GEM;
 		m_GemList = new List<GemLibrary.GemSet>();
 		m_Sets = new HashSet<GemLibrary.GemSet>();
@@ -94,8 +95,9 @@ public class GameData
 		m_Boost_SlowerGems = 0;
 		m_Boost_BiggerGems = 0;
 
-		m_vol_SFX = 40;
 		m_vol_BGM = 50;
+		m_vol_SFX = 40;
+		m_VibrationDisable = true;
 
 		m_curr_TotalGamesPlayed = 0;
 		m_next_TotalGamesPlayed = 0;
@@ -120,9 +122,9 @@ public class GameData
 		m_RecoverToPerfectFromRed = 0;
 		m_next_LinkGemsInOneChain = 0;
 
-		m_bUnlock_Games = false;
-		m_bUnlock_Share_FB = false;
-		m_bUnlock_EarnPoints = false;
+		m_bUnlock_Games = true;
+		m_bUnlock_Share_FB = true;
+		m_bUnlock_EarnPoints = true;
 
 		m_uUnlock_GamesCount = 5;
 		m_uUnlock_Share_FBCount = 1;
