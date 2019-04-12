@@ -165,6 +165,7 @@ public class MainMenuManager : MonoBehaviour
 	public void GoPlayAlone()
 	{
 		AudioManager.Instance.PlaySoundEvent(SOUNDID.MENU_START);
+		VibManager.Instance.StartVib (VIBSTR.STARTGAME);
 		GameObject.FindGameObjectWithTag( "Transition" ).GetComponent<Transition>().StartFadeOut( GoToGame );
 	}
 
@@ -307,6 +308,6 @@ public class MainMenuManager : MonoBehaviour
 
 	public void SetVibration(Toggle toggle)
 	{
-		GameData.Instance.m_VibrationDisable = toggle.isOn;
+		GameData.Instance.m_CanVibrate = toggle.isOn;
 	}
 }

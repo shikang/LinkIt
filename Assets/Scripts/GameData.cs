@@ -30,7 +30,7 @@ public class GameData
 	// Audio
 	public int m_vol_SFX;
 	public int m_vol_BGM;
-	public bool m_VibrationDisable;
+	public bool m_CanVibrate;
 
 	// Achievements. _curr_ is current count, _next_ is next (target) index
 	public int m_curr_TotalGamesPlayed;
@@ -97,7 +97,7 @@ public class GameData
 
 		m_vol_BGM = 50;
 		m_vol_SFX = 40;
-		m_VibrationDisable = true;
+		m_CanVibrate = true;
 
 		m_curr_TotalGamesPlayed = 0;
 		m_next_TotalGamesPlayed = 0;

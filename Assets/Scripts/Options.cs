@@ -14,7 +14,7 @@ public class Options : MonoBehaviour {
 
 		m_BGMSlider.GetComponent<Slider>().value = GameData.Instance.m_vol_BGM / 100.0f;
 		m_SFXSlider.GetComponent<Slider>().value = GameData.Instance.m_vol_SFX / 100.0f;
-		m_Vibration.GetComponent<Toggle>().isOn = GameData.Instance.m_VibrationDisable;
+		m_Vibration.GetComponent<Toggle>().isOn = GameData.Instance.m_CanVibrate;
 	}
 	
 	// Update is called once per frame

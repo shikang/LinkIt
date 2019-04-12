@@ -1125,6 +1125,7 @@ public class GemSpawner : MonoBehaviour
 			}
 
 			AudioManager.Instance.PlaySoundEvent(SOUNDID.GEM_LINK_SUCCEED);
+			VibManager.Instance.StartVib(VIBSTR.SMALL);
 		}
 
 #if LINKIT_COOP
@@ -2103,6 +2104,7 @@ public class GemSpawner : MonoBehaviour
 			m_Link.BreakLink();
 			BreakCombo();
 			m_Link.CheckForDestroy = false;
+			VibManager.Instance.StartVib(VIBSTR.BIG);
 			foreach ( Gem g in m_LinkedGem )
 			{
 				UnlinkGem( g, false );
