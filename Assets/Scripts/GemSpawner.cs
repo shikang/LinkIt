@@ -558,7 +558,7 @@ public class GemSpawner : MonoBehaviour
 
 			m_ComboText.transform.localScale *= 1.02f;
 
-			if (c.a >= 1.0f)
+			if (c.a >= 0.6f)
 			{
 				m_bIsStartingCombo = false;
 				m_ComboText.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);

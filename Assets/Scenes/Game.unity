@@ -285,7 +285,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11448822, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
+    - target: {fileID: 22356104, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 467552710}
+    - target: {fileID: 11442144, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1786786697}
@@ -297,89 +301,10 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1786786697}
-    - target: {fileID: 11442144, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
+    - target: {fileID: 11448822, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1786786697}
-    - target: {fileID: 22356104, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 467552710}
-    - target: {fileID: 11470592, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 550df0e2ab85a5e419aa3dd71ed65f33,
-        type: 3}
-    - target: {fileID: 11470592, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11470592, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11476332, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_Text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11493534, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: f80e1e647910feb419cc7048a9424d98,
-        type: 3}
-    - target: {fileID: 11493534, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11493534, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11485716, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_Text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11498082, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_Text
-      value: QUIT GAME?
-      objectReference: {fileID: 0}
-    - target: {fileID: 11453932, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11498082, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 40f3b1c3eea1f1f4698a64c6db1f3ec0,
-        type: 3}
-    - target: {fileID: 11498082, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_FontData.m_RichText
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11498082, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_FontData.m_FontStyle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22469560, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22469560, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 41.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22469560, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 242.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 22469560, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 62.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 11498082, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_FontData.m_FontSize
-      value: 40
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
   m_IsPrefabParent: 0
