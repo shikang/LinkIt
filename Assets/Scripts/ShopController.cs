@@ -90,7 +90,7 @@ public class ShopController : MonoBehaviour
 
 		// In App Purchase
 		GameObject shopManager = GameObject.FindGameObjectWithTag( "Shop Manager" );
-		shopManager.GetComponent<InAppPurchaser>().BuyProduct( InAppProductList.ProductType.COIN, (int)m_ShopSlots[index].GetComponent<ShopMainMenu>().GetCoin() );
+		shopManager.GetComponent<InAppPurchaser>().BuyProduct( InAppProductList.ProductType.COIN, (int)m_ShopSlots[index].GetComponent<ShopMainMenu>().GetCoin() / 50 );
 	}
 
 	public void BuyDisableAds()
