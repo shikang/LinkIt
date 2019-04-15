@@ -279,7 +279,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BUY
+  m_Text: 
 --- !u!114 &114182925103428408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -307,6 +307,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 12dbe7ca80e3aaf41a51fc5c75470bb5, type: 3}
   - {fileID: 21300000, guid: e77e02f952d5da84bb8834092e07789a, type: 3}
   InUseBtn: {fileID: 21300000, guid: 7b1bd9b34d6057d4ba0f187b0861b880, type: 3}
+  UseBtn: {fileID: 21300000, guid: a3c0ef2f59fd0c14bbf4ede2d98f6f46, type: 3}
   BuyBtn: {fileID: 21300000, guid: 93526bb4937fac2479b20f2455ccf896, type: 3}
   BuyDisabledBtn: {fileID: 21300000, guid: 743dc894d3f8cbb46891c4537dca2b54, type: 3}
 --- !u!114 &114190661486801654

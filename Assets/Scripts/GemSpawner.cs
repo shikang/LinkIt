@@ -28,7 +28,7 @@ public class GemSpawner : MonoBehaviour
 	// Spawning gold contants
 	public const float GOLD_SPAWN_INTERVAL = 30.0f;		//!< In seconds
 	public const float GOLD_SPAWN_CHANCE = 0.05f;       //!< Percentage (Over 1.0f)
-	public const int GOLD_DROP_AMOUNT = 500;
+	public const int GOLD_DROP_AMOUNT = 250;
 
 	// Type constants
 	public const int INVALID_LANE = -1;
