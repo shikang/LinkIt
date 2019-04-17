@@ -85,9 +85,10 @@ public class GemSpawner : MonoBehaviour
 	public Color m_GoldColor;
 	private Link m_Link;
 	private List<Gem> m_LinkedGem;
+    public GameObject[] m_AfterLink;
 
-	// Spawning information
-	public GameObject[] m_aGemList;                     //!< Prefab to create from
+    // Spawning information
+    public GameObject[] m_aGemList;                     //!< Prefab to create from
 #if USE_SINGLE_REPEL
 	public GameObject m_Repel;                          //!< Prefab for repel
 #else
@@ -930,6 +931,13 @@ public class GemSpawner : MonoBehaviour
 
 			Destroy( pg, ps.duration + PointsGain.LIFETIME );
 		}
+
+        {
+            GameObject afterlink = ( GameObject )Instantiate( m_AfterLink[gemType], position, Quaternion.identity );
+
+            AfterLink af = afterlink.GetComponent<AfterLink>();
+            af.SetTarget( m_ScoreText.transform.TransformPoint( Vector3.zero ) + ( m_ScoreText.transform.localScale.x * Vector3.right ) );
+        }
 	}
 
 	void AddGainGoldEffect( Vector3 position )
@@ -962,6 +970,13 @@ public class GemSpawner : MonoBehaviour
 		pg.transform.position = position + 0.2f * Vector3.up;
 
 		Destroy( pg, ps.duration + PointsGain.LIFETIME );
+
+        {
+            GameObject afterlink = ( GameObject )Instantiate( m_AfterLink[m_AfterLink.Count() - 1], position, Quaternion.identity );
+
+            AfterLink af = afterlink.GetComponent<AfterLink>();
+            af.SetTarget( m_ScoreText.transform.TransformPoint( Vector3.zero ) + ( m_ScoreText.transform.localScale.x * Vector3.right ) );
+        }
 	}
 
 	int GetPointsGain( int num, int multiplier )

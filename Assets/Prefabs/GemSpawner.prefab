@@ -5,11 +5,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 467646}
-  - 114: {fileID: 11411948}
-  - 114: {fileID: 11467488}
+  - component: {fileID: 467646}
+  - component: {fileID: 11411948}
+  - component: {fileID: 11467488}
   m_Layer: 0
   m_Name: GemSpawner
   m_TagString: Gem Spawner
@@ -29,6 +29,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &11411948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -59,6 +60,12 @@ MonoBehaviour:
   - {r: 0.94482756, g: 1, b: 0, a: 0.5019608}
   m_NeutralColor: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_GoldColor: {r: 1, g: 0.7241379, b: 0, a: 0.5019608}
+  m_AfterLink:
+  - {fileID: 1864322748149242, guid: 55738be48d9c2b143a31bff7d21abfa6, type: 2}
+  - {fileID: 1864322748149242, guid: 69418314b0d8dad47aa2649499da4fa8, type: 2}
+  - {fileID: 1864322748149242, guid: c72bd8906ccc0ca47a4743e507412e0b, type: 2}
+  - {fileID: 1864322748149242, guid: 495856df4b608c74c857c5be7d5c9235, type: 2}
+  - {fileID: 1864322748149242, guid: 99abfd97c98f6334aa625111fe93755f, type: 2}
   m_aGemList:
   - {fileID: 105344, guid: d18303455424b8c4ab7178c0bb13f39d, type: 2}
   - {fileID: 189226, guid: ec14daa2660c27344ba2bede75fc4ada, type: 2}
@@ -93,10 +100,8 @@ MonoBehaviour:
   m_ComboText: {fileID: 0}
   m_PraiseText: {fileID: 0}
   m_MultiplierText: {fileID: 0}
-  m_DisconnectText: {fileID: 0}
   m_PointsGain: {fileID: 128640, guid: faf7eddd0b5fba4419c6d517005cc3f0, type: 2}
-  m_NetworkGameTimerPrefab: {fileID: 125840, guid: a74d3c6a8188fc3459e629a58b85405a,
-    type: 2}
+  m_bIsPaused: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

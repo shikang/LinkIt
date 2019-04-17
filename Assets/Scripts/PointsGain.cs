@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class PointsGain : MonoBehaviour
 {
-	public const float LIFETIME = 2.0f;
-	const float Y_SPEED = 1.0f;
+	public const float LIFETIME = 2.5f;
+	const float Y_SPEED = 1.2f;
 
 	Text m_Text;
 	// Use this for initialization
