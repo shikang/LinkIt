@@ -52,7 +52,7 @@ public class ScoreManager : MonoBehaviour
 	// COunt up Stats
 	private int m_CountUp_Score;
 	private int m_CountUp_Gold;
-	private int [] m_CountUp_Gems;
+    private int [] m_CountUp_Gems;
 	private int m_CountUp_GemRed;
 	private int m_CountUp_GemBlue;
 	private int m_CountUp_GemGreen;
@@ -200,7 +200,7 @@ public class ScoreManager : MonoBehaviour
 	void Update ()
 	{
 		AnimateGems();
-		AnimateCoins();
+		//AnimateCoins();
 		AnimationScreen();
 
 		if(m_CountUp_Progress == 0)
@@ -257,6 +257,7 @@ public class ScoreManager : MonoBehaviour
                 SaveDataLoader.SaveGame();
 
                 m_CoinsThisRound.GetComponent<Text>().text = (m_GoldEarned * 2).ToString();
+                m_Coins.GetComponent<Text>().text = (m_CurrentCoins + m_GoldEarned * 2).ToString();
             }
         });
         Adverts.Instance.ShowAd(AdVidType.video, so);
@@ -513,6 +514,17 @@ public class ScoreManager : MonoBehaviour
 			m_CoinsThisRound.GetComponent<Text>().text = m_CountUp_Gold.ToString ();
 		}
 
+        if(//m_CountUp_Combo >= m_PlayerStats.m_nMaxCombo &&
+            m_CurrentCoins < m_nShowingCoins + m_GoldEarned)
+		{
+            m_CurrentCoins += System.Math.Max((int)(m_GoldEarned * Time.deltaTime), 20);
+
+			if (m_CurrentCoins > m_nShowingCoins + m_GoldEarned)
+                m_CurrentCoins = m_nShowingCoins + m_GoldEarned;
+
+			m_Coins.GetComponent<Text>().text = m_CurrentCoins.ToString ();
+		}
+
 		if(m_CountUp_Score >= m_PlayerStats.m_nScore &&
 			m_CountUp_Gems[0] >= m_PlayerStats.m_aDestroyCount[0] &&
 			m_CountUp_Gems[1] >= m_PlayerStats.m_aDestroyCount[1] &&
@@ -544,8 +556,11 @@ public class ScoreManager : MonoBehaviour
 		m_ComboCounter.GetComponent<Text>().text = m_CountUp_Combo.ToString ();
 
 		m_CountUp_Gold = m_GoldEarned;
-		m_CoinsThisRound.GetComponent<Text>().text = m_CountUp_Gold.ToString ();
+        m_CurrentCoins = m_nShowingCoins + m_GoldEarned;
 
-		m_CountUp_Progress = 2;
+        m_CoinsThisRound.GetComponent<Text>().text = m_CountUp_Gold.ToString ();
+        m_Coins.GetComponent<Text>().text = m_CurrentCoins.ToString();
+
+        m_CountUp_Progress = 2;
 	}
 }

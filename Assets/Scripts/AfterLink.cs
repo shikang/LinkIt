@@ -5,7 +5,7 @@ using UnityEngine;
 public class AfterLink : MonoBehaviour
 {
     const float DELAY_BEFORE_START = 0.5f;
-    const float SPEED = 5.0f;
+    const float SPEED = 10.0f;
 
     float m_Timer = 0.0f;
     Vector3 m_Target;
