@@ -24,7 +24,6 @@ public class HighComboColor : MonoBehaviour
 		if ( m_bInterpolate )
 		{
 			m_Timer += Time.deltaTime;
-
 			float factor = Mathf.Clamp( m_Timer / INTERPOLATE_DURATION, 0.0f, 1.0f );
 			m_SpriteRenderer.color = Color.Lerp( m_ComboColor[nIndex - 1], m_ComboColor[nIndex], factor );
 

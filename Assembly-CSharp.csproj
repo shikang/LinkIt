@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\BoosterHeader.cs" />
      <Compile Include="Assets\GPGSIds.cs" />
      <Compile Include="Assets\GooglePlayGames\BasicApi\Achievement.cs" />
      <Compile Include="Assets\GooglePlayGames\BasicApi\CommonStatusCodes.cs" />
@@ -314,6 +315,7 @@
      <Compile Include="Assets\Scripts\AchievementManager.cs" />
      <Compile Include="Assets\Scripts\AchievementViewer.cs" />
      <Compile Include="Assets\Scripts\Adverts.cs" />
+     <Compile Include="Assets\Scripts\AfterLink.cs" />
      <Compile Include="Assets\Scripts\AudioManager.cs" />
      <Compile Include="Assets\Scripts\BGScaler.cs" />
      <Compile Include="Assets\Scripts\BackgroundOverlay.cs" />
@@ -360,6 +362,7 @@
      <Compile Include="Assets\Scripts\NetworkLink.cs" />
      <Compile Include="Assets\Scripts\NetworkManager.cs" />
      <Compile Include="Assets\Scripts\NewHighScoreFX.cs" />
+     <Compile Include="Assets\Scripts\Options.cs" />
      <Compile Include="Assets\Scripts\PlatformUtilies.cs" />
      <Compile Include="Assets\Scripts\PlayerStatistics.cs" />
      <Compile Include="Assets\Scripts\PointsGain.cs" />
@@ -384,6 +387,7 @@
      <Compile Include="Assets\Scripts\Transition.cs" />
      <Compile Include="Assets\Scripts\TutorialAnimationEvent.cs" />
      <Compile Include="Assets\Scripts\TutorialAnimator.cs" />
+     <Compile Include="Assets\Scripts\VibManager.cs" />
      <Compile Include="Assets\SimpleAndroidNotifications\NotificationExample.cs" />
      <Compile Include="Assets\SimpleAndroidNotifications\NotificationIcon.cs" />
      <Compile Include="Assets\SimpleAndroidNotifications\NotificationManager.cs" />
