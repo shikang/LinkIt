@@ -79,7 +79,7 @@ public class GameData
 		m_HighestCombo = 0;
 		m_MultiplayerHighScore = 0;
 		m_MultiplayerHighestCombo = 0;
-		m_Coin = 100000;
+		m_Coin = 0;
 		m_EquippedGemSet = GemLibrary.GemSet.GEM;
 		m_GemList = new List<GemLibrary.GemSet>();
 		m_Sets = new HashSet<GemLibrary.GemSet>();
