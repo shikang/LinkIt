@@ -6,7 +6,8 @@ public class HighComboColor : MonoBehaviour
 	public const float INTERPOLATE_DURATION = 0.5f;
 
 	public Color[] m_ComboColor;
-	SpriteRenderer m_SpriteRenderer;
+    public Color[] m_ComboParticleColor;
+    SpriteRenderer m_SpriteRenderer;
 
 	bool m_bInterpolate = false;
 	float m_Timer = 0.0f;
@@ -52,4 +53,9 @@ public class HighComboColor : MonoBehaviour
 			AudioManager.Instance.PlaySoundEvent(SOUNDID.FEVER_SUSTAIN);
 		}
 	}
+
+    public Color GetComboParticleColor( int index )
+    {
+        return m_ComboParticleColor[index];
+    }
 }

@@ -160,8 +160,10 @@ public class GemSpawner : MonoBehaviour
 	private float m_HighComboZoneTimer = 0.0f;
 	public GameObject m_HighComboEffectLeft;
 	public GameObject m_HighComboEffectRight;
+    public GameObject m_HighComboStripEffectLeft;
+    public GameObject m_HighComboStripEffectRight;
 
-	public GameObject m_HighComboStrip;
+    public GameObject m_HighComboStrip;
 	private Vector3 m_HighComboStripPos;
 	private Vector3 m_HighComboStripScale;
 	public GameObject m_HighComboSpecular;
@@ -170,9 +172,10 @@ public class GemSpawner : MonoBehaviour
 	private GameObject m_CurrentHighComboStrip;
 	private float m_HighComboStripSpecularTimer;
 	private float m_HighComboEffectStartSpeed;
+    private float m_HighComboStripEffectStartSpeed;
 
-	// Player stats
-	private int m_nLevel = 0;
+    // Player stats
+    private int m_nLevel = 0;
 	private int m_nPoints = 0;
 	private int m_nShowingPoints = 0;
 	private int m_nPrevPoints = 0;
@@ -390,9 +393,26 @@ public class GemSpawner : MonoBehaviour
 
 			m_HighComboEffectLeft.GetComponent<ParticleSystem>().Stop();
 			m_HighComboEffectRight.GetComponent<ParticleSystem>().Stop();
+            m_HighComboStripEffectLeft.GetComponent<ParticleSystem>().Stop();
+            m_HighComboStripEffectRight.GetComponent<ParticleSystem>().Stop();
 
-			m_HighComboEffectStartSpeed = m_HighComboEffectLeft.GetComponent<ParticleSystem>().startSpeed;
-		}
+            if ( ( (float)Screen.width / (float)Screen.height ) > ( 9.0f / 16.0f ) )
+            {
+                Vector3 position = m_HighComboStripEffectLeft.transform.position;
+                position.x = ( ( (float)Screen.width / (float)Screen.height ) / ( 9.0f / 16.0f ) ) * position.x;
+                m_HighComboStripEffectLeft.transform.position = position;
+            }
+
+            if ( ( (float)Screen.width / (float)Screen.height ) > ( 9.0f / 16.0f ) )
+            {
+                Vector3 position = m_HighComboStripEffectRight.transform.position;
+                position.x = ( ( (float)Screen.width / (float)Screen.height ) / ( 9.0f / 16.0f ) ) * position.x;
+                m_HighComboStripEffectRight.transform.position = position;
+            }
+
+            m_HighComboEffectStartSpeed = m_HighComboEffectLeft.GetComponent<ParticleSystem>().startSpeed;
+            m_HighComboStripEffectStartSpeed = m_HighComboStripEffectLeft.GetComponent<ParticleSystem>().startSpeed;
+        }
 
 		// Initialise player's stats
 		m_nLevel = 0;
@@ -1014,7 +1034,11 @@ public class GemSpawner : MonoBehaviour
 			m_HighComboZone.GetComponent<HighComboColor>().SetComboColor( m_nHighComboMultiplierIndex );
 			m_HighComboEffectLeft.GetComponent<ParticleSystem>().startSpeed = m_HighComboEffectStartSpeed + m_nHighComboMultiplierIndex * 0.5f;
 			m_HighComboEffectRight.GetComponent<ParticleSystem>().startSpeed = m_HighComboEffectStartSpeed + m_nHighComboMultiplierIndex * 0.5f;
-			++m_nHighComboMultiplierIndex;
+            m_HighComboStripEffectLeft.GetComponent<ParticleSystem>().startSpeed = m_HighComboStripEffectStartSpeed + m_nHighComboMultiplierIndex * 0.5f;
+            m_HighComboStripEffectRight.GetComponent<ParticleSystem>().startSpeed = m_HighComboStripEffectStartSpeed + m_nHighComboMultiplierIndex * 0.5f;
+            m_HighComboStripEffectLeft.GetComponent<ParticleSystem>().startColor = m_CurrentHighComboStrip.GetComponent<HighComboColor>().GetComboParticleColor( m_nHighComboMultiplierIndex );
+            m_HighComboStripEffectRight.GetComponent<ParticleSystem>().startColor = m_CurrentHighComboStrip.GetComponent<HighComboColor>().GetComboParticleColor( m_nHighComboMultiplierIndex );
+            ++m_nHighComboMultiplierIndex;
 
 			StartShowingMultiplier( m_nHighComboMultiplierIndex + 1 );
 		}
@@ -2242,7 +2266,9 @@ public class GemSpawner : MonoBehaviour
 
 		m_HighComboEffectLeft.GetComponent<ParticleSystem>().Play();
 		m_HighComboEffectRight.GetComponent<ParticleSystem>().Play();
-	}
+        m_HighComboStripEffectLeft.GetComponent<ParticleSystem>().Play();
+        m_HighComboStripEffectRight.GetComponent<ParticleSystem>().Play();
+    }
 
 	void DestroyComboStrip()
 	{
@@ -2254,7 +2280,9 @@ public class GemSpawner : MonoBehaviour
 
 		m_HighComboEffectLeft.GetComponent<ParticleSystem>().Stop();
 		m_HighComboEffectRight.GetComponent<ParticleSystem>().Stop();
-	}
+        m_HighComboStripEffectLeft.GetComponent<ParticleSystem>().Stop();
+        m_HighComboStripEffectRight.GetComponent<ParticleSystem>().Stop();
+    }
 
 	void CreateComboSpecular()
 	{

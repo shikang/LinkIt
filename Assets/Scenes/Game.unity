@@ -285,11 +285,7 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 22356104, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 467552710}
-    - target: {fileID: 11442144, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
+    - target: {fileID: 11448822, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1786786697}
@@ -301,18 +297,14 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1786786697}
-    - target: {fileID: 11448822, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
+    - target: {fileID: 11442144, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1786786697}
-    - target: {fileID: 22432700, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -47.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 22432700, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 35.3
-      objectReference: {fileID: 0}
+    - target: {fileID: 22356104, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 467552710}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
   m_IsPrefabParent: 0
@@ -570,6 +562,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 660f1f92e4fef4b4ca7de5c56e69a91c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &349811601 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1502715649044720, guid: b15e49d6c35f6f04ca62eda7d24f6130,
+    type: 2}
+  m_PrefabInternal: {fileID: 119145248}
 --- !u!1 &367639878 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 194022, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
@@ -1356,6 +1353,11 @@ SpriteRenderer:
 --- !u!1 &1041059724 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 181518, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
+  m_PrefabInternal: {fileID: 119145248}
+--- !u!1 &1084144065 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1093544309183584, guid: b15e49d6c35f6f04ca62eda7d24f6130,
+    type: 2}
   m_PrefabInternal: {fileID: 119145248}
 --- !u!1 &1152300044 stripped
 GameObject:
@@ -2262,6 +2264,14 @@ Prefab:
       propertyPath: m_HighComboEffectRight
       value: 
       objectReference: {fileID: 839172528}
+    - target: {fileID: 11467488, guid: 13445aaefa94b584cba5e58d98946d2e, type: 2}
+      propertyPath: m_HighComboStripEffectLeft
+      value: 
+      objectReference: {fileID: 1084144065}
+    - target: {fileID: 11467488, guid: 13445aaefa94b584cba5e58d98946d2e, type: 2}
+      propertyPath: m_HighComboStripEffectRight
+      value: 
+      objectReference: {fileID: 349811601}
     - target: {fileID: 11467488, guid: 13445aaefa94b584cba5e58d98946d2e, type: 2}
       propertyPath: m_HighComboStrip
       value: 

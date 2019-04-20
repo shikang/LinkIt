@@ -257,7 +257,7 @@ public class ScoreManager : MonoBehaviour
                 SaveDataLoader.SaveGame();
 
                 m_CoinsThisRound.GetComponent<Text>().text = (m_GoldEarned * 2).ToString();
-                m_Coins.GetComponent<Text>().text = (m_CurrentCoins + m_GoldEarned * 2).ToString();
+                m_Coins.GetComponent<Text>().text = (m_nShowingCoins + m_GoldEarned * 2).ToString();
             }
         });
         Adverts.Instance.ShowAd(AdVidType.video, so);
