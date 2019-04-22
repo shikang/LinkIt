@@ -238,7 +238,6 @@ public class ScoreManager : MonoBehaviour
 	public void GoHome()
 	{
 		AudioManager.Instance.PlaySoundEvent(SOUNDID.MENU_CLICK);
-		AudioManager.Instance.PlaySoundEvent(SOUNDID.BGM_STOP);
 		AudioManager.Instance.UpdateBGM("Menu");
 		BoosterManager.Instance.ResetBoosterOnce();
 		Adverts.Instance.RandomShowAd();

@@ -143,6 +143,7 @@ public class AudioManager : MonoBehaviour
 			break;
 
 		case SOUNDID.BGM:
+			SoundEventWrapper("BGM_Stop", go);
 			SoundEventWrapper("BGM", go);
 			break;
 
