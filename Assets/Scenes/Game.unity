@@ -285,7 +285,15 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 22356104, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 467552710}
     - target: {fileID: 11448822, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1786786697}
+    - target: {fileID: 11442144, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1786786697}
@@ -297,14 +305,6 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1786786697}
-    - target: {fileID: 11442144, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1786786697}
-    - target: {fileID: 22356104, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 467552710}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b15e49d6c35f6f04ca62eda7d24f6130, type: 2}
   m_IsPrefabParent: 0
