@@ -87,7 +87,7 @@
 				<Property Name="ProjectExplorer\x64_Expanded_1_1" Type="string" Value="2KQUFaYdKkGhfnXKDCFJ85aQZjZfWvFHu9Lf5DG88Sw="/>
 				<Property Name="ProjectExplorer\x64_Expanded_20_1" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\x64_Expanded_21_1" Type="string" Value=""/>
-				<Property Name="ProjectExplorer\x64_Expanded_2_1" Type="string" Value="k9ddu4XydE+NHd96S4kygEPFIyhRLPBPlQ8EuGWmddY="/>
+				<Property Name="ProjectExplorer\x64_Expanded_2_1" Type="string" Value="AmWLHJgMAkqTUexVTvNVq5PXXbuF8nRPjR3fekuJMoBDxSMoUSzwT5UPBLhlpnXW"/>
 				<Property Name="ProjectExplorer\x64_Expanded_3_1" Type="string" Value="0eYJEOkKOEutsUPqhIvCndZ3Qg7v27JLvm8jb/0BvxT+3yyWLGccTo5cbLpf7EUcrOYJ9qAIW06IDHFA7G6/Dg=="/>
 				<Property Name="ProjectExplorer\x64_Expanded_4_1" Type="string" Value="nLkAvuu6RUm5uTfv3PXpdFS3CsqaoTtPsPnaatUZPe4="/>
 				<Property Name="ProjectExplorer\x64_Expanded_5_1" Type="string" Value="24FLqq+jgU6gC+VDs94eJO3ss9mqZuRPoy7vJ9FWkLg="/>
@@ -112,6 +112,7 @@
 				<Property Name="SoundBank Manager\x64_Expand States" Type="string" Value="DVpFyOjOFk+6o18dM3XKuA=="/>
 				<Property Name="SoundBankGenerateHeaderFile" Type="bool" Value="True"/>
 				<Property Name="SoundBankHeaderFilePath" Type="string" Value="..\Assets\StreamingAssets\Audio\GeneratedSoundBanks"/>
+				<Property Name="SoundBankPathUserOverride" Type="bool" Value="True"/>
 				<Property Name="SoundBankPaths" Type="string">
 					<ValueList>
 						<Value Platform="iOS">..\Assets\StreamingAssets\Audio\GeneratedSoundBanks\iOS\</Value>
