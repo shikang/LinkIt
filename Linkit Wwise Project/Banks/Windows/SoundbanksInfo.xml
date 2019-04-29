@@ -44,99 +44,99 @@
 			<IncludedMemoryFiles>
 				<File Id="15367088" Language="SFX">
 					<ShortName>Linkit InGame Pt1.wav</ShortName>
-					<Path>SFX\Linkit InGame Pt1_B58889A9.wem</Path>
+					<Path>SFX\Linkit InGame Pt1_EF107769.wem</Path>
 				</File>
 				<File Id="57634427" Language="SFX">
 					<ShortName>Fever Enter.wav</ShortName>
-					<Path>SFX\Fever Enter_5645A33B.wem</Path>
+					<Path>SFX\Fever Enter_BD9CB2FB.wem</Path>
 				</File>
 				<File Id="326219271" Language="SFX">
 					<ShortName>Link Succeed.wav</ShortName>
-					<Path>SFX\Link Succeed_5645A33B.wem</Path>
+					<Path>SFX\Link Succeed_BD9CB2FB.wem</Path>
 				</File>
 				<File Id="353793066" Language="SFX">
 					<ShortName>Menu Click.wav</ShortName>
-					<Path>SFX\Menu Click_5645A33B.wem</Path>
+					<Path>SFX\Menu Click_BD9CB2FB.wem</Path>
 				</File>
 				<File Id="437126555" Language="SFX">
 					<ShortName>Link 7.wav</ShortName>
-					<Path>SFX\Link 7_5645A33B.wem</Path>
+					<Path>SFX\Link 7_BD9CB2FB.wem</Path>
 				</File>
 				<File Id="487388422" Language="SFX">
 					<ShortName>Link 6.wav</ShortName>
-					<Path>SFX\Link 6_5645A33B.wem</Path>
+					<Path>SFX\Link 6_BD9CB2FB.wem</Path>
 				</File>
 				<File Id="487691977" Language="SFX">
 					<ShortName>Combo Tick.wav</ShortName>
-					<Path>SFX\Combo Tick_7D8A9A58.wem</Path>
+					<Path>SFX\Combo Tick_6499C998.wem</Path>
 				</File>
 				<File Id="550659144" Language="SFX">
 					<ShortName>Link 3.wav</ShortName>
-					<Path>SFX\Link 3_5645A33B.wem</Path>
+					<Path>SFX\Link 3_BD9CB2FB.wem</Path>
 				</File>
 				<File Id="568118914" Language="SFX">
 					<ShortName>Achievement.wav</ShortName>
-					<Path>SFX\Achievement_5645A33B.wem</Path>
+					<Path>SFX\Achievement_BD9CB2FB.wem</Path>
 				</File>
 				<File Id="589535595" Language="SFX">
 					<ShortName>Score Tick.wav</ShortName>
-					<Path>SFX\Score Tick_1AB337FF.wem</Path>
+					<Path>SFX\Score Tick_E371D220.wem</Path>
 				</File>
 				<File Id="610316525" Language="SFX">
 					<ShortName>Linkit Menu.wav</ShortName>
-					<Path>SFX\Linkit Menu_B58889A9.wem</Path>
+					<Path>SFX\Linkit Menu_EF107769.wem</Path>
 				</File>
 				<File Id="693894440" Language="SFX">
 					<ShortName>Link 8.wav</ShortName>
-					<Path>SFX\Link 8_5645A33B.wem</Path>
+					<Path>SFX\Link 8_BD9CB2FB.wem</Path>
 				</File>
 				<File Id="717230578" Language="SFX">
 					<ShortName>Link 1.wav</ShortName>
-					<Path>SFX\Link 1_5645A33B.wem</Path>
+					<Path>SFX\Link 1_BD9CB2FB.wem</Path>
 				</File>
 				<File Id="788568569" Language="SFX">
 					<ShortName>Fever Exit.wav</ShortName>
-					<Path>SFX\Fever Exit_5645A33B.wem</Path>
+					<Path>SFX\Fever Exit_BD9CB2FB.wem</Path>
 				</File>
 				<File Id="851567863" Language="SFX">
 					<ShortName>Link Fail.wav</ShortName>
-					<Path>SFX\Link Fail_5645A33B.wem</Path>
+					<Path>SFX\Link Fail_BD9CB2FB.wem</Path>
 				</File>
 				<File Id="882751023" Language="SFX">
 					<ShortName>Combo Lost.wav</ShortName>
-					<Path>SFX\Combo Lost_5645A33B.wem</Path>
+					<Path>SFX\Combo Lost_BD9CB2FB.wem</Path>
 				</File>
 				<File Id="905503471" Language="SFX">
 					<ShortName>Link 5.wav</ShortName>
-					<Path>SFX\Link 5_5645A33B.wem</Path>
+					<Path>SFX\Link 5_BD9CB2FB.wem</Path>
 				</File>
 				<File Id="914882265" Language="SFX">
 					<ShortName>Linkit InGame Pt2.wav</ShortName>
-					<Path>SFX\Linkit InGame Pt2_B58889A9.wem</Path>
+					<Path>SFX\Linkit InGame Pt2_EF107769.wem</Path>
 				</File>
 				<File Id="924236786" Language="SFX">
 					<ShortName>Menu Start.wav</ShortName>
-					<Path>SFX\Menu Start_5645A33B.wem</Path>
+					<Path>SFX\Menu Start_BD9CB2FB.wem</Path>
 				</File>
 				<File Id="944581853" Language="SFX">
 					<ShortName>Gem Touched.wav</ShortName>
-					<Path>SFX\Gem Touched_5645A33B.wem</Path>
+					<Path>SFX\Gem Touched_BD9CB2FB.wem</Path>
 				</File>
 				<File Id="1008641464" Language="SFX">
 					<ShortName>Fever Sustain.wav</ShortName>
-					<Path>SFX\Fever Sustain_4E54DF88.wem</Path>
+					<Path>SFX\Fever Sustain_522EA3C8.wem</Path>
 				</File>
 				<File Id="1034895203" Language="SFX">
 					<ShortName>Link 4.wav</ShortName>
-					<Path>SFX\Link 4_5645A33B.wem</Path>
+					<Path>SFX\Link 4_BD9CB2FB.wem</Path>
 				</File>
 				<File Id="1036662880" Language="SFX">
 					<ShortName>Link 2.wav</ShortName>
-					<Path>SFX\Link 2_5645A33B.wem</Path>
+					<Path>SFX\Link 2_BD9CB2FB.wem</Path>
 				</File>
 				<File Id="1067612667" Language="SFX">
 					<ShortName>Gem Dropped.wav</ShortName>
-					<Path>SFX\Gem Dropped_5645A33B.wem</Path>
+					<Path>SFX\Gem Dropped_BD9CB2FB.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
