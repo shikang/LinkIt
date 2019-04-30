@@ -22,7 +22,7 @@ public class PlatformUtilies : Singleton<PlatformUtilies>
 #if UNITY_ANDROID
         Application.OpenURL("market://details?id=" + ANDRIOD_BUNDLE_NAME);
 #elif UNITY_IPHONE
-		Application.OpenURL("itms-apps://itunes.apple.com/app/id" + IOS_BUNDLE_NAME);
+		Application.OpenURL("https://itunes.apple.com/sg/app/linkit-game/id1455092714?mt=8");
 #endif
     }
 

@@ -222,12 +222,12 @@ public class MainMenuManager : MonoBehaviour
 
             if ( m_CreditVisitNum == 1 )
             {
-                GooglePlayService.ProgressAcheivement( GPGSIds.achievement_visit_credits_screen, 1.0f );
+                GooglePlayService.ProgressAcheivement( GPGSIds.achievement_visit_credits_screen, 100.0f );
             }
 
             if ( m_CreditVisitNum <= 5 )
             {
-                GooglePlayService.ProgressAcheivement( GPGSIds.achievement_visit_credits_screen_more, (float)m_CreditVisitNum/ 5.0f );
+                GooglePlayService.ProgressAcheivement( GPGSIds.achievement_visit_credits_screen_more, (float)m_CreditVisitNum/ 5.0f * 100.0f );
             }
         }
 #endif
