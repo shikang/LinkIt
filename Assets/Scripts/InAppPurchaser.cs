@@ -219,7 +219,9 @@ public class InAppPurchaser : MonoBehaviour, IStoreListener
 			product.Value.m_sPrice = GetProductLocalisePrice( product.Value.m_sProductIdentifier );
 			Debug.Log( "InAppPurchaser::OnInitialized: Update price[" + product.Value.m_sProductIdentifier + "," + product.Value.m_sPrice + "]" );
 		}
-	}
+
+        InAppProductList.Instance.m_PriceRetrieved = true;
+    }
 
 
 	public void OnInitializeFailed( InitializationFailureReason error )

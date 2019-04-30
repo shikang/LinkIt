@@ -27,18 +27,28 @@ public class ShopController : MonoBehaviour
 	public GameObject m_BackButton;
 
     public GameObject m_ScreenOverlay;
-	//float m_fAdsCost;
+    //float m_fAdsCost;
+
+    private bool m_PollPrice;
 
 	void Start()
 	{
-		//SetItems();
+        //SetItems();
 
-		//m_fAdsCost = 0.99f;
-		//m_AdsCostText.GetComponent<Text> ().text = "$" + m_fAdsCost.ToString ();
-	}
+        //m_fAdsCost = 0.99f;
+        //m_AdsCostText.GetComponent<Text> ().text = "$" + m_fAdsCost.ToString ();
+
+        m_PollPrice = false;
+
+    }
 
 	void Update()
 	{
+        if (m_PollPrice && InAppProductList.Instance.m_PriceRetrieved)
+        {
+            SetItems();
+            m_PollPrice = false;
+        }
 	}
 
 	public void CheckDisableAds()
@@ -65,7 +75,9 @@ public class ShopController : MonoBehaviour
 
 	public void SetItems ()
 	{
-		CheckDisableAds();
+        m_PollPrice = !InAppProductList.Instance.m_PriceRetrieved;
+
+        CheckDisableAds();
 
 		string [] productTitle = { "Handful of Coins", "Bag of Coins", "Bucket of Coins", "Room of Coins" };
 		// Should have create shop slot through code. however, I'm lazy

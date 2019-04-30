@@ -10,6 +10,8 @@ public class InAppProductList : Singleton<InAppProductList>
 
 	public const string PRODUCT_PREFIX = "com." + COMPANY_NAME + "." + PROJECT_NAME + ".";
 
+    public bool m_PriceRetrieved = false;
+
 	// Product Type
 	public enum ProductType
 	{
@@ -43,7 +45,7 @@ public class InAppProductList : Singleton<InAppProductList>
 		{
 			m_sProductIdentifier = productIdentifier;
 			m_nStoreFlag = storeFlag;
-			m_sPrice = "Invalid Price";
+			m_sPrice = "";
 		}
 	}
 
