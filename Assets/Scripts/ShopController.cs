@@ -44,9 +44,15 @@ public class ShopController : MonoBehaviour
 
 	void Update()
 	{
-        if (m_PollPrice && InAppProductList.Instance.m_PriceRetrieved)
+        if (m_PollPrice && InAppProductList.Instance.NonConsumableList[InAppProductList.GetProductIdentifier(InAppProductList.ProductType.DISABLE_ADS, 0)].m_sPrice != "")
         {
-            SetItems();
+            int i = 0;
+            foreach (KeyValuePair<string, InAppProductList.ProductInfo> p in InAppProductList.Instance.ConsumableList)
+            {
+                m_ShopSlots[i].GetComponent<ShopMainMenu>().SetCost(p.Value.m_sPrice);
+                ++i;
+            }
+            m_AdsCostText.GetComponent<Text>().text = InAppProductList.Instance.NonConsumableList[InAppProductList.GetProductIdentifier(InAppProductList.ProductType.DISABLE_ADS, 0)].m_sPrice;
             m_PollPrice = false;
         }
 	}
@@ -75,8 +81,6 @@ public class ShopController : MonoBehaviour
 
 	public void SetItems ()
 	{
-        m_PollPrice = !InAppProductList.Instance.m_PriceRetrieved;
-
         CheckDisableAds();
 
 		string [] productTitle = { "Handful of Coins", "Bag of Coins", "Bucket of Coins", "Room of Coins" };
@@ -89,11 +93,14 @@ public class ShopController : MonoBehaviour
 		}
 
 		m_AdsCostText.GetComponent<Text>().text = InAppProductList.Instance.NonConsumableList[InAppProductList.GetProductIdentifier( InAppProductList.ProductType.DISABLE_ADS, 0 )].m_sPrice;
-		//m_ShopSlot1.GetComponent<ShopMainMenu>().SetData("Handful of Coins", 100, 1.99f, "Contains %d coins");
-		//m_ShopSlot2.GetComponent<ShopMainMenu>().SetData("Bag of Coins",	 250, 3.99f, "Contains %d coins");
-		//m_ShopSlot3.GetComponent<ShopMainMenu>().SetData("Bucket of Coins",	 500, 6.99f, "Contains %d coins");
-		//m_ShopSlot4.GetComponent<ShopMainMenu>().SetData("Room of Coins",	1000, 9.99f, "Contains %d coins");
-	}
+
+        m_PollPrice = InAppProductList.Instance.NonConsumableList[InAppProductList.GetProductIdentifier(InAppProductList.ProductType.DISABLE_ADS, 0)].m_sPrice == "";
+
+        //m_ShopSlot1.GetComponent<ShopMainMenu>().SetData("Handful of Coins", 100, 1.99f, "Contains %d coins");
+        //m_ShopSlot2.GetComponent<ShopMainMenu>().SetData("Bag of Coins",	 250, 3.99f, "Contains %d coins");
+        //m_ShopSlot3.GetComponent<ShopMainMenu>().SetData("Bucket of Coins",	 500, 6.99f, "Contains %d coins");
+        //m_ShopSlot4.GetComponent<ShopMainMenu>().SetData("Room of Coins",	1000, 9.99f, "Contains %d coins");
+    }
 
 	public void BuyCoin( int index )
 	{
