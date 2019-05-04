@@ -123,4 +123,15 @@ public class ShopController : MonoBehaviour
 		GameObject shopManager = GameObject.FindGameObjectWithTag( "Shop Manager" );
 		shopManager.GetComponent<InAppPurchaser>().BuyProduct( InAppProductList.ProductType.DISABLE_ADS, 0 );
 	}
+
+    public void RestorePurchases()
+    {
+#if UNITY_IPHONE
+        // Disable item page controls
+        EnableAllButtons(false);
+
+        GameObject shopManager = GameObject.FindGameObjectWithTag("Shop Manager");
+        shopManager.GetComponent<InAppPurchaser>().RestorePurchases();
+#endif
+    }
 }
